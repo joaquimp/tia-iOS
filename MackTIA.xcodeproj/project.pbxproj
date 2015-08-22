@@ -9,11 +9,17 @@
 /* Begin PBXBuildFile section */
 		9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8821B87ADB3004284E3 /* AppDelegate.swift */; };
 		9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8841B87ADB3004284E3 /* MackTIA.xcdatamodeld */; };
-		9289B8881B87ADB3004284E3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8871B87ADB3004284E3 /* ViewController.swift */; };
 		9289B88B1B87ADB3004284E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9289B8891B87ADB3004284E3 /* Main.storyboard */; };
 		9289B88D1B87ADB3004284E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9289B88C1B87ADB3004284E3 /* Images.xcassets */; };
 		9289B8901B87ADB3004284E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */; };
 		9289B89C1B87ADB3004284E3 /* MackTIATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B89B1B87ADB3004284E3 /* MackTIATests.swift */; };
+		92B9E8971B87B8D7004C1DE4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */; };
+		92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8A51B87BF93004C1DE4 /* extension.swift */; };
+		92B9E8A81B87C1E5004C1DE4 /* token.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B9E8A71B87C1E5004C1DE4 /* token.plist */; };
+		92B9E8DC1B87C992004C1DE4 /* TIAManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */; };
+		92B9E8DD1B87C995004C1DE4 /* Falta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AC1B87C4FB004C1DE4 /* Falta.swift */; };
+		92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */; };
+		92B9E8E01B87CA07004C1DE4 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B9E8DF1B87CA07004C1DE4 /* config.plist */; };
 		971DBE92D688529EF9699185 /* Pods_MackTIA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
@@ -27,6 +33,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		92B9E8CD1B87C887004C1DE4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1359FCE54B8718B5E5C1D19E /* Pods-MackTIA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA.debug.xcconfig"; sourceTree = "<group>"; };
 		4E524A4CF42EB188E445412B /* Pods-MackTIA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIA.release.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA.release.xcconfig"; sourceTree = "<group>"; };
@@ -34,13 +53,21 @@
 		9289B8811B87ADB3004284E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9289B8821B87ADB3004284E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9289B8851B87ADB3004284E3 /* MackTIA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MackTIA.xcdatamodel; sourceTree = "<group>"; };
-		9289B8871B87ADB3004284E3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9289B88A1B87ADB3004284E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9289B88C1B87ADB3004284E3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9289B88F1B87ADB3004284E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9289B8951B87ADB3004284E3 /* MackTIATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MackTIATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9289B89A1B87ADB3004284E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9289B89B1B87ADB3004284E3 /* MackTIATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MackTIATests.swift; sourceTree = "<group>"; };
+		92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewController/LoginViewController.swift; sourceTree = "<group>"; };
+		92B9E89F1B87BDAC004C1DE4 /* MackTIA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MackTIA-Bridging-Header.h"; sourceTree = "<group>"; };
+		92B9E8A31B87BF39004C1DE4 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
+		92B9E8A51B87BF93004C1DE4 /* extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		92B9E8A71B87C1E5004C1DE4 /* token.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = token.plist; path = WebAPI/token.plist; sourceTree = "<group>"; };
+		92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TIAManager.swift; path = WebAPI/TIAManager.swift; sourceTree = "<group>"; };
+		92B9E8AC1B87C4FB004C1DE4 /* Falta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Falta.swift; path = WebAPI/Entidade/Falta.swift; sourceTree = "<group>"; };
+		92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Usuario.swift; path = WebAPI/Entidade/Usuario.swift; sourceTree = "<group>"; };
+		92B9E8DF1B87CA07004C1DE4 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = WebAPI/config.plist; sourceTree = "<group>"; };
 		B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MackTIA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,8 +122,9 @@
 		9289B87F1B87ADB3004284E3 /* MackTIA */ = {
 			isa = PBXGroup;
 			children = (
+				92B9E8981B87B8DE004C1DE4 /* ViewControllers */,
+				92B9E8A91B87C217004C1DE4 /* WebAPI */,
 				9289B8821B87ADB3004284E3 /* AppDelegate.swift */,
-				9289B8871B87ADB3004284E3 /* ViewController.swift */,
 				9289B8891B87ADB3004284E3 /* Main.storyboard */,
 				9289B88C1B87ADB3004284E3 /* Images.xcassets */,
 				9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */,
@@ -109,7 +137,11 @@
 		9289B8801B87ADB3004284E3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				92B9E8A71B87C1E5004C1DE4 /* token.plist */,
 				9289B8811B87ADB3004284E3 /* Info.plist */,
+				92B9E89F1B87BDAC004C1DE4 /* MackTIA-Bridging-Header.h */,
+				92B9E8A51B87BF93004C1DE4 /* extension.swift */,
+				92B9E8DF1B87CA07004C1DE4 /* config.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -131,9 +163,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		92B9E8981B87B8DE004C1DE4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		92B9E8A91B87C217004C1DE4 /* WebAPI */ = {
+			isa = PBXGroup;
+			children = (
+				92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */,
+				92B9E8AC1B87C4FB004C1DE4 /* Falta.swift */,
+				92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */,
+			);
+			name = WebAPI;
+			sourceTree = "<group>";
+		};
 		ACBE292C7FDC7D68CEBDD74B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92B9E8A31B87BF39004C1DE4 /* libcommonCrypto.dylib */,
 				B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */,
 			);
 			name = Frameworks;
@@ -152,6 +203,7 @@
 				9289B87B1B87ADB3004284E3 /* Resources */,
 				0B7C5E483B497E79C204CC64 /* Embed Pods Frameworks */,
 				641CD8F6714EDDED2AF08E08 /* Copy Pods Resources */,
+				92B9E8CD1B87C887004C1DE4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -224,7 +276,9 @@
 			files = (
 				9289B88B1B87ADB3004284E3 /* Main.storyboard in Resources */,
 				9289B8901B87ADB3004284E3 /* LaunchScreen.xib in Resources */,
+				92B9E8A81B87C1E5004C1DE4 /* token.plist in Resources */,
 				9289B88D1B87ADB3004284E3 /* Images.xcassets in Resources */,
+				92B9E8E01B87CA07004C1DE4 /* config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,8 +344,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9289B8881B87ADB3004284E3 /* ViewController.swift in Sources */,
+				92B9E8971B87B8D7004C1DE4 /* LoginViewController.swift in Sources */,
+				92B9E8DC1B87C992004C1DE4 /* TIAManager.swift in Sources */,
+				92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */,
 				9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */,
+				92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */,
+				92B9E8DD1B87C995004C1DE4 /* Falta.swift in Sources */,
 				9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,9 +480,16 @@
 			baseConfigurationReference = 1359FCE54B8718B5E5C1D19E /* Pods-MackTIA.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MackTIA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MackTIA/MackTIA-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -433,9 +498,15 @@
 			baseConfigurationReference = 4E524A4CF42EB188E445412B /* Pods-MackTIA.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = MackTIA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/system",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MackTIA/MackTIA-Bridging-Header.h";
 			};
 			name = Release;
 		};
