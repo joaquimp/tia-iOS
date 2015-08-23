@@ -9,26 +9,48 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    @IBOutlet weak var tia: UITextField!
+    @IBOutlet weak var unidade: UITextField!
+    @IBOutlet weak var senha: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loginSucesso", name: TIAManager.LoginSucessoNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loginErro:", name: TIAManager.LoginErroNotification, object: nil)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    
+    func loginSucesso() {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.activityIndicator.stopAnimating()
+            self.performSegueWithIdentifier("login", sender: self)
+        })
+        
+    }
+    
+    func loginErro(notification:NSNotification) {
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.activityIndicator.stopAnimating()
+            if let let dict = notification.userInfo as? Dictionary<String,String> {
+            
+                let alert = UIAlertView(title: "Acesso Negado", message: dict[TIAManager.DescricaoDoErro], delegate: self, cancelButtonTitle: "OK")
+                alert.show()
+            } else {
+                let alert = UIAlertView(title: "Erro", message: "Não foi possível fazer login, entre em contato com o helpdesk se o erro persistir", delegate: self, cancelButtonTitle: "OK")
+                alert.show()
+            }
+        })
+    }
+    
+    @IBAction func login(sender: AnyObject) {
+        self.activityIndicator.startAnimating()
         var usuario = Usuario()
-        usuario.tia = "41417275"
-        usuario.senha = "123"
-        usuario.unidade = "001"
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "login", name: TIAManager.LoginSucessoNotification, object: nil)
-        
+        usuario.tia = tia.text
+        usuario.senha = senha.text
+        usuario.unidade = unidade.text
         TIAManager.sharedInstance.login(usuario)
-    }
-    
-    func login() {
-        println("\0/");
     }
 
     override func didReceiveMemoryWarning() {

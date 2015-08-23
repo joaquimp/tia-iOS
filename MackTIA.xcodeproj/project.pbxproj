@@ -21,6 +21,8 @@
 		92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */; };
 		92B9E8E01B87CA07004C1DE4 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B9E8DF1B87CA07004C1DE4 /* config.plist */; };
 		971DBE92D688529EF9699185 /* Pods_MackTIA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A16372381B898BA4000A9C69 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16372371B898BA4000A9C69 /* MapKit.framework */; };
+		A163723A1B89915A000A9C69 /* MateriaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16372391B89915A000A9C69 /* MateriaTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +70,8 @@
 		92B9E8AC1B87C4FB004C1DE4 /* Falta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Falta.swift; path = WebAPI/Entidade/Falta.swift; sourceTree = "<group>"; };
 		92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Usuario.swift; path = WebAPI/Entidade/Usuario.swift; sourceTree = "<group>"; };
 		92B9E8DF1B87CA07004C1DE4 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = WebAPI/config.plist; sourceTree = "<group>"; };
+		A16372371B898BA4000A9C69 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A16372391B89915A000A9C69 /* MateriaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MateriaTableViewController.swift; path = ViewController/MateriaTableViewController.swift; sourceTree = "<group>"; };
 		B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MackTIA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -76,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A16372381B898BA4000A9C69 /* MapKit.framework in Frameworks */,
 				971DBE92D688529EF9699185 /* Pods_MackTIA.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */,
+				A16372391B89915A000A9C69 /* MateriaTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -184,6 +190,7 @@
 		ACBE292C7FDC7D68CEBDD74B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A16372371B898BA4000A9C69 /* MapKit.framework */,
 				92B9E8A31B87BF39004C1DE4 /* libcommonCrypto.dylib */,
 				B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */,
 			);
@@ -243,6 +250,11 @@
 				TargetAttributes = {
 					9289B87C1B87ADB3004284E3 = {
 						CreatedOnToolsVersion = 6.4;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					9289B8941B87ADB3004284E3 = {
 						CreatedOnToolsVersion = 6.4;
@@ -346,6 +358,7 @@
 			files = (
 				92B9E8971B87B8D7004C1DE4 /* LoginViewController.swift in Sources */,
 				92B9E8DC1B87C992004C1DE4 /* TIAManager.swift in Sources */,
+				A163723A1B89915A000A9C69 /* MateriaTableViewController.swift in Sources */,
 				92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */,
 				9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */,
 				92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */,

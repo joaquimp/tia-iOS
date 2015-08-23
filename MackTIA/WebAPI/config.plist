@@ -3,10 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>faltasURL</key>
-	<string>http://joaquim.local/MackTia/faltas.php</string>
+	<string>http://macktia.mybluemix.net/faltas.php</string>
 	<key>notasURL</key>
-	<string>http://joaquim.local/MackTia/notas.php</string>
+	<string>http://macktia.mybluemix.net/notas.php</string>
 	<key>loginURL</key>
-	<string>http://joaquim.local/MackTia/ping.php</string>
+	<string>http://macktia.mybluemix.net/ping.php</string>
+	<key>&lt;remote&gt; URL Base</key>
+	<string>http://macktia.mybluemix.net/</string>
+	<key>&lt;local&gt; URL Base</key>
+	<string>http://localhost/MackTia/</string>
 </dict>
 </plist>
