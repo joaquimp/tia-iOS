@@ -3,14 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>faltasURL</key>
-	<string>http://macktia.mybluemix.net/faltas.php</string>
+	<string>https://www3.mackenzie.com.br/tia/tia_mobile/faltas.php</string>
 	<key>notasURL</key>
-	<string>http://macktia.mybluemix.net/notas.php</string>
+	<string>https://www3.mackenzie.com.br/tia/tia_mobile/notas.php</string>
 	<key>loginURL</key>
-	<string>http://macktia.mybluemix.net/ping.php</string>
+	<string>https://www3.mackenzie.com.br/tia/tia_mobile/ping.php</string>
 	<key>&lt;remote&gt; URL Base</key>
 	<string>http://macktia.mybluemix.net/</string>
 	<key>&lt;local&gt; URL Base</key>
 	<string>http://localhost/MackTia/</string>
+	<key>&lt;oficial&gt; URL Base</key>
+	<string>https://www3.mackenzie.com.br/tia/tia_mobile/</string>
 </dict>
 </plist>

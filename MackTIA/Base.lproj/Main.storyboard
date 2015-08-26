@@ -122,7 +122,7 @@
                         <outlet property="senha" destination="CmS-jR-soN" id="9pW-xf-Ltj"/>
                         <outlet property="tia" destination="hSO-ga-g5h" id="6nK-0K-gga"/>
                         <outlet property="unidade" destination="65l-eP-c1f" id="cSg-R5-tpe"/>
-                        <segue destination="ylK-HY-Wbw" kind="presentation" identifier="login" modalTransitionStyle="flipHorizontal" id="pSt-tg-MK9"/>
+                        <segue destination="ylK-HY-Wbw" kind="presentation" identifier="login" modalTransitionStyle="partialCurl" id="pSt-tg-MK9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izH-p7-4pb" userLabel="First Responder" sceneMemberID="firstResponder"/>
