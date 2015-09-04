@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6353C8101FCFC8B5B5CB9264 /* Pods_MackTIATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */; };
+		9246D50E1B9A4EBF00F0674D /* Faltas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50D1B9A4EBF00F0674D /* Faltas.swift */; };
 		9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8821B87ADB3004284E3 /* AppDelegate.swift */; };
 		9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8841B87ADB3004284E3 /* MackTIA.xcdatamodeld */; };
 		9289B88B1B87ADB3004284E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9289B8891B87ADB3004284E3 /* Main.storyboard */; };
@@ -17,7 +20,7 @@
 		92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8A51B87BF93004C1DE4 /* extension.swift */; };
 		92B9E8A81B87C1E5004C1DE4 /* token.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B9E8A71B87C1E5004C1DE4 /* token.plist */; };
 		92B9E8DC1B87C992004C1DE4 /* TIAManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */; };
-		92B9E8DD1B87C995004C1DE4 /* Falta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AC1B87C4FB004C1DE4 /* Falta.swift */; };
+		92B9E8DD1B87C995004C1DE4 /* FaltaOLD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AC1B87C4FB004C1DE4 /* FaltaOLD.swift */; };
 		92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */; };
 		92B9E8E01B87CA07004C1DE4 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B9E8DF1B87CA07004C1DE4 /* config.plist */; };
 		971DBE92D688529EF9699185 /* Pods_MackTIA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -50,7 +53,10 @@
 
 /* Begin PBXFileReference section */
 		1359FCE54B8718B5E5C1D19E /* Pods-MackTIA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA.debug.xcconfig"; sourceTree = "<group>"; };
+		31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MackTIATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E524A4CF42EB188E445412B /* Pods-MackTIA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIA.release.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA.release.xcconfig"; sourceTree = "<group>"; };
+		9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataHelper.swift; path = WebAPI/CoreDataHelper.swift; sourceTree = "<group>"; };
+		9246D50D1B9A4EBF00F0674D /* Faltas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Faltas.swift; path = WebAPI/Entidade/Faltas.swift; sourceTree = "<group>"; };
 		9289B87D1B87ADB3004284E3 /* MackTIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MackTIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9289B8811B87ADB3004284E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9289B8821B87ADB3004284E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -67,12 +73,14 @@
 		92B9E8A51B87BF93004C1DE4 /* extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		92B9E8A71B87C1E5004C1DE4 /* token.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = token.plist; path = WebAPI/token.plist; sourceTree = "<group>"; };
 		92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TIAManager.swift; path = WebAPI/TIAManager.swift; sourceTree = "<group>"; };
-		92B9E8AC1B87C4FB004C1DE4 /* Falta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Falta.swift; path = WebAPI/Entidade/Falta.swift; sourceTree = "<group>"; };
+		92B9E8AC1B87C4FB004C1DE4 /* FaltaOLD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaltaOLD.swift; path = WebAPI/Entidade/FaltaOLD.swift; sourceTree = "<group>"; };
 		92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Usuario.swift; path = WebAPI/Entidade/Usuario.swift; sourceTree = "<group>"; };
 		92B9E8DF1B87CA07004C1DE4 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = WebAPI/config.plist; sourceTree = "<group>"; };
 		A16372371B898BA4000A9C69 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A16372391B89915A000A9C69 /* MateriaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MateriaTableViewController.swift; path = ViewController/MateriaTableViewController.swift; sourceTree = "<group>"; };
 		B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MackTIA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDCC901934CE3EB1CC52A290 /* Pods-MackTIATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIATests/Pods-MackTIATests.debug.xcconfig"; sourceTree = "<group>"; };
+		F43283DA135A06651819BBF5 /* Pods-MackTIATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIATests/Pods-MackTIATests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6353C8101FCFC8B5B5CB9264 /* Pods_MackTIATests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +109,19 @@
 			children = (
 				1359FCE54B8718B5E5C1D19E /* Pods-MackTIA.debug.xcconfig */,
 				4E524A4CF42EB188E445412B /* Pods-MackTIA.release.xcconfig */,
+				BDCC901934CE3EB1CC52A290 /* Pods-MackTIATests.debug.xcconfig */,
+				F43283DA135A06651819BBF5 /* Pods-MackTIATests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9246D50C1B9A4E5C00F0674D /* Entidades */ = {
+			isa = PBXGroup;
+			children = (
+				9246D50D1B9A4EBF00F0674D /* Faltas.swift */,
+				92B9E8AC1B87C4FB004C1DE4 /* FaltaOLD.swift */,
+			);
+			name = Entidades;
 			sourceTree = "<group>";
 		};
 		9289B8741B87ADB3004284E3 = {
@@ -180,9 +200,10 @@
 		92B9E8A91B87C217004C1DE4 /* WebAPI */ = {
 			isa = PBXGroup;
 			children = (
+				9246D50C1B9A4E5C00F0674D /* Entidades */,
 				92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */,
-				92B9E8AC1B87C4FB004C1DE4 /* Falta.swift */,
 				92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */,
+				9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */,
 			);
 			name = WebAPI;
 			sourceTree = "<group>";
@@ -193,6 +214,7 @@
 				A16372371B898BA4000A9C69 /* MapKit.framework */,
 				92B9E8A31B87BF39004C1DE4 /* libcommonCrypto.dylib */,
 				B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */,
+				31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -211,6 +233,7 @@
 				0B7C5E483B497E79C204CC64 /* Embed Pods Frameworks */,
 				641CD8F6714EDDED2AF08E08 /* Copy Pods Resources */,
 				92B9E8CD1B87C887004C1DE4 /* Embed Frameworks */,
+				9246D5051B9A4A0700F0674D /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -225,9 +248,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9289B8A21B87ADB3004284E3 /* Build configuration list for PBXNativeTarget "MackTIATests" */;
 			buildPhases = (
+				B943821D8E6DD465AFB289C8 /* Check Pods Manifest.lock */,
 				9289B8911B87ADB3004284E3 /* Sources */,
 				9289B8921B87ADB3004284E3 /* Frameworks */,
 				9289B8931B87ADB3004284E3 /* Resources */,
+				019DF6604A57AE546DAC6D20 /* Embed Pods Frameworks */,
+				D53913908E5E90179139618E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -304,6 +330,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		019DF6604A57AE546DAC6D20 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MackTIATests/Pods-MackTIATests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		0B7C5E483B497E79C204CC64 /* Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -349,6 +390,50 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9246D5051B9A4A0700F0674D /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" c827b1e06013cb3a55d7d26359651127705bbad3 5ff544eeb37be23967d2c8d0593b370e4b479166dfe570d0910fd71a42370d81";
+		};
+		B943821D8E6DD465AFB289C8 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D53913908E5E90179139618E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MackTIATests/Pods-MackTIATests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -362,7 +447,9 @@
 				92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */,
 				9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */,
 				92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */,
-				92B9E8DD1B87C995004C1DE4 /* Falta.swift in Sources */,
+				9246D50E1B9A4EBF00F0674D /* Faltas.swift in Sources */,
+				9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */,
+				92B9E8DD1B87C995004C1DE4 /* FaltaOLD.swift in Sources */,
 				9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -525,6 +612,7 @@
 		};
 		9289B8A31B87ADB3004284E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDCC901934CE3EB1CC52A290 /* Pods-MackTIATests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -544,6 +632,7 @@
 		};
 		9289B8A41B87ADB3004284E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F43283DA135A06651819BBF5 /* Pods-MackTIATests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

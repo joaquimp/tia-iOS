@@ -12,13 +12,11 @@ class Usuario {
     var tia:String
     var senha:String
     var unidade:String
-    var modalidade:String
     
     init() {
-        self.tia = ""
-        self.senha = ""
-        self.unidade = ""
-        self.modalidade = ""
+        self.tia        = ""
+        self.senha      = ""
+        self.unidade    = ""
     }
    
 }
