@@ -13,8 +13,8 @@ class Falta {
     var disciplina: String
     var turma:String
     var aulasDadas:Int
-    var permitidas_20:Int
-    var permitidas:Int
+    var permitidas_20:Float
+    var permitidas:Float
     var faltas:Int
     var percentual:Float
     var atualizacao:String

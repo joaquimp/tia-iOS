@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Faltas" syncable="YES">
+        <attribute name="atualizacao" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="codigo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="permit20" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="permitidas" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="turma" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Faltas" positionX="-63" positionY="-18" width="128" height="135"/>
+    </elements>
 </model>
