@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 import Fabric
-import Crashlytics
+//import Crashlytics
 
 
 @UIApplicationMain
@@ -19,8 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        // Faz com que a status bar fique na cor branca
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         // Override point for customization after application launch.
-        Fabric.with([Crashlytics.self()])
+//        Fabric.with([Crashlytics.self()])
         return true
     }
 

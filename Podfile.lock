@@ -3,21 +3,21 @@ PODS:
   - Fabric (1.4.1):
     - Fabric/Base (= 1.4.1)
   - Fabric/Base (1.4.1)
+  - RingGraph (0.2.4)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
-  - SwiftyJSON (2.2.1)
 
 DEPENDENCIES:
   - Crashlytics
   - Fabric
+  - RingGraph
   - SDWebImage
-  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Crashlytics: a29e4f820aa401482b26043dc5d78adf08ac7573
   Fabric: 4f718eeca4c02c7d6f6f4e5f0e5f87c63aa38458
+  RingGraph: 4aa447b46ca7e72baa51308d6384abf7654c9109
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
-  SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
 
 COCOAPODS: 0.38.2

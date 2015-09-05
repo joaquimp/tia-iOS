@@ -1,0 +1,126 @@
+
+/* Class = "UILabel"; text = "Avaliar na AppStore"; ObjectID = "29Y-H7-hN9"; */
+"29Y-H7-hN9.text" = "Avaliar na AppStore";
+
+/* Class = "UILabel"; text = "10.0"; ObjectID = "3gr-DO-a7v"; */
+"3gr-DO-a7v.text" = "10.0";
+
+/* Class = "UITableViewSection"; headerTitle = "Criado por:"; ObjectID = "4GE-sQ-A3u"; */
+"4GE-sQ-A3u.headerTitle" = "Criado por:";
+
+/* Class = "UILabel"; text = "Rogério Bordignon"; ObjectID = "4nh-Gs-Yvi"; */
+"4nh-Gs-Yvi.text" = "Rogério Bordignon";
+
+/* Class = "UITabBarItem"; title = "Ativ. Compl."; ObjectID = "7jt-0G-zEb"; */
+"7jt-0G-zEb.title" = "Ativ. Compl.";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "8WH-C7-FcK"; */
+"8WH-C7-FcK.text" = "Title";
+
+/* Class = "UITabBarItem"; title = "Matérias"; ObjectID = "A09-1T-CPw"; */
+"A09-1T-CPw.title" = "Matérias";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "DM6-m4-SzH"; */
+"DM6-m4-SzH.text" = "Title";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "DXn-i4-ZZk"; */
+"DXn-i4-ZZk.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "Mapa"; ObjectID = "GER-Nl-gFq"; */
+"GER-Nl-gFq.title" = "Mapa";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "GYa-Sd-gHJ"; */
+"GYa-Sd-gHJ.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "IdV-IU-SdL"; */
+"IdV-IU-SdL.text" = "Detail";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "J6l-1v-KbF"; */
+"J6l-1v-KbF.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "Kaê Coutinho"; ObjectID = "KZg-re-YrX"; */
+"KZg-re-YrX.text" = "Kaê Coutinho";
+
+/* Class = "UILabel"; text = "10.0"; ObjectID = "Kb9-Xq-VOX"; */
+"Kb9-Xq-VOX.text" = "10.0";
+
+/* Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "NrZ-Fr-Vys"; */
+"NrZ-Fr-Vys.title" = "Voltar";
+
+/* Class = "UITextField"; placeholder = "SENHA"; ObjectID = "O8O-4n-RhE"; */
+"O8O-4n-RhE.placeholder" = "SENHA";
+
+/* Class = "UILabel"; text = "Sugestões ou críticas"; ObjectID = "PSG-ye-tTq"; */
+"PSG-ye-tTq.text" = "Sugestões ou críticas";
+
+/* Class = "UILabel"; text = "Design"; ObjectID = "Q8a-ow-lLb"; */
+"Q8a-ow-lLb.text" = "Design";
+
+/* Class = "UINavigationItem"; title = "Atividades Complementares"; ObjectID = "RMP-n0-oWw"; */
+"RMP-n0-oWw.title" = "Atividades Complementares";
+
+/* Class = "UILabel"; text = "Contribuidor (Mapa)"; ObjectID = "T8m-1e-0K5"; */
+"T8m-1e-0K5.text" = "Contribuidor (Mapa)";
+
+/* Class = "UINavigationItem"; title = "Matérias"; ObjectID = "TrW-O8-yzX"; */
+"TrW-O8-yzX.title" = "Matérias";
+
+/* Class = "UITabBarItem"; title = "Matérias"; ObjectID = "Vi3-Je-eqz"; */
+"Vi3-Je-eqz.title" = "Matérias";
+
+/* Class = "UILabel"; text = "Tuitar"; ObjectID = "Wc0-ra-0Xq"; */
+"Wc0-ra-0Xq.text" = "Tuitar";
+
+/* Class = "UITabBarItem"; title = "Horários"; ObjectID = "X6d-eM-0VO"; */
+"X6d-eM-0VO.title" = "Horários";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "YXA-h5-PIo"; */
+"YXA-h5-PIo.text" = "Title";
+
+/* Class = "UILabel"; text = "Criador"; ObjectID = "bjt-lV-shm"; */
+"bjt-lV-shm.text" = "Criador";
+
+/* Class = "UILabel"; text = "Sair do Aplicativo"; ObjectID = "brj-tK-Y7O"; */
+"brj-tK-Y7O.text" = "Sair do Aplicativo";
+
+/* Class = "UITabBarItem"; title = "Mais"; ObjectID = "cFG-Dt-Lgk"; */
+"cFG-Dt-Lgk.title" = "Mais";
+
+/* Class = "UILabel"; text = "Curtir"; ObjectID = "egu-3P-bfB"; */
+"egu-3P-bfB.text" = "Curtir";
+
+/* Class = "UIButton"; normalTitle = "ENVIAR"; ObjectID = "esy-K0-481"; */
+"esy-K0-481.normalTitle" = "ENVIAR";
+
+/* Class = "UINavigationItem"; title = "Faltas"; ObjectID = "g4V-IA-jth"; */
+"g4V-IA-jth.title" = "Faltas";
+
+/* Class = "UIBarButtonItem"; title = "Voltar"; ObjectID = "hjB-lU-DCo"; */
+"hjB-lU-DCo.title" = "Voltar";
+
+/* Class = "UITextField"; placeholder = "TIA"; ObjectID = "iXN-oi-j5N"; */
+"iXN-oi-j5N.placeholder" = "TIA";
+
+/* Class = "UITabBarItem"; title = "Ativ. Compl."; ObjectID = "knj-lZ-VVe"; */
+"knj-lZ-VVe.title" = "Ativ. Compl.";
+
+/* Class = "UITabBarItem"; title = "Mapa"; ObjectID = "pCK-i2-ORz"; */
+"pCK-i2-ORz.title" = "Mapa";
+
+/* Class = "UILabel"; text = "A (Peso 0.5)"; ObjectID = "qV9-i3-BRE"; */
+"qV9-i3-BRE.text" = "A (Peso 0.5)";
+
+/* Class = "UITableViewSection"; headerTitle = "Social"; ObjectID = "rLk-Ah-59X"; */
+"rLk-Ah-59X.headerTitle" = "Social";
+
+/* Class = "UILabel"; text = "A"; ObjectID = "tjF-i9-thb"; */
+"tjF-i9-thb.text" = "A";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "yFt-bH-ecV"; */
+"yFt-bH-ecV.text" = "Title";
+
+/* Class = "UINavigationItem"; title = "Matérias"; ObjectID = "yVH-0G-Aig"; */
+"yVH-0G-Aig.title" = "Matérias";
+
+/* Class = "UILabel"; text = "Lucas Salton Cardinali"; ObjectID = "zBv-5x-2Td"; */
+"zBv-5x-2Td.text" = "Lucas Salton Cardinali";

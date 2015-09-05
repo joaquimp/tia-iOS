@@ -16,7 +16,7 @@ class Falta: NSManagedObject {
     @NSManaged var atualizacao: String
     @NSManaged var turma: String
     @NSManaged var permitidas20: Float
-    @NSManaged var permitidas: Int
+    @NSManaged var permitidas: Float
     @NSManaged var aulasDadas: Int
     @NSManaged var faltas: Int
     @NSManaged var percentual: Float
@@ -85,7 +85,7 @@ class Falta: NSManagedObject {
                     
                     if let disciplina = faltaDic["disciplina"] as? String {
                         
-                        falta.disciplina = disciplina.capitalizedStringWithLocale(NSLocale.currentLocale())
+                        falta.disciplina = disciplina//.capitalizedStringWithLocale(NSLocale.currentLocale())
                     } else { return nil }
                     
                     if let turma = faltaDic["turma"] as? String {
@@ -100,7 +100,7 @@ class Falta: NSManagedObject {
                         falta.permitidas20 = permitidas20
                     } else { return nil }
                     
-                    if let permitidas = faltaDic["permit"] as? Int {
+                    if let permitidas = faltaDic["permit"] as? Float {
                         falta.permitidas = permitidas
                     } else { return nil }
                     

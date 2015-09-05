@@ -14,7 +14,6 @@
 		9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8821B87ADB3004284E3 /* AppDelegate.swift */; };
 		9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8841B87ADB3004284E3 /* MackTIA.xcdatamodeld */; };
 		9289B88B1B87ADB3004284E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9289B8891B87ADB3004284E3 /* Main.storyboard */; };
-		9289B88D1B87ADB3004284E3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9289B88C1B87ADB3004284E3 /* Images.xcassets */; };
 		9289B8901B87ADB3004284E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */; };
 		9289B89C1B87ADB3004284E3 /* MackTIATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B89B1B87ADB3004284E3 /* MackTIATests.swift */; };
 		92B9E8971B87B8D7004C1DE4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */; };
@@ -24,8 +23,15 @@
 		92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */; };
 		92B9E8E01B87CA07004C1DE4 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B9E8DF1B87CA07004C1DE4 /* config.plist */; };
 		971DBE92D688529EF9699185 /* Pods_MackTIA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */; };
+		A15BB2D21B9AB82400143EBE /* CircleGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2D11B9AB82400143EBE /* CircleGraphView.swift */; };
+		A15BB2D51B9ACBD900143EBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15BB2D41B9ACBD900143EBE /* Images.xcassets */; };
+		A15BB2D91B9ACCDD00143EBE /* MaisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2D81B9ACCDD00143EBE /* MaisViewController.swift */; };
+		A15BB2E41B9AD2AA00143EBE /* MapOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2E11B9AD2AA00143EBE /* MapOverlay.m */; };
+		A15BB2E51B9AD2AA00143EBE /* MapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2E31B9AD2AA00143EBE /* MapOverlayView.m */; };
+		A15BB2E91B9AD2FD00143EBE /* MapaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2E81B9AD2FD00143EBE /* MapaViewController.m */; };
 		A16372381B898BA4000A9C69 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16372371B898BA4000A9C69 /* MapKit.framework */; };
-		A163723A1B89915A000A9C69 /* MateriaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16372391B89915A000A9C69 /* MateriaTableViewController.swift */; };
+		A163723A1B89915A000A9C69 /* FaltasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16372391B89915A000A9C69 /* FaltasTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +69,6 @@
 		9289B8821B87ADB3004284E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9289B8851B87ADB3004284E3 /* MackTIA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MackTIA.xcdatamodel; sourceTree = "<group>"; };
 		9289B88A1B87ADB3004284E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9289B88C1B87ADB3004284E3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9289B88F1B87ADB3004284E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9289B8951B87ADB3004284E3 /* MackTIATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MackTIATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9289B89A1B87ADB3004284E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,8 +81,20 @@
 		92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TIAManager.swift; path = WebAPI/TIAManager.swift; sourceTree = "<group>"; };
 		92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Usuario.swift; path = WebAPI/Entidade/Usuario.swift; sourceTree = "<group>"; };
 		92B9E8DF1B87CA07004C1DE4 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = WebAPI/config.plist; sourceTree = "<group>"; };
+		A15BB2CA1B9AA51700143EBE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		A15BB2CB1B9AA51700143EBE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaltaTableViewCell.swift; path = "ViewController/Custom Cells/FaltaTableViewCell.swift"; sourceTree = "<group>"; };
+		A15BB2D11B9AB82400143EBE /* CircleGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleGraphView.swift; path = "ViewController/Custom Views/CircleGraphView.swift"; sourceTree = "<group>"; };
+		A15BB2D41B9ACBD900143EBE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A15BB2D81B9ACCDD00143EBE /* MaisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaisViewController.swift; path = ViewController/MaisViewController.swift; sourceTree = "<group>"; };
+		A15BB2E01B9AD2AA00143EBE /* MapOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapOverlay.h; path = ViewController/Mapa/MapOverlay.h; sourceTree = "<group>"; };
+		A15BB2E11B9AD2AA00143EBE /* MapOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapOverlay.m; path = ViewController/Mapa/MapOverlay.m; sourceTree = "<group>"; };
+		A15BB2E21B9AD2AA00143EBE /* MapOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapOverlayView.h; path = ViewController/Mapa/MapOverlayView.h; sourceTree = "<group>"; };
+		A15BB2E31B9AD2AA00143EBE /* MapOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapOverlayView.m; path = ViewController/Mapa/MapOverlayView.m; sourceTree = "<group>"; };
+		A15BB2E71B9AD2FD00143EBE /* MapaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapaViewController.h; path = ViewController/MapaViewController.h; sourceTree = "<group>"; };
+		A15BB2E81B9AD2FD00143EBE /* MapaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapaViewController.m; path = ViewController/MapaViewController.m; sourceTree = "<group>"; };
 		A16372371B898BA4000A9C69 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		A16372391B89915A000A9C69 /* MateriaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MateriaTableViewController.swift; path = ViewController/MateriaTableViewController.swift; sourceTree = "<group>"; };
+		A16372391B89915A000A9C69 /* FaltasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaltasTableViewController.swift; path = ViewController/FaltasTableViewController.swift; sourceTree = "<group>"; };
 		B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MackTIA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDCC901934CE3EB1CC52A290 /* Pods-MackTIATests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIATests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIATests/Pods-MackTIATests.debug.xcconfig"; sourceTree = "<group>"; };
 		F43283DA135A06651819BBF5 /* Pods-MackTIATests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIATests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIATests/Pods-MackTIATests.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,11 +168,11 @@
 				92B9E8A91B87C217004C1DE4 /* WebAPI */,
 				9289B8821B87ADB3004284E3 /* AppDelegate.swift */,
 				9289B8891B87ADB3004284E3 /* Main.storyboard */,
-				9289B88C1B87ADB3004284E3 /* Images.xcassets */,
 				9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */,
-				9289B8841B87ADB3004284E3 /* MackTIA.xcdatamodeld */,
-				9289B8801B87ADB3004284E3 /* Supporting Files */,
+				A15BB2D41B9ACBD900143EBE /* Images.xcassets */,
 				9246D5111B9A722B00F0674D /* AKPickerView.swift */,
+				92B9E8A51B87BF93004C1DE4 /* extension.swift */,
+				9289B8801B87ADB3004284E3 /* Supporting Files */,
 			);
 			path = MackTIA;
 			sourceTree = "<group>";
@@ -166,7 +183,7 @@
 				92B9E8A71B87C1E5004C1DE4 /* token.plist */,
 				9289B8811B87ADB3004284E3 /* Info.plist */,
 				92B9E89F1B87BDAC004C1DE4 /* MackTIA-Bridging-Header.h */,
-				92B9E8A51B87BF93004C1DE4 /* extension.swift */,
+				9289B8841B87ADB3004284E3 /* MackTIA.xcdatamodeld */,
 				92B9E8DF1B87CA07004C1DE4 /* config.plist */,
 			);
 			name = "Supporting Files";
@@ -192,8 +209,14 @@
 		92B9E8981B87B8DE004C1DE4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A15BB2D31B9AB82800143EBE /* Custom Views */,
+				A15BB2CE1B9AB23700143EBE /* Custom Cells */,
 				92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */,
-				A16372391B89915A000A9C69 /* MateriaTableViewController.swift */,
+				A16372391B89915A000A9C69 /* FaltasTableViewController.swift */,
+				A15BB2D81B9ACCDD00143EBE /* MaisViewController.swift */,
+				A15BB2E71B9AD2FD00143EBE /* MapaViewController.h */,
+				A15BB2E81B9AD2FD00143EBE /* MapaViewController.m */,
+				A15BB2E61B9AD2AF00143EBE /* Mapa */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -206,6 +229,33 @@
 				9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */,
 			);
 			name = WebAPI;
+			sourceTree = "<group>";
+		};
+		A15BB2CE1B9AB23700143EBE /* Custom Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */,
+			);
+			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		A15BB2D31B9AB82800143EBE /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				A15BB2D11B9AB82400143EBE /* CircleGraphView.swift */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		A15BB2E61B9AD2AF00143EBE /* Mapa */ = {
+			isa = PBXGroup;
+			children = (
+				A15BB2E01B9AD2AA00143EBE /* MapOverlay.h */,
+				A15BB2E11B9AD2AA00143EBE /* MapOverlay.m */,
+				A15BB2E21B9AD2AA00143EBE /* MapOverlayView.h */,
+				A15BB2E31B9AD2AA00143EBE /* MapOverlayView.m */,
+			);
+			name = Mapa;
 			sourceTree = "<group>";
 		};
 		ACBE292C7FDC7D68CEBDD74B /* Frameworks */ = {
@@ -233,7 +283,6 @@
 				0B7C5E483B497E79C204CC64 /* Embed Pods Frameworks */,
 				641CD8F6714EDDED2AF08E08 /* Copy Pods Resources */,
 				92B9E8CD1B87C887004C1DE4 /* Embed Frameworks */,
-				9246D5051B9A4A0700F0674D /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -276,6 +325,7 @@
 				TargetAttributes = {
 					9289B87C1B87ADB3004284E3 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 34E95R7U23;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 1;
@@ -313,9 +363,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9289B88B1B87ADB3004284E3 /* Main.storyboard in Resources */,
+				A15BB2D51B9ACBD900143EBE /* Images.xcassets in Resources */,
 				9289B8901B87ADB3004284E3 /* LaunchScreen.xib in Resources */,
 				92B9E8A81B87C1E5004C1DE4 /* token.plist in Resources */,
-				9289B88D1B87ADB3004284E3 /* Images.xcassets in Resources */,
 				92B9E8E01B87CA07004C1DE4 /* config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,20 +440,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9246D5051B9A4A0700F0674D /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run Script";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" c827b1e06013cb3a55d7d26359651127705bbad3 5ff544eeb37be23967d2c8d0593b370e4b479166dfe570d0910fd71a42370d81";
-		};
 		B943821D8E6DD465AFB289C8 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -442,15 +478,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				9246D5121B9A722B00F0674D /* AKPickerView.swift in Sources */,
+				A15BB2D91B9ACCDD00143EBE /* MaisViewController.swift in Sources */,
 				92B9E8971B87B8D7004C1DE4 /* LoginViewController.swift in Sources */,
 				92B9E8DC1B87C992004C1DE4 /* TIAManager.swift in Sources */,
-				A163723A1B89915A000A9C69 /* MateriaTableViewController.swift in Sources */,
+				A163723A1B89915A000A9C69 /* FaltasTableViewController.swift in Sources */,
 				92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */,
 				9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */,
 				92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */,
+				A15BB2E51B9AD2AA00143EBE /* MapOverlayView.m in Sources */,
+				A15BB2D21B9AB82400143EBE /* CircleGraphView.swift in Sources */,
+				A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */,
 				9246D50E1B9A4EBF00F0674D /* Faltas.swift in Sources */,
 				9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */,
+				A15BB2E91B9AD2FD00143EBE /* MapaViewController.m in Sources */,
 				9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */,
+				A15BB2E41B9AD2AA00143EBE /* MapOverlay.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,6 +519,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9289B88A1B87ADB3004284E3 /* Base */,
+				A15BB2CA1B9AA51700143EBE /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -485,6 +528,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				9289B88F1B87ADB3004284E3 /* Base */,
+				A15BB2CB1B9AA51700143EBE /* pt-BR */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -581,6 +625,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MackTIA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -600,6 +645,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MackTIA/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

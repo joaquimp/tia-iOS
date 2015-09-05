@@ -18,7 +18,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>br.mackenzie.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>br.mackenzie.MackTia</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

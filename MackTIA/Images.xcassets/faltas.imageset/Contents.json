@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "lucas.jpg"
+      "filename" : "faltas.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "lucas@2x.jpg"
+      "filename" : "faltas@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "lucas@3x.jpg"
+      "filename" : "faltas@3x.png"
     }
   ],
   "info" : {

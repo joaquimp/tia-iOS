@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDelegate {
+class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var tiaTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -19,8 +19,8 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.unidades = [" São Paulo "," Rio de Janeiro "," Brasília "," UATU "]
-        self.unidadesCodigo = ["001","006","003","011"]
+        self.unidades = [" Rio de Janeiro "," São Paulo "," Brasília "," UATU "]
+        self.unidadesCodigo = ["006","001","003","011"]
     }
     
     override func viewDidLoad() {
@@ -57,8 +57,8 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         self.unidadePickerView.delegate = self
         self.unidadePickerView.dataSource = self
         self.unidadePickerView.layer.cornerRadius = 7
-        self.unidadePickerView.selectItem(0, animated: false)
-        self.unidadePickerView.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.25)
+        self.unidadePickerView.selectItem(1, animated: false)
+        self.unidadePickerView.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)
         self.unidadePickerView.highlightedTextColor = UIColor.whiteColor()
         
         
@@ -121,6 +121,21 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     // MARK: - Memory Management
     func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
         return self.unidades[item]
+    }
+    
+    // MARK: - TextFieldDelegate
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        let tag = textField.tag + 1
+        if let superview = textField.superview {
+            let nextTextField = superview.viewWithTag(tag)
+            if nextTextField != nil {
+                nextTextField?.becomeFirstResponder()
+                return false
+            }
+        }
+        textField.resignFirstResponder()
+        return false
+        
     }
     
 

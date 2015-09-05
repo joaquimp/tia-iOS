@@ -5,9 +5,10 @@ target 'MackTIA' do
     pod 'SDWebImage'
     pod 'Fabric'
     pod 'Crashlytics'
+    pod 'RingGraph'
 end
 
 target 'MackTIATests' do
-        pod 'SwiftyJSON'
+    pod 'SDWebImage'
 end
 
