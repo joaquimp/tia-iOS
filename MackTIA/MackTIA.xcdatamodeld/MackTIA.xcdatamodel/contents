@@ -2,16 +2,16 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14F27" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Falta" representedClassName="MackTIA.Falta" syncable="YES">
         <attribute name="atualizacao" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="aulasDadas" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="codigo" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="disciplina" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="faltas" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="aulasDadas" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="codigo" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="disciplina" optional="YES" attributeType="String" spotlightIndexingEnabled="YES" syncable="YES"/>
+        <attribute name="faltas" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
         <attribute name="percentual" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="permitidas" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="permitidas" optional="YES" attributeType="Integer 64" defaultValueString="0.0" syncable="YES"/>
         <attribute name="permitidas20" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="turma" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Falta" positionX="-63" positionY="-18" width="128" height="30"/>
+        <element name="Falta" positionX="-63" positionY="-18" width="128" height="180"/>
     </elements>
 </model>

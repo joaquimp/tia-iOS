@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 
 /** TIAManager Class
@@ -173,13 +172,20 @@ class TIAManager {
                     
                     NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.FaltasRecuperadasNotification, object: self)
                     return
-                } else if let erro = (JSON(data:data))["erro"].string {
-                    println("Login: \(erro)")
-                    NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.FaltasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Verifique se informou os dados corretamente"])
-                    return
                 } else {
-                    
-                    NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.FaltasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"])
+                    var errorJson:NSError?
+                    if let resposta = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? NSDictionary {
+                        
+                        if let erro = resposta.objectForKey("erro") as? String {
+                            println("Atenticação Erro: \(erro)")
+                            NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.FaltasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Verifique se informou os dados corretamente"])
+                            return
+                        } else {
+                            NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.FaltasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"])
+                        }
+                    } else {
+                        NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.FaltasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"])
+                    }
                 }
             })
             task.resume()

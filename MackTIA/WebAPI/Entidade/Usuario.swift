@@ -18,5 +18,4 @@ class Usuario {
         self.senha      = ""
         self.unidade    = ""
     }
-   
 }
