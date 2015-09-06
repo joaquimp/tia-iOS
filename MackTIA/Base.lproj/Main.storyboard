@@ -214,10 +214,10 @@
                                             </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3X-18-RhB">
-                                            <rect key="frame" x="198" y="58" width="374" height="59"/>
+                                            <rect key="frame" x="198" y="58" width="374" height="58.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kb-lh-SPq">
-                                                    <rect key="frame" x="168" y="19" width="39" height="20"/>
+                                                    <rect key="frame" x="168" y="19" width="38.5" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="Q3M-rG-T5n"/>
                                                     </constraints>
@@ -976,7 +976,7 @@ Design/Desenvolvimento do aplicativo iOS</string>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUB" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b85-Vx-6eR">
-                                                                <rect key="frame" x="0.0" y="2" width="61" height="15"/>
+                                                                <rect key="frame" x="0.0" y="2" width="61" height="14.5"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="17" id="BDc-jC-haL"/>
                                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="VUh-PM-fwU"/>
@@ -1041,7 +1041,7 @@ Design/Desenvolvimento do aplicativo iOS</string>
                                             </connections>
                                         </collectionView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notas:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51k-U2-9dx">
-                                            <rect key="frame" x="28" y="66" width="37" height="27"/>
+                                            <rect key="frame" x="28" y="66" width="36.5" height="27"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="27" id="KFe-DM-4iU"/>
                                             </constraints>

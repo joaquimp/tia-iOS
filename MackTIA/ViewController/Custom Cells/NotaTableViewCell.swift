@@ -15,6 +15,15 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     
     @IBOutlet weak var notasFinaisCollectionView: UICollectionView!
     @IBOutlet weak var notasIntermediariasCollectionView: UICollectionView!
+    var nota:Nota? {
+        didSet{
+            if nota != nil {
+                self.nomeDisciplina.text = nota!.disciplina
+                self.notasIntermediariasCollectionView.reloadData()
+                self.notasFinaisCollectionView.reloadData()
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -85,7 +94,7 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
                 cell.nota.text = "-"
             }
             if cell.titulo.text?.lowercaseString == nota?.substituida {
-                cell.nota.text = "\(cell.nota.text)(SUB)"
+                cell.titulo.text = "\(cell.titulo.text)(SUB)"
             }
         } else {
             switch indexPath.row {
@@ -116,18 +125,18 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     
 }
 
-extension NotaTableViewCell {
-    var nota:Nota?{
-        get {
-            return objc_getAssociatedObject(self, "notaObject") as? Nota
-        }
-        set(newValue) {
-            objc_setAssociatedObject(self, "notaObject", newValue, UInt(OBJC_ASSOCIATION_RETAIN))
-            if let nota = newValue {
-                self.nomeDisciplina.text = nota.disciplina
-                self.notasIntermediariasCollectionView.reloadData()
-                self.notasFinaisCollectionView.reloadData()
-            }
-        }
-    }
-}
+//extension NotaTableViewCell {
+//    var nota:Nota?{
+//        get {
+//            return objc_getAssociatedObject(self, "notaObject") as? Nota
+//        }
+//        set(newValue) {
+//            objc_setAssociatedObject(self, "notaObject", newValue, UInt(OBJC_ASSOCIATION_RETAIN))
+//            if let nota = newValue {
+//                self.nomeDisciplina.text = nota.disciplina
+//                self.notasIntermediariasCollectionView.reloadData()
+//                self.notasFinaisCollectionView.reloadData()
+//            }
+//        }
+//    }
+//}
