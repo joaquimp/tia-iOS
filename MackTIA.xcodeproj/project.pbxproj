@@ -30,6 +30,10 @@
 		A15BB2E41B9AD2AA00143EBE /* MapOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2E11B9AD2AA00143EBE /* MapOverlay.m */; };
 		A15BB2E51B9AD2AA00143EBE /* MapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2E31B9AD2AA00143EBE /* MapOverlayView.m */; };
 		A15BB2E91B9AD2FD00143EBE /* MapaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2E81B9AD2FD00143EBE /* MapaViewController.m */; };
+		A15BB2EB1B9BCEFF00143EBE /* NotasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2EA1B9BCEFF00143EBE /* NotasTableViewController.swift */; };
+		A15BB2ED1B9BD03900143EBE /* NotaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2EC1B9BD03900143EBE /* NotaTableViewCell.swift */; };
+		A15BB2F21B9BD26300143EBE /* Nota.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2F11B9BD26300143EBE /* Nota.swift */; };
+		A15BB2F41B9BD79800143EBE /* NotaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2F31B9BD79800143EBE /* NotaCollectionViewCell.swift */; };
 		A16372381B898BA4000A9C69 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16372371B898BA4000A9C69 /* MapKit.framework */; };
 		A163723A1B89915A000A9C69 /* FaltasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16372391B89915A000A9C69 /* FaltasTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -93,6 +97,10 @@
 		A15BB2E31B9AD2AA00143EBE /* MapOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapOverlayView.m; path = ViewController/Mapa/MapOverlayView.m; sourceTree = "<group>"; };
 		A15BB2E71B9AD2FD00143EBE /* MapaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapaViewController.h; path = ViewController/MapaViewController.h; sourceTree = "<group>"; };
 		A15BB2E81B9AD2FD00143EBE /* MapaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapaViewController.m; path = ViewController/MapaViewController.m; sourceTree = "<group>"; };
+		A15BB2EA1B9BCEFF00143EBE /* NotasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotasTableViewController.swift; path = ViewController/NotasTableViewController.swift; sourceTree = "<group>"; };
+		A15BB2EC1B9BD03900143EBE /* NotaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotaTableViewCell.swift; path = "ViewController/Custom Cells/NotaTableViewCell.swift"; sourceTree = "<group>"; };
+		A15BB2F11B9BD26300143EBE /* Nota.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Nota.swift; path = WebAPI/Entidade/Nota.swift; sourceTree = "<group>"; };
+		A15BB2F31B9BD79800143EBE /* NotaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotaCollectionViewCell.swift; path = "ViewController/Custom Cells/NotaCollectionViewCell.swift"; sourceTree = "<group>"; };
 		A16372371B898BA4000A9C69 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A16372391B89915A000A9C69 /* FaltasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaltasTableViewController.swift; path = ViewController/FaltasTableViewController.swift; sourceTree = "<group>"; };
 		B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MackTIA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +145,7 @@
 			children = (
 				9246D50D1B9A4EBF00F0674D /* Faltas.swift */,
 				92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */,
+				A15BB2F11B9BD26300143EBE /* Nota.swift */,
 			);
 			name = Entidades;
 			sourceTree = "<group>";
@@ -213,6 +222,7 @@
 				A15BB2CE1B9AB23700143EBE /* Custom Cells */,
 				92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */,
 				A16372391B89915A000A9C69 /* FaltasTableViewController.swift */,
+				A15BB2EA1B9BCEFF00143EBE /* NotasTableViewController.swift */,
 				A15BB2D81B9ACCDD00143EBE /* MaisViewController.swift */,
 				A15BB2E71B9AD2FD00143EBE /* MapaViewController.h */,
 				A15BB2E81B9AD2FD00143EBE /* MapaViewController.m */,
@@ -235,6 +245,8 @@
 			isa = PBXGroup;
 			children = (
 				A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */,
+				A15BB2EC1B9BD03900143EBE /* NotaTableViewCell.swift */,
+				A15BB2F31B9BD79800143EBE /* NotaCollectionViewCell.swift */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -486,13 +498,17 @@
 				9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */,
 				92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */,
 				A15BB2E51B9AD2AA00143EBE /* MapOverlayView.m in Sources */,
+				A15BB2F21B9BD26300143EBE /* Nota.swift in Sources */,
 				A15BB2D21B9AB82400143EBE /* CircleGraphView.swift in Sources */,
 				A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */,
+				A15BB2F41B9BD79800143EBE /* NotaCollectionViewCell.swift in Sources */,
 				9246D50E1B9A4EBF00F0674D /* Faltas.swift in Sources */,
 				9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */,
 				A15BB2E91B9AD2FD00143EBE /* MapaViewController.m in Sources */,
 				9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */,
+				A15BB2ED1B9BD03900143EBE /* NotaTableViewCell.swift in Sources */,
 				A15BB2E41B9AD2AA00143EBE /* MapOverlay.m in Sources */,
+				A15BB2EB1B9BCEFF00143EBE /* NotasTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

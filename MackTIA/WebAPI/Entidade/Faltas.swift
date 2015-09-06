@@ -15,8 +15,8 @@ class Falta: NSManagedObject {
     @NSManaged var disciplina: String
     @NSManaged var atualizacao: String
     @NSManaged var turma: String
-    @NSManaged var permitidas20: Float
-    @NSManaged var permitidas: Float
+    @NSManaged var permitidas20: Int
+    @NSManaged var permitidas: Int
     @NSManaged var aulasDadas: Int
     @NSManaged var faltas: Int
     @NSManaged var percentual: Float
@@ -96,11 +96,11 @@ class Falta: NSManagedObject {
                         falta.aulasDadas = aulasDadas
                     } else { return nil }
                     
-                    if let permitidas20 = faltaDic["permit20"] as? Float {
+                    if let permitidas20 = faltaDic["permit20"] as? Int {
                         falta.permitidas20 = permitidas20
                     } else { return nil }
                     
-                    if let permitidas = faltaDic["permit"] as? Float {
+                    if let permitidas = faltaDic["permit"] as? Int {
                         falta.permitidas = permitidas
                     } else { return nil }
                     

@@ -14,7 +14,7 @@ class FaltaTableViewCell: UITableViewCell {
     @IBOutlet weak var faltas: UILabel!
     @IBOutlet weak var percentual: UILabel!
     @IBOutlet weak var graficoView: CircleGraphView!
-    
+    @IBOutlet weak var permitidas: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,6 +42,7 @@ extension FaltaTableViewCell {
                 self.graficoView.endArc = CGFloat(falta.percentual/100)
                 self.percentual.text = "\(falta.percentual)%"
                 self.nomeDisciplina.text = falta.disciplina
+                self.permitidas.text = "\(falta.permitidas)"
             }
             
         }
