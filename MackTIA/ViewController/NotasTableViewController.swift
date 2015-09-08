@@ -12,50 +12,65 @@ import UIKit
 class NotasTableViewController: UITableViewController {
     
     var notas:Array<Nota> = TIAManager.sharedInstance.todasNotas()
+    @IBOutlet weak var reloadButtonItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notasErro:", name: TIAManager.NotasErroNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "novasNotas", name: TIAManager.NotasRecuperadasNotification, object: nil)
-        TIAManager.sharedInstance.atualizarNotas()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.refreshControl!.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.buscarNovosDados()
     }
     
-    // MARK: - Metodos da Notificacao
-    
-    func novasNotas() {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.notas = TIAManager.sharedInstance.todasNotas()
-            self.tableView.reloadData()
-        })
-    }
-    
-    func notasErro(notification:NSNotification){
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            if let let dict = notification.userInfo as? Dictionary<String,String> {
-                let alert = UIAlertView(title: "Acesso Negado", message: dict[TIAManager.DescricaoDoErro], delegate: self, cancelButtonTitle: "OK")
-                alert.show()
-            } else {
-                let alert = UIAlertView(title: "Erro", message: "Não foi possível carregar as notas, entre em contato com o helpdesk se o erro persistir", delegate: self, cancelButtonTitle: "OK")
+    // MARK: - Atualizando dados
+    func buscarNovosDados() {
+        self.reloadButtonItem.enabled = false
+        TIAManager.sharedInstance.atualizarNotas { (manager, error) -> () in
+            if error != nil {
+                var mensagem = "Erro desconhecido. Se persistir contact o helpdesk"
+                if let info = error?.userInfo as? [String:String] {
+                    if info["mensagem"] != nil {
+                        mensagem = info["mensagem"]!
+                        let descricao = info["descricao"]
+                        println("Descricao do erro: \(descricao)")
+                    }
+                }
+                let alert = UIAlertView(title: "Acesso Negado", message: mensagem, delegate: self, cancelButtonTitle: "OK")
                 alert.show()
             }
-        })
+            self.reloadButtonItem.enabled = true
+            self.notas = manager.todasNotas()
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+        }
     }
     
-    // MARK: - Table view data source
+    @IBAction func reloadButton(sender: AnyObject) {
+        self.buscarNovosDados()
+    }
     
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        var delayInSeconds = 1.0;
+        var popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)));
+        dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
+            self.buscarNovosDados()
+        }
+    }
+    
+    // MARK: - Memory
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    
+    // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // Return the number of sections.
         return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
         return self.notas.count
     }
     
@@ -67,7 +82,7 @@ class NotasTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 220
+        return 218
     }
         
 }

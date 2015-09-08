@@ -177,7 +177,10 @@ class Nota: NSManagedObject {
                     nota.partic = notaVazia
                 }
                 
-                if let mi = notaDic["med_intermediaria"] as? String {
+                if var mi = notaDic["med_intermediaria"] as? String {
+                    if mi == "." || mi == "" {
+                        mi = "0"
+                    }
                     nota.mi = mi
                 } else { return nil }
                 
@@ -187,7 +190,10 @@ class Nota: NSManagedObject {
                     nota.pf = notaVazia
                 }
                 
-                if let mf = notaDic["med2"] as? String {
+                if var mf = notaDic["med2"] as? String {
+                    if mf == "." || mf == "" {
+                        mf = "0"
+                    }
                     nota.mf = mf
                 } else { return nil }
                 
@@ -198,9 +204,6 @@ class Nota: NSManagedObject {
                 notas!.append(nota)
             }
             return notas
-            //            } else {
-            //                return nil
-            //            }
         } else {
             return nil
         }

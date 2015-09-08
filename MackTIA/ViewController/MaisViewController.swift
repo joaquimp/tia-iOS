@@ -24,19 +24,22 @@ class MaisViewController: UITableViewController, UITableViewDelegate, MFMailComp
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
+        ///////
+        let sairSection = 0
+        ///////
         
         ///////
-        let socialSection   = 0
-        let fbTVMack    = 0
-        let fbRadio     = 1
-        let fbMack      = 2
+        let socialSection   = 1
+        let fbMack      = 0
+        let fbTVMack    = 1
+        let fbRadio     = 2
         let twitter     = 3
         let email       = 4
         let appStore    = 5
         ///////
         
         ///////
-        let equipeSection   = 1
+        let equipeSection   = 2
         ///////
         
         ///////
@@ -45,10 +48,12 @@ class MaisViewController: UITableViewController, UITableViewDelegate, MFMailComp
         let paginaDTI   = 2
         ///////
         
+
         
         
         
-        if indexPath.section == equipeSection {
+        
+        if indexPath.section == equipeSection || indexPath.section == sairSection {
             return
             
         } else if indexPath.section == socialSection {

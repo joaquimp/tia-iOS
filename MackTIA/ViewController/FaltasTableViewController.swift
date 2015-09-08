@@ -11,49 +11,69 @@ import UIKit
 class FaltasTableViewController: UITableViewController {
     
     var faltas:Array<Falta> = TIAManager.sharedInstance.todasFaltas()
-
+    @IBOutlet weak var reloadButtonItem: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "faltasErro:", name: TIAManager.FaltasErroNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "novasFaltas", name: TIAManager.FaltasRecuperadasNotification, object: nil)
-        TIAManager.sharedInstance.atualizarFaltas()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        buscarNovosDados()
+    }
+    
+    // MARK: - Atualizando dados
+    func buscarNovosDados() {
+        
+        self.reloadButtonItem.enabled = false
+        
+        TIAManager.sharedInstance.atualizarFaltas{ (manager, error) -> () in
+            if error != nil {
+                var mensagem = "Erro desconhecido. Se persistir contact o helpdesk"
+                if let info = error?.userInfo as? [String:String] {
+                    if info["mensagem"] != nil {
+                        mensagem = info["mensagem"]!
+                        let descricao = info["descricao"]
+                        println("Descricao do erro: \(descricao)")
+                    }
+                }
+                let alert = UIAlertView(title: "Acesso Negado", message: mensagem, delegate: self, cancelButtonTitle: "OK")
+                alert.show()
+            }
+            
+            self.reloadButtonItem.enabled = true
+            self.faltas = manager.todasFaltas()
+            self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
+        }
+    }
+    
+    @IBAction func reloadButton(sender: AnyObject) {
+        buscarNovosDados()
+    }
+    
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        var delayInSeconds = 1.0;
+        var popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)));
+        dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
+            self.buscarNovosDados()
+        }
     }
 
+    // MARK: - Memory
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Metodos da Notificacao
-    func novasFaltas() {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.faltas = TIAManager.sharedInstance.todasFaltas()
-            self.tableView.reloadData()
-        })
-    }
     
-    func faltasErro(notification:NSNotification){
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            if let let dict = notification.userInfo as? Dictionary<String,String> {
-                
-                let alert = UIAlertView(title: "Acesso Negado", message: dict[TIAManager.DescricaoDoErro], delegate: self, cancelButtonTitle: "OK")
-                alert.show()
-            } else {
-                let alert = UIAlertView(title: "Erro", message: "Não foi possível carregar as faltas, entre em contato com o helpdesk se o erro persistir", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
-            }
-        })
-    }
-
     // MARK: - Table view data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of rows in the section.
         return self.faltas.count
     }
     

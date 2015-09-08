@@ -14,15 +14,6 @@ import Foundation
 */
 class TIAManager {
     
-    // MARK: Constantes para noticacoes de acoes assincronas
-    static let LoginSucessoNotification = "LoginSucessoNotification"
-    static let LoginErroNotification = "LoginErroNotification"
-    static let FaltasRecuperadasNotification = "FaltasRecuperadasNotification"
-    static let FaltasErroNotification = "FaltasErroNotification"
-    static let NotasRecuperadasNotification = "NotasRecuperadasNotification"
-    static let NotasErroNotification = "NotasErroNotification"
-    static let DescricaoDoErro = "descricao"
-    
     // MARK: Seguranca
     private var token_parte1:String
     private var token_parte2:String
@@ -97,7 +88,7 @@ class TIAManager {
         request.addValue("application/json", forHTTPHeaderField: "accept")
         
         let postString = "mat=\(usuario.tia)&pass=\(usuario.senha)&unidade=\(usuario.unidade)&token=\(self.gerarToken())"
-        println(postString)
+        println("Enviando requisição")
         
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         return request
@@ -110,45 +101,79 @@ class TIAManager {
     
     :param: usuario Dados de autenticacao do aluno que esta realizando o login
     */
-    func login(usuario:Usuario) {
+    func login(usuario:Usuario, completionHandler:(TIAManager,NSError?)->()) {
         
-        if usuario.tia == "" || usuario.senha == "" || usuario.unidade == "" {
-            NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.LoginErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro ao informar os dados do aluno"])
-            return
-        }
-        
-        if let stringURL = self.config.objectForKey("loginURL") as? String {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             
-            let request = self.criarRequisicao(stringURL, usuario: usuario)
             
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-                if error != nil {
-                    NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.LoginErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"])
-                    return
-                }
+            var erro:NSError?
+            
+            if usuario.tia == "" || usuario.senha == "" || usuario.unidade == "" {
+                let mensagem = "Erro ao informar os dados do aluno"
+                let descricao = "Alguns dos parametros do usuario nao foi informado"
+                erro = NSError(domain: "TIAManager.login", code: 1, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(self,erro)
+                })
+                return
+            }
+            
+            if let stringURL = self.config.objectForKey("loginURL") as? String {
                 
-                var errorJson:NSError?
-                if let resposta = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? NSDictionary {
-                    
-                    if let ping = resposta.objectForKey("sucesso") as? String {
-                        println("Login: \(ping)")
-                        //Registra usuario logado
-                        self.usuario = usuario
-                        NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.LoginSucessoNotification, object: self)
+                let request = self.criarRequisicao(stringURL, usuario: usuario)
+                
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                    println("Erro: \(error)")
+                    if error != nil {
+                        let mensagem = "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"
+                        let descricao = "Erro ao fazer a requisicao ao servidor do Mackenzie: \(error.description)"
+                        erro = NSError(domain: "TIAManager.login", code: 2, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            completionHandler(self,erro)
+                        })
                         return
-                    } else if let erro = resposta.objectForKey("erro") as? String {
-                        println("Login: \(erro)")
-                        NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.LoginErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Verifique se informou os dados corretamente"])
+                    }//{"erro":"acesso negado"}{"sucesso":"acesso liberado"}
+                    
+                    var errorJson:NSError?
+                    if let resposta = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? NSDictionary {
+                        
+                        if let ping = resposta.objectForKey("sucesso") as? String {
+                            println("Login: \(ping)")
+                            //Registra usuario logado
+                            self.usuario = usuario
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                completionHandler(self,erro)
+                            })
+                            return
+                        } else if let erroAPI = resposta.objectForKey("erro") as? String {
+                            let mensagem = "Verifique se informou os dados corretamente"
+                            let descricao = "Dados incorretos, acesso negado ao servico: \(erroAPI)"
+                            erro = NSError(domain: "TIAManager.login", code: 3, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                completionHandler(self,erro)
+                            })
+                            return
+                        }
+                    } else {
+                        let mensagem = "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"
+                        let descricao = "A mensagem retornada do servidor estar em um formato nao esperado"
+                        erro = NSError(domain: "TIAManager.login", code: 4, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            completionHandler(self,erro)
+                        })
                         return
                     }
-                }
-                
-                NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.LoginErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"])
-            })
-            task.resume()
-        } else {
-            NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.LoginErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro interno no aplicativo. Provavelmente a culpa não é usa, por algum motivo desconhecido o aplicativo não está funcionando. Tente apagar ele do seu dispositivo e instalar novamente. Caso não funcione não deixe de entrar em contato reportando o problema."])
-        }
+                })
+                task.resume()
+            } else {
+                let mensagem = "Erro interno no aplicativo. Provavelmente a culpa não é usa, por algum motivo desconhecido o aplicativo não está funcionando. Tente apagar ele do seu dispositivo e instalar novamente. Caso não funcione não deixe de entrar em contato reportando o problema."
+                let descricao = "Erro interno. Nao encontrou parametro faltasURL no arquivo de configuracao config.plist"
+                erro = NSError(domain: "TIAManager.login", code: 4, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(self,erro)
+                })
+            }
+        })
     }
     
     
@@ -158,49 +183,87 @@ class TIAManager {
     Busca as faltas do aluno autenticado no servidor e salva no banco de dados interno.
     Esta funcao eh assincrona, por isso realiza o envio de notificacoes assim que processa a requisicao
     */
-    func atualizarFaltas() {
-        if self.usuario == nil {
-            NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.FaltasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro de autenticação no servidor. Acesso negado!"])
-            return
-        }
+    func atualizarFaltas(completionHandler:(TIAManager,NSError?)->()) {
         
-        if let stringURL = self.config.objectForKey("faltasURL") as? String {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             
-            let request = self.criarRequisicao(stringURL, usuario: self.usuario!)
+            var erro:NSError?
             
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-                if error != nil {
-                    NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.FaltasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"])
-                    return
-                }
+            if self.usuario == nil {
+                let mensagem = "Erro de autenticação no servidor. Acesso negado!"
+                let descricao = "Objeto usuario eh nulo, nao deve ter passado corretamente pela fase de atuenticacao"
+                erro = NSError(domain: "TIAManager.atualizarFaltas", code: 1, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(self,erro)
+                })
+                return
+            }
+            
+            if let stringURL = self.config.objectForKey("faltasURL") as? String {
                 
-                var errorJson:NSError?
+                let request = self.criarRequisicao(stringURL, usuario: self.usuario!)
                 
-                if let novasFaltas = Falta.parseJSON(data) {
-                    self.faltas = novasFaltas
-                    
-                    NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.FaltasRecuperadasNotification, object: self)
-                    return
-                } else {
-                    var errorJson:NSError?
-                    if let resposta = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? NSDictionary {
-                        
-                        if let erro = resposta.objectForKey("erro") as? String {
-                            println("Atenticação Erro: \(erro)")
-                            NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.FaltasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Problema na autenticação. Deslogue do aplicativo e entre novamente"])
-                            return
-                        } else {
-                            NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.FaltasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"])
-                        }
-                    } else {
-                        NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.FaltasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"])
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                    if error != nil {
+                        let mensagem = "Erro de conexão ao servidor. Verifique sua internet e tente novamente ;)"
+                        let descricao = "Erro ao fazer a requisicao ao servidor do Mackenzie: \(error.description)"
+                        erro = NSError(domain: "TIAManager.atualizarFaltas", code: 2, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            completionHandler(self,erro)
+                        })
+                        return
                     }
-                }
-            })
-            task.resume()
-        } else {
-            NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.FaltasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro interno no aplicativo. Provavelmente a culpa não é usa, por algum motivo desconhecido o aplicativo não está funcionando. Tente apagar ele do seu dispositivo e instalar novamente. Caso não funcione não deixe de entrar em contato reportando o problema."])
-        }
+                    
+                    var errorJson:NSError?
+                    
+                    if let novasFaltas = Falta.parseJSON(data) {
+                        self.faltas = novasFaltas
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            completionHandler(self,erro)
+                        })
+                        return
+                    } else {
+                        var errorJson:NSError?
+                        if let resposta = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? NSDictionary {
+                            
+                            if let erroAPI = resposta.objectForKey("erro") as? String {
+                                let mensagem = "Problema na autenticação. Deslogue do aplicativo e entre novamente"
+                                let descricao = "Dados incorretos, acesso negado ao servico: \(erroAPI)"
+                                erro = NSError(domain: "TIAManager.atualizarFaltas", code: 3, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    completionHandler(self,erro)
+                                })
+                                return
+                            } else {
+                                let mensagem = "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"
+                                let descricao = "A mensagem desenvolvida pela API do Mackenzie-TIA nao eh esperada ou nao esta no formato esperado"
+                                erro = NSError(domain: "TIAManager.atualizarFaltas", code: 4, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    completionHandler(self,erro)
+                                })
+                                return
+                            }
+                        } else {
+                            let mensagem = "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"
+                            let descricao = "A mensagem desenvolvida pela API do Mackenzie-TIA nao esta no formato esperado"
+                            erro = NSError(domain: "TIAManager.atualizarFaltas", code: 5, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                completionHandler(self,erro)
+                            })
+                            return
+                        }
+                    }
+                })
+                task.resume()
+            } else {
+                let mensagem = "Erro interno no aplicativo. Provavelmente a culpa não é usa, por algum motivo desconhecido o aplicativo não está funcionando. Tente apagar ele do seu dispositivo e instalar novamente. Caso não funcione não deixe de entrar em contato reportando o problema."
+                let descricao = "Erro interno. Nao encontrou parametro notasURL no arquivo de configuracao config.plist"
+                erro = NSError(domain: "TIAManager.atualizarFaltas", code: 6, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(self,erro)
+                })
+            }
+        })
     }
     
     
@@ -214,9 +277,9 @@ class TIAManager {
         //Precisa reimplementar com CoreData!!!!
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         
-//        if self.faltas.count == 0 {
-//            let faltas = Falta.buscarFaltas()
-//        }
+        //        if self.faltas.count == 0 {
+        //            let faltas = Falta.buscarFaltas()
+        //        }
         
         return self.faltas
     }
@@ -227,49 +290,87 @@ class TIAManager {
     Busca as notas do aluno autenticado no servidor e salva no banco de dados interno.
     Esta funcao eh assincrona, por isso realiza o envio de notificacoes assim que processa a requisicao
     */
-    func atualizarNotas() {
-        if self.usuario == nil {
-            NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.NotasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro de autenticação no servidor. Acesso negado!"])
-            return
-        }
+    func atualizarNotas(completionHandler:(TIAManager,NSError?) -> ()) {
         
-        if let stringURL = self.config.objectForKey("notasURL") as? String {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            var erro:NSError?
             
-            let request = self.criarRequisicao(stringURL, usuario: self.usuario!)
+            if self.usuario == nil {
+                let mensagem = "Erro de autenticação no servidor. Acesso negado!"
+                let descricao = "Objeto usuario eh nulo, nao deve ter passado corretamente pela fase de atuenticacao"
+                erro = NSError(domain: "TIAManager.atualizarNotas", code: 1, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(self,erro)
+                })
+                return
+            }
             
-            let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-                if error != nil {
-                    NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.NotasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"])
-                    return
-                }
+            if let stringURL = self.config.objectForKey("notasURL") as? String {
                 
-                var errorJson:NSError?
+                let request = self.criarRequisicao(stringURL, usuario: self.usuario!)
                 
-                if let novasNotas = Nota.parseJSON(data) {
-                    self.notas = novasNotas
-                    
-                    NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.NotasRecuperadasNotification, object: self)
-                    return
-                } else {
-                    var errorJson:NSError?
-                    if let resposta = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? NSDictionary {
-                        
-                        if let erro = resposta.objectForKey("erro") as? String {
-                            println("Atenticação Erro: \(erro)")
-                            NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.NotasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Problema na autenticação. Deslogue do aplicativo e entre novamente"])
-                            return
-                        } else {
-                            NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.NotasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"])
-                        }
-                    } else {
-                        NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.NotasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"])
+                let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                    if error != nil {
+                        let mensagem = "Erro de conexão ao servidor. Verifique sua internet e tente novamente ;)"
+                        let descricao = "Erro ao fazer a requisicao ao servidor do Mackenzie: \(error.description)"
+                        erro = NSError(domain: "TIAManager.atualizarNotas", code: 2, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            completionHandler(self,erro)
+                        })
+                        return
                     }
-                }
-            })
-            task.resume()
-        } else {
-            NSNotificationCenter.defaultCenter().postNotificationName(TIAManager.NotasErroNotification, object: self, userInfo: [TIAManager.DescricaoDoErro : "Erro interno no aplicativo. Provavelmente a culpa não é usa, por algum motivo desconhecido o aplicativo não está funcionando. Tente apagar ele do seu dispositivo e instalar novamente. Caso não funcione não deixe de entrar em contato reportando o problema."])
-        }
+                    
+                    var errorJson:NSError?
+                    
+                    if let novasNotas = Nota.parseJSON(data) {
+                        self.notas = novasNotas
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            completionHandler(self,erro)
+                        })
+                        return
+                    } else {
+                        var errorJson:NSError?
+                        if let resposta = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? NSDictionary {
+                            
+                            if let erroAPI = resposta.objectForKey("erro") as? String {
+                                let mensagem = "Problema na autenticação. Deslogue do aplicativo e entre novamente. Se o problema persistir contacte o helpdesk"
+                                let descricao = "A API Mackenzie-TIA retornou mensagem de erro: \(erroAPI)"
+                                erro = NSError(domain: "TIAManager.atualizarNotas", code: 3, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    completionHandler(self,erro)
+                                })
+                                return
+                            } else {
+                                let mensagem = "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"
+                                let descricao = "A mensagem desenvolvida pela API do Mackenzie-TIA nao eh esperada ou nao esta no formato esperado"
+                                erro = NSError(domain: "TIAManager.atualizarNotas", code: 4, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                    completionHandler(self,erro)
+                                })
+                                return
+                            }
+                        } else {
+                            let mensagem = "Erro ao acessar o serviço do Mackenzie. Provavelmente a culpa não é usa, por favor verifique se sua internet está funcionando. Se o problema persistir entre em contato com o helpdesk"
+                            let descricao = "A mensagem desenvolvida pela API do Mackenzie-TIA nao esta no formato esperado"
+                            erro = NSError(domain: "TIAManager.atualizarNotas", code: 5, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                completionHandler(self,erro)
+                            })
+                            return
+                        }
+                    }
+                })
+                task.resume()
+            } else {
+                let mensagem = "Erro interno no aplicativo. Provavelmente a culpa não é usa, por algum motivo desconhecido o aplicativo não está funcionando. Tente apagar ele do seu dispositivo e instalar novamente. Caso não funcione não deixe de entrar em contato reportando o problema."
+                let descricao = "Erro interno. Nao encontrou parametro notasURL no arquivo de configuracao config.plist"
+                erro = NSError(domain: "TIAManager.atualizarNotas", code: 6, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(self,erro)
+                })
+            }
+        })
+        
     }
     
     

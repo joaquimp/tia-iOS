@@ -13,6 +13,8 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     @IBOutlet weak var passTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var unidadePickerView: AKPickerView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var bloqueiView: UIVisualEffectView!
     
     var unidades:Array<String>!
     var unidadesCodigo:Array<String>!
@@ -53,7 +55,6 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         
         self.loginButton.layer.cornerRadius = 7
         
-        
         self.unidadePickerView.delegate = self
         self.unidadePickerView.dataSource = self
         self.unidadePickerView.layer.cornerRadius = 7
@@ -61,9 +62,11 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         self.unidadePickerView.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.7)
         self.unidadePickerView.highlightedTextColor = UIColor.whiteColor()
         
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loginSucesso", name: TIAManager.LoginSucessoNotification, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "loginErro:", name: TIAManager.LoginErroNotification, object: nil)
+        // este codigo existe para que na storyboard a view e o activityIndicator possam ficar de fundo sem atrapalhar o trabalho do desgin
+        self.view.bringSubviewToFront(self.bloqueiView)
+        self.view.bringSubviewToFront(self.activityIndicator)
+        self.activityIndicator.hidden = true
+        self.bloqueiView.hidden = true
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -76,27 +79,27 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     }
     
     
-    // MARK: Util
-    func loginSucesso() {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            self.performSegueWithIdentifier("login", sender: self)
-        })
-        
-    }
-    
-    func loginErro(notification:NSNotification) {
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-            
-            if let let dict = notification.userInfo as? Dictionary<String,String> {
-            
-                let alert = UIAlertView(title: "Acesso Negado", message: dict[TIAManager.DescricaoDoErro], delegate: self, cancelButtonTitle: "OK")
-                alert.show()
-            } else {
-                let alert = UIAlertView(title: "Erro", message: "Não foi possível fazer login, entre em contato com o helpdesk se o erro persistir", delegate: self, cancelButtonTitle: "OK")
-                alert.show()
-            }
-        })
-    }
+//    // MARK: Util
+//    func loginSucesso() {
+//        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//            self.performSegueWithIdentifier("login", sender: self)
+//        })
+//        
+//    }
+//    
+//    func loginErro(notification:NSNotification) {
+//        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+//            
+//            if let let dict = notification.userInfo as? Dictionary<String,String> {
+//            
+//                let alert = UIAlertView(title: "Acesso Negado", message: dict[TIAManager.DescricaoDoErro], delegate: self, cancelButtonTitle: "OK")
+//                alert.show()
+//            } else {
+//                let alert = UIAlertView(title: "Erro", message: "Não foi possível fazer login, entre em contato com o helpdesk se o erro persistir", delegate: self, cancelButtonTitle: "OK")
+//                alert.show()
+//            }
+//        })
+//    }
     
     // MARK: IBAction
     @IBAction func login(sender: AnyObject) {
@@ -104,7 +107,30 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         usuario.tia = tiaTextField.text
         usuario.senha = passTextField.text
         usuario.unidade = self.unidadesCodigo[self.unidadePickerView.selectedItem]
-        TIAManager.sharedInstance.login(usuario)
+
+        
+        self.bloqueiView.hidden = false
+        
+        self.activityIndicator.startAnimating()
+        
+        TIAManager.sharedInstance.login(usuario, completionHandler: { (manager, error) -> () in
+            self.activityIndicator?.stopAnimating()
+            
+            self.bloqueiView.hidden = true
+            
+            if error != nil {
+                var mensagem = "Erro desconhecido. Se persistir contact o helpdesk"
+                if let info = error?.userInfo as? [String:String] {
+                    if info["mensagem"] != nil {
+                        mensagem = info["mensagem"]!
+                    }
+                }
+                let alert = UIAlertView(title: "Acesso Negado", message: mensagem, delegate: self, cancelButtonTitle: "OK")
+                alert.show()
+                return
+            }
+            self.performSegueWithIdentifier("login", sender: self)
+        })
     }
 
     
@@ -138,6 +164,15 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         
     }
     
+    // MARK: Rotation Support
+    
+    override func supportedInterfaceOrientations() -> Int {
+        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    }
+    
+    override func shouldAutorotate() -> Bool {
+        return false
+    }
 
     /*
     // MARK: - Navigation

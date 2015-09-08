@@ -12,13 +12,15 @@ import UIKit
 
 class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     @IBOutlet weak var nomeDisciplina: UILabel!
-    
+    @IBOutlet weak var formula: UILabel!
     @IBOutlet weak var notasFinaisCollectionView: UICollectionView!
     @IBOutlet weak var notasIntermediariasCollectionView: UICollectionView!
+    
     var nota:Nota? {
         didSet{
             if nota != nil {
                 self.nomeDisciplina.text = nota!.disciplina
+                self.formula.text = "Fórmula: \(nota!.formula.stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!.lowercaseString)"
                 self.notasIntermediariasCollectionView.reloadData()
                 self.notasFinaisCollectionView.reloadData()
             }
