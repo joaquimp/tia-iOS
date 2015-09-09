@@ -13,33 +13,38 @@ import MessageUI
 
 class MaisViewController: UITableViewController, UITableViewDelegate, MFMailComposeViewControllerDelegate {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+//        self.tableView.setContentOffset(CGPointMake(0, -230), animated: false)
+    }
+    
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         UIApplication.sharedApplication().statusBarStyle = .Default
     }
     
     override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         UIApplication.sharedApplication().statusBarStyle = .LightContent
     }
+    
+    
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
         ///////
-        let sairSection = 0
-        ///////
-        
-        ///////
-        let socialSection   = 1
+        let socialSection   = 0
         let fbMack      = 0
-        let fbTVMack    = 1
-        let fbRadio     = 2
-        let twitter     = 3
-        let email       = 4
-        let appStore    = 5
+//        let fbTVMack    = 1
+        let fbRadio     = 1
+        let twitter     = 2
+        let email       = 3
+        let appStore    = 4
         ///////
         
         ///////
-        let equipeSection   = 2
+        let equipeSection   = 1
         ///////
         
         ///////
@@ -48,28 +53,23 @@ class MaisViewController: UITableViewController, UITableViewDelegate, MFMailComp
         let paginaDTI   = 2
         ///////
         
-
-        
-        
-        
-        
-        if indexPath.section == equipeSection || indexPath.section == sairSection {
+        if indexPath.section == equipeSection {
             return
             
         } else if indexPath.section == socialSection {
             switch(indexPath.row){
-            case fbTVMack:
-                // Curtir pagina da TV Mackenzie
-                var url = NSURL(string: "fb://profile/200809299999744")
-                if url == nil || !UIApplication.sharedApplication().canOpenURL(url!) {
-                    var safariURL = NSURL(string: "https://www.facebook.com/TvMackenzie")
-                    if safariURL == nil {
-                        println("Não conseguiu abrir facebook")
-                        return
-                    }
-                    url = safariURL
-                }
-                UIApplication.sharedApplication().openURL(url!)
+//            case fbTVMack:
+//                // Curtir pagina da TV Mackenzie
+//                var url = NSURL(string: "fb://profile/200809299999744")
+//                if url == nil || !UIApplication.sharedApplication().canOpenURL(url!) {
+//                    var safariURL = NSURL(string: "https://www.facebook.com/TvMackenzie")
+//                    if safariURL == nil {
+//                        println("Não conseguiu abrir facebook")
+//                        return
+//                    }
+//                    url = safariURL
+//                }
+//                UIApplication.sharedApplication().openURL(url!)
             case fbRadio:
                 // Curtir pagina da Radio Mackenzie
                 var url = NSURL(string: "fb://profile/795338763868734")
@@ -151,4 +151,5 @@ class MaisViewController: UITableViewController, UITableViewDelegate, MFMailComp
             return
         }
     }
+    
 }

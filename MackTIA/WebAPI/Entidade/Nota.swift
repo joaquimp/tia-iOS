@@ -67,7 +67,9 @@ class Nota: NSManagedObject {
         let fetchedResults = CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
         
         if let results = fetchedResults as? [Nota] {
-            return results[0]
+            if results.count > 0 {
+                return results[0]
+            }
         } else {
             println("Could not fetch. Error: \(error), \(error!.userInfo)")
         }
@@ -81,131 +83,138 @@ class Nota: NSManagedObject {
         var notas:Array<Nota>? = Array<Nota>()
         
         var errorJson:NSError?
-        //        if let resposta = NSJSONSerialization.JSONObjectWithData(notaData, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? NSDictionary {
-        if let resposta = NSJSONSerialization.JSONObjectWithData(notaData, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? Array<NSDictionary> {
+        if let resposta = NSJSONSerialization.JSONObjectWithData(notaData, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? NSDictionary {
+            //        if let resposta = NSJSONSerialization.JSONObjectWithData(notaData, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? Array<NSDictionary> {
             
-            //if let notasJSON = resposta.objectForKey("resposta") as? Array<NSDictionary> {
-            //                for notaDic in notasJSON {
-            for notaDic in resposta {
-                
-                let nota = Nota.novaNota()
-                let notaVazia = " - "
-                
-                if let codigo = notaDic["cdisc"] as? String {
-                    nota.codigo = codigo
-                } else { return nil }
-                
-                if let disciplina = notaDic["ddisc"] as? String {
-                    nota.disciplina = disciplina//.capitalizedStringWithLocale(NSLocale.currentLocale())
-                } else { return nil }
-                
-                if let a = notaDic["a"] as? String {
-                    nota.a = a
-                } else {
-                    nota.a = notaVazia
-                }
-                
-                if let b = notaDic["b"] as? String {
-                    nota.b = b
-                } else {
-                    nota.b = notaVazia
-                }
-                
-                if let c = notaDic["c"] as? String {
-                    nota.c = c
-                } else {
-                    nota.c = notaVazia
-                }
-                
-                if let d = notaDic["d"] as? String {
-                    nota.d = d
-                } else {
-                    nota.d = notaVazia
-                }
-                
-                if let e = notaDic["e"] as? String {
-                    nota.e = e
-                } else {
-                    nota.e = notaVazia
-                }
-                
-                if let f = notaDic["f"] as? String {
-                    nota.f = f
-                } else {
-                    nota.f = notaVazia
-                }
-                
-                if let g = notaDic["g"] as? String {
-                    nota.g = g
-                } else {
-                    nota.g = notaVazia
-                }
-                
-                if let h = notaDic["h"] as? String {
-                    nota.h = h
-                } else {
-                    nota.h = notaVazia
-                }
-                
-                if let i = notaDic["i"] as? String {
-                    nota.i = i
-                } else {
-                    nota.i = notaVazia
-                }
-                
-                if let j = notaDic["j"] as? String {
-                    nota.j = j
-                } else {
-                    nota.j = notaVazia
-                }
-                
-                if let sub = notaDic["sub"] as? String {
-                    nota.sub = sub
-                } else {
-                    nota.sub = notaVazia
-                }
-                
-                if let substituida = notaDic["substituida"] as? String {
-                    nota.substituida = substituida
-                } else {
-                    nota.substituida = notaVazia
-                }
-                
-                if let partic = notaDic["partic"] as? String {
-                    nota.partic = partic
-                } else {
-                    nota.partic = notaVazia
-                }
-                
-                if var mi = notaDic["med_intermediaria"] as? String {
-                    if mi == "." || mi == "" {
-                        mi = "0"
+            if let notasJSON = resposta.objectForKey("resposta") as? Array<NSDictionary> {
+                for notaDic in notasJSON {
+                    //            for notaDic in resposta {
+                    
+                    var nota:Nota?
+                    let notaVazia = " - "
+                    
+                    if let codigo = notaDic["codigo"] as? String {
+                        if let notaExistente = self.buscarNota(codigo) {
+                            nota = notaExistente
+                        } else {
+                            nota = Nota.novaNota()
+                        }
+                        nota?.codigo = codigo
+                    } else { return nil }
+                    
+                    if let disciplina = notaDic["disciplina"] as? String {
+                        nota?.disciplina = disciplina//.capitalizedStringWithLocale(NSLocale.currentLocale())
+                    } else { return nil }
+                    
+                    if let a = notaDic["a"] as? String {
+                        nota?.a = a
+                    } else {
+                        nota?.a = notaVazia
                     }
-                    nota.mi = mi
-                } else { return nil }
-                
-                if let pf = notaDic["pf"] as? String {
-                    nota.pf = pf
-                } else {
-                    nota.pf = notaVazia
-                }
-                
-                if var mf = notaDic["med2"] as? String {
-                    if mf == "." || mf == "" {
-                        mf = "0"
+                    
+                    if let b = notaDic["b"] as? String {
+                        nota?.b = b
+                    } else {
+                        nota?.b = notaVazia
                     }
-                    nota.mf = mf
-                } else { return nil }
-                
-                if let formula = notaDic["formu"] as? String {
-                    nota.formula = formula
-                } else { return nil }
-                
-                notas!.append(nota)
+                    
+                    if let c = notaDic["c"] as? String {
+                        nota?.c = c
+                    } else {
+                        nota?.c = notaVazia
+                    }
+                    
+                    if let d = notaDic["d"] as? String {
+                        nota?.d = d
+                    } else {
+                        nota?.d = notaVazia
+                    }
+                    
+                    if let e = notaDic["e"] as? String {
+                        nota?.e = e
+                    } else {
+                        nota?.e = notaVazia
+                    }
+                    
+                    if let f = notaDic["f"] as? String {
+                        nota?.f = f
+                    } else {
+                        nota?.f = notaVazia
+                    }
+                    
+                    if let g = notaDic["g"] as? String {
+                        nota?.g = g
+                    } else {
+                        nota?.g = notaVazia
+                    }
+                    
+                    if let h = notaDic["h"] as? String {
+                        nota?.h = h
+                    } else {
+                        nota?.h = notaVazia
+                    }
+                    
+                    if let i = notaDic["i"] as? String {
+                        nota?.i = i
+                    } else {
+                        nota?.i = notaVazia
+                    }
+                    
+                    if let j = notaDic["j"] as? String {
+                        nota?.j = j
+                    } else {
+                        nota?.j = notaVazia
+                    }
+                    
+                    if let sub = notaDic["sub"] as? String {
+                        nota?.sub = sub
+                    } else {
+                        nota?.sub = notaVazia
+                    }
+                    
+                    if let substituida = notaDic["substituida"] as? String {
+                        nota?.substituida = substituida
+                    } else {
+                        nota?.substituida = notaVazia
+                    }
+                    
+                    if let partic = notaDic["partic"] as? String {
+                        nota?.partic = partic
+                    } else {
+                        nota?.partic = notaVazia
+                    }
+                    
+                    if var mi = notaDic["mi"] as? String {
+                        if mi == "." || mi == "" {
+                            mi = "0"
+                        }
+                        nota?.mi = mi
+                    } else { return nil }
+                    
+                    if let pf = notaDic["pf"] as? String {
+                        nota?.pf = pf
+                    } else {
+                        nota?.pf = notaVazia
+                    }
+                    
+                    if var mf = notaDic["mf"] as? String {
+                        if mf == "." || mf == "" {
+                            mf = "0"
+                        }
+                        nota?.mf = mf
+                    } else { return nil }
+                    
+                    if let formula = notaDic["formula"] as? String {
+                        nota?.formula = formula
+                    } else { return nil }
+                    
+                    nota?.salvar()
+                    notas!.append(nota!)
+                    NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "notaAtualizacao")
+                }
+                return notas
             }
-            return notas
-        } else {
-            return nil
         }
+        return nil
     }
 }

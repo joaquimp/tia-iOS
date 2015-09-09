@@ -2,9 +2,6 @@
 /* Class = "UILabel"; text = "100%"; ObjectID = "1Kb-lh-SPq"; */
 "1Kb-lh-SPq.text" = "100%";
 
-/* Class = "UITabBarItem"; title = "Notas"; ObjectID = "1eA-66-8l2"; */
-"1eA-66-8l2.title" = "Notas";
-
 /* Class = "UILabel"; text = "9"; ObjectID = "2Qn-Qb-Ned"; */
 "2Qn-Qb-Ned.text" = "9";
 
@@ -13,6 +10,9 @@
 
 /* Class = "UITableViewController"; title = "Notas"; ObjectID = "31A-s9-rZ7"; */
 "31A-s9-rZ7.title" = "Notas";
+
+/* Class = "UILabel"; text = "10.0"; ObjectID = "3gr-DO-a7v"; */
+"3gr-DO-a7v.text" = "10.0";
 
 /* Class = "UILabel"; text = "Rafael de Souza Mota"; ObjectID = "4o2-0n-YLU"; */
 "4o2-0n-YLU.text" = "Rafael de Souza Mota";
@@ -37,6 +37,9 @@
 
 /* Class = "UINavigationItem"; title = "Mapa"; ObjectID = "GER-Nl-gFq"; */
 "GER-Nl-gFq.title" = "Mapa";
+
+/* Class = "UILabel"; text = "Curtir página da TV Mackenzie"; ObjectID = "GkD-6a-l54"; */
+"GkD-6a-l54.text" = "Curtir página da TV Mackenzie";
 
 /* Class = "UILabel"; text = "Rafael de Souza Mota"; ObjectID = "Iq7-9B-q3J"; */
 "Iq7-9B-q3J.text" = "Rafael de Souza Mota";
@@ -137,11 +140,17 @@
 /* Class = "UILabel"; text = "Previstas:"; ObjectID = "sGn-iJ-MSn"; */
 "sGn-iJ-MSn.text" = "Previstas:";
 
+/* Class = "UILabel"; text = "A"; ObjectID = "tjF-i9-thb"; */
+"tjF-i9-thb.text" = "A";
+
 /* Class = "UILabel"; text = "Aluno da Faculdade de Engenharia\nDesign/Desenvolvimento do aplicativo iOS"; ObjectID = "uIt-Dc-opl"; */
 "uIt-Dc-opl.text" = "Aluno da Faculdade de Engenharia\nDesign/Desenvolvimento do aplicativo iOS";
 
 /* Class = "UINavigationItem"; title = "Notas"; ObjectID = "uVX-kZ-4Y4"; */
 "uVX-kZ-4Y4.title" = "Notas";
+
+/* Class = "UITableViewSection"; headerTitle = " Opcões"; ObjectID = "vos-Ms-iEK"; */
+"vos-Ms-iEK.headerTitle" = " Opcões";
 
 /* Class = "UINavigationController"; title = "Notas"; ObjectID = "wGq-ag-kh1"; */
 "wGq-ag-kh1.title" = "Notas";

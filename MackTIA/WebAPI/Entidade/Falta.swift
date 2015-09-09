@@ -57,7 +57,9 @@ class Falta: NSManagedObject {
         let fetchedResults = CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
         
         if let results = fetchedResults as? [Falta] {
-            return results[0]
+            if results.count > 0 {
+                return results[0]
+            }
         } else {
             println("Could not fetch. Error: \(error), \(error!.userInfo)")
         }
@@ -77,47 +79,52 @@ class Falta: NSManagedObject {
                 
                 for faltaDic in faltasJSON {
 
-                    let falta = Falta.novaFalta()
+                    let falta:Falta?
                     
                     if let codigo = faltaDic["codigo"] as? String {
-                        falta.codigo = codigo
+                        if let faltaExistente = Falta.buscarFalta(codigo) {
+                            falta = faltaExistente
+                        } else {
+                            falta = Falta.novaFalta()
+                        }
+                        falta?.codigo = codigo
                     } else { return nil }
                     
                     if let disciplina = faltaDic["disciplina"] as? String {
-                        
-                        falta.disciplina = disciplina//.capitalizedStringWithLocale(NSLocale.currentLocale())
+                        falta?.disciplina = disciplina
                     } else { return nil }
                     
                     if let turma = faltaDic["turma"] as? String {
-                        falta.turma = turma
+                        falta?.turma = turma
                     } else { return nil }
                     
                     if let aulasDadas = faltaDic["dadas"] as? Int {
-                        falta.aulasDadas = aulasDadas
+                        falta?.aulasDadas = aulasDadas
                     } else { return nil }
                     
                     if let permitidas20 = faltaDic["permit20"] as? Int {
-                        falta.permitidas20 = permitidas20
+                        falta?.permitidas20 = permitidas20
                     } else { return nil }
                     
                     if let permitidas = faltaDic["permit"] as? Int {
-                        falta.permitidas = permitidas
+                        falta?.permitidas = permitidas
                     } else { return nil }
                     
                     if let faltas = faltaDic["faltas"] as? Int {
-                        falta.faltas = faltas
+                        falta?.faltas = faltas
                     } else { return nil }
                     
                     if let percentual = faltaDic["percentual"] as? Float {
-                        falta.percentual = percentual
+                        falta?.percentual = percentual
                     } else { return nil }
                     
                     if let atualizacao = faltaDic["atualizacao"] as? String {
-                        falta.atualizacao = atualizacao
+                        falta?.atualizacao = atualizacao
                     } else { return nil }
                     
-                    faltas!.append(falta)
-
+                    falta?.salvar()
+                    faltas!.append(falta!)
+                    NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "faltaAtualizacao")
                 }
                 return faltas
             } else {

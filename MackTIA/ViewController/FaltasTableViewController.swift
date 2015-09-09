@@ -10,17 +10,21 @@ import UIKit
 
 class FaltasTableViewController: UITableViewController {
     
-    var faltas:Array<Falta> = TIAManager.sharedInstance.todasFaltas()
+    var faltas:Array<Falta> = TIAManager.sharedInstance.faltas
     @IBOutlet weak var reloadButtonItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
-        buscarNovosDados()
+        if self.faltas.count == 0 {
+            buscarNovosDados()
+        }
     }
     
     // MARK: - Atualizando dados
@@ -43,18 +47,19 @@ class FaltasTableViewController: UITableViewController {
             }
             
             self.reloadButtonItem.enabled = true
-            self.faltas = manager.todasFaltas()
+            self.faltas = manager.faltas
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
         }
     }
+    
     
     @IBAction func reloadButton(sender: AnyObject) {
         buscarNovosDados()
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        var delayInSeconds = 1.0;
+        var delayInSeconds = 0.5;
         var popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)));
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             self.buscarNovosDados()
@@ -64,7 +69,6 @@ class FaltasTableViewController: UITableViewController {
     // MARK: - Memory
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     
@@ -85,5 +89,16 @@ class FaltasTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 130
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let date = NSUserDefaults.standardUserDefaults().objectForKey("faltaAtualizacao") as? NSDate {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd.MM.yyyy - HH:mm"
+            return NSLocalizedString("atualizacao.data", comment: "Não existe informação sobre atualização") + dateFormatter.stringFromDate(date)
+        }
+        
+        return NSLocalizedString("atualizacaoNaoInformada", comment: "Não existe informação sobre atualização")
+        
     }
 }

@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		6353C8101FCFC8B5B5CB9264 /* Pods_MackTIATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */; };
-		9246D50E1B9A4EBF00F0674D /* Faltas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50D1B9A4EBF00F0674D /* Faltas.swift */; };
+		9246D50E1B9A4EBF00F0674D /* Falta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50D1B9A4EBF00F0674D /* Falta.swift */; };
 		9246D5121B9A722B00F0674D /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D5111B9A722B00F0674D /* AKPickerView.swift */; };
 		9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8821B87ADB3004284E3 /* AppDelegate.swift */; };
 		9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8841B87ADB3004284E3 /* MackTIA.xcdatamodeld */; };
-		9289B88B1B87ADB3004284E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9289B8891B87ADB3004284E3 /* Main.storyboard */; };
 		9289B8901B87ADB3004284E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */; };
 		9289B89C1B87ADB3004284E3 /* MackTIATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B89B1B87ADB3004284E3 /* MackTIATests.swift */; };
+		929C92B31B9F720500844564 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 929C92B51B9F720500844564 /* Localizable.strings */; };
+		929C92BC1B9F8FEB00844564 /* MaisContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 929C92BB1B9F8FEB00844564 /* MaisContainerViewController.swift */; };
+		929C92C11B9F90EB00844564 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 929C92BF1B9F90EB00844564 /* Main.storyboard */; };
 		92B9E8971B87B8D7004C1DE4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */; };
 		92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8A51B87BF93004C1DE4 /* extension.swift */; };
 		92B9E8A81B87C1E5004C1DE4 /* token.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B9E8A71B87C1E5004C1DE4 /* token.plist */; };
@@ -66,17 +68,21 @@
 		31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MackTIATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E524A4CF42EB188E445412B /* Pods-MackTIA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIA.release.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA.release.xcconfig"; sourceTree = "<group>"; };
 		9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataHelper.swift; path = WebAPI/CoreDataHelper.swift; sourceTree = "<group>"; };
-		9246D50D1B9A4EBF00F0674D /* Faltas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Faltas.swift; path = WebAPI/Entidade/Faltas.swift; sourceTree = "<group>"; };
+		9246D50D1B9A4EBF00F0674D /* Falta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Falta.swift; path = WebAPI/Entidade/Falta.swift; sourceTree = "<group>"; };
 		9246D5111B9A722B00F0674D /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
 		9289B87D1B87ADB3004284E3 /* MackTIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MackTIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9289B8811B87ADB3004284E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9289B8821B87ADB3004284E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9289B8851B87ADB3004284E3 /* MackTIA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MackTIA.xcdatamodel; sourceTree = "<group>"; };
-		9289B88A1B87ADB3004284E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9289B88F1B87ADB3004284E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9289B8951B87ADB3004284E3 /* MackTIATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MackTIATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9289B89A1B87ADB3004284E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9289B89B1B87ADB3004284E3 /* MackTIATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MackTIATests.swift; sourceTree = "<group>"; };
+		929C92B41B9F720500844564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		929C92BA1B9F7C7000844564 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		929C92BB1B9F8FEB00844564 /* MaisContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaisContainerViewController.swift; path = ViewController/MaisContainerViewController.swift; sourceTree = "<group>"; };
+		929C92C01B9F90EB00844564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		929C92C31B9F94F100844564 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewController/LoginViewController.swift; sourceTree = "<group>"; };
 		92B9E89F1B87BDAC004C1DE4 /* MackTIA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MackTIA-Bridging-Header.h"; sourceTree = "<group>"; };
 		92B9E8A31B87BF39004C1DE4 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
@@ -85,7 +91,6 @@
 		92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TIAManager.swift; path = WebAPI/TIAManager.swift; sourceTree = "<group>"; };
 		92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Usuario.swift; path = WebAPI/Entidade/Usuario.swift; sourceTree = "<group>"; };
 		92B9E8DF1B87CA07004C1DE4 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = WebAPI/config.plist; sourceTree = "<group>"; };
-		A15BB2CA1B9AA51700143EBE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
 		A15BB2CB1B9AA51700143EBE /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaltaTableViewCell.swift; path = "ViewController/Custom Cells/FaltaTableViewCell.swift"; sourceTree = "<group>"; };
 		A15BB2D11B9AB82400143EBE /* CircleGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleGraphView.swift; path = "ViewController/Custom Views/CircleGraphView.swift"; sourceTree = "<group>"; };
@@ -143,7 +148,7 @@
 		9246D50C1B9A4E5C00F0674D /* Entidades */ = {
 			isa = PBXGroup;
 			children = (
-				9246D50D1B9A4EBF00F0674D /* Faltas.swift */,
+				9246D50D1B9A4EBF00F0674D /* Falta.swift */,
 				92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */,
 				A15BB2F11B9BD26300143EBE /* Nota.swift */,
 			);
@@ -176,7 +181,7 @@
 				92B9E8981B87B8DE004C1DE4 /* ViewControllers */,
 				92B9E8A91B87C217004C1DE4 /* WebAPI */,
 				9289B8821B87ADB3004284E3 /* AppDelegate.swift */,
-				9289B8891B87ADB3004284E3 /* Main.storyboard */,
+				929C92BF1B9F90EB00844564 /* Main.storyboard */,
 				9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */,
 				A15BB2D41B9ACBD900143EBE /* Images.xcassets */,
 				9246D5111B9A722B00F0674D /* AKPickerView.swift */,
@@ -194,6 +199,7 @@
 				92B9E89F1B87BDAC004C1DE4 /* MackTIA-Bridging-Header.h */,
 				9289B8841B87ADB3004284E3 /* MackTIA.xcdatamodeld */,
 				92B9E8DF1B87CA07004C1DE4 /* config.plist */,
+				929C92B51B9F720500844564 /* Localizable.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -224,6 +230,7 @@
 				A16372391B89915A000A9C69 /* FaltasTableViewController.swift */,
 				A15BB2EA1B9BCEFF00143EBE /* NotasTableViewController.swift */,
 				A15BB2D81B9ACCDD00143EBE /* MaisViewController.swift */,
+				929C92BB1B9F8FEB00844564 /* MaisContainerViewController.swift */,
 				A15BB2E71B9AD2FD00143EBE /* MapaViewController.h */,
 				A15BB2E81B9AD2FD00143EBE /* MapaViewController.m */,
 				A15BB2E61B9AD2AF00143EBE /* Mapa */,
@@ -357,6 +364,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 9289B8741B87ADB3004284E3;
 			productRefGroup = 9289B87E1B87ADB3004284E3 /* Products */;
@@ -374,9 +382,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9289B88B1B87ADB3004284E3 /* Main.storyboard in Resources */,
+				929C92B31B9F720500844564 /* Localizable.strings in Resources */,
 				A15BB2D51B9ACBD900143EBE /* Images.xcassets in Resources */,
 				9289B8901B87ADB3004284E3 /* LaunchScreen.xib in Resources */,
+				929C92C11B9F90EB00844564 /* Main.storyboard in Resources */,
 				92B9E8A81B87C1E5004C1DE4 /* token.plist in Resources */,
 				92B9E8E01B87CA07004C1DE4 /* config.plist in Resources */,
 			);
@@ -491,6 +500,7 @@
 			files = (
 				9246D5121B9A722B00F0674D /* AKPickerView.swift in Sources */,
 				A15BB2D91B9ACCDD00143EBE /* MaisViewController.swift in Sources */,
+				929C92BC1B9F8FEB00844564 /* MaisContainerViewController.swift in Sources */,
 				92B9E8971B87B8D7004C1DE4 /* LoginViewController.swift in Sources */,
 				92B9E8DC1B87C992004C1DE4 /* TIAManager.swift in Sources */,
 				A163723A1B89915A000A9C69 /* FaltasTableViewController.swift in Sources */,
@@ -502,7 +512,7 @@
 				A15BB2D21B9AB82400143EBE /* CircleGraphView.swift in Sources */,
 				A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */,
 				A15BB2F41B9BD79800143EBE /* NotaCollectionViewCell.swift in Sources */,
-				9246D50E1B9A4EBF00F0674D /* Faltas.swift in Sources */,
+				9246D50E1B9A4EBF00F0674D /* Falta.swift in Sources */,
 				9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */,
 				A15BB2E91B9AD2FD00143EBE /* MapaViewController.m in Sources */,
 				9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */,
@@ -531,15 +541,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		9289B8891B87ADB3004284E3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9289B88A1B87ADB3004284E3 /* Base */,
-				A15BB2CA1B9AA51700143EBE /* pt-BR */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -547,6 +548,24 @@
 				A15BB2CB1B9AA51700143EBE /* pt-BR */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		929C92B51B9F720500844564 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				929C92B41B9F720500844564 /* Base */,
+				929C92BA1B9F7C7000844564 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		929C92BF1B9F90EB00844564 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				929C92C01B9F90EB00844564 /* Base */,
+				929C92C31B9F94F100844564 /* pt-BR */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -643,6 +662,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MackTIA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -663,6 +683,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MackTIA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

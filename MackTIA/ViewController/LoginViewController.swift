@@ -69,6 +69,24 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         self.bloqueiView.hidden = true
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if let tia = NSUserDefaults.standardUserDefaults().stringForKey("tia") {
+            if let senha = NSUserDefaults.standardUserDefaults().stringForKey("senha") {
+                if let unidade = NSUserDefaults.standardUserDefaults().stringForKey("unidade") {
+                    let usuario = Usuario()
+                    usuario.tia = tia
+                    usuario.senha = senha
+                    usuario.unidade = unidade
+                    TIAManager.sharedInstance.usuario = usuario
+                    self.performSegueWithIdentifier("login", sender: self)
+                }
+            }
+        }
+        
+        
+    }
+    
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
@@ -78,28 +96,6 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         self.view.endEditing(true)
     }
     
-    
-//    // MARK: Util
-//    func loginSucesso() {
-//        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//            self.performSegueWithIdentifier("login", sender: self)
-//        })
-//        
-//    }
-//    
-//    func loginErro(notification:NSNotification) {
-//        dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//            
-//            if let let dict = notification.userInfo as? Dictionary<String,String> {
-//            
-//                let alert = UIAlertView(title: "Acesso Negado", message: dict[TIAManager.DescricaoDoErro], delegate: self, cancelButtonTitle: "OK")
-//                alert.show()
-//            } else {
-//                let alert = UIAlertView(title: "Erro", message: "Não foi possível fazer login, entre em contato com o helpdesk se o erro persistir", delegate: self, cancelButtonTitle: "OK")
-//                alert.show()
-//            }
-//        })
-//    }
     
     // MARK: IBAction
     @IBAction func login(sender: AnyObject) {
@@ -115,7 +111,6 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         
         TIAManager.sharedInstance.login(usuario, completionHandler: { (manager, error) -> () in
             self.activityIndicator?.stopAnimating()
-            
             self.bloqueiView.hidden = true
             
             if error != nil {

@@ -39,7 +39,11 @@ extension FaltaTableViewCell {
             if let falta = newValue {
                 self.aulasPrevistas.text = "\(falta.aulasDadas)"
                 self.faltas.text = "\(falta.faltas)"
-                self.graficoView.endArc = CGFloat(falta.percentual/100)
+                if CGFloat(falta.percentual/25) <= 1 {
+                    self.graficoView.endArc = CGFloat(falta.percentual/25)
+                } else {
+                    self.graficoView.endArc = CGFloat(1)
+                }
                 self.percentual.text = "\(falta.percentual)%"
                 self.nomeDisciplina.text = falta.disciplina
                 self.permitidas.text = "\(falta.permitidas)"

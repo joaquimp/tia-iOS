@@ -11,7 +11,7 @@ import UIKit
 
 class NotasTableViewController: UITableViewController {
     
-    var notas:Array<Nota> = TIAManager.sharedInstance.todasNotas()
+    var notas:Array<Nota> = TIAManager.sharedInstance.notas
     @IBOutlet weak var reloadButtonItem: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -21,7 +21,9 @@ class NotasTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.refreshControl!.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
-        self.buscarNovosDados()
+        if self.notas.count == 0 {
+            self.buscarNovosDados()
+        }
     }
     
     // MARK: - Atualizando dados
@@ -41,7 +43,7 @@ class NotasTableViewController: UITableViewController {
                 alert.show()
             }
             self.reloadButtonItem.enabled = true
-            self.notas = manager.todasNotas()
+            self.notas = manager.notas
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
         }
@@ -83,6 +85,17 @@ class NotasTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 218
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if let date = NSUserDefaults.standardUserDefaults().objectForKey("notaAtualizacao") as? NSDate {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd.MM.yyyy - HH:mm"
+            return NSLocalizedString("atualizacao.data", comment: "Não existe informação sobre atualização") + dateFormatter.stringFromDate(date)
+        }
+        
+        return NSLocalizedString("atualizacaoNaoInformada", comment: "Não existe informação sobre atualização")
+        
     }
         
 }
