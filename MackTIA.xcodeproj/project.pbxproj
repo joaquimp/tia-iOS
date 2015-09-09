@@ -36,6 +36,7 @@
 		A15BB2ED1B9BD03900143EBE /* NotaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2EC1B9BD03900143EBE /* NotaTableViewCell.swift */; };
 		A15BB2F21B9BD26300143EBE /* Nota.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2F11B9BD26300143EBE /* Nota.swift */; };
 		A15BB2F41B9BD79800143EBE /* NotaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2F31B9BD79800143EBE /* NotaCollectionViewCell.swift */; };
+		A15BB2F61BA0762600143EBE /* Bariol_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A15BB2F51BA0762600143EBE /* Bariol_Regular.otf */; };
 		A16372381B898BA4000A9C69 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16372371B898BA4000A9C69 /* MapKit.framework */; };
 		A163723A1B89915A000A9C69 /* FaltasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16372391B89915A000A9C69 /* FaltasTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -106,6 +107,7 @@
 		A15BB2EC1B9BD03900143EBE /* NotaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotaTableViewCell.swift; path = "ViewController/Custom Cells/NotaTableViewCell.swift"; sourceTree = "<group>"; };
 		A15BB2F11B9BD26300143EBE /* Nota.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Nota.swift; path = WebAPI/Entidade/Nota.swift; sourceTree = "<group>"; };
 		A15BB2F31B9BD79800143EBE /* NotaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotaCollectionViewCell.swift; path = "ViewController/Custom Cells/NotaCollectionViewCell.swift"; sourceTree = "<group>"; };
+		A15BB2F51BA0762600143EBE /* Bariol_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Regular.otf; sourceTree = "<group>"; };
 		A16372371B898BA4000A9C69 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A16372391B89915A000A9C69 /* FaltasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaltasTableViewController.swift; path = ViewController/FaltasTableViewController.swift; sourceTree = "<group>"; };
 		B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MackTIA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +196,7 @@
 		9289B8801B87ADB3004284E3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A15BB2F51BA0762600143EBE /* Bariol_Regular.otf */,
 				92B9E8A71B87C1E5004C1DE4 /* token.plist */,
 				9289B8811B87ADB3004284E3 /* Info.plist */,
 				92B9E89F1B87BDAC004C1DE4 /* MackTIA-Bridging-Header.h */,
@@ -382,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A15BB2F61BA0762600143EBE /* Bariol_Regular.otf in Resources */,
 				929C92B31B9F720500844564 /* Localizable.strings in Resources */,
 				A15BB2D51B9ACBD900143EBE /* Images.xcassets in Resources */,
 				9289B8901B87ADB3004284E3 /* LaunchScreen.xib in Resources */,
