@@ -13,6 +13,11 @@ class FaltasTableViewController: UITableViewController {
     var faltas:Array<Falta> = TIAManager.sharedInstance.faltas
     @IBOutlet weak var reloadButtonItem: UIBarButtonItem!
     
+    var selectedCellIndexPath:NSIndexPath?
+    
+    let selectedCellHeight:CGFloat = 150
+    let unSelectedCellHeight:CGFloat = 57
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -87,8 +92,30 @@ class FaltasTableViewController: UITableViewController {
         return cell
     }
     
+//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+//        return 130
+//    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath != self.selectedCellIndexPath {
+            self.selectedCellIndexPath = indexPath
+        } else {
+            if let selectedCell = self.selectedCellIndexPath {
+                self.tableView.deselectRowAtIndexPath(self.selectedCellIndexPath!, animated: true)
+            }
+            self.selectedCellIndexPath = nil
+        }
+        
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
+    }
+    
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 130
+        if self.selectedCellIndexPath == indexPath {
+            return self.selectedCellHeight
+        }
+        
+        return self.unSelectedCellHeight
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

@@ -15,6 +15,7 @@ class FaltaTableViewCell: UITableViewCell {
     @IBOutlet weak var percentual: UILabel!
     @IBOutlet weak var graficoView: CircleGraphView!
     @IBOutlet weak var permitidas: UILabel!
+    @IBOutlet weak var atualizacao: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,6 +48,7 @@ extension FaltaTableViewCell {
                 self.percentual.text = "\(falta.percentual)%"
                 self.nomeDisciplina.text = falta.disciplina
                 self.permitidas.text = "\(falta.permitidas)"
+                self.atualizacao.text = NSLocalizedString("update.label.text", comment: "Texto padrao para atualização") + falta.atualizacao
             }
             
         }

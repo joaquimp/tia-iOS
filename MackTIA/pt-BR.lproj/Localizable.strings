@@ -24,3 +24,4 @@
 
 "atualizacaoNaoInformada" = "Atualização: sem informação";
 "atualizacao.data" = "Atualização: ";
+"update.label.text" = "Atualizado em: ";

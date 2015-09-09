@@ -380,7 +380,6 @@
                                         <constraint firstItem="UNn-LT-IW6" firstAttribute="top" secondItem="RgO-XW-UcM" secondAttribute="bottom" id="uLh-mz-rLe"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="atualizacao" destination="bHm-Me-qBx" id="te6-Xh-UL3"/>
                                     <outlet property="aulasPrevistas" destination="jrV-jW-Be7" id="iyn-B5-tEF"/>
