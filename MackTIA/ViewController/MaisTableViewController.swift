@@ -11,24 +11,11 @@ import UIKit
 import Social
 import MessageUI
 
-class MaisViewController: UITableViewController, UITableViewDelegate, MFMailComposeViewControllerDelegate {
+class MaisTableViewController: UITableViewController, UITableViewDelegate, MFMailComposeViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.tableView.setContentOffset(CGPointMake(0, -230), animated: false)
     }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.sharedApplication().statusBarStyle = .Default
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
-    }
-    
-    
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -36,11 +23,11 @@ class MaisViewController: UITableViewController, UITableViewDelegate, MFMailComp
         ///////
         let socialSection   = 0
         let fbMack      = 0
-//        let fbTVMack    = 1
-        let fbRadio     = 1
-        let twitter     = 2
-        let email       = 3
-        let appStore    = 4
+        let fbTVMack    = 1
+        let fbRadio     = 2
+        let twitter     = 3
+        let email       = 4
+        let appStore    = 5
         ///////
         
         ///////
@@ -58,18 +45,18 @@ class MaisViewController: UITableViewController, UITableViewDelegate, MFMailComp
             
         } else if indexPath.section == socialSection {
             switch(indexPath.row){
-//            case fbTVMack:
-//                // Curtir pagina da TV Mackenzie
-//                var url = NSURL(string: "fb://profile/200809299999744")
-//                if url == nil || !UIApplication.sharedApplication().canOpenURL(url!) {
-//                    var safariURL = NSURL(string: "https://www.facebook.com/TvMackenzie")
-//                    if safariURL == nil {
-//                        println("Não conseguiu abrir facebook")
-//                        return
-//                    }
-//                    url = safariURL
-//                }
-//                UIApplication.sharedApplication().openURL(url!)
+            case fbTVMack:
+                // Curtir pagina da TV Mackenzie
+                var url = NSURL(string: "fb://profile/200809299999744")
+                if url == nil || !UIApplication.sharedApplication().canOpenURL(url!) {
+                    var safariURL = NSURL(string: "https://www.facebook.com/TvMackenzie")
+                    if safariURL == nil {
+                        println("Não conseguiu abrir facebook")
+                        return
+                    }
+                    url = safariURL
+                }
+                UIApplication.sharedApplication().openURL(url!)
             case fbRadio:
                 // Curtir pagina da Radio Mackenzie
                 var url = NSURL(string: "fb://profile/795338763868734")
@@ -150,6 +137,13 @@ class MaisViewController: UITableViewController, UITableViewDelegate, MFMailComp
         default:
             return
         }
+    }
+    
+    @IBAction func logoutButton(sender: AnyObject) {
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("tia")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("senha")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("unidade")
+        self.performSegueWithIdentifier("logoutSegue", sender: self)
     }
     
 }

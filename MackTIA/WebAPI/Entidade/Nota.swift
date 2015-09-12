@@ -77,6 +77,31 @@ class Nota: NSManagedObject {
         return nil
     }
     
+    private class func removerNotasDiferentes(codigos:Array<String>) {
+        var predicateString = ""
+        for var i=0; i < codigos.count; i++ {
+            predicateString += "codigo <> '\(codigos[i])'"
+            if i < codigos.count - 1 {
+                predicateString += " AND "
+            }
+        }
+        
+        let fetchRequest = NSFetchRequest(entityName: "Nota")
+        let predicate = NSPredicate(format: predicateString)
+        fetchRequest.predicate = predicate
+        
+        var error:NSError?
+        
+        let fetchedResults = CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
+        
+        if let results = fetchedResults as? [Nota] {
+            for var i=0; i < results.count; i++ {
+                CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
+            }
+        }
+        CoreDataHelper.sharedInstance.saveContext()
+    }
+    
     
     // MARK: Metodos uteis
     class func parseJSON(notaData:NSData) -> Array<Nota>? {
@@ -84,14 +109,14 @@ class Nota: NSManagedObject {
         
         var errorJson:NSError?
         if let resposta = NSJSONSerialization.JSONObjectWithData(notaData, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? NSDictionary {
-            //        if let resposta = NSJSONSerialization.JSONObjectWithData(notaData, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? Array<NSDictionary> {
             
             if let notasJSON = resposta.objectForKey("resposta") as? Array<NSDictionary> {
+                var novasDisciplinas = Array<String>()
+                
                 for notaDic in notasJSON {
-                    //            for notaDic in resposta {
                     
                     var nota:Nota?
-                    let notaVazia = " - "
+                    let notaVazia = "-"
                     
                     if let codigo = notaDic["codigo"] as? String {
                         if let notaExistente = self.buscarNota(codigo) {
@@ -100,10 +125,11 @@ class Nota: NSManagedObject {
                             nota = Nota.novaNota()
                         }
                         nota?.codigo = codigo
+                        novasDisciplinas.append(codigo)
                     } else { return nil }
                     
                     if let disciplina = notaDic["disciplina"] as? String {
-                        nota?.disciplina = disciplina//.capitalizedStringWithLocale(NSLocale.currentLocale())
+                        nota?.disciplina = disciplina
                     } else { return nil }
                     
                     if let a = notaDic["a"] as? String {
@@ -208,10 +234,14 @@ class Nota: NSManagedObject {
                         nota?.formula = formula
                     } else { return nil }
                     
+
                     nota?.salvar()
                     notas!.append(nota!)
                     NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "notaAtualizacao")
                 }
+                
+                Nota.removerNotasDiferentes(novasDisciplinas)
+                
                 return notas
             }
         }

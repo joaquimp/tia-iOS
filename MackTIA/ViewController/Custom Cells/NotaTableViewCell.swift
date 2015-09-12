@@ -8,6 +8,10 @@
 
 import UIKit
 
+private class Tuple {
+    var titulo:String = ""
+    var nota:String = ""
+}
 
 
 class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -15,6 +19,8 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     @IBOutlet weak var formula: UILabel!
     @IBOutlet weak var notasFinaisCollectionView: UICollectionView!
     @IBOutlet weak var notasIntermediariasCollectionView: UICollectionView!
+    @IBOutlet weak var conteudoView: UIView!
+    private var notasIntermediariasNaoVazias:Array<Tuple>!
     
     var nota:Nota? {
         didSet{
@@ -23,6 +29,67 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
                 self.formula.text = "Fórmula: \(nota!.formula.stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!.lowercaseString)"
                 self.notasIntermediariasCollectionView.reloadData()
                 self.notasFinaisCollectionView.reloadData()
+                
+                if nota!.a != "-" {
+                    var n = Tuple()
+                    n.titulo = "A"
+                    n.nota = nota!.a
+                    self.notasIntermediariasNaoVazias.append(n)
+                }
+                if nota!.b != "-" {
+                    var n = Tuple()
+                    n.titulo = "B"
+                    n.nota = nota!.b
+                    self.notasIntermediariasNaoVazias.append(n)
+                }
+                if nota!.c != "-" {
+                    var n = Tuple()
+                    n.titulo = "C"
+                    n.nota = nota!.c
+                    self.notasIntermediariasNaoVazias.append(n)
+                }
+                if nota!.d != "-" {
+                    var n = Tuple()
+                    n.titulo = "D"
+                    n.nota = nota!.d
+                    self.notasIntermediariasNaoVazias.append(n)
+                }
+                if nota!.e != "-" {
+                    var n = Tuple()
+                    n.titulo = "E"
+                    n.nota = nota!.e
+                    self.notasIntermediariasNaoVazias.append(n)
+                }
+                if nota!.f != "-" {
+                    var n = Tuple()
+                    n.titulo = "F"
+                    n.nota = nota!.f
+                    self.notasIntermediariasNaoVazias.append(n)
+                }
+                if nota!.g != "-" {
+                    var n = Tuple()
+                    n.titulo = "G"
+                    n.nota = nota!.g
+                    self.notasIntermediariasNaoVazias.append(n)
+                }
+                if nota!.h != "-" {
+                    var n = Tuple()
+                    n.titulo = "H"
+                    n.nota = nota!.h
+                    self.notasIntermediariasNaoVazias.append(n)
+                }
+                if nota!.i != "-" {
+                    var n = Tuple()
+                    n.titulo = "I"
+                    n.nota = nota!.i
+                    self.notasIntermediariasNaoVazias.append(n)
+                }
+                if nota!.j != "-" {
+                    var n = Tuple()
+                    n.titulo = "J"
+                    n.nota = nota!.j
+                    self.notasIntermediariasNaoVazias.append(n)
+                }
             }
         }
     }
@@ -30,17 +97,22 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
         self.notasFinaisCollectionView.delegate = self
         self.notasFinaisCollectionView.dataSource = self
         self.notasIntermediariasCollectionView.delegate = self
         self.notasIntermediariasCollectionView.dataSource = self
-        
+        self.notasIntermediariasNaoVazias = Array<Tuple>()
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
+        if self.selected {
+            UIView.animateWithDuration(0.5, delay: 0.3, options:nil, animations: { () -> Void in
+                self.conteudoView.alpha = 1
+                }, completion: nil)
+        } else {
+            self.conteudoView.alpha = 0
+        }
     }
     
     // MARK: UICollectionVeiw DataSource and Delegate Methods
@@ -49,9 +121,21 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        if self.nota == nil {
+            return 0
+        }
+        
+        //Retorna a quantidade de notas parciais
         if collectionView == notasIntermediariasCollectionView {
-            return 10
+            if self.notasIntermediariasNaoVazias.count == 0 {
+                collectionView.hidden = true
+                return 0
+            }
+            collectionView.hidden = false
+            return self.notasIntermediariasNaoVazias.count
         } else {
+            //Retorna aquantidade de notas finais
             return 5
         }
     }
@@ -60,47 +144,15 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("notaCell", forIndexPath: indexPath) as! NotaCollectionViewCell
         
         if collectionView == notasIntermediariasCollectionView {
-            switch indexPath.row {
-            case 0:
-                cell.titulo.text = "A"
-                cell.nota.text = self.nota?.a
-            case 1:
-                cell.titulo.text = "B"
-                cell.nota.text = self.nota?.b
-            case 2:
-                cell.titulo.text = "C"
-                cell.nota.text = self.nota?.c
-            case 3:
-                cell.titulo.text = "D"
-                cell.nota.text = self.nota?.d
-            case 4:
-                cell.titulo.text = "E"
-                cell.nota.text = self.nota?.e
-            case 5:
-                cell.titulo.text = "F"
-                cell.nota.text = self.nota?.f
-            case 6:
-                cell.titulo.text = "G"
-                cell.nota.text = self.nota?.g
-            case 7:
-                cell.titulo.text = "H"
-                cell.nota.text = self.nota?.h
-            case 8:
-                cell.titulo.text = "I"
-                cell.nota.text = self.nota?.i
-            case 9:
-                cell.titulo.text = "J"
-                cell.nota.text = self.nota?.j
-            default:
-                cell.titulo.text = "-"
-                cell.nota.text = "-"
-            }
+            cell.titulo.text    = notasIntermediariasNaoVazias[indexPath.row].titulo
+            cell.nota.text      = notasIntermediariasNaoVazias[indexPath.row].nota
+            
             if cell.titulo.text?.lowercaseString == nota?.substituida {
                 cell.titulo.text = "\(cell.titulo.text)(SUB)"
             }
         } else {
             switch indexPath.row {
-            //Nota Sub
+                //Nota Sub
             case 0:
                 cell.titulo.text = "SUB"
                 cell.nota.text = self.nota?.sub
@@ -126,19 +178,3 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     }
     
 }
-
-//extension NotaTableViewCell {
-//    var nota:Nota?{
-//        get {
-//            return objc_getAssociatedObject(self, "notaObject") as? Nota
-//        }
-//        set(newValue) {
-//            objc_setAssociatedObject(self, "notaObject", newValue, UInt(OBJC_ASSOCIATION_RETAIN))
-//            if let nota = newValue {
-//                self.nomeDisciplina.text = nota.disciplina
-//                self.notasIntermediariasCollectionView.reloadData()
-//                self.notasFinaisCollectionView.reloadData()
-//            }
-//        }
-//    }
-//}

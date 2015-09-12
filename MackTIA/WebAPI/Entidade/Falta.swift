@@ -67,6 +67,31 @@ class Falta: NSManagedObject {
         return nil
     }
     
+    private class func removerFaltasDiferentes(codigos:Array<String>) {
+        var predicateString = ""
+        for var i=0; i < codigos.count; i++ {
+            predicateString += "codigo <> '\(codigos[i])'"
+            if i < codigos.count - 1 {
+                predicateString += " AND "
+            }
+        }
+        
+        let fetchRequest = NSFetchRequest(entityName: "Falta")
+        let predicate = NSPredicate(format: predicateString)
+        fetchRequest.predicate = predicate
+        
+        var error:NSError?
+        
+        let fetchedResults = CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
+        
+        if let results = fetchedResults as? [Falta] {
+            for var i=0; i < results.count; i++ {
+                CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
+            }
+        }
+        CoreDataHelper.sharedInstance.saveContext()
+    }
+    
     
     // MARK: Metodos uteis
     class func parseJSON(faltaData:NSData) -> Array<Falta>? {
@@ -76,6 +101,7 @@ class Falta: NSManagedObject {
         if let resposta = NSJSONSerialization.JSONObjectWithData(faltaData, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? NSDictionary {
             
             if let faltasJSON = resposta.objectForKey("resposta") as? Array<NSDictionary> {
+                var novasDisciplinas = Array<String>()
                 
                 for faltaDic in faltasJSON {
 
@@ -88,6 +114,7 @@ class Falta: NSManagedObject {
                             falta = Falta.novaFalta()
                         }
                         falta?.codigo = codigo
+                        novasDisciplinas.append(codigo)
                     } else { return nil }
                     
                     if let disciplina = faltaDic["disciplina"] as? String {
@@ -126,6 +153,8 @@ class Falta: NSManagedObject {
                     faltas!.append(falta!)
                     NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "faltaAtualizacao")
                 }
+                
+                Falta.removerFaltasDiferentes(novasDisciplinas)
                 return faltas
             } else {
                 return nil

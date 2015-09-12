@@ -14,16 +14,27 @@ class NotasTableViewController: UITableViewController {
     var notas:Array<Nota> = TIAManager.sharedInstance.notas
     @IBOutlet weak var reloadButtonItem: UIBarButtonItem!
     
+    
+    //Controle para expandir TableViewCell
+    var selectedCellIndexPath:NSIndexPath?
+    let selectedCellHeight:CGFloat = 200
+    let unSelectedCellHeight:CGFloat = 58
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshControl!.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.refreshControl!.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        
         if self.notas.count == 0 {
             self.buscarNovosDados()
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        self.tableView.selectRowAtIndexPath(self.selectedCellIndexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
     }
     
     // MARK: - Atualizando dados
@@ -83,18 +94,55 @@ class NotasTableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 218
-    }
+//    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if let date = NSUserDefaults.standardUserDefaults().objectForKey("notaAtualizacao") as? NSDate {
+//            let dateFormatter = NSDateFormatter()
+//            dateFormatter.dateFormat = "dd.MM.yyyy - HH:mm"
+//            return NSLocalizedString("atualizacao.data", comment: "Não existe informação sobre atualização") + dateFormatter.stringFromDate(date)
+//        }
+//        
+//        return NSLocalizedString("atualizacaoNaoInformada", comment: "Não existe informação sobre atualização")
+//        
+//    }
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let date = NSUserDefaults.standardUserDefaults().objectForKey("notaAtualizacao") as? NSDate {
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "dd.MM.yyyy - HH:mm"
-            return NSLocalizedString("atualizacao.data", comment: "Não existe informação sobre atualização") + dateFormatter.stringFromDate(date)
+    // MARK: - Expandir TableViewCell
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath != self.selectedCellIndexPath {
+            self.selectedCellIndexPath = indexPath
+        } else {
+            if let selectedCell = self.selectedCellIndexPath {
+                self.tableView.deselectRowAtIndexPath(self.selectedCellIndexPath!, animated: true)
+            }
+            self.selectedCellIndexPath = nil
         }
         
-        return NSLocalizedString("atualizacaoNaoInformada", comment: "Não existe informação sobre atualização")
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if self.selectedCellIndexPath == indexPath {
+            return self.selectedCellHeight
+        }
+        return self.unSelectedCellHeight
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        // Remove seperator inset
+        if cell.respondsToSelector(Selector("setSeparatorInset:")) {
+            cell.separatorInset = UIEdgeInsetsZero
+        }
+        
+        // Prevent the cell from inheriting the Table View's margin settings
+        if cell.respondsToSelector(Selector("setPreservesSuperviewLayoutMargins:")) {
+            cell.preservesSuperviewLayoutMargins = false
+        }
+        
+        // Explictly set your cell's layout margins
+        if cell.respondsToSelector(Selector("setLayoutMargins:")) {
+            cell.layoutMargins = UIEdgeInsetsZero
+        }
         
     }
         

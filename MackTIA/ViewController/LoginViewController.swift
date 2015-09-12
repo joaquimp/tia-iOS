@@ -7,6 +7,8 @@
 //
 
 import UIKit
+//import Fabric
+import Crashlytics
 
 class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var tiaTextField: UITextField!
@@ -122,8 +124,20 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
                 }
                 let alert = UIAlertView(title: "Acesso Negado", message: mensagem, delegate: self, cancelButtonTitle: "OK")
                 alert.show()
+                //----------------------------------------------------------------------
+                //FABRIC - Informa que o usuário fez login
+                Answers.logLoginWithMethod("Digits",
+                    success: false,
+                    customAttributes: ["metodo":"login no servidor"])
+                //----------------------------------------------------------------------
                 return
             }
+            //----------------------------------------------------------------------
+            //FABRIC - Informa que o usuário fez login
+            Answers.logLoginWithMethod("Digits",
+                success: true,
+                customAttributes: ["metodo":"login no servidor"])
+            //----------------------------------------------------------------------
             self.performSegueWithIdentifier("login", sender: self)
         })
     }
