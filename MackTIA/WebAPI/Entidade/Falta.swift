@@ -92,6 +92,19 @@ class Falta: NSManagedObject {
         CoreDataHelper.sharedInstance.saveContext()
     }
     
+    class func removerTudo() {
+        let fetchRequest = NSFetchRequest(entityName: "Falta")
+        var error:NSError?
+        
+        let fetchedResults = CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
+        if let results = fetchedResults as? [Falta] {
+            for var i=0; i < results.count; i++ {
+                CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
+            }
+        }
+        CoreDataHelper.sharedInstance.saveContext()
+    }
+    
     
     // MARK: Metodos uteis
     class func parseJSON(faltaData:NSData) -> Array<Falta>? {

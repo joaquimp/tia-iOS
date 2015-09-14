@@ -10,7 +10,7 @@ import UIKit
 
 class FaltasTableViewController: UITableViewController {
     
-    var faltas:Array<Falta> = TIAManager.sharedInstance.faltas
+    var faltas:Array<Falta> = TIAManager.sharedInstance.faltas()
     @IBOutlet weak var reloadButtonItem: UIBarButtonItem!
     
     //Controle para expandir TableViewCell
@@ -20,19 +20,19 @@ class FaltasTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        buscarNovosDados()
         self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if self.faltas.count == 0 {
-            buscarNovosDados()
-        }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        self.tableView.selectRowAtIndexPath(self.selectedCellIndexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
+    override func viewWillDisappear(animated: Bool) {
+        if self.selectedCellIndexPath != nil {
+            self.tableView.deselectRowAtIndexPath(self.selectedCellIndexPath!, animated: false)
+            self.selectedCellIndexPath = nil
+        }
     }
     
     // MARK: - Atualizando dados
@@ -55,7 +55,7 @@ class FaltasTableViewController: UITableViewController {
             }
             
             self.reloadButtonItem.enabled = true
-            self.faltas = manager.faltas
+            self.faltas = manager.faltas()
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
         }

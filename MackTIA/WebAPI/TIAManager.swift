@@ -30,8 +30,8 @@ class TIAManager {
     }
     
     // Cache do banco
-    private(set) var faltas:Array<Falta>
-    private(set) var notas:Array<Nota>
+//    private(set) var faltas:Array<Falta>
+//    private(set) var notas:Array<Nota>
     
     // MARK: Singleton Methods
     class var sharedInstance : TIAManager {
@@ -62,8 +62,8 @@ class TIAManager {
             self.config = NSDictionary()
         }
         
-        self.faltas = Falta.buscarFaltas()
-        self.notas = Nota.buscarNotas()
+//        self.faltas = Falta.buscarFaltas()
+//        self.notas = Nota.buscarNotas()
     }
     
     // MARK: Metodos uteis
@@ -224,7 +224,7 @@ class TIAManager {
                     var errorJson:NSError?
                     
                     if let novasFaltas = Falta.parseJSON(data) {
-                        self.faltas = novasFaltas
+//                        self.faltas = novasFaltas
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             completionHandler(self,erro)
                         })
@@ -314,7 +314,7 @@ class TIAManager {
                     var errorJson:NSError?
                     
                     if let novasNotas = Nota.parseJSON(data) {
-                        self.notas = novasNotas
+//                        self.notas = novasNotas
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
                             completionHandler(self,erro)
                         })
@@ -361,5 +361,14 @@ class TIAManager {
                 })
             }
         })
+    }
+    
+    // Obter dados do banco
+    func faltas() -> [Falta] {
+        return Falta.buscarFaltas()
+    }
+    
+    func notas() -> [Nota] {
+        return Nota.buscarNotas()
     }
 }

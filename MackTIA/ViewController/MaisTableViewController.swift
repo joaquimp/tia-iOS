@@ -140,10 +140,22 @@ class MaisTableViewController: UITableViewController, UITableViewDelegate, MFMai
     }
     
     @IBAction func logoutButton(sender: AnyObject) {
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("tia")
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("senha")
-        NSUserDefaults.standardUserDefaults().removeObjectForKey("unidade")
-        self.performSegueWithIdentifier("logoutSegue", sender: self)
+        let alertController = UIAlertController(title: "Sair", message: "Deseja realmente sair?", preferredStyle: UIAlertControllerStyle.Alert)
+        let actionSair = UIAlertAction(title: "Sair", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
+            NSUserDefaults.standardUserDefaults().removeObjectForKey("tia")
+            NSUserDefaults.standardUserDefaults().removeObjectForKey("senha")
+            NSUserDefaults.standardUserDefaults().removeObjectForKey("unidade")
+            Nota.removerTudo()
+            Falta.removerTudo()
+            self.performSegueWithIdentifier("logoutSegue", sender: self)
+        }
+        let actionCancelar = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel) { (alertAction) -> Void in
+        }
+        
+        alertController.addAction(actionSair)
+        alertController.addAction(actionCancelar)
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
 }

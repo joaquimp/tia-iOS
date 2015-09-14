@@ -11,7 +11,7 @@ import UIKit
 
 class NotasTableViewController: UITableViewController {
     
-    var notas:Array<Nota> = TIAManager.sharedInstance.notas
+    var notas:Array<Nota> = TIAManager.sharedInstance.notas()
     @IBOutlet weak var reloadButtonItem: UIBarButtonItem!
     
     
@@ -22,19 +22,19 @@ class NotasTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.buscarNovosDados()
         self.refreshControl!.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        if self.notas.count == 0 {
-            self.buscarNovosDados()
-        }
     }
     
-    override func viewDidAppear(animated: Bool) {
-        self.tableView.selectRowAtIndexPath(self.selectedCellIndexPath, animated: false, scrollPosition: UITableViewScrollPosition.None)
+    override func viewWillDisappear(animated: Bool) {
+        if self.selectedCellIndexPath != nil {
+            self.tableView.deselectRowAtIndexPath(self.selectedCellIndexPath!, animated: false)
+            self.selectedCellIndexPath = nil
+        }
     }
     
     // MARK: - Atualizando dados
@@ -54,7 +54,7 @@ class NotasTableViewController: UITableViewController {
                 alert.show()
             }
             self.reloadButtonItem.enabled = true
-            self.notas = manager.notas
+            self.notas = manager.notas()
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
         }
