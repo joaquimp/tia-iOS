@@ -296,12 +296,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9289B89F1B87ADB3004284E3 /* Build configuration list for PBXNativeTarget "MackTIA" */;
 			buildPhases = (
-				345B0C2B14AA0E9BBD4A8378 /* Check Pods Manifest.lock */,
 				9289B8791B87ADB3004284E3 /* Sources */,
 				9289B87A1B87ADB3004284E3 /* Frameworks */,
 				9289B87B1B87ADB3004284E3 /* Resources */,
-				0B7C5E483B497E79C204CC64 /* Embed Pods Frameworks */,
-				641CD8F6714EDDED2AF08E08 /* Copy Pods Resources */,
 				92B9E8CD1B87C887004C1DE4 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -418,51 +415,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MackTIATests/Pods-MackTIATests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		0B7C5E483B497E79C204CC64 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		345B0C2B14AA0E9BBD4A8378 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		641CD8F6714EDDED2AF08E08 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B943821D8E6DD465AFB289C8 /* Check Pods Manifest.lock */ = {
@@ -702,6 +654,7 @@
 		};
 		9289B8A31B87ADB3004284E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDCC901934CE3EB1CC52A290 /* Pods-MackTIATests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -722,6 +675,7 @@
 		};
 		9289B8A41B87ADB3004284E3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F43283DA135A06651819BBF5 /* Pods-MackTIATests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

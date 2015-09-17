@@ -6,3 +6,8 @@ target 'MackTIA' do
     pod 'Crashlytics'
 end
 
+target 'MackTIATests' do
+    pod 'Fabric'
+    pod 'Crashlytics'
+end
+
