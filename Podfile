@@ -6,7 +6,3 @@ target 'MackTIA' do
     pod 'Crashlytics'
 end
 
-target 'MackTIATests' do
-    pod 'SDWebImage'
-end
-

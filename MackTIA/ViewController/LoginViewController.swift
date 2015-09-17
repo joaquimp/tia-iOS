@@ -21,7 +21,7 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     var unidades:Array<String>!
     var unidadesCodigo:Array<String>!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.unidades = [" Rio de Janeiro "," São Paulo "," Brasília "," UATU "]
         self.unidadesCodigo = ["006","001","003","011"]
@@ -34,7 +34,7 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         let paddingViewPass = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 50))
         
         let tiaPlaceholder = NSMutableAttributedString(string: "TIA") // Localized text here!
-        let rangeTia = NSMakeRange(0, count(tiaPlaceholder.string))
+        let rangeTia = NSMakeRange(0, tiaPlaceholder.string.characters.count)
         tiaPlaceholder.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: rangeTia)
         
         self.tiaTextField.layer.cornerRadius = 7
@@ -45,7 +45,7 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         self.tiaTextField.attributedPlaceholder = tiaPlaceholder
         
         let passPlaceholder = NSMutableAttributedString(string: "SENHA") // Localized text here!
-        let rangePass = NSMakeRange(0, count(passPlaceholder.string))
+        let rangePass = NSMakeRange(0, passPlaceholder.string.characters.count)
         passPlaceholder.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: rangePass)
         
         self.passTextField.layer.cornerRadius = 7
@@ -94,16 +94,16 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     }
     
     // MARK: UIResponder
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
     
     
     // MARK: IBAction
     @IBAction func login(sender: AnyObject) {
-        var usuario = Usuario()
-        usuario.tia = tiaTextField.text
-        usuario.senha = passTextField.text
+        let usuario = Usuario()
+        usuario.tia = tiaTextField.text!
+        usuario.senha = passTextField.text!
         usuario.unidade = self.unidadesCodigo[self.unidadePickerView.selectedItem]
 
         
@@ -175,8 +175,8 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     
     // MARK: Rotation Support
     
-    override func supportedInterfaceOrientations() -> Int {
-        return Int(UIInterfaceOrientationMask.Portrait.rawValue)
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.Portrait
     }
     
     override func shouldAutorotate() -> Bool {

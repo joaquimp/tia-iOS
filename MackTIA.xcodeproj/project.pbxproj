@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6353C8101FCFC8B5B5CB9264 /* Pods_MackTIATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		923C1F721BAA7C02006616B5 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923C1F711BAA7C02006616B5 /* ConfigHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */; };
 		9246D50E1B9A4EBF00F0674D /* Falta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50D1B9A4EBF00F0674D /* Falta.swift */; };
 		9246D5121B9A722B00F0674D /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D5111B9A722B00F0674D /* AKPickerView.swift */; };
@@ -67,6 +68,7 @@
 		1359FCE54B8718B5E5C1D19E /* Pods-MackTIA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA.debug.xcconfig"; sourceTree = "<group>"; };
 		31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MackTIATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E524A4CF42EB188E445412B /* Pods-MackTIA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIA.release.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA.release.xcconfig"; sourceTree = "<group>"; };
+		923C1F711BAA7C02006616B5 /* ConfigHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigHelper.swift; path = Helpers/ConfigHelper.swift; sourceTree = "<group>"; };
 		9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataHelper.swift; path = WebAPI/CoreDataHelper.swift; sourceTree = "<group>"; };
 		9246D50D1B9A4EBF00F0674D /* Falta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Falta.swift; path = WebAPI/Entidade/Falta.swift; sourceTree = "<group>"; };
 		9246D5111B9A722B00F0674D /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				9246D5111B9A722B00F0674D /* AKPickerView.swift */,
 				92B9E8A51B87BF93004C1DE4 /* extension.swift */,
 				9289B8801B87ADB3004284E3 /* Supporting Files */,
+				923C1F711BAA7C02006616B5 /* ConfigHelper.swift */,
 			);
 			path = MackTIA;
 			sourceTree = "<group>";
@@ -193,7 +196,6 @@
 			isa = PBXGroup;
 			children = (
 				A15BB2F51BA0762600143EBE /* Bariol_Regular.otf */,
-				92B9E8A71B87C1E5004C1DE4 /* token.plist */,
 				9289B8811B87ADB3004284E3 /* Info.plist */,
 				92B9E89F1B87BDAC004C1DE4 /* MackTIA-Bridging-Header.h */,
 				9289B8841B87ADB3004284E3 /* MackTIA.xcdatamodeld */,
@@ -239,6 +241,7 @@
 		92B9E8A91B87C217004C1DE4 /* WebAPI */ = {
 			isa = PBXGroup;
 			children = (
+				92B9E8A71B87C1E5004C1DE4 /* token.plist */,
 				9246D50C1B9A4E5C00F0674D /* Entidades */,
 				92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */,
 				9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */,
@@ -337,7 +340,9 @@
 		9289B8751B87ADB3004284E3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = Mackenzie;
 				TargetAttributes = {
 					9289B87C1B87ADB3004284E3 = {
@@ -508,6 +513,7 @@
 				A15BB2E51B9AD2AA00143EBE /* MapOverlayView.m in Sources */,
 				A15BB2F21B9BD26300143EBE /* Nota.swift in Sources */,
 				A15BB2D21B9AB82400143EBE /* CircleGraphView.swift in Sources */,
+				923C1F721BAA7C02006616B5 /* ConfigHelper.swift in Sources */,
 				A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */,
 				A15BB2F41B9BD79800143EBE /* NotaCollectionViewCell.swift in Sources */,
 				9246D50E1B9A4EBF00F0674D /* Falta.swift in Sources */,
@@ -588,6 +594,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -664,6 +671,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.mackenzie.MackTia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MackTIA/MackTIA-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -685,6 +693,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.mackenzie.MackTia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "MackTIA/MackTIA-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -693,7 +702,6 @@
 		};
 		9289B8A31B87ADB3004284E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDCC901934CE3EB1CC52A290 /* Pods-MackTIATests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -706,6 +714,7 @@
 				);
 				INFOPLIST_FILE = MackTIATests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.mackenzie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MackTIA.app/MackTIA";
 			};
@@ -713,7 +722,6 @@
 		};
 		9289B8A41B87ADB3004284E3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F43283DA135A06651819BBF5 /* Pods-MackTIATests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -722,6 +730,7 @@
 				);
 				INFOPLIST_FILE = MackTIATests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "br.mackenzie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MackTIA.app/MackTIA";
 			};

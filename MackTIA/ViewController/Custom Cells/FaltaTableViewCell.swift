@@ -43,7 +43,7 @@ class FaltaTableViewCell: UITableViewCell {
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if self.selected {
-            UIView.animateWithDuration(0.3, delay: 0.3, options:nil, animations: { () -> Void in
+            UIView.animateWithDuration(0.3, delay: 0.3, options:[], animations: { () -> Void in
                 self.conteudoView.alpha = 1
                 }, completion: nil)
         } else {

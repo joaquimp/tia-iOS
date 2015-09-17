@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class Falta: NSManagedObject {
-
+    
     @NSManaged var codigo: String
     @NSManaged var disciplina: String
     @NSManaged var atualizacao: String
@@ -32,15 +32,18 @@ class Falta: NSManagedObject {
     
     class func buscarFaltas()->Array<Falta>
     {
-        let fetchRequest = NSFetchRequest(entityName: "Falta")
-        var error:NSError?
-        
-        let fetchedResults = CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
-        
-        if let results = fetchedResults as? [Falta] {
-            return results
-        } else {
-            println("Could not fetch. Error: \(error), \(error!.userInfo)")
+        do {
+            let fetchRequest = NSFetchRequest(entityName: "Falta")
+            
+            let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+            
+            if let results = fetchedResults as? [Falta] {
+                return results
+            } else {
+                print("Could not fetch. Error")
+            }
+        }catch{
+            print("Falta.buscarFaltas - \(error)")
         }
         
         return Array<Falta>()
@@ -48,133 +51,131 @@ class Falta: NSManagedObject {
     
     class func buscarFalta(codigo:String)->Falta?
     {
-        let fetchRequest = NSFetchRequest(entityName: "Falta")
-        let predicate = NSPredicate(format: "codigo = %@", codigo)
-        fetchRequest.predicate = predicate
-        
-        var error:NSError?
-        
-        let fetchedResults = CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
-        
-        if let results = fetchedResults as? [Falta] {
-            if results.count > 0 {
-                return results[0]
+        do {
+            let fetchRequest = NSFetchRequest(entityName: "Falta")
+            let predicate = NSPredicate(format: "codigo = %@", codigo)
+            fetchRequest.predicate = predicate
+            
+            let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+            
+            if let results = fetchedResults as? [Falta] {
+                if results.count > 0 {
+                    return results[0]
+                }
+            } else {
+                print("Could not fetch. Error")
             }
-        } else {
-            println("Could not fetch. Error: \(error), \(error!.userInfo)")
+        }catch{
+            print("Falta.buscarFalta() - \(error)")
         }
         
         return nil
     }
     
     private class func removerFaltasDiferentes(codigos:Array<String>) {
-        var predicateString = ""
-        for var i=0; i < codigos.count; i++ {
-            predicateString += "codigo <> '\(codigos[i])'"
-            if i < codigos.count - 1 {
-                predicateString += " AND "
+        
+        do {
+            var predicateString = ""
+            for var i=0; i < codigos.count; i++ {
+                predicateString += "codigo <> '\(codigos[i])'"
+                if i < codigos.count - 1 {
+                    predicateString += " AND "
+                }
             }
-        }
-        
-        let fetchRequest = NSFetchRequest(entityName: "Falta")
-        let predicate = NSPredicate(format: predicateString)
-        fetchRequest.predicate = predicate
-        
-        var error:NSError?
-        
-        let fetchedResults = CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
-        
-        if let results = fetchedResults as? [Falta] {
-            for var i=0; i < results.count; i++ {
-                CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
+            
+            let fetchRequest = NSFetchRequest(entityName: "Falta")
+            let predicate = NSPredicate(format: predicateString)
+            fetchRequest.predicate = predicate
+            
+            let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+            
+            if let results = fetchedResults as? [Falta] {
+                for var i=0; i < results.count; i++ {
+                    CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
+                }
             }
+            CoreDataHelper.sharedInstance.saveContext()
+        }catch{
+            print("Falta.removerFaltasDiferentes() - \(error)")
         }
-        CoreDataHelper.sharedInstance.saveContext()
     }
     
     class func removerTudo() {
-        let fetchRequest = NSFetchRequest(entityName: "Falta")
-        var error:NSError?
-        
-        let fetchedResults = CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject]
-        if let results = fetchedResults as? [Falta] {
-            for var i=0; i < results.count; i++ {
-                CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
+        do {
+            let fetchRequest = NSFetchRequest(entityName: "Falta")
+            
+            let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+            if let results = fetchedResults as? [Falta] {
+                for var i=0; i < results.count; i++ {
+                    CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
+                }
             }
+            CoreDataHelper.sharedInstance.saveContext()
+        }catch{
+            print("Falta.removerTudo() - \(error)")
         }
-        CoreDataHelper.sharedInstance.saveContext()
     }
     
     
     // MARK: Metodos uteis
     class func parseJSON(faltaData:NSData) -> Array<Falta>? {
-        var faltas:Array<Falta>? = Array<Falta>()
-
-        var errorJson:NSError?
-        if let resposta = NSJSONSerialization.JSONObjectWithData(faltaData, options: NSJSONReadingOptions.MutableContainers, error: &errorJson) as? NSDictionary {
-            
-            if let faltasJSON = resposta.objectForKey("resposta") as? Array<NSDictionary> {
-                var novasDisciplinas = Array<String>()
-                
-                for faltaDic in faltasJSON {
-
-                    let falta:Falta?
-                    
-                    if let codigo = faltaDic["codigo"] as? String {
-                        if let faltaExistente = Falta.buscarFalta(codigo) {
-                            falta = faltaExistente
-                        } else {
-                            falta = Falta.novaFalta()
-                        }
-                        falta?.codigo = codigo
-                        novasDisciplinas.append(codigo)
-                    } else { return nil }
-                    
-                    if let disciplina = faltaDic["disciplina"] as? String {
-                        falta?.disciplina = disciplina
-                    } else { return nil }
-                    
-                    if let turma = faltaDic["turma"] as? String {
-                        falta?.turma = turma
-                    } else { return nil }
-                    
-                    if let aulasDadas = faltaDic["dadas"] as? Int {
-                        falta?.aulasDadas = aulasDadas
-                    } else { return nil }
-                    
-                    if let permitidas20 = faltaDic["permit20"] as? Int {
-                        falta?.permitidas20 = permitidas20
-                    } else { return nil }
-                    
-                    if let permitidas = faltaDic["permit"] as? Int {
-                        falta?.permitidas = permitidas
-                    } else { return nil }
-                    
-                    if let faltas = faltaDic["faltas"] as? Int {
-                        falta?.faltas = faltas
-                    } else { return nil }
-                    
-                    if let percentual = faltaDic["percentual"] as? Float {
-                        falta?.percentual = percentual
-                    } else { return nil }
-                    
-                    if let atualizacao = faltaDic["atualizacao"] as? String {
-                        falta?.atualizacao = atualizacao
-                    } else { return nil }
-                    
-                    falta?.salvar()
-                    faltas!.append(falta!)
-                    NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "faltaAtualizacao")
-                }
-                
-                Falta.removerFaltasDiferentes(novasDisciplinas)
-                return faltas
-            } else {
-                return nil
-            }
-        } else {
+        var faltasArray:Array<Falta>? = Array<Falta>()
+        
+        var resp:NSDictionary?
+        do {
+            resp = try NSJSONSerialization.JSONObjectWithData(faltaData, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+        }catch{
             return nil
         }
+        
+        guard let resposta = resp else {
+            return nil
+        }
+        
+        guard let faltasJSON = resposta.objectForKey("resposta") as? Array<NSDictionary> else {
+            return nil
+        }
+        
+        var novasDisciplinas = Array<String>()
+        
+        for faltaDic in faltasJSON {
+            
+            //Verifica se todos os parametros estão corretos
+            guard let codigo       = faltaDic["codigo"]       as? String,
+                let disciplina   = faltaDic["disciplina"]   as? String,
+                let turma        = faltaDic["turma"]        as? String,
+                let aulasDadas   = faltaDic["dadas"]        as? Int,
+                let permitidas20 = faltaDic["permit20"]     as? Int,
+                let permitidas   = faltaDic["permit"]       as? Int,
+                let faltas       = faltaDic["faltas"]       as? Int,
+                let percentual   = faltaDic["percentual"]   as? Float,
+                let atualizacao  = faltaDic["atualizacao"]  as? String else{
+                    return nil
+            }
+            
+            let falta:Falta?
+            
+            if let faltaExistente = Falta.buscarFalta(codigo) {
+                falta = faltaExistente
+            } else {
+                falta = Falta.novaFalta()
+            }
+            falta?.codigo = codigo
+            novasDisciplinas.append(codigo)
+            
+            falta?.disciplina    = disciplina
+            falta?.turma         = turma
+            falta?.aulasDadas    = aulasDadas
+            falta?.permitidas20  = permitidas20
+            falta?.permitidas    = permitidas
+            falta?.faltas        = faltas
+            falta?.percentual    = percentual
+            falta?.atualizacao   = atualizacao
+            
+            falta?.salvar()
+            faltasArray?.append(falta!)
+        }
+        Falta.removerFaltasDiferentes(novasDisciplinas)
+        return faltasArray
     }
-
 }

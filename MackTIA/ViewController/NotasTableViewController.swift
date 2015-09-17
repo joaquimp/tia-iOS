@@ -47,7 +47,7 @@ class NotasTableViewController: UITableViewController {
                     if info["mensagem"] != nil {
                         mensagem = info["mensagem"]!
                         let descricao = info["descricao"]
-                        println("Descricao do erro: \(descricao)")
+                        print("Descricao do erro: \(descricao)")
                     }
                 }
                 let alert = UIAlertView(title: "Acesso Negado", message: mensagem, delegate: self, cancelButtonTitle: "OK")
@@ -65,8 +65,8 @@ class NotasTableViewController: UITableViewController {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        var delayInSeconds = 1.0;
-        var popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)));
+        let delayInSeconds = 1.0;
+        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)));
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             self.buscarNovosDados()
         }
@@ -110,7 +110,7 @@ class NotasTableViewController: UITableViewController {
         if indexPath != self.selectedCellIndexPath {
             self.selectedCellIndexPath = indexPath
         } else {
-            if let selectedCell = self.selectedCellIndexPath {
+            if let _ = self.selectedCellIndexPath {
                 self.tableView.deselectRowAtIndexPath(self.selectedCellIndexPath!, animated: true)
             }
             self.selectedCellIndexPath = nil

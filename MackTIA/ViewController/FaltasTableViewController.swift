@@ -33,6 +33,8 @@ class FaltasTableViewController: UITableViewController {
             self.tableView.deselectRowAtIndexPath(self.selectedCellIndexPath!, animated: false)
             self.selectedCellIndexPath = nil
         }
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
     }
     
     // MARK: - Atualizando dados
@@ -47,7 +49,7 @@ class FaltasTableViewController: UITableViewController {
                     if info["mensagem"] != nil {
                         mensagem = info["mensagem"]!
                         let descricao = info["descricao"]
-                        println("Descricao do erro: \(descricao)")
+                        print("Descricao do erro: \(descricao)")
                     }
                 }
                 let alert = UIAlertView(title: "Acesso Negado", message: mensagem, delegate: self, cancelButtonTitle: "OK")
@@ -67,8 +69,8 @@ class FaltasTableViewController: UITableViewController {
     }
     
     func handleRefresh(refreshControl: UIRefreshControl) {
-        var delayInSeconds = 0.5;
-        var popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)));
+        let delayInSeconds = 0.5;
+        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delayInSeconds * Double(NSEC_PER_SEC)));
         dispatch_after(popTime, dispatch_get_main_queue()) { () -> Void in
             self.buscarNovosDados()
         }
@@ -101,7 +103,7 @@ class FaltasTableViewController: UITableViewController {
         if indexPath != self.selectedCellIndexPath {
             self.selectedCellIndexPath = indexPath
         } else {
-            if let selectedCell = self.selectedCellIndexPath {
+            if let _ = self.selectedCellIndexPath {
                 self.tableView.deselectRowAtIndexPath(self.selectedCellIndexPath!, animated: true)
             }
             self.selectedCellIndexPath = nil
@@ -121,20 +123,20 @@ class FaltasTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        // Remove seperator inset
-        if cell.respondsToSelector(Selector("setSeparatorInset:")) {
-            cell.separatorInset = UIEdgeInsetsZero
-        }
-        
-        // Prevent the cell from inheriting the Table View's margin settings
-        if cell.respondsToSelector(Selector("setPreservesSuperviewLayoutMargins:")) {
-            cell.preservesSuperviewLayoutMargins = false
-        }
-        
-        // Explictly set your cell's layout margins
-        if cell.respondsToSelector(Selector("setLayoutMargins:")) {
-            cell.layoutMargins = UIEdgeInsetsZero
-        }
+//        // Remove seperator inset
+//        if cell.respondsToSelector(Selector("setSeparatorInset:")) {
+//            cell.separatorInset = UIEdgeInsetsZero
+//        }
+//        
+//        // Prevent the cell from inheriting the Table View's margin settings
+//        if cell.respondsToSelector(Selector("setPreservesSuperviewLayoutMargins:")) {
+//            cell.preservesSuperviewLayoutMargins = false
+//        }
+//        
+//        // Explictly set your cell's layout margins
+//        if cell.respondsToSelector(Selector("setLayoutMargins:")) {
+//            cell.layoutMargins = UIEdgeInsetsZero
+//        }
         
     }
 }

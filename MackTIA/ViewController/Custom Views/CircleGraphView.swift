@@ -42,7 +42,7 @@ class CircleGraphView: UIView {
         let maxEnd:CGFloat = maxArc * fullCircle + start
         
         //find the centerpoint of the rect
-        var centerPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect))
+        let centerPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect))
         
         //define the radius by the smallest side of the view
         var radius:CGFloat = 0.0
@@ -59,13 +59,13 @@ class CircleGraphView: UIView {
         let context = UIGraphicsGetCurrentContext()
         
         //set colorspace
-        let colorspace = CGColorSpaceCreateDeviceRGB()
+//        let colorspace = CGColorSpaceCreateDeviceRGB()
         
         
         
         //set line attributes
         CGContextSetLineWidth(context, arcWidth)
-        CGContextSetLineCap(context, kCGLineCapRound)
+        CGContextSetLineCap(context, CGLineCap.Round)
         
         //make the circle background
         CGContextSetStrokeColorWithColor(context, arcBackgroundColor.CGColor)

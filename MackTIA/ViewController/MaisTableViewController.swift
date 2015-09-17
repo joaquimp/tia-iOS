@@ -11,7 +11,7 @@ import UIKit
 import Social
 import MessageUI
 
-class MaisTableViewController: UITableViewController, UITableViewDelegate, MFMailComposeViewControllerDelegate {
+class MaisTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +49,9 @@ class MaisTableViewController: UITableViewController, UITableViewDelegate, MFMai
                 // Curtir pagina da TV Mackenzie
                 var url = NSURL(string: "fb://profile/200809299999744")
                 if url == nil || !UIApplication.sharedApplication().canOpenURL(url!) {
-                    var safariURL = NSURL(string: "https://www.facebook.com/TvMackenzie")
+                    let safariURL = NSURL(string: "https://www.facebook.com/TvMackenzie")
                     if safariURL == nil {
-                        println("Não conseguiu abrir facebook")
+                        print("Não conseguiu abrir facebook")
                         return
                     }
                     url = safariURL
@@ -61,9 +61,9 @@ class MaisTableViewController: UITableViewController, UITableViewDelegate, MFMai
                 // Curtir pagina da Radio Mackenzie
                 var url = NSURL(string: "fb://profile/795338763868734")
                 if url == nil || !UIApplication.sharedApplication().canOpenURL(url!) {
-                    var safariURL = NSURL(string: "https://www.facebook.com/TvMackenzie")
+                    let safariURL = NSURL(string: "https://www.facebook.com/TvMackenzie")
                     if safariURL == nil {
-                        println("Não conseguiu abrir facebook")
+                        print("Não conseguiu abrir facebook")
                         return
                     }
                     url = safariURL
@@ -73,9 +73,9 @@ class MaisTableViewController: UITableViewController, UITableViewDelegate, MFMai
                 // Curtir pagina da Mackenzie
                 var url = NSURL(string: "fb://profile/132887713419861")
                 if url == nil || !UIApplication.sharedApplication().canOpenURL(url!) {
-                    var safariURL = NSURL(string: "https://www.facebook.com/mackenzie1870")
+                    let safariURL = NSURL(string: "https://www.facebook.com/mackenzie1870")
                     if safariURL == nil {
-                        println("Não conseguiu abrir facebook")
+                        print("Não conseguiu abrir facebook")
                         return
                     }
                     url = safariURL
@@ -83,22 +83,22 @@ class MaisTableViewController: UITableViewController, UITableViewDelegate, MFMai
                 UIApplication.sharedApplication().openURL(url!)
             case twitter:
                 // Twittar sobre o aplicativo
-                var compose = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+                let compose = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
                 compose.setInitialText("#mackenzie1870 #mackmobile #macktia o terminal informativo acadêmico da Universidade Presbiteriana Mackenzie, baixa já na AppStore!")
                 self.presentViewController(compose, animated: true, completion: nil)
             case email:
                 // Envio de e-mail
-                var compose = MFMailComposeViewController()
+                let compose = MFMailComposeViewController()
                 compose.mailComposeDelegate = self
                 compose.setToRecipients(["npda@mackenzie.br", "moodleadmin@mackenzie.br"])
                 self.presentViewController(compose, animated: true, completion: nil)
             case appStore:
                 // Avaliar na AppStores
-                var url = NSURL(string: "itms-apps://itunes.apple.com/app/1022024177")
+                let url = NSURL(string: "itms-apps://itunes.apple.com/app/1022024177")
                 if url != nil {
                     UIApplication.sharedApplication().openURL(url!)
                 } else {
-                    println("Erro ao tentar abrir AppStore")
+                    print("Erro ao tentar abrir AppStore")
                 }
             default:
                 return
@@ -107,17 +107,17 @@ class MaisTableViewController: UITableViewController, UITableViewDelegate, MFMai
             switch(indexPath.row) {
             case paginaFCI:
                 // Curtir pagina da Mackenzie
-                var url = NSURL(string: "http://www.mackenzie.br/fci.html")
+                let url = NSURL(string: "http://www.mackenzie.br/fci.html")
                 if url == nil || !UIApplication.sharedApplication().canOpenURL(url!) {
-                    println("Não conseguiu abrir pagina da fci")
+                    print("Não conseguiu abrir pagina da fci")
                     return
                 }
                 UIApplication.sharedApplication().openURL(url!)
             case paginaDTI:
                 // Curtir pagina da DTI
-                var url = NSURL(string: "http://www.mackenzie.br/dti.html")
+                let url = NSURL(string: "http://www.mackenzie.br/dti.html")
                 if url == nil || !UIApplication.sharedApplication().canOpenURL(url!) {
-                    println("Não conseguiu abrir pagina da dti")
+                    print("Não conseguiu abrir pagina da dti")
                     return
                 }
                 UIApplication.sharedApplication().openURL(url!)
@@ -127,12 +127,12 @@ class MaisTableViewController: UITableViewController, UITableViewDelegate, MFMai
         }
     }
     
-    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
         controller.dismissViewControllerAnimated(true, completion: nil)
-        switch(result.value){
-        case MFMailComposeResultSent.value:
+        switch(result.rawValue){
+        case MFMailComposeResultSent.rawValue:
             UIAlertView(title: "Obrigado", message: "Seu e-mail foi enviado e ficamos gratos pela sua(s) critica(s) e/ou sugestão(ões) :)", delegate: self, cancelButtonTitle: "OK").show()
-        case MFMailComposeResultFailed.value:
+        case MFMailComposeResultFailed.rawValue:
             UIAlertView(title: "Ops", message: "Ocorreu algum problema ao tentar enviar o e-mail. Se não estiver conseguindo enviar por aqui, envie um e-mail para moodleadmin@mackenzie.br. Obrigado!", delegate: self, cancelButtonTitle: "OK").show()
         default:
             return

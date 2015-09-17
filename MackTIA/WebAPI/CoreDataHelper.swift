@@ -33,7 +33,7 @@ class CoreDataHelper {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "MackMobile.CoreData_Swift" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as! NSURL
+        return urls[urls.count-1] 
         }()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
@@ -49,7 +49,10 @@ class CoreDataHelper {
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("MackTIA.sqlite")
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
-        if coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil, error: &error) == nil {
+        do {
+            try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+        } catch var error1 as NSError {
+            error = error1
             coordinator = nil
             // Report any error we got.
             var dict = [String: AnyObject]()
@@ -61,6 +64,8 @@ class CoreDataHelper {
             // A aplicacao sera finalizada por nao ser possivel usar o CoreData
             // eh recomendado tratar este erro, exibindo uma orientacao ao usuario para solucao do problema
             abort()
+        } catch {
+            fatalError()
         }
         
         return coordinator
@@ -82,11 +87,16 @@ class CoreDataHelper {
     func saveContext () {
         if let moc = self.managedObjectContext {
             var error: NSError? = nil
-            if moc.hasChanges && !moc.save(&error) {
-                NSLog("Unresolved error \(error), \(error!.userInfo)")
-                // A aplicacao sera finalizada por nao ser possivel usar o CoreData
-                // eh recomendado tratar este erro, exibindo uma orientacao ao usuario para solucao do problema
-                abort()
+            if moc.hasChanges {
+                do {
+                    try moc.save()
+                } catch let error1 as NSError {
+                    error = error1
+                    NSLog("Unresolved error \(error), \(error!.userInfo)")
+                    // A aplicacao sera finalizada por nao ser possivel usar o CoreData
+                    // eh recomendado tratar este erro, exibindo uma orientacao ao usuario para solucao do problema
+                    abort()
+                }
             }
         }
     }
