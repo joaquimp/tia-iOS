@@ -300,6 +300,7 @@
 				9289B87A1B87ADB3004284E3 /* Frameworks */,
 				9289B87B1B87ADB3004284E3 /* Resources */,
 				92B9E8CD1B87C887004C1DE4 /* Embed Frameworks */,
+				922BF04B1BACDFE90004F243 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -416,6 +417,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MackTIATests/Pods-MackTIATests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		922BF04B1BACDFE90004F243 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/Fabric.framework/run\" c827b1e06013cb3a55d7d26359651127705bbad3 5ff544eeb37be23967d2c8d0593b370e4b479166dfe570d0910fd71a42370d81";
 		};
 		B943821D8E6DD465AFB289C8 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
