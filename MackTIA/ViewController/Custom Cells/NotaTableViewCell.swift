@@ -26,8 +26,11 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         didSet{
             if nota != nil {
                 self.nomeDisciplina.text = nota!.disciplina
-                self.formula.text = "Fórmula: \(nota!.formula.stringByRemovingPercentEncoding?.lowercaseString)"
-//                stringByReplacingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!.lowercaseString)"
+                if let formulaTexto = nota!.formula.stringByRemovingPercentEncoding?.lowercaseString {
+                    self.formula.text = formulaTexto
+                } else {
+                    self.formula.text = "não informada"
+                }
                 
                 self.notasIntermediariasCollectionView.reloadData()
                 self.notasFinaisCollectionView.reloadData()
@@ -104,6 +107,8 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         self.notasIntermediariasCollectionView.delegate = self
         self.notasIntermediariasCollectionView.dataSource = self
         self.notasIntermediariasNaoVazias = Array<Tuple>()
+        
+        self.formula.sizeToFit()
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

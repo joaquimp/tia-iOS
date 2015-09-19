@@ -60,6 +60,16 @@ class FaltasTableViewController: UITableViewController {
             self.faltas = manager.faltas()
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
+            
+            if self.selectedCellIndexPath != nil {
+                self.tableView.beginUpdates()
+                self.tableView.deselectRowAtIndexPath(self.selectedCellIndexPath!, animated: false)
+                self.tableView.endUpdates()
+                
+                self.tableView.beginUpdates()
+                self.tableView.selectRowAtIndexPath(self.selectedCellIndexPath!, animated: false, scrollPosition: UITableViewScrollPosition.Top)
+                self.tableView.endUpdates()
+            }
         }
     }
     

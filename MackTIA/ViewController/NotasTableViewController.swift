@@ -35,6 +35,8 @@ class NotasTableViewController: UITableViewController {
             self.tableView.deselectRowAtIndexPath(self.selectedCellIndexPath!, animated: false)
             self.selectedCellIndexPath = nil
         }
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
     }
     
     // MARK: - Atualizando dados
@@ -57,6 +59,16 @@ class NotasTableViewController: UITableViewController {
             self.notas = manager.notas()
             self.tableView.reloadData()
             self.refreshControl?.endRefreshing()
+            
+            if self.selectedCellIndexPath != nil {
+                self.tableView.beginUpdates()
+                self.tableView.deselectRowAtIndexPath(self.selectedCellIndexPath!, animated: false)
+                self.tableView.endUpdates()
+                
+                self.tableView.beginUpdates()
+                self.tableView.selectRowAtIndexPath(self.selectedCellIndexPath!, animated: false, scrollPosition: UITableViewScrollPosition.Top)
+                self.tableView.endUpdates()
+            }
         }
     }
     

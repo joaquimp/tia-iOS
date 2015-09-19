@@ -29,7 +29,7 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+
         let paddingViewTia = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 50))
         let paddingViewPass = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 50))
         
@@ -70,24 +70,7 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         self.activityIndicator.hidden = true
         self.bloqueiView.hidden = true
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        if let tia = NSUserDefaults.standardUserDefaults().stringForKey("tia") {
-            if let senha = NSUserDefaults.standardUserDefaults().stringForKey("senha") {
-                if let unidade = NSUserDefaults.standardUserDefaults().stringForKey("unidade") {
-                    let usuario = Usuario()
-                    usuario.tia = tia
-                    usuario.senha = senha
-                    usuario.unidade = unidade
-                    TIAManager.sharedInstance.usuario = usuario
-                    self.performSegueWithIdentifier("login", sender: self)
-                }
-            }
-        }
-        
-        
-    }
+
     
     override func prefersStatusBarHidden() -> Bool {
         return true
