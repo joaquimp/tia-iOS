@@ -20,6 +20,7 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     @IBOutlet weak var notasFinaisCollectionView: UICollectionView!
     @IBOutlet weak var notasIntermediariasCollectionView: UICollectionView!
     @IBOutlet weak var conteudoView: UIView!
+    @IBOutlet weak var nenhumaNotaLabel: UILabel!
     private var notasIntermediariasNaoVazias:Array<Tuple>!
     
     var nota:Nota? {
@@ -32,8 +33,7 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
                     self.formula.text = "não informada"
                 }
                 
-                self.notasIntermediariasCollectionView.reloadData()
-                self.notasFinaisCollectionView.reloadData()
+                self.notasIntermediariasNaoVazias.removeAll()
                 
                 if nota!.a != "-" {
                     let n = Tuple()
@@ -95,6 +95,9 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
                     n.nota = nota!.j
                     self.notasIntermediariasNaoVazias.append(n)
                 }
+                
+                self.notasIntermediariasCollectionView.reloadData()
+                self.notasFinaisCollectionView.reloadData()
             }
         }
     }
@@ -109,17 +112,17 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         self.notasIntermediariasNaoVazias = Array<Tuple>()
         
         self.formula.sizeToFit()
+        
+        layer.masksToBounds = true
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if self.selected {
-            UIView.animateWithDuration(0.3, delay: 0.3, options:[], animations: { () -> Void in
-                self.conteudoView.alpha = 1
+            UIView.animateWithDuration(0.3, delay: 0.0, options:[], animations: { () -> Void in
+                self.contentView.backgroundColor = UIColor(hex: "FAFAFA")
                 }, completion: nil)
-        } else {
-            self.conteudoView.alpha = 0
-        }
+        } 
     }
     
     // MARK: UICollectionVeiw DataSource and Delegate Methods
@@ -130,6 +133,8 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if self.nota == nil {
+            collectionView.hidden = true
+            nenhumaNotaLabel.hidden = false
             return 0
         }
         
@@ -137,9 +142,11 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         if collectionView == notasIntermediariasCollectionView {
             if self.notasIntermediariasNaoVazias.count == 0 {
                 collectionView.hidden = true
+                nenhumaNotaLabel.hidden = false
                 return 0
             }
             collectionView.hidden = false
+            nenhumaNotaLabel.hidden = true
             return self.notasIntermediariasNaoVazias.count
         } else {
             //Retorna aquantidade de notas finais

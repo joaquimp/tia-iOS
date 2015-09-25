@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6353C8101FCFC8B5B5CB9264 /* Pods_MackTIATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		922BF04D1BACF2940004F243 /* LoginValidateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922BF04C1BACF2940004F243 /* LoginValidateViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		923C1F721BAA7C02006616B5 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923C1F711BAA7C02006616B5 /* ConfigHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */; };
 		9246D50E1B9A4EBF00F0674D /* Falta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50D1B9A4EBF00F0674D /* Falta.swift */; };
@@ -24,6 +23,10 @@
 		92B9E8DC1B87C992004C1DE4 /* TIAManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */; };
 		92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */; };
 		92B9E8E01B87CA07004C1DE4 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B9E8DF1B87CA07004C1DE4 /* config.plist */; };
+		92D278C31BB4D82900680733 /* HorarioSemanalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C21BB4D82900680733 /* HorarioSemanalViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		92D278C51BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C41BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		92D278C91BB4DD8200680733 /* Horario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C81BB4DD8200680733 /* Horario.swift */; settings = {ASSET_TAGS = (); }; };
 		971DBE92D688529EF9699185 /* Pods_MackTIA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A1337E361BA082C4004A2015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1337E341BA082C4004A2015 /* Main.storyboard */; };
 		A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */; };
@@ -69,7 +72,6 @@
 		1359FCE54B8718B5E5C1D19E /* Pods-MackTIA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA.debug.xcconfig"; sourceTree = "<group>"; };
 		31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MackTIATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E524A4CF42EB188E445412B /* Pods-MackTIA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIA.release.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA.release.xcconfig"; sourceTree = "<group>"; };
-		922BF04C1BACF2940004F243 /* LoginValidateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginValidateViewController.swift; path = ViewController/LoginValidateViewController.swift; sourceTree = "<group>"; };
 		923C1F711BAA7C02006616B5 /* ConfigHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigHelper.swift; path = Helpers/ConfigHelper.swift; sourceTree = "<group>"; };
 		9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataHelper.swift; path = WebAPI/CoreDataHelper.swift; sourceTree = "<group>"; };
 		9246D50D1B9A4EBF00F0674D /* Falta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Falta.swift; path = WebAPI/Entidade/Falta.swift; sourceTree = "<group>"; };
@@ -92,6 +94,10 @@
 		92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TIAManager.swift; path = WebAPI/TIAManager.swift; sourceTree = "<group>"; };
 		92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Usuario.swift; path = WebAPI/Entidade/Usuario.swift; sourceTree = "<group>"; };
 		92B9E8DF1B87CA07004C1DE4 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = WebAPI/config.plist; sourceTree = "<group>"; };
+		92D278C21BB4D82900680733 /* HorarioSemanalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioSemanalViewController.swift; path = ViewController/HorarioSemanalViewController.swift; sourceTree = "<group>"; };
+		92D278C41BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorariaDiaDaSemanaTableViewController.swift; path = ViewController/HorariaDiaDaSemanaTableViewController.swift; sourceTree = "<group>"; };
+		92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioTableViewCell.swift; path = "ViewController/Custom Cells/HorarioTableViewCell.swift"; sourceTree = "<group>"; };
+		92D278C81BB4DD8200680733 /* Horario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Horario.swift; path = WebAPI/Entidade/Horario.swift; sourceTree = "<group>"; };
 		A1337E351BA082C4004A2015 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaltaTableViewCell.swift; path = "ViewController/Custom Cells/FaltaTableViewCell.swift"; sourceTree = "<group>"; };
 		A15BB2D11B9AB82400143EBE /* CircleGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleGraphView.swift; path = "ViewController/Custom Views/CircleGraphView.swift"; sourceTree = "<group>"; };
@@ -153,6 +159,7 @@
 				9246D50D1B9A4EBF00F0674D /* Falta.swift */,
 				92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */,
 				A15BB2F11B9BD26300143EBE /* Nota.swift */,
+				92D278C81BB4DD8200680733 /* Horario.swift */,
 			);
 			name = Entidades;
 			sourceTree = "<group>";
@@ -230,12 +237,13 @@
 				A15BB2D31B9AB82800143EBE /* Custom Views */,
 				A15BB2CE1B9AB23700143EBE /* Custom Cells */,
 				92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */,
-				922BF04C1BACF2940004F243 /* LoginValidateViewController.swift */,
 				A16372391B89915A000A9C69 /* FaltasTableViewController.swift */,
 				A15BB2EA1B9BCEFF00143EBE /* NotasTableViewController.swift */,
 				A15BB2D81B9ACCDD00143EBE /* MaisTableViewController.swift */,
 				A15BB2E71B9AD2FD00143EBE /* MapaViewController.h */,
 				A15BB2E81B9AD2FD00143EBE /* MapaViewController.m */,
+				92D278C21BB4D82900680733 /* HorarioSemanalViewController.swift */,
+				92D278C41BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift */,
 				A15BB2E61B9AD2AF00143EBE /* Mapa */,
 			);
 			name = ViewControllers;
@@ -258,6 +266,7 @@
 				A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */,
 				A15BB2EC1B9BD03900143EBE /* NotaTableViewCell.swift */,
 				A15BB2F31B9BD79800143EBE /* NotaCollectionViewCell.swift */,
+				92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */,
 			);
 			name = "Custom Cells";
 			sourceTree = "<group>";
@@ -481,17 +490,20 @@
 				92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */,
 				A15BB2E51B9AD2AA00143EBE /* MapOverlayView.m in Sources */,
 				A15BB2F21B9BD26300143EBE /* Nota.swift in Sources */,
-				922BF04D1BACF2940004F243 /* LoginValidateViewController.swift in Sources */,
 				A15BB2D21B9AB82400143EBE /* CircleGraphView.swift in Sources */,
 				923C1F721BAA7C02006616B5 /* ConfigHelper.swift in Sources */,
 				A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */,
 				A15BB2F41B9BD79800143EBE /* NotaCollectionViewCell.swift in Sources */,
 				9246D50E1B9A4EBF00F0674D /* Falta.swift in Sources */,
 				9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */,
+				92D278C91BB4DD8200680733 /* Horario.swift in Sources */,
 				A15BB2E91B9AD2FD00143EBE /* MapaViewController.m in Sources */,
+				92D278C31BB4D82900680733 /* HorarioSemanalViewController.swift in Sources */,
 				9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */,
 				A15BB2ED1B9BD03900143EBE /* NotaTableViewCell.swift in Sources */,
+				92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */,
 				A15BB2E41B9AD2AA00143EBE /* MapOverlay.m in Sources */,
+				92D278C51BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift in Sources */,
 				A15BB2EB1B9BCEFF00143EBE /* NotasTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,10 +687,7 @@
 			baseConfigurationReference = BDCC901934CE3EB1CC52A290 /* Pods-MackTIATests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -696,10 +705,7 @@
 			baseConfigurationReference = F43283DA135A06651819BBF5 /* Pods-MackTIATests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MackTIATests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.mackenzie.$(PRODUCT_NAME:rfc1034identifier)";

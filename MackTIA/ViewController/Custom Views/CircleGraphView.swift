@@ -38,8 +38,8 @@ class CircleGraphView: UIView {
         let fullCircle = 2.0 * CGFloat(M_PI)
         let start:CGFloat = -0.25 * fullCircle
         let end:CGFloat = endArc * fullCircle + start
-        let maxStart:CGFloat = start
-        let maxEnd:CGFloat = maxArc * fullCircle + start
+//        let maxStart:CGFloat = start
+//        let maxEnd:CGFloat = maxArc * fullCircle + start
         
         //find the centerpoint of the rect
         let centerPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect))
@@ -72,13 +72,12 @@ class CircleGraphView: UIView {
         CGContextAddArc(context, centerPoint.x, centerPoint.y, radius, 0, fullCircle, 0)
         CGContextStrokePath(context)
         
-        //make the circle max
-        CGContextSetStrokeColorWithColor(context, maxArcColor.CGColor)
-        CGContextAddArc(context, centerPoint.x, centerPoint.y, radius, maxStart, maxEnd, 0)
-        CGContextStrokePath(context)
+//        //make the circle max
+//        CGContextSetStrokeColorWithColor(context, maxArcColor.CGColor)
+//        CGContextAddArc(context, centerPoint.x, centerPoint.y, radius, maxStart, maxEnd, 0)
+//        CGContextStrokePath(context)
         
         //make the main circle
-        
         CGContextSetStrokeColorWithColor(context, arcColor.CGColor)
         CGContextAddArc(context, centerPoint.x, centerPoint.y, radius, start, end, 0)
         CGContextStrokePath(context)
@@ -88,7 +87,7 @@ class CircleGraphView: UIView {
 //        let backgroundTrackColor = UIColor(white: 0.15, alpha: 1.0)
 //        circleGraph.arcBackgroundColor = backgroundTrackColor
         
-        CGContextSetLineWidth(context, arcWidth * 0.8)
+//        CGContextSetLineWidth(context, arcWidth * 0.8)
     }
     
 }

@@ -25,7 +25,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Override point for customization after application launch.
         Fabric.with([Crashlytics.self()])
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.tintColor = UIColor.redColor()
         
+        if let tia = NSUserDefaults.standardUserDefaults().stringForKey("tia") {
+            if let senha = NSUserDefaults.standardUserDefaults().stringForKey("senha") {
+                if let unidade = NSUserDefaults.standardUserDefaults().stringForKey("unidade") {
+                    let usuario = Usuario()
+                    usuario.tia = tia
+                    usuario.senha = senha
+                    usuario.unidade = unidade
+                    TIAManager.sharedInstance.usuario = usuario
+                    let vc = storyboard.instantiateViewControllerWithIdentifier("telaPrincipal")
+                    self.window?.rootViewController = vc
+                    self.window?.makeKeyAndVisible()
+                    return true
+                }
+            }
+        }
+        let vc = storyboard.instantiateViewControllerWithIdentifier("telaLogin")
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
         return true
     }
 

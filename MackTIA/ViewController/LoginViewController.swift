@@ -125,7 +125,7 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         })
     }
 
-    
+    // MARK: - Memory Management
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -136,7 +136,6 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         return self.unidades.count
     }
     
-    // MARK: - Memory Management
     func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
         return self.unidades[item]
     }

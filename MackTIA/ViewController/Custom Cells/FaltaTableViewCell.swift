@@ -32,22 +32,22 @@ class FaltaTableViewCell: UITableViewCell {
                 self.nomeDisciplina.text = falta!.disciplina
                 self.permitidas.text = "\(falta!.permitidas)"
                 self.atualizacao.text = NSLocalizedString("update.label.text", comment: "Texto padrao para atualização") + falta!.atualizacao
+                self.atualizacao.sizeToFit()
             }
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        layer.masksToBounds = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         if self.selected {
-            UIView.animateWithDuration(0.3, delay: 0.3, options:[], animations: { () -> Void in
-                self.conteudoView.alpha = 1
+            UIView.animateWithDuration(0.3, delay: 0.0, options:[], animations: { () -> Void in
+                self.contentView.backgroundColor = UIColor(hex: "FAFAFA")
                 }, completion: nil)
-        } else {
-            self.conteudoView.alpha = 0
         }
     }
 }
