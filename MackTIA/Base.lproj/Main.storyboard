@@ -1894,7 +1894,7 @@ Design/Desenvolvimento do Aplicativo iOS
         <!--SEGUNDA-FEIRA-->
         <scene sceneID="5f7-2H-mvZ">
             <objects>
-                <viewController id="ZBQ-u9-hx0" customClass="HorarioSemanalViewController" customModule="MackTIA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ZBQ-u9-hx0" customClass="HorarioSemanalViewController" customModule="MackTIA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TOb-QP-KD1"/>
                         <viewControllerLayoutGuide type="bottom" id="bsm-hn-MDs"/>

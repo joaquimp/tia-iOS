@@ -49,8 +49,12 @@ class HorarioSemanalViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
+    
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: 0), animated: true)
+        print("AQUIII")
+        
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
