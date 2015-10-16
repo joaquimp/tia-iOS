@@ -197,7 +197,7 @@ class Nota: NSManagedObject {
             if let a = notaDic["a"] as? String {
                 nota?.a = a
             } else {
-                nota?.a = "10.0"
+                nota?.a = notaVazia
             }
             
             if let b = notaDic["b"] as? String {

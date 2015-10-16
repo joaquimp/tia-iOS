@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15A282b" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="15B30a" minimumToolsVersion="Automatic">
+    <entity name="AnotacaoHorario" syncable="YES"/>
     <entity name="Falta" representedClassName="MackTIA.Falta" syncable="YES">
         <attribute name="atualizacao" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="aulasDadas" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -11,6 +12,7 @@
         <attribute name="permitidas20" optional="YES" attributeType="Integer 32" defaultValueString="0.0" syncable="YES"/>
         <attribute name="turma" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="Horario" syncable="YES"/>
     <entity name="Nota" representedClassName="MackTIA.Nota" syncable="YES">
         <attribute name="a" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="b" optional="YES" attributeType="String" syncable="YES"/>
@@ -35,5 +37,7 @@
     <elements>
         <element name="Falta" positionX="-63" positionY="-18" width="128" height="180"/>
         <element name="Nota" positionX="-63" positionY="54" width="128" height="330"/>
+        <element name="Horario" positionX="-63" positionY="135" width="128" height="45"/>
+        <element name="AnotacaoHorario" positionX="-54" positionY="144" width="128" height="45"/>
     </elements>
 </model>
