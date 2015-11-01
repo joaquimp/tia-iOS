@@ -21,6 +21,16 @@ class HorarioSemanalViewController: UIViewController, UIScrollViewDelegate {
         instantiateWeekdays()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        TIAManager.sharedInstance.atualizarHorarios { (manager, error) -> () in
+            let horarios = manager.horarios()
+            for horario in horarios {
+                horario.debug()
+            }
+        }
+    }
+    
     func instantiateWeekdays() {
         
         var scrollContentViews:[UIView] = []
@@ -53,7 +63,6 @@ class HorarioSemanalViewController: UIViewController, UIScrollViewDelegate {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: 0), animated: true)
-        print("AQUIII")
         
     }
     

@@ -8,6 +8,8 @@
 	<string>https://www3.mackenzie.com.br/tia/tia_mobile/notas.php</string>
 	<key>loginURL</key>
 	<string>https://www3.mackenzie.com.br/tia/tia_mobile/ping.php</string>
+	<key>horariosURL</key>
+	<string>https://www3.mackenzie.com.br/tia/tia_mobile/horarios.php</string>
 	<key>&lt;remote&gt; URL Base</key>
 	<string>http://macktia.mybluemix.net/</string>
 	<key>&lt;local&gt; URL Base</key>

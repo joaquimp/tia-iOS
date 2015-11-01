@@ -30,12 +30,12 @@ class HorariaDiaDaSemanaTableViewController: UITableViewController {
     }
     
     func getSchedule() {
-        for _ in 0...4 {
-            let newClass = Horario()
-            newClass.disciplina = "Em construção ;)"
-            newClass.local = "Prédio RW - Sala 102"
-            classesList.append(newClass)
-        }
+//        for _ in 0...4 {
+//            let newClass = Horario()
+//            newClass.disciplina = "Em construção ;)"
+//            newClass.local = "Prédio RW - Sala 102"
+//            classesList.append(newClass)
+//        }
     }
     
     // MARK: - Table view data source

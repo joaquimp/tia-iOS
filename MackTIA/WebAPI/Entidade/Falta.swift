@@ -15,10 +15,10 @@ class Falta: NSManagedObject {
     @NSManaged var disciplina: String
     @NSManaged var atualizacao: String
     @NSManaged var turma: String
-    @NSManaged var permitidas20: Int
-    @NSManaged var permitidas: Int
-    @NSManaged var aulasDadas: Int
-    @NSManaged var faltas: Int
+    @NSManaged var permitidas20: Int32
+    @NSManaged var permitidas: Int32
+    @NSManaged var aulasDadas: Int32
+    @NSManaged var faltas: Int32
     @NSManaged var percentual: Float
     
     func salvar() {
@@ -100,21 +100,24 @@ class Falta: NSManagedObject {
         }
     }
     
-    class func removerTudo() {
-        do {
-            let fetchRequest = NSFetchRequest(entityName: "Falta")
-            
-            let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
-            if let results = fetchedResults as? [Falta] {
-                for var i=0; i < results.count; i++ {
-                    CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
-                }
-            }
-            CoreDataHelper.sharedInstance.saveContext()
-        }catch{
-            print("Falta.removerTudo() - \(error)")
-        }
+    class func removerTudo(){
+        CoreDataHelper.sharedInstance.removeAll("Falta")
     }
+//    class func removerTudo() {
+//        do {
+//            let fetchRequest = NSFetchRequest(entityName: "Falta")
+//            
+//            let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+//            if let results = fetchedResults as? [Falta] {
+//                for var i=0; i < results.count; i++ {
+//                    CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
+//                }
+//            }
+//            CoreDataHelper.sharedInstance.saveContext()
+//        }catch{
+//            print("Falta.removerTudo() - \(error)")
+//        }
+//    }
     
     
     // MARK: Metodos uteis
@@ -165,10 +168,10 @@ class Falta: NSManagedObject {
             
             falta?.disciplina    = disciplina
             falta?.turma         = turma
-            falta?.aulasDadas    = aulasDadas
-            falta?.permitidas20  = permitidas20
-            falta?.permitidas    = permitidas
-            falta?.faltas        = faltas
+            falta?.aulasDadas    = Int32(aulasDadas)
+            falta?.permitidas20  = Int32(permitidas20)
+            falta?.permitidas    = Int32(permitidas)
+            falta?.faltas        = Int32(faltas)
             falta?.percentual    = percentual
             falta?.atualizacao   = atualizacao
             

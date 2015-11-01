@@ -131,27 +131,8 @@ class Nota: NSManagedObject {
         }
     }
     
-    
-    /**
-    Remove todas as notas existentes no banco de dados
-    */
-    class func removerTudo() {
-        let fetchRequest = NSFetchRequest(entityName: "Nota")
-        
-        do {
-            let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
-            
-            guard let results = fetchedResults as? [Nota] else {
-                return
-            }
-            for var i=0; i < results.count; i++ {
-                CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
-            }
-            
-            CoreDataHelper.sharedInstance.saveContext()
-        }catch{
-            print("Nota.removerTudo - \(error)")
-        }
+    class func removerTudo(){
+        CoreDataHelper.sharedInstance.removeAll("Nota")
     }
     
     // MARK: Metodos uteis

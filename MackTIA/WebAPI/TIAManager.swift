@@ -57,6 +57,7 @@ class TIAManager {
     }
     
     // MARK: Metodos uteis
+    
     private func gerarToken() -> String {
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
@@ -119,10 +120,10 @@ class TIAManager {
             let request = self.criarRequisicao(ConfigHelper.sharedInstance.loginURL, usuario: usuario)
             
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-                print("Erro: \(error)")
                 
                 //Verifica se ocorreu erro
                 guard error == nil else {
+                    print("Erro: \(error)")
                     let mensagem = NSLocalizedString("errorLoginServer.text", comment: "Erro na requisição")
                     let descricao = NSLocalizedString("errorLoginServer.description", comment: "Erro na requisição") + error!.description
                     let erro = NSError(domain: "TIAManager.login", code: 2, userInfo: ["mensagem":mensagem,"descricao":descricao])
@@ -216,10 +217,11 @@ class TIAManager {
             let request = self.criarRequisicao(ConfigHelper.sharedInstance.faltasURL, usuario: usuarioOK)
             
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-                print("Erro: \(error)")
+                
                 
                 //Verifica se ocorreu erro
                 guard error == nil else {
+                    print("Erro: \(error)")
                     let mensagem = NSLocalizedString("errorLoginServer.text", comment: "Erro na requisição")
                     let descricao = NSLocalizedString("errorLoginServer.description", comment: "Erro na requisição") + error!.description
                     let erro = NSError(domain: "TIAManager.atualizarFaltas", code: 2, userInfo: ["mensagem":mensagem,"descricao":descricao])
@@ -286,6 +288,99 @@ class TIAManager {
     }
     
     
+    // MARK: Metodos de manipulacao de FALTAS
+    /**
+    Busca as faltas do aluno autenticado no servidor e salva no banco de dados interno.
+    Esta funcao eh assincrona, por isso realiza o envio de notificacoes assim que processa a requisicao
+    */
+    func atualizarHorarios(completionHandler:(TIAManager,NSError?)->()) {
+        
+        //Dispach para rodar requisição em paralelo e evitar travar interface do usuário
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
+            
+            //Garante que o ping ja foi testado no servidor
+            guard let usuarioOK = self.usuario else {
+                let mensagem = NSLocalizedString("errorLoginValidate.text", comment: "Erro ao validar os dados")
+                let descricao = NSLocalizedString("errorLoginValidate.description", comment: "Erro ao validar os dados")
+                let erro = NSError(domain: "TIAManager.atualizarHorarios", code: 1, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(self,erro)
+                })
+                return
+            }
+            
+            let request = self.criarRequisicao(ConfigHelper.sharedInstance.horariosURL, usuario: usuarioOK)
+            
+            let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                
+                //Verifica se ocorreu erro
+                guard error == nil else {
+                    print("Erro: \(error)")
+                    let mensagem = NSLocalizedString("errorLoginServer.text", comment: "Erro na requisição")
+                    let descricao = NSLocalizedString("errorLoginServer.description", comment: "Erro na requisição") + error!.description
+                    let erro = NSError(domain: "TIAManager.atualizarHorarios", code: 2, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                    //Executa o completionHandler na thread principal para não ter problema com atualizações em interface gráfica
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completionHandler(self,erro)
+                    })
+                    return
+                }
+                
+                guard let _ = Horario.parseJSON(data!) else {
+                    
+                    var resp:NSDictionary?
+                    do {
+                        resp = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
+                    } catch {
+                        print(error)
+                    }
+                    
+                    //Servidor respondeu mas em um formato não esperado
+                    guard let resposta = resp else {
+                        let mensagem = NSLocalizedString("errorLoginServer.text", comment: "Erro no retorno da requisição")
+                        let descricao = NSLocalizedString("errorLoginServer.description", comment: "Erro no retorno da requisição")
+                        let erro = NSError(domain: "TIAManager.atualizarFaltas", code: 4, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                        //Executa o completionHandler na thread principal para não ter problema com atualizações em interface gráfica
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            completionHandler(self,erro)
+                        })
+                        return
+                    }
+                    
+                    //O servidor indicou um erro nos parâmetros da requisição
+                    guard let erroAPI = resposta.objectForKey("erro") as? String else {
+                        //O conteudo retornado não está no formato esperado
+                        let mensagem = NSLocalizedString("errorLoginServer.text", comment: "Erro no retorno da requisição")
+                        let descricao = NSLocalizedString("errorLoginServer.description", comment: "Erro no retorno da requisição")
+                        let erro = NSError(domain: "TIAManager.atualizarFaltas", code: 4, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                        //Executa o completionHandler na thread principal para não ter problema com atualizações em interface gráfica
+                        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            completionHandler(self,erro)
+                        })
+                        return
+                    }
+                    
+                    let mensagem = NSLocalizedString("errorLoginAccess.text", comment: "Erro ao validar os dados no servidor")
+                    let descricao = NSLocalizedString("errorLoginAccess.description", comment: "Erro ao validar os dados no servidor") + erroAPI
+                    let erro = NSError(domain: "TIAManager.atualizarFaltas", code: 3, userInfo: ["mensagem":mensagem,"descricao":descricao])
+                    //Executa o completionHandler na thread principal para não ter problema com atualizações em interface gráfica
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        completionHandler(self,erro)
+                    })
+                    return
+                }
+                
+                //Sucesso na requisição
+                //Executa o completionHandler na thread principal para não ter problema com atualizações em interface gráfica
+                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    completionHandler(self,nil)
+                })
+                
+            })
+            task.resume()
+        })
+    }
+    
     
     
     // MARK: Metodos de manipulacao de NOTAS
@@ -312,10 +407,11 @@ class TIAManager {
             let request = self.criarRequisicao(ConfigHelper.sharedInstance.notasURL, usuario: usuarioOK)
             
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-                print("Erro: \(error)")
+                
                 
                 //Verifica se ocorreu erro
                 guard error == nil else {
+                    print("Erro: \(error)")
                     let mensagem = NSLocalizedString("errorLoginServer.text", comment: "Erro na requisição")
                     let descricao = NSLocalizedString("errorLoginServer.description", comment: "Erro na requisição") + error!.description
                     let erro = NSError(domain: "TIAManager.atualizarNotas", code: 2, userInfo: ["mensagem":mensagem,"descricao":descricao])
@@ -387,5 +483,9 @@ class TIAManager {
     
     func notas() -> [Nota] {
         return Nota.buscarNotas()
+    }
+    
+    func horarios() -> [Horario] {
+        return Horario.buscarHorarios()
     }
 }

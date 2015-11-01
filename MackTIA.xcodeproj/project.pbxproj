@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6353C8101FCFC8B5B5CB9264 /* Pods_MackTIATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		923C1F721BAA7C02006616B5 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923C1F711BAA7C02006616B5 /* ConfigHelper.swift */; settings = {ASSET_TAGS = (); }; };
+		923C1F721BAA7C02006616B5 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923C1F711BAA7C02006616B5 /* ConfigHelper.swift */; };
 		9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */; };
 		9246D50E1B9A4EBF00F0674D /* Falta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50D1B9A4EBF00F0674D /* Falta.swift */; };
 		9246D5121B9A722B00F0674D /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D5111B9A722B00F0674D /* AKPickerView.swift */; };
@@ -17,16 +17,16 @@
 		9289B8901B87ADB3004284E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */; };
 		9289B89C1B87ADB3004284E3 /* MackTIATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B89B1B87ADB3004284E3 /* MackTIATests.swift */; };
 		929C92B31B9F720500844564 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 929C92B51B9F720500844564 /* Localizable.strings */; };
+		92B3EBF81BE5BF5900748E57 /* Horario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3EBF61BE5BF5900748E57 /* Horario.swift */; };
 		92B9E8971B87B8D7004C1DE4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */; };
 		92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8A51B87BF93004C1DE4 /* extension.swift */; };
 		92B9E8A81B87C1E5004C1DE4 /* token.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B9E8A71B87C1E5004C1DE4 /* token.plist */; };
 		92B9E8DC1B87C992004C1DE4 /* TIAManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */; };
 		92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */; };
 		92B9E8E01B87CA07004C1DE4 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B9E8DF1B87CA07004C1DE4 /* config.plist */; };
-		92D278C31BB4D82900680733 /* HorarioSemanalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C21BB4D82900680733 /* HorarioSemanalViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		92D278C51BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C41BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		92D278C91BB4DD8200680733 /* Horario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C81BB4DD8200680733 /* Horario.swift */; settings = {ASSET_TAGS = (); }; };
+		92D278C31BB4D82900680733 /* HorarioSemanalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C21BB4D82900680733 /* HorarioSemanalViewController.swift */; };
+		92D278C51BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C41BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift */; };
+		92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */; };
 		971DBE92D688529EF9699185 /* Pods_MackTIA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A1337E361BA082C4004A2015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1337E341BA082C4004A2015 /* Main.storyboard */; };
 		A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */; };
@@ -86,6 +86,7 @@
 		9289B89B1B87ADB3004284E3 /* MackTIATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MackTIATests.swift; sourceTree = "<group>"; };
 		929C92B41B9F720500844564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		929C92BA1B9F7C7000844564 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		92B3EBF61BE5BF5900748E57 /* Horario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Horario.swift; path = WebAPI/Entidade/Horario.swift; sourceTree = "<group>"; };
 		92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewController/LoginViewController.swift; sourceTree = "<group>"; };
 		92B9E89F1B87BDAC004C1DE4 /* MackTIA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MackTIA-Bridging-Header.h"; sourceTree = "<group>"; };
 		92B9E8A31B87BF39004C1DE4 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = usr/lib/system/libcommonCrypto.dylib; sourceTree = SDKROOT; };
@@ -97,7 +98,6 @@
 		92D278C21BB4D82900680733 /* HorarioSemanalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioSemanalViewController.swift; path = ViewController/HorarioSemanalViewController.swift; sourceTree = "<group>"; };
 		92D278C41BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorariaDiaDaSemanaTableViewController.swift; path = ViewController/HorariaDiaDaSemanaTableViewController.swift; sourceTree = "<group>"; };
 		92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioTableViewCell.swift; path = "ViewController/Custom Cells/HorarioTableViewCell.swift"; sourceTree = "<group>"; };
-		92D278C81BB4DD8200680733 /* Horario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Horario.swift; path = WebAPI/Entidade/Horario.swift; sourceTree = "<group>"; };
 		A1337E351BA082C4004A2015 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaltaTableViewCell.swift; path = "ViewController/Custom Cells/FaltaTableViewCell.swift"; sourceTree = "<group>"; };
 		A15BB2D11B9AB82400143EBE /* CircleGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleGraphView.swift; path = "ViewController/Custom Views/CircleGraphView.swift"; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 				9246D50D1B9A4EBF00F0674D /* Falta.swift */,
 				92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */,
 				A15BB2F11B9BD26300143EBE /* Nota.swift */,
-				92D278C81BB4DD8200680733 /* Horario.swift */,
+				92B3EBF61BE5BF5900748E57 /* Horario.swift */,
 			);
 			name = Entidades;
 			sourceTree = "<group>";
@@ -496,11 +496,11 @@
 				A15BB2F41B9BD79800143EBE /* NotaCollectionViewCell.swift in Sources */,
 				9246D50E1B9A4EBF00F0674D /* Falta.swift in Sources */,
 				9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */,
-				92D278C91BB4DD8200680733 /* Horario.swift in Sources */,
 				A15BB2E91B9AD2FD00143EBE /* MapaViewController.m in Sources */,
 				92D278C31BB4D82900680733 /* HorarioSemanalViewController.swift in Sources */,
 				9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */,
 				A15BB2ED1B9BD03900143EBE /* NotaTableViewCell.swift in Sources */,
+				92B3EBF81BE5BF5900748E57 /* Horario.swift in Sources */,
 				92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */,
 				A15BB2E41B9AD2AA00143EBE /* MapOverlay.m in Sources */,
 				92D278C51BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift in Sources */,

@@ -9,8 +9,8 @@
 import Foundation
 
 /** ConfigHelper Class
-
-*/
+ 
+ */
 class ConfigHelper {
     
     class var sharedInstance : ConfigHelper {
@@ -27,15 +27,17 @@ class ConfigHelper {
     var faltasURL:String!
     var notasURL:String!
     var loginURL:String!
+    var horariosURL:String!
     
     
     private init() {
         
         // Verifica se o arquivo config.plist existe
         guard let path = NSBundle.mainBundle().pathForResource("config", ofType: "plist") else {
-            self.faltasURL = ""
-            self.notasURL  = ""
-            self.loginURL  = ""
+            self.faltasURL      = ""
+            self.notasURL       = ""
+            self.loginURL       = ""
+            self.horariosURL    = ""
             return
         }
         
@@ -43,17 +45,20 @@ class ConfigHelper {
         
         // Verifica se existem as configurações de URL necessárias
         guard let faltasURL = config.objectForKey("faltasURL") as? String ,
-              let notasURL  = config.objectForKey("notasURL")  as? String ,
-              let loginURL  = config.objectForKey("loginURL")  as? String else {
-            self.faltasURL = ""
-            self.notasURL  = ""
-            self.loginURL  = ""
-            return
+            let notasURL  = config.objectForKey("notasURL")  as? String ,
+            let loginURL  = config.objectForKey("loginURL")  as? String ,
+            let horariosURL  = config.objectForKey("horariosURL")  as? String else {
+                self.faltasURL      = ""
+                self.notasURL       = ""
+                self.loginURL       = ""
+                self.horariosURL    = ""
+                return
         }
         
-        self.faltasURL = faltasURL
-        self.notasURL  = notasURL
-        self.loginURL  = loginURL
-
+        self.faltasURL      = faltasURL
+        self.notasURL       = notasURL
+        self.loginURL       = loginURL
+        self.horariosURL    = horariosURL
+        
     }
 }

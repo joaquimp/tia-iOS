@@ -101,4 +101,29 @@ class CoreDataHelper {
             }
         }
     }
+    
+    // MARK: - Util
+    func removeAll(entityName:String){
+        let fetchRequest = NSFetchRequest(entityName: entityName)
+
+        if #available(iOS 9.0, *) {
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            do{
+                try persistentStoreCoordinator!.executeRequest(deleteRequest, withContext: managedObjectContext!)
+            }catch{
+                print("Error removing entity: \(entityName) - \(error)")
+            }
+        }else{
+            do{
+                let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+                
+                for var i=0; i < fetchedResults!.count; i++ {
+                    CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(fetchedResults![i])
+                }
+                CoreDataHelper.sharedInstance.saveContext()
+            }catch{
+                print("Error removing entity: \(entityName) - \(error)")
+            }
+        }
+    }
 }
