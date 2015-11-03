@@ -43,6 +43,7 @@ class HorarioTableViewCell: UITableViewCell {
         if self.selected {
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.editarButton.alpha = 1
+                self.editarButton.enabled = true
                 self.contentView.backgroundColor = UIColor(hex: "FAFAFA")
             })
         } else {
@@ -57,6 +58,7 @@ class HorarioTableViewCell: UITableViewCell {
         guard let parent = self.mainTableView, let h = self.horario else {
             return
         }
+        self.editarButton.enabled = false
         parent.editarHorarioAnotacao(h)
     }
 }

@@ -16,19 +16,21 @@ class HorarioSemanalViewController: UIViewController, UIScrollViewDelegate {
     let weekDays:[String] = ["SEGUNDA-FEIRA", "TERÇA-FEIRA", "QUARTA-FEIRA", "QUINTA-FEIRA", "SEXTA-FEIRA", "SÁBADO"]
     let weekDaysInt:[Int] = [2,3,4,5,6,7]
     var currentWeekDay:Int = 0
+    var swipeGRLeft:UISwipeGestureRecognizer?
+    var swipeGRRight:UISwipeGestureRecognizer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         instantiateWeekdays()
         
         //Swipe Config
-        let swipeGRLeft = UISwipeGestureRecognizer(target: self, action: "navigateLeft:")
-        swipeGRLeft.direction = UISwipeGestureRecognizerDirection.Right
-        self.scrollView.addGestureRecognizer(swipeGRLeft)
+        swipeGRLeft = UISwipeGestureRecognizer(target: self, action: "navigateLeft:")
+        swipeGRLeft!.direction = UISwipeGestureRecognizerDirection.Right
+        self.scrollView.addGestureRecognizer(swipeGRLeft!)
         
-        let swipeGRRight = UISwipeGestureRecognizer(target: self, action: "navigateRight:")
-        swipeGRRight.direction = UISwipeGestureRecognizerDirection.Left
-        self.scrollView.addGestureRecognizer(swipeGRRight)
+        swipeGRRight = UISwipeGestureRecognizer(target: self, action: "navigateRight:")
+        swipeGRRight!.direction = UISwipeGestureRecognizerDirection.Left
+        self.scrollView.addGestureRecognizer(swipeGRRight!)
     }
     
     
@@ -89,11 +91,16 @@ class HorarioSemanalViewController: UIViewController, UIScrollViewDelegate {
             let contentOffsetX = scrollView.contentOffset.x - scrollView.frame.width
             self.rightButton.enabled = false
             self.leftButton.enabled = false
+            self.swipeGRLeft?.enabled = false
+            self.swipeGRRight?.enabled = false
+            
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.scrollView.setContentOffset(CGPoint(x: contentOffsetX, y: 0), animated: false)
                 }, completion: { (_) -> Void in
                     self.rightButton.enabled = true
                     self.leftButton.enabled = true
+                    self.swipeGRLeft?.enabled = true
+                    self.swipeGRRight?.enabled = true
             })
         }
     }
@@ -104,12 +111,16 @@ class HorarioSemanalViewController: UIViewController, UIScrollViewDelegate {
             let contentOffsetX = scrollView.contentOffset.x + scrollView.frame.width
             self.rightButton.enabled = false
             self.leftButton.enabled = false
+            self.swipeGRLeft?.enabled = false
+            self.swipeGRRight?.enabled = false
             
             UIView.animateWithDuration(0.3, animations: { () -> Void in
                 self.scrollView.setContentOffset(CGPoint(x: contentOffsetX, y: 0), animated: false)
                 }, completion: { (_) -> Void in
                     self.rightButton.enabled = true
                     self.leftButton.enabled = true
+                    self.swipeGRLeft?.enabled = true
+                    self.swipeGRRight?.enabled = true
             })
         }
     }

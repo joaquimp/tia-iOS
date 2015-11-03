@@ -35,9 +35,6 @@
 		A15BB2D21B9AB82400143EBE /* CircleGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2D11B9AB82400143EBE /* CircleGraphView.swift */; };
 		A15BB2D51B9ACBD900143EBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15BB2D41B9ACBD900143EBE /* Images.xcassets */; };
 		A15BB2D91B9ACCDD00143EBE /* MaisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2D81B9ACCDD00143EBE /* MaisTableViewController.swift */; };
-		A15BB2E41B9AD2AA00143EBE /* MapOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2E11B9AD2AA00143EBE /* MapOverlay.m */; };
-		A15BB2E51B9AD2AA00143EBE /* MapOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2E31B9AD2AA00143EBE /* MapOverlayView.m */; };
-		A15BB2E91B9AD2FD00143EBE /* MapaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2E81B9AD2FD00143EBE /* MapaViewController.m */; };
 		A15BB2EB1B9BCEFF00143EBE /* NotasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2EA1B9BCEFF00143EBE /* NotasTableViewController.swift */; };
 		A15BB2ED1B9BD03900143EBE /* NotaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2EC1B9BD03900143EBE /* NotaTableViewCell.swift */; };
 		A15BB2F21B9BD26300143EBE /* Nota.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2F11B9BD26300143EBE /* Nota.swift */; };
@@ -107,12 +104,6 @@
 		A15BB2D11B9AB82400143EBE /* CircleGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleGraphView.swift; path = "ViewController/Custom Views/CircleGraphView.swift"; sourceTree = "<group>"; };
 		A15BB2D41B9ACBD900143EBE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A15BB2D81B9ACCDD00143EBE /* MaisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaisTableViewController.swift; path = ViewController/MaisTableViewController.swift; sourceTree = "<group>"; };
-		A15BB2E01B9AD2AA00143EBE /* MapOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapOverlay.h; path = ViewController/Mapa/MapOverlay.h; sourceTree = "<group>"; };
-		A15BB2E11B9AD2AA00143EBE /* MapOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapOverlay.m; path = ViewController/Mapa/MapOverlay.m; sourceTree = "<group>"; };
-		A15BB2E21B9AD2AA00143EBE /* MapOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapOverlayView.h; path = ViewController/Mapa/MapOverlayView.h; sourceTree = "<group>"; };
-		A15BB2E31B9AD2AA00143EBE /* MapOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapOverlayView.m; path = ViewController/Mapa/MapOverlayView.m; sourceTree = "<group>"; };
-		A15BB2E71B9AD2FD00143EBE /* MapaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapaViewController.h; path = ViewController/MapaViewController.h; sourceTree = "<group>"; };
-		A15BB2E81B9AD2FD00143EBE /* MapaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapaViewController.m; path = ViewController/MapaViewController.m; sourceTree = "<group>"; };
 		A15BB2EA1B9BCEFF00143EBE /* NotasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotasTableViewController.swift; path = ViewController/NotasTableViewController.swift; sourceTree = "<group>"; };
 		A15BB2EC1B9BD03900143EBE /* NotaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotaTableViewCell.swift; path = "ViewController/Custom Cells/NotaTableViewCell.swift"; sourceTree = "<group>"; };
 		A15BB2F11B9BD26300143EBE /* Nota.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Nota.swift; path = WebAPI/Entidade/Nota.swift; sourceTree = "<group>"; };
@@ -244,12 +235,9 @@
 				A16372391B89915A000A9C69 /* FaltasTableViewController.swift */,
 				A15BB2EA1B9BCEFF00143EBE /* NotasTableViewController.swift */,
 				A15BB2D81B9ACCDD00143EBE /* MaisTableViewController.swift */,
-				A15BB2E71B9AD2FD00143EBE /* MapaViewController.h */,
-				A15BB2E81B9AD2FD00143EBE /* MapaViewController.m */,
 				92D278C21BB4D82900680733 /* HorarioSemanalViewController.swift */,
 				92D278C41BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift */,
 				927D10E01BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift */,
-				A15BB2E61B9AD2AF00143EBE /* Mapa */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -283,17 +271,6 @@
 				920E4A711BE8114300C3D963 /* ProgressBarView.swift */,
 			);
 			name = "Custom Views";
-			sourceTree = "<group>";
-		};
-		A15BB2E61B9AD2AF00143EBE /* Mapa */ = {
-			isa = PBXGroup;
-			children = (
-				A15BB2E01B9AD2AA00143EBE /* MapOverlay.h */,
-				A15BB2E11B9AD2AA00143EBE /* MapOverlay.m */,
-				A15BB2E21B9AD2AA00143EBE /* MapOverlayView.h */,
-				A15BB2E31B9AD2AA00143EBE /* MapOverlayView.m */,
-			);
-			name = Mapa;
 			sourceTree = "<group>";
 		};
 		ACBE292C7FDC7D68CEBDD74B /* Frameworks */ = {
@@ -495,7 +472,6 @@
 				92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */,
 				9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */,
 				92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */,
-				A15BB2E51B9AD2AA00143EBE /* MapOverlayView.m in Sources */,
 				A15BB2F21B9BD26300143EBE /* Nota.swift in Sources */,
 				A15BB2D21B9AB82400143EBE /* CircleGraphView.swift in Sources */,
 				920E4A721BE8114300C3D963 /* ProgressBarView.swift in Sources */,
@@ -504,13 +480,11 @@
 				A15BB2F41B9BD79800143EBE /* NotaCollectionViewCell.swift in Sources */,
 				9246D50E1B9A4EBF00F0674D /* Falta.swift in Sources */,
 				9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */,
-				A15BB2E91B9AD2FD00143EBE /* MapaViewController.m in Sources */,
 				92D278C31BB4D82900680733 /* HorarioSemanalViewController.swift in Sources */,
 				9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */,
 				A15BB2ED1B9BD03900143EBE /* NotaTableViewCell.swift in Sources */,
 				92B3EBF81BE5BF5900748E57 /* Horario.swift in Sources */,
 				92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */,
-				A15BB2E41B9AD2AA00143EBE /* MapOverlay.m in Sources */,
 				92D278C51BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift in Sources */,
 				A15BB2EB1B9BCEFF00143EBE /* NotasTableViewController.swift in Sources */,
 			);

@@ -16,6 +16,7 @@ class HorarioDiaDaSemanaTableViewController: UITableViewController {
     var selectedCellIndexPath:NSIndexPath?
     let selectedCellHeight:CGFloat = 200
     let unSelectedCellHeight:CGFloat = 93//58
+    var vazio = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,15 @@ class HorarioDiaDaSemanaTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         getSchedule()
-        print("Mostrando \(weekDay)")
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if self.selectedCellIndexPath != nil {
+            let index = self.selectedCellIndexPath
+            self.tableView.beginUpdates()
+            self.tableView.selectRowAtIndexPath(index, animated: false, scrollPosition: UITableViewScrollPosition.None)
+            self.tableView.endUpdates()
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,10 +61,19 @@ class HorarioDiaDaSemanaTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if classesList.count == 0 {
+            vazio = true
+            return 1
+        }
+        vazio = false
         return classesList.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if vazio {
+            let cell = tableView.dequeueReusableCellWithIdentifier("semAula")
+            return cell!
+        }
         let cell = tableView.dequeueReusableCellWithIdentifier("horarioCell") as! HorarioTableViewCell
         
         let currentClass = classesList[indexPath.row]
@@ -111,6 +129,11 @@ class HorarioDiaDaSemanaTableViewController: UITableViewController {
         vc.horario = horario
         vc.acaoAoConfirmar = {
             self.tableView.reloadData()
+//            let index = self.selectedCellIndexPath
+//            self.tableView.beginUpdates()
+//            self.tableView.deselectRowAtIndexPath(self.selectedCellIndexPath!, animated: false)
+//            self.tableView.selectRowAtIndexPath(index, animated: false, scrollPosition: UITableViewScrollPosition.None)
+//            self.tableView.endUpdates()
         }
         self.presentViewController(vc, animated: true, completion: nil)
     }

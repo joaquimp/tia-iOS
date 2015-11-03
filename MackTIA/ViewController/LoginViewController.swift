@@ -17,6 +17,7 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     @IBOutlet weak var unidadePickerView: AKPickerView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var bloqueiView: UIVisualEffectView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
     var unidades:Array<String>!
     var unidadesCodigo:Array<String>!
@@ -69,6 +70,27 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         self.view.bringSubviewToFront(self.activityIndicator)
         self.activityIndicator.hidden = true
         self.bloqueiView.hidden = true
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasHide:"), name:UIKeyboardWillHideNotification, object: nil);
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self);
+    }
+    
+    func keyboardWasShow(notification: NSNotification) {
+        var info = notification.userInfo!
+        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        
+        UIView.animateWithDuration(0.1, animations: { () -> Void in
+            self.bottomConstraint.constant = keyboardFrame.size.height + 20
+        })
+    }
+    
+    func keyboardWasHide(notification: NSNotification) {
+        UIView.animateWithDuration(0.1, animations: { () -> Void in
+            self.bottomConstraint.constant = 102
+        })
     }
 
     
