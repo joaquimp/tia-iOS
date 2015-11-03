@@ -28,9 +28,11 @@ class TIAManager {
         }
     }
     
-    // Cache do banco
-    //    private(set) var faltas:Array<Falta>
-    //    private(set) var notas:Array<Nota>
+    var verificandoLogin    = false
+    var atualizandoNotas    = false
+    var atualizandoFaltas   = false
+    var atualizandoHorarios = false
+
     
     // MARK: Singleton Methods
     class var sharedInstance : TIAManager {
@@ -102,6 +104,14 @@ class TIAManager {
     */
     func login(usuario:Usuario, completionHandler:(TIAManager,NSError?)->()) {
         
+        let semaforo = dispatch_semaphore_create(0)
+        if self.verificandoLogin {
+            dispatch_semaphore_signal(semaforo)
+            return
+        }
+        self.verificandoLogin = true
+        dispatch_semaphore_signal(semaforo)
+        
         //Dispach para rodar requisição em paralelo e evitar travar interface do usuário
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             
@@ -119,7 +129,15 @@ class TIAManager {
             
             let request = self.criarRequisicao(ConfigHelper.sharedInstance.loginURL, usuario: usuario)
             
+            //SEMAFORO
+            let semaforo = dispatch_semaphore_create(0)
+            
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                
+                self.verificandoLogin = false
+                
+                //SEMAFORO - requisicao web terminou
+                dispatch_semaphore_signal(semaforo)
                 
                 //Verifica se ocorreu erro
                 guard error == nil else {
@@ -200,6 +218,14 @@ class TIAManager {
     */
     func atualizarFaltas(completionHandler:(TIAManager,NSError?)->()) {
         
+        let semaforo = dispatch_semaphore_create(0)
+        if self.atualizandoFaltas {
+            dispatch_semaphore_signal(semaforo)
+            return
+        }
+        self.atualizandoFaltas = true
+        dispatch_semaphore_signal(semaforo)
+        
         //Dispach para rodar requisição em paralelo e evitar travar interface do usuário
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             
@@ -216,8 +242,15 @@ class TIAManager {
             
             let request = self.criarRequisicao(ConfigHelper.sharedInstance.faltasURL, usuario: usuarioOK)
             
+            
+            //SEMAFORO
+            let semaforo = dispatch_semaphore_create(0)
+            
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
                 
+                //SEMAFORO - requisicao web terminou
+                self.atualizandoFaltas = false
+                dispatch_semaphore_signal(semaforo)
                 
                 //Verifica se ocorreu erro
                 guard error == nil else {
@@ -295,6 +328,14 @@ class TIAManager {
     */
     func atualizarHorarios(completionHandler:(TIAManager,NSError?)->()) {
         
+        let semaforo = dispatch_semaphore_create(0)
+        if self.atualizandoHorarios {
+            dispatch_semaphore_signal(semaforo)
+            return
+        }
+        self.atualizandoHorarios = true
+        dispatch_semaphore_signal(semaforo)
+        
         //Dispach para rodar requisição em paralelo e evitar travar interface do usuário
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
             
@@ -311,7 +352,14 @@ class TIAManager {
             
             let request = self.criarRequisicao(ConfigHelper.sharedInstance.horariosURL, usuario: usuarioOK)
             
+            //SEMAFORO
+            let semaforo = dispatch_semaphore_create(0)
+            
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                
+                //SEMAFORO - requisicao web terminou
+                self.atualizandoHorarios = false
+                dispatch_semaphore_signal(semaforo)
                 
                 //Verifica se ocorreu erro
                 guard error == nil else {
@@ -382,13 +430,22 @@ class TIAManager {
     }
     
     
-    
     // MARK: Metodos de manipulacao de NOTAS
     /**
     Busca as notas do aluno autenticado no servidor e salva no banco de dados interno.
     Esta funcao eh assincrona, por isso realiza o envio de notificacoes assim que processa a requisicao
     */
     func atualizarNotas(completionHandler:(TIAManager,NSError?) -> ()) {
+        
+        let semaforo = dispatch_semaphore_create(0)
+        if self.atualizandoNotas {
+            dispatch_semaphore_signal(semaforo)
+            return
+        }
+        self.atualizandoNotas = true
+        dispatch_semaphore_signal(semaforo)
+        
+
         
         //Dispach para rodar requisição em paralelo e evitar travar interface do usuário
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), { () -> Void in
@@ -406,8 +463,15 @@ class TIAManager {
             
             let request = self.criarRequisicao(ConfigHelper.sharedInstance.notasURL, usuario: usuarioOK)
             
+            
+            //SEMAFORO
+            let semaforo = dispatch_semaphore_create(0)
+            
             let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
                 
+                //SEMAFORO - requisicao web terminou
+                self.atualizandoNotas = false
+                dispatch_semaphore_signal(semaforo)
                 
                 //Verifica se ocorreu erro
                 guard error == nil else {
@@ -476,6 +540,19 @@ class TIAManager {
         })
     }
     
+    private func apiRequest(request: NSURLRequest, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void, cliente:String) {
+        print("API Request: \(cliente) solicitando requisicao Web")
+        let semaforo = dispatch_semaphore_create(0)
+        print("API Request: \(cliente) solicitacao web permitida")
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data, response, error) -> Void in
+            print("API Request: \(cliente) requisicao finalizada, liberando")
+            dispatch_semaphore_signal(semaforo)
+            completionHandler(data, response, error)
+        }
+        task.resume()
+    }
+    
     // Obter dados do banco
     func faltas() -> [Falta] {
         return Falta.buscarFaltas()
@@ -487,5 +564,9 @@ class TIAManager {
     
     func horarios() -> [Horario] {
         return Horario.buscarHorarios()
+    }
+    
+    func horariosDia(dia:Int) -> [Horario] {
+        return Horario.buscarHorariosDia(dia)
     }
 }

@@ -11,32 +11,40 @@ import UIKit
 class HorarioSemanalViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
-    let weekDays:[String] = ["SEGUNDA-FEIRA", "TERÇA-FEIRA", "QUARTA-FEIRA", "QUINTA-FEIRA", "SEXTA-FEIRA"]
-    
+    @IBOutlet weak var leftButton: UIBarButtonItem!
+    @IBOutlet weak var rightButton: UIBarButtonItem!
+    let weekDays:[String] = ["SEGUNDA-FEIRA", "TERÇA-FEIRA", "QUARTA-FEIRA", "QUINTA-FEIRA", "SEXTA-FEIRA", "SÁBADO"]
+    let weekDaysInt:[Int] = [2,3,4,5,6,7]
     var currentWeekDay:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBarLayout()
         instantiateWeekdays()
+        
+        //Swipe Config
+        let swipeGRLeft = UISwipeGestureRecognizer(target: self, action: "navigateLeft:")
+        swipeGRLeft.direction = UISwipeGestureRecognizerDirection.Right
+        self.scrollView.addGestureRecognizer(swipeGRLeft)
+        
+        let swipeGRRight = UISwipeGestureRecognizer(target: self, action: "navigateRight:")
+        swipeGRRight.direction = UISwipeGestureRecognizerDirection.Left
+        self.scrollView.addGestureRecognizer(swipeGRRight)
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        TIAManager.sharedInstance.atualizarHorarios { (manager, error) -> () in
-            let horarios = manager.horarios()
-            for horario in horarios {
-                horario.debug()
-            }
-        }
     }
     
     func instantiateWeekdays() {
         
         var scrollContentViews:[UIView] = []
-        for i in 0...weekDays.count {
-            let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("HorariaDiaDaSemanaTableViewController") as! HorariaDiaDaSemanaTableViewController
+        for i in 0...weekDays.count-1 {
+            let viewController = self.storyboard?.instantiateViewControllerWithIdentifier("HorarioDiaDaSemanaTableViewController") as! HorarioDiaDaSemanaTableViewController
             self.addChildViewController(viewController)
+            
+            viewController.weekDay = weekDays[i]
+            viewController.weekDayInt = weekDaysInt[i]
             
             let theSubview = viewController.view
             theSubview.translatesAutoresizingMaskIntoConstraints = false
@@ -70,24 +78,23 @@ class HorarioSemanalViewController: UIViewController, UIScrollViewDelegate {
         return .LightContent
     }
     
-    func setNavigationBarLayout() {
-        self.navigationController?.navigationBarHidden = false
-        self.navigationController?.navigationBar.barStyle = UIBarStyle.Black
-        self.navigationController?.navigationBar.barTintColor = UIColor(hex: "DD1633")
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-    }
-    
     func scrollViewDidScroll(scrollView: UIScrollView) {
         currentWeekDay = Int(floor(scrollView.contentOffset.x / scrollView.frame.width))
         if currentWeekDay < 0 { return }
         self.navigationItem.title = weekDays[currentWeekDay]
     }
     
-    
     @IBAction func navigateLeft(sender: AnyObject) {
         if currentWeekDay > 0 {
             let contentOffsetX = scrollView.contentOffset.x - scrollView.frame.width
-            scrollView.setContentOffset(CGPoint(x: contentOffsetX, y: 0), animated: true)
+            self.rightButton.enabled = false
+            self.leftButton.enabled = false
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.scrollView.setContentOffset(CGPoint(x: contentOffsetX, y: 0), animated: false)
+                }, completion: { (_) -> Void in
+                    self.rightButton.enabled = true
+                    self.leftButton.enabled = true
+            })
         }
     }
     
@@ -95,7 +102,15 @@ class HorarioSemanalViewController: UIViewController, UIScrollViewDelegate {
     @IBAction func navigateRight(sender: AnyObject) {
         if currentWeekDay < weekDays.count - 1 {
             let contentOffsetX = scrollView.contentOffset.x + scrollView.frame.width
-            scrollView.setContentOffset(CGPoint(x: contentOffsetX, y: 0), animated: true)
+            self.rightButton.enabled = false
+            self.leftButton.enabled = false
+            
+            UIView.animateWithDuration(0.3, animations: { () -> Void in
+                self.scrollView.setContentOffset(CGPoint(x: contentOffsetX, y: 0), animated: false)
+                }, completion: { (_) -> Void in
+                    self.rightButton.enabled = true
+                    self.leftButton.enabled = true
+            })
         }
     }
 

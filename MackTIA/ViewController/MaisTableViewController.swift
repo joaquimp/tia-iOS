@@ -91,11 +91,11 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
                 // Envio de e-mail
                 let compose = MFMailComposeViewController()
                 compose.mailComposeDelegate = self
-                compose.setToRecipients(["npda@mackenzie.br", "moodleadmin@mackenzie.br"])
+                compose.setToRecipients(["aplicativos@mackenzie.br"])
                 self.presentViewController(compose, animated: true, completion: nil)
             case appStore:
                 // Avaliar na AppStores
-                let url = NSURL(string: "itms-apps://itunes.apple.com/app/1022024177")
+                let url = NSURL(string: "itms-apps://itunes.apple.com/app/id1022024177")
                 if url != nil {
                     UIApplication.sharedApplication().openURL(url!)
                 } else {

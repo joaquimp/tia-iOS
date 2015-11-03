@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		6353C8101FCFC8B5B5CB9264 /* Pods_MackTIATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		920E4A721BE8114300C3D963 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E4A711BE8114300C3D963 /* ProgressBarView.swift */; };
 		923C1F721BAA7C02006616B5 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923C1F711BAA7C02006616B5 /* ConfigHelper.swift */; };
 		9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */; };
 		9246D50E1B9A4EBF00F0674D /* Falta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50D1B9A4EBF00F0674D /* Falta.swift */; };
 		9246D5121B9A722B00F0674D /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D5111B9A722B00F0674D /* AKPickerView.swift */; };
+		927D10E11BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927D10E01BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift */; };
 		9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8821B87ADB3004284E3 /* AppDelegate.swift */; };
 		9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8841B87ADB3004284E3 /* MackTIA.xcdatamodeld */; };
 		9289B8901B87ADB3004284E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */; };
@@ -25,7 +27,7 @@
 		92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */; };
 		92B9E8E01B87CA07004C1DE4 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B9E8DF1B87CA07004C1DE4 /* config.plist */; };
 		92D278C31BB4D82900680733 /* HorarioSemanalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C21BB4D82900680733 /* HorarioSemanalViewController.swift */; };
-		92D278C51BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C41BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift */; };
+		92D278C51BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C41BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift */; };
 		92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */; };
 		971DBE92D688529EF9699185 /* Pods_MackTIA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A1337E361BA082C4004A2015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1337E341BA082C4004A2015 /* Main.storyboard */; };
@@ -72,10 +74,12 @@
 		1359FCE54B8718B5E5C1D19E /* Pods-MackTIA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIA.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA.debug.xcconfig"; sourceTree = "<group>"; };
 		31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MackTIATests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E524A4CF42EB188E445412B /* Pods-MackTIA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MackTIA.release.xcconfig"; path = "Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA.release.xcconfig"; sourceTree = "<group>"; };
+		920E4A711BE8114300C3D963 /* ProgressBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		923C1F711BAA7C02006616B5 /* ConfigHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigHelper.swift; path = Helpers/ConfigHelper.swift; sourceTree = "<group>"; };
 		9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataHelper.swift; path = WebAPI/CoreDataHelper.swift; sourceTree = "<group>"; };
 		9246D50D1B9A4EBF00F0674D /* Falta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Falta.swift; path = WebAPI/Entidade/Falta.swift; sourceTree = "<group>"; };
 		9246D5111B9A722B00F0674D /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
+		927D10E01BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioAnotacaoViewController.swift; path = ViewController/HorarioAnotacaoViewController.swift; sourceTree = "<group>"; };
 		9289B87D1B87ADB3004284E3 /* MackTIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MackTIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9289B8811B87ADB3004284E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9289B8821B87ADB3004284E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,7 +100,7 @@
 		92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Usuario.swift; path = WebAPI/Entidade/Usuario.swift; sourceTree = "<group>"; };
 		92B9E8DF1B87CA07004C1DE4 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = config.plist; path = WebAPI/config.plist; sourceTree = "<group>"; };
 		92D278C21BB4D82900680733 /* HorarioSemanalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioSemanalViewController.swift; path = ViewController/HorarioSemanalViewController.swift; sourceTree = "<group>"; };
-		92D278C41BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorariaDiaDaSemanaTableViewController.swift; path = ViewController/HorariaDiaDaSemanaTableViewController.swift; sourceTree = "<group>"; };
+		92D278C41BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioDiaDaSemanaTableViewController.swift; path = ViewController/HorarioDiaDaSemanaTableViewController.swift; sourceTree = "<group>"; };
 		92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioTableViewCell.swift; path = "ViewController/Custom Cells/HorarioTableViewCell.swift"; sourceTree = "<group>"; };
 		A1337E351BA082C4004A2015 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaltaTableViewCell.swift; path = "ViewController/Custom Cells/FaltaTableViewCell.swift"; sourceTree = "<group>"; };
@@ -243,7 +247,8 @@
 				A15BB2E71B9AD2FD00143EBE /* MapaViewController.h */,
 				A15BB2E81B9AD2FD00143EBE /* MapaViewController.m */,
 				92D278C21BB4D82900680733 /* HorarioSemanalViewController.swift */,
-				92D278C41BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift */,
+				92D278C41BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift */,
+				927D10E01BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift */,
 				A15BB2E61B9AD2AF00143EBE /* Mapa */,
 			);
 			name = ViewControllers;
@@ -275,6 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				A15BB2D11B9AB82400143EBE /* CircleGraphView.swift */,
+				920E4A711BE8114300C3D963 /* ProgressBarView.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -485,12 +491,14 @@
 				92B9E8971B87B8D7004C1DE4 /* LoginViewController.swift in Sources */,
 				92B9E8DC1B87C992004C1DE4 /* TIAManager.swift in Sources */,
 				A163723A1B89915A000A9C69 /* FaltasTableViewController.swift in Sources */,
+				927D10E11BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift in Sources */,
 				92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */,
 				9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */,
 				92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */,
 				A15BB2E51B9AD2AA00143EBE /* MapOverlayView.m in Sources */,
 				A15BB2F21B9BD26300143EBE /* Nota.swift in Sources */,
 				A15BB2D21B9AB82400143EBE /* CircleGraphView.swift in Sources */,
+				920E4A721BE8114300C3D963 /* ProgressBarView.swift in Sources */,
 				923C1F721BAA7C02006616B5 /* ConfigHelper.swift in Sources */,
 				A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */,
 				A15BB2F41B9BD79800143EBE /* NotaCollectionViewCell.swift in Sources */,
@@ -503,7 +511,7 @@
 				92B3EBF81BE5BF5900748E57 /* Horario.swift in Sources */,
 				92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */,
 				A15BB2E41B9AD2AA00143EBE /* MapOverlay.m in Sources */,
-				92D278C51BB4D99400680733 /* HorariaDiaDaSemanaTableViewController.swift in Sources */,
+				92D278C51BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift in Sources */,
 				A15BB2EB1B9BCEFF00143EBE /* NotasTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

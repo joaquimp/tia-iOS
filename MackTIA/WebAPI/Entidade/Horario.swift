@@ -69,30 +69,29 @@ class Horario: NSManagedObject {
      
      - returns: objeto nota com dados atualizados do banco de dados local ou nil caso ocorra algum problema
      */
-    class func buscarHorarioPorDia(dia:String)->Horario?
+    class func buscarHorariosDia(dia:Int)->[Horario]
     {
         do {
             let fetchRequest = NSFetchRequest(entityName: "Horario")
-            let predicate = NSPredicate(format: "dia = %@", dia)
+            let predicate = NSPredicate(format: "dia = %@", "\(dia)")
             fetchRequest.predicate = predicate
             
             let sortDescriptor = NSSortDescriptor(key: "hora", ascending: true)
             let sortDescriptors = [sortDescriptor]
             fetchRequest.sortDescriptors = sortDescriptors
             
-            let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+            let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext?.executeFetchRequest(fetchRequest) as? [NSManagedObject]
             
-            if let results = fetchedResults as? [Horario] {
-                if results.count > 0 {
-                    return results[0]
-                }
-            } else {
-                print("Could not fetch. Error")
+            guard let results = fetchedResults as? [Horario] else {
+                print("Horario.buscarHorarioPodDia: Could not fetch. Error")
+                return []
             }
+            
+            return results
         }catch{
             print("Horario.buscarHorario - \(error)")
         }
-        return nil
+        return []
     }
     
     

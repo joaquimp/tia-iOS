@@ -17,23 +17,30 @@ class FaltaTableViewCell: UITableViewCell {
     @IBOutlet weak var permitidas: UILabel!
     @IBOutlet weak var atualizacao: UILabel!
     @IBOutlet weak var conteudoView: UIView!
+    @IBOutlet weak var progressBarView: ProgressBarView!
+    @IBOutlet weak var progressBarLabel: UILabel!
     
     var falta:Falta? {
         didSet {
-            if falta != nil {
-                self.aulasPrevistas.text = "\(falta!.aulasDadas)"
-                self.faltas.text = "\(falta!.faltas)"
-                if CGFloat(falta!.percentual/25) <= 1 {
-                    self.graficoView.endArc = CGFloat(falta!.percentual/25)
+            guard let novaFalta = falta else {
+                return
+            }
+                self.aulasPrevistas.text = "\(novaFalta.aulasDadas)"
+                self.faltas.text = "\(novaFalta.faltas)"
+                let percentual = CGFloat(novaFalta.percentual/25)
+                if CGFloat(novaFalta.percentual/25) <= 1 {
+                    self.graficoView.endArc = percentual
+                    self.progressBarView.endPercent = percentual
                 } else {
                     self.graficoView.endArc = CGFloat(1)
+                    self.progressBarView.endPercent = CGFloat(1)
                 }
-                self.percentual.text = "\(falta!.percentual)%"
-                self.nomeDisciplina.text = falta!.disciplina
-                self.permitidas.text = "\(falta!.permitidas)"
-                self.atualizacao.text = NSLocalizedString("update.label.text", comment: "Texto padrao para atualização") + falta!.atualizacao
+                self.progressBarLabel.text = "\(novaFalta.percentual)%"
+                self.percentual.text = "\(novaFalta.percentual)%"
+                self.nomeDisciplina.text = novaFalta.disciplina
+                self.permitidas.text = "\(novaFalta.permitidas)"
+                self.atualizacao.text = NSLocalizedString("update.label.text", comment: "Texto padrao para atualização") + novaFalta.atualizacao
                 self.atualizacao.sizeToFit()
-            }
         }
     }
     
@@ -47,32 +54,15 @@ class FaltaTableViewCell: UITableViewCell {
         if self.selected {
             UIView.animateWithDuration(0.3, delay: 0.0, options:[], animations: { () -> Void in
                 self.contentView.backgroundColor = UIColor(hex: "FAFAFA")
+                self.progressBarLabel.hidden = true
+                self.progressBarView.hidden = true
+                }, completion: nil)
+        } else {
+            UIView.animateWithDuration(0.3, delay: 0.0, options:[], animations: { () -> Void in
+                self.contentView.backgroundColor = UIColor.whiteColor()
+                self.progressBarLabel.hidden = false
+                self.progressBarView.hidden = false
                 }, completion: nil)
         }
     }
 }
-
-//extension FaltaTableViewCell {
-//    var falta:Falta?{
-//        get {
-//            return objc_getAssociatedObject(self, "faltaObject") as? Falta
-//        }
-//        set(newValue) {
-//            objc_setAssociatedObject(self, "faltaObject", newValue, UInt(OBJC_ASSOCIATION_RETAIN))
-//            if let falta = newValue {
-//                self.aulasPrevistas.text = "\(falta.aulasDadas)"
-//                self.faltas.text = "\(falta.faltas)"
-//                if CGFloat(falta.percentual/25) <= 1 {
-//                    self.graficoView.endArc = CGFloat(falta.percentual/25)
-//                } else {
-//                    self.graficoView.endArc = CGFloat(1)
-//                }
-//                self.percentual.text = "\(falta.percentual)%"
-//                self.nomeDisciplina.text = falta.disciplina
-//                self.permitidas.text = "\(falta.permitidas)"
-//                self.atualizacao.text = NSLocalizedString("update.label.text", comment: "Texto padrao para atualização") + falta.atualizacao
-//            }
-//            
-//        }
-//    }
-//}

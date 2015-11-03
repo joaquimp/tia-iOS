@@ -144,7 +144,7 @@ class Falta: NSManagedObject {
         for faltaDic in faltasJSON {
             
             //Verifica se todos os parametros estão corretos
-            guard let codigo       = faltaDic["codigo"]       as? String,
+            guard let codigo     = faltaDic["codigo"]     as? String,
                 let disciplina   = faltaDic["disciplina"]   as? String,
                 let turma        = faltaDic["turma"]        as? String,
                 let aulasDadas   = faltaDic["dadas"]        as? Int,

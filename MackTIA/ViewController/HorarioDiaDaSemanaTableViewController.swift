@@ -8,20 +8,23 @@
 
 import UIKit
 
-class HorariaDiaDaSemanaTableViewController: UITableViewController {
+class HorarioDiaDaSemanaTableViewController: UITableViewController {
 
     var classesList:[Horario] = []
     var weekDay:String?
-    
+    var weekDayInt:Int?
     var selectedCellIndexPath:NSIndexPath?
-    
     let selectedCellHeight:CGFloat = 200
-    let unSelectedCellHeight:CGFloat = 57
+    let unSelectedCellHeight:CGFloat = 93//58
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.clearsSelectionOnViewWillAppear = false
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         getSchedule()
+        print("Mostrando \(weekDay)")
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,12 +33,17 @@ class HorariaDiaDaSemanaTableViewController: UITableViewController {
     }
     
     func getSchedule() {
-//        for _ in 0...4 {
-//            let newClass = Horario()
-//            newClass.disciplina = "Em construção ;)"
-//            newClass.local = "Prédio RW - Sala 102"
-//            classesList.append(newClass)
-//        }
+        guard let wdi = weekDayInt else {
+            return
+        }
+        classesList = TIAManager.sharedInstance.horariosDia(wdi)
+        if classesList.count == 0 {
+            TIAManager.sharedInstance.atualizarHorarios({ (manager, error) -> () in
+                self.classesList = TIAManager.sharedInstance.horariosDia(wdi)
+                self.tableView.reloadData()
+            })
+        }
+        self.tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -51,10 +59,8 @@ class HorariaDiaDaSemanaTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("horarioCell") as! HorarioTableViewCell
         
         let currentClass = classesList[indexPath.row]
-        cell.nomeDisciplina.text = currentClass.disciplina
-        cell.localDaAula.text = currentClass.local
-        cell.horarioAula.text = "18h30 - 20h05"
-        cell.anotacoesDisciplina.text = "Você pode editar esta anotação"
+        cell.horario = currentClass
+        cell.mainTableView = self
         
         return cell
     }
@@ -98,6 +104,15 @@ class HorariaDiaDaSemanaTableViewController: UITableViewController {
         }
         
         return self.unSelectedCellHeight
+    }
+    
+    func editarHorarioAnotacao(horario:Horario){
+        let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("horarioAnotacaoViewController") as! HorarioAnotacaoViewController
+        vc.horario = horario
+        vc.acaoAoConfirmar = {
+            self.tableView.reloadData()
+        }
+        self.presentViewController(vc, animated: true, completion: nil)
     }
     
     
