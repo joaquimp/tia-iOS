@@ -1852,10 +1852,10 @@ Design/Desenvolvimento do Aplicativo iOS
             </objects>
             <point key="canvasLocation" x="254" y="851"/>
         </scene>
-        <!--Notas-->
+        <!--Horarios-->
         <scene sceneID="n0D-yP-qva">
             <objects>
-                <navigationController title="Notas" definesPresentationContext="YES" id="Yaj-cc-iWW" sceneMemberID="viewController">
+                <navigationController title="Horarios" definesPresentationContext="YES" id="Yaj-cc-iWW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Horários" image="horarios" id="3kO-00-4fY">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="horarios_selected"/>

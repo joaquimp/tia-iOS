@@ -146,9 +146,6 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
             NSUserDefaults.standardUserDefaults().removeObjectForKey("tia")
             NSUserDefaults.standardUserDefaults().removeObjectForKey("senha")
             NSUserDefaults.standardUserDefaults().removeObjectForKey("unidade")
-            Nota.removerTudo()
-            Falta.removerTudo()
-            Horario.removerTudo()
             self.performSegueWithIdentifier("logoutSegue", sender: self)
         }
         let actionCancelar = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel) { (alertAction) -> Void in

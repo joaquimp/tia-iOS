@@ -11,6 +11,7 @@ import CoreData
 
 class Nota: NSManagedObject {
     
+    @NSManaged var tia:String
     @NSManaged var codigo: String
     @NSManaged var disciplina: String
     @NSManaged var a: String
@@ -48,8 +49,15 @@ class Nota: NSManagedObject {
     */
     class func buscarNotas()->Array<Nota>
     {
+        guard let tia = TIAManager.sharedInstance.usuario?.tia else {
+            print("buscarNotas: error, usuario nao logado")
+            return Array<Nota>()
+        }
+        
         do {
             let fetchRequest = NSFetchRequest(entityName: "Nota")
+            let predicate = NSPredicate(format: "tia = %@", tia)
+            fetchRequest.predicate = predicate
             
             let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
             
@@ -76,9 +84,14 @@ class Nota: NSManagedObject {
     */
     class func buscarNota(codigo:String)->Nota?
     {
+        guard let tia = TIAManager.sharedInstance.usuario?.tia else {
+            print("buscarNota(codigo): error, usuario nao logado")
+            return nil
+        }
+        
         do {
             let fetchRequest = NSFetchRequest(entityName: "Nota")
-            let predicate = NSPredicate(format: "codigo = %@", codigo)
+            let predicate = NSPredicate(format: "codigo = %@ AND tia = %@", codigo, tia)
             fetchRequest.predicate = predicate
             
             let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
@@ -103,6 +116,12 @@ class Nota: NSManagedObject {
     - parameter codigos: códigos das disciplinas válidas, códigos que não existam neste array serão removidos do banco de dados
     */
     private class func removerNotasDiferentes(codigos:Array<String>) {
+        
+        guard let tia = TIAManager.sharedInstance.usuario?.tia else {
+            print("removerNotasDiferentes: error, usuario nao logado")
+            return
+        }
+        
         do{
             var predicateString = ""
             for var i=0; i < codigos.count; i++ {
@@ -111,6 +130,7 @@ class Nota: NSManagedObject {
                     predicateString += " AND "
                 }
             }
+            predicateString += " AND tia = '\(tia)'"
             
             let fetchRequest = NSFetchRequest(entityName: "Nota")
             let predicate = NSPredicate(format: predicateString)
@@ -131,12 +151,14 @@ class Nota: NSManagedObject {
         }
     }
     
-    class func removerTudo(){
-        CoreDataHelper.sharedInstance.removeAll("Nota")
-    }
-    
     // MARK: Metodos uteis
     class func parseJSON(notaData:NSData) -> Array<Nota>? {
+        
+        guard let tia = TIAManager.sharedInstance.usuario?.tia else {
+            print("parseJSON Nota: error, usuario nao logado")
+            return nil
+        }
+        
         var notas:Array<Nota>? = Array<Nota>()
         
         var resp:NSDictionary?
@@ -166,6 +188,7 @@ class Nota: NSManagedObject {
                     nota = notaExistente
                 } else {
                     nota = Nota.novaNota()
+                    nota?.tia = tia
                 }
                 nota?.codigo = codigo
                 novasDisciplinas.append(codigo)

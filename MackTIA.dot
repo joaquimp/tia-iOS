@@ -1,0 +1,31 @@
+digraph G {
+	node [shape=box];
+	"MapOverlay" -> {};
+	"Pods-MackTIA-dummy" -> {};
+	"CLSReport" -> "CLSAttributes";
+	"FABAttributes" -> {};
+	"Crashlytics" -> "CLSAttributes";
+	"Crashlytics" -> "CLSReport";
+	"Crashlytics" -> "CLSLogging";
+	"Crashlytics" -> "CLSStackFrame";
+	"Crashlytics" -> "Answers";
+	"CLSAttributes" -> {};
+	"Pods-MackTIATests-dummy" -> {};
+	"CLSLogging" -> "CLSAttributes";
+	"Answers" -> "ANSCompatibility";
+	"Pods-MackTIATests-umbrella" -> {};
+	"MapaViewController" -> "Mapa/MapOverlayView";
+	"MapaViewController" -> "Mapa/MapOverlay";
+	"ANSCompatibility" -> {};
+	"CLSStackFrame" -> "CLSAttributes";
+	"MackTIA-Bridging-Header" -> {};
+	"MapOverlayView" -> "MapOverlay";
+	"Pods-MackTIA-umbrella" -> {};
+	"Fabric" -> "FABAttributes";
+	
+	
+	edge [color=blue, dir=both];
+	"Mapa/MapOverlayView" [color=gray, style=dashed, fontcolor=gray]
+	"Mapa/MapOverlay" [color=gray, style=dashed, fontcolor=gray]
+}
+

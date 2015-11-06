@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Crashlytics
 
 
 /** TIAManager Class
@@ -457,10 +458,19 @@ class TIAManager {
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     completionHandler(self,nil)
                 })
+                self.logUser(self.usuario!)
                 
             }
             self.apiRequest(request, completionHandler: requestCompletionHandler, cliente: "ATUALIZAR_NOTAS")
         })
+    }
+    
+    private func logUser(user:Usuario) {
+        // TODO: Use the current user's information
+        // You can call any combination of these three methods
+        Crashlytics.sharedInstance().setUserEmail("\(user.tia)@mackenzista.com.br")
+        Crashlytics.sharedInstance().setUserIdentifier(user.tia)
+        Crashlytics.sharedInstance().setUserName(user.tia)
     }
     
     private func apiRequest(request: NSURLRequest, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void, cliente:String) {

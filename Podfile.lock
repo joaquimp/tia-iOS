@@ -1,14 +1,17 @@
 PODS:
+  - 1PasswordExtension (1.6.3)
   - Crashlytics (3.3.4)
   - Fabric (1.5.1):
     - Fabric/Base (= 1.5.1)
   - Fabric/Base (1.5.1)
 
 DEPENDENCIES:
+  - 1PasswordExtension (~> 1.6.3)
   - Crashlytics
   - Fabric
 
 SPEC CHECKSUMS:
+  1PasswordExtension: 676a216461ffa9189db66541b5a2465e10ae4743
   Crashlytics: 41c082440d2e14da444186fff65e79c0b4b35d4c
   Fabric: 03c3b3fe77e11a2bc31421b989a9c7adaa4779a5
 

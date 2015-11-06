@@ -78,6 +78,10 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         NSNotificationCenter.defaultCenter().removeObserver(self);
     }
     
+    
+    @IBAction func onPasswordSignin(sender: AnyObject) {
+    }
+    
     func keyboardWasShow(notification: NSNotification) {
         var info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()

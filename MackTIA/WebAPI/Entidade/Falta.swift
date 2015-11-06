@@ -11,6 +11,7 @@ import CoreData
 
 class Falta: NSManagedObject {
     
+    @NSManaged var tia: String
     @NSManaged var codigo: String
     @NSManaged var disciplina: String
     @NSManaged var atualizacao: String
@@ -32,8 +33,16 @@ class Falta: NSManagedObject {
     
     class func buscarFaltas()->Array<Falta>
     {
+        
+        guard let tia = TIAManager.sharedInstance.usuario?.tia else {
+            print("removerFaltasDiferentes: error, usuario nao logado")
+            return Array<Falta>()
+        }
+        
         do {
             let fetchRequest = NSFetchRequest(entityName: "Falta")
+            let predicate = NSPredicate(format: "tia = %@", tia)
+            fetchRequest.predicate = predicate
             
             let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
             
@@ -51,9 +60,14 @@ class Falta: NSManagedObject {
     
     class func buscarFalta(codigo:String)->Falta?
     {
+        guard let tia = TIAManager.sharedInstance.usuario?.tia else {
+            print("buscarFalta: error, usuario nao logado")
+            return nil
+        }
+        
         do {
             let fetchRequest = NSFetchRequest(entityName: "Falta")
-            let predicate = NSPredicate(format: "codigo = %@", codigo)
+            let predicate = NSPredicate(format: "codigo = %@ AND tia = %@", codigo, tia)
             fetchRequest.predicate = predicate
             
             let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
@@ -74,6 +88,11 @@ class Falta: NSManagedObject {
     
     private class func removerFaltasDiferentes(codigos:Array<String>) {
         
+        guard let tia = TIAManager.sharedInstance.usuario?.tia else {
+            print("removerFaltasDiferentes: error, usuario nao logado")
+            return
+        }
+        
         do {
             var predicateString = ""
             for var i=0; i < codigos.count; i++ {
@@ -82,6 +101,8 @@ class Falta: NSManagedObject {
                     predicateString += " AND "
                 }
             }
+            predicateString += " AND tia = '\(tia)'"
+            
             
             let fetchRequest = NSFetchRequest(entityName: "Falta")
             let predicate = NSPredicate(format: predicateString)
@@ -100,28 +121,14 @@ class Falta: NSManagedObject {
         }
     }
     
-    class func removerTudo(){
-        CoreDataHelper.sharedInstance.removeAll("Falta")
-    }
-//    class func removerTudo() {
-//        do {
-//            let fetchRequest = NSFetchRequest(entityName: "Falta")
-//            
-//            let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
-//            if let results = fetchedResults as? [Falta] {
-//                for var i=0; i < results.count; i++ {
-//                    CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
-//                }
-//            }
-//            CoreDataHelper.sharedInstance.saveContext()
-//        }catch{
-//            print("Falta.removerTudo() - \(error)")
-//        }
-//    }
-    
-    
     // MARK: Metodos uteis
     class func parseJSON(faltaData:NSData) -> Array<Falta>? {
+        
+        guard let tia = TIAManager.sharedInstance.usuario?.tia else {
+            print("parseJSON Falta: error, usuario nao logado")
+            return nil
+        }
+        
         var faltasArray:Array<Falta>? = Array<Falta>()
         
         var resp:NSDictionary?
@@ -144,7 +151,8 @@ class Falta: NSManagedObject {
         for faltaDic in faltasJSON {
             
             //Verifica se todos os parametros estão corretos
-            guard let codigo     = faltaDic["codigo"]     as? String,
+            guard
+                let codigo       = faltaDic["codigo"]     as? String,
                 let disciplina   = faltaDic["disciplina"]   as? String,
                 let turma        = faltaDic["turma"]        as? String,
                 let aulasDadas   = faltaDic["dadas"]        as? Int,
@@ -166,6 +174,7 @@ class Falta: NSManagedObject {
             falta?.codigo = codigo
             novasDisciplinas.append(codigo)
             
+            falta?.tia           = tia
             falta?.disciplina    = disciplina
             falta?.turma         = turma
             falta?.aulasDadas    = Int32(aulasDadas)

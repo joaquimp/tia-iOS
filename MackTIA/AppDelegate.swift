@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     usuario.senha = senha
                     usuario.unidade = unidade
                     TIAManager.sharedInstance.usuario = usuario
+                    self.logUser(usuario)
                     let vc = storyboard.instantiateViewControllerWithIdentifier("telaPrincipal")
                     self.window?.rootViewController = vc
                     self.window?.makeKeyAndVisible()
@@ -49,6 +50,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.makeKeyAndVisible()
         return true
     }
+    
+    func logUser(user:Usuario) {
+        // TODO: Use the current user's information
+        // You can call any combination of these three methods
+        Crashlytics.sharedInstance().setUserEmail("\(user.tia)@mackenzista.com.br")
+        Crashlytics.sharedInstance().setUserIdentifier(user.tia)
+        Crashlytics.sharedInstance().setUserName(user.tia)
+    }
+
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

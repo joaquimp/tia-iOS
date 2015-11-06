@@ -14,7 +14,9 @@ import CoreData
 
 class Horario: NSManagedObject {
     
+    @NSManaged var tia: String
     @NSManaged var codigo: String
+    @NSManaged var codigoUnico: String
     @NSManaged var disciplina: String
     @NSManaged var escola: String
     @NSManaged var turma: String
@@ -42,10 +44,15 @@ class Horario: NSManagedObject {
      
      - returns: Vetor com os horarios existentes ou vetor vazio em caso de erro ou banco vazio
      */
-    class func buscarHorarios()->Array<Horario>
-    {
+    class func buscarHorarios()->Array<Horario> {
+        guard let tia = TIAManager.sharedInstance.usuario?.tia else {
+            print("buscarHorarios: error, usuario nao logado")
+            return Array<Horario>()
+        }
+        
         do {
             let fetchRequest = NSFetchRequest(entityName: "Horario")
+            fetchRequest.predicate = NSPredicate(format: "tia = %@", tia)
             
             let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
             
@@ -69,11 +76,15 @@ class Horario: NSManagedObject {
      
      - returns: objeto nota com dados atualizados do banco de dados local ou nil caso ocorra algum problema
      */
-    class func buscarHorariosDia(dia:Int)->[Horario]
-    {
+    class func buscarHorariosDia(dia:Int)->Array<Horario> {
+        guard let tia = TIAManager.sharedInstance.usuario?.tia else {
+            print("buscarHorariosDia: error, usuario nao logado")
+            return Array<Horario>()
+        }
+        
         do {
             let fetchRequest = NSFetchRequest(entityName: "Horario")
-            let predicate = NSPredicate(format: "dia = %@", "\(dia)")
+            let predicate = NSPredicate(format: "dia = %@ AND tia = %@", "\(dia)", tia)
             fetchRequest.predicate = predicate
             
             let sortDescriptor = NSSortDescriptor(key: "hora", ascending: true)
@@ -102,11 +113,15 @@ class Horario: NSManagedObject {
      
      - returns: objeto nota com dados atualizados do banco de dados local ou nil caso ocorra algum problema
      */
-    class func buscarHorario(codigo:String)->Horario?
-    {
+    class func buscarHorario(codigoUnico:String)->Horario? {
+        guard let tia = TIAManager.sharedInstance.usuario?.tia else {
+            print("buscarHorario(codigo): error, usuario nao logado")
+            return nil
+        }
+        
         do {
             let fetchRequest = NSFetchRequest(entityName: "Horario")
-            let predicate = NSPredicate(format: "codigo = %@", codigo)
+            let predicate = NSPredicate(format: "codigoUnico = %@ AND tia = %@", codigoUnico, tia)
             fetchRequest.predicate = predicate
             
             let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
@@ -130,17 +145,23 @@ class Horario: NSManagedObject {
      - parameter codigos: códigos das disciplinas válidas, códigos que não existam neste array serão removidos do banco de dados
      */
     private class func removerHorariosDiferentes(codigos:Array<String>) {
+        guard let tia = TIAManager.sharedInstance.usuario?.tia else {
+            print("removerHorariosDiferentes: error, usuario nao logado")
+            return
+        }
+        
         do{
             if codigos.count == 0 {
                 return
             }
             var predicateString = ""
             for var i=0; i < codigos.count; i++ {
-                predicateString += "codigo <> '\(codigos[i])'"
+                predicateString += "codigoUnico <> '\(codigos[i])'"
                 if i < codigos.count - 1 {
                     predicateString += " AND "
                 }
             }
+            predicateString += "AND tia = '\(tia)'"
             
             let fetchRequest = NSFetchRequest(entityName: "Horario")
             let predicate = NSPredicate(format: predicateString)
@@ -160,12 +181,6 @@ class Horario: NSManagedObject {
             print("Horario.removerHorariosDiferentes - \(error)")
         }
     }
-    
-    
-    class func removerTudo(){
-        CoreDataHelper.sharedInstance.removeAll("Horario")
-    }
-    
     
     /**
      Modelo de resposta JSON valida
@@ -190,6 +205,11 @@ class Horario: NSManagedObject {
      - returns: Vetor com os horarios ou nil em caso de erro
      */
     class func parseJSON(notaData:NSData) -> Array<Horario>? {
+        guard let tia = TIAManager.sharedInstance.usuario?.tia else {
+            print("parseJSON Horario: error, usuario nao logado")
+            return nil
+        }
+        
         var horarios:Array<Horario>? = Array<Horario>()
         
         var resp:NSDictionary?
@@ -234,9 +254,11 @@ class Horario: NSManagedObject {
                 horario = horarioExistente
             } else {
                 horario = Horario.novoHorario()
-                horario?.codigo = codigoUnico
+                horario?.tia = tia
+                horario?.codigoUnico = codigoUnico
+                horario?.codigo = codigo
                 horariosDiferentes.append(codigoUnico)
-                horario?.anotacoes = "Coloque aqui suas anotações sobre esta aula"
+                horario?.anotacoes = ""
             }
             
             // WARNING: -Mudar no servidor de nome para disciplina
