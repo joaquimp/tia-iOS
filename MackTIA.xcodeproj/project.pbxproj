@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6353C8101FCFC8B5B5CB9264 /* Pods_MackTIATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		6353C8101FCFC8B5B5CB9264 /* Pods_MackTIATests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31EA871566F5B1B3BA6A1B29 /* Pods_MackTIATests.framework */; };
 		920E4A721BE8114300C3D963 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E4A711BE8114300C3D963 /* ProgressBarView.swift */; };
 		923C1F721BAA7C02006616B5 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923C1F711BAA7C02006616B5 /* ConfigHelper.swift */; };
 		9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */; };
@@ -29,7 +29,7 @@
 		92D278C31BB4D82900680733 /* HorarioSemanalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C21BB4D82900680733 /* HorarioSemanalViewController.swift */; };
 		92D278C51BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C41BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift */; };
 		92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */; };
-		971DBE92D688529EF9699185 /* Pods_MackTIA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		971DBE92D688529EF9699185 /* Pods_MackTIA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B25325172E67BB9507F635B3 /* Pods_MackTIA.framework */; };
 		A1337E361BA082C4004A2015 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1337E341BA082C4004A2015 /* Main.storyboard */; };
 		A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */; };
 		A15BB2D21B9AB82400143EBE /* CircleGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2D11B9AB82400143EBE /* CircleGraphView.swift */; };
@@ -296,6 +296,7 @@
 				9289B87B1B87ADB3004284E3 /* Resources */,
 				92B9E8CD1B87C887004C1DE4 /* Embed Frameworks */,
 				922BF04B1BACDFE90004F243 /* ShellScript */,
+				168E1B4964726B3B695E8766 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -411,6 +412,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MackTIATests/Pods-MackTIATests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		168E1B4964726B3B695E8766 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MackTIA/Pods-MackTIA-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		922BF04B1BACDFE90004F243 /* ShellScript */ = {

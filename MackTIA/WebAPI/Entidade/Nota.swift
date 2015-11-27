@@ -281,7 +281,9 @@ class Nota: NSManagedObject {
                     mi = "0"
                 }
                 nota?.mi = mi
-            } else { return nil }
+            } else {
+                nota?.mi = notaVazia
+            }
             
             if let pf = notaDic["pf"] as? String {
                 nota?.pf = pf
@@ -294,11 +296,15 @@ class Nota: NSManagedObject {
                     mf = "0"
                 }
                 nota?.mf = mf
-            } else { return nil }
+            } else {
+                nota?.mf = notaVazia
+            }
             
             if let formula = notaDic["formula"] as? String {
                 nota?.formula = formula
-            } else { return nil }
+            } else {
+                nota?.formula = "não informada"
+            }
             
             nota?.salvar()
             notas!.append(nota!)

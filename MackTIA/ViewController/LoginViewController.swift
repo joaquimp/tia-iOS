@@ -22,6 +22,15 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     var unidades:Array<String>!
     var unidadesCodigo:Array<String>!
     
+    
+    //
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print("Moveu")
+    }
+    
+    //
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.unidades = [" Rio de Janeiro "," São Paulo "," Brasília "," UATU "]
@@ -105,6 +114,7 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     // MARK: UIResponder
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
+        print("tocou")
     }
     
     

@@ -181,7 +181,11 @@ class NotaTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollecti
                 cell.nota.text = self.nota?.pf
             case 4:
                 cell.titulo.text = "MF"
-                cell.nota.text = self.nota?.mf
+                if self.nota?.mf == "99.9" {
+                    cell.nota.text = "Repr."
+                } else {
+                    cell.nota.text = self.nota?.mf
+                }
             default:
                 cell.titulo.text = "-"
                 cell.nota.text = "-"
