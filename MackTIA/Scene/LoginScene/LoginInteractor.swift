@@ -28,6 +28,7 @@ class LoginInteractor: LoginInteractorInput {
     
     func validateLogin(request: LoginRequest) {
         // NOTE: Create some Worker to do the work
+        
         worker = LoginWorker()
         worker.validadeLogin(request) { (response, error) in
             if response {

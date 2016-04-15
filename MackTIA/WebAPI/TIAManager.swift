@@ -50,8 +50,8 @@ class TIAManager {
     private init(){
         if let path = NSBundle.mainBundle().pathForResource("token", ofType: "plist") {
             let tokenDict = NSDictionary(contentsOfFile: path)
-            self.token_parte1 = tokenDict!.valueForKey("parte 1") as! String
-            self.token_parte2 = tokenDict!.valueForKey("parte 2") as! String
+            self.token_parte1 = tokenDict!.valueForKey("part_1") as! String
+            self.token_parte2 = tokenDict!.valueForKey("part_2") as! String
         } else {
             print("There are a problem in token.plist")
             self.token_parte1 = ""

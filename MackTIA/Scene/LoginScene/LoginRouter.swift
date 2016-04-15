@@ -21,7 +21,7 @@ class LoginRouter: LoginRouterInput {
   // MARK: Navigation
   
   func navigateToMainView() {
-    viewController.performSegueWithIdentifier("loginSegue", sender: nil)
+    viewController.performSegueWithIdentifier("login", sender: nil)
   }
   
   // MARK: Communication

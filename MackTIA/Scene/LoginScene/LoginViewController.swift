@@ -201,7 +201,7 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     }
     
     func pickerView(pickerView: AKPickerView, titleForItem item: Int) -> String {
-        return self.campusCode[item]
+        return self.campus[item]
     }
     
     // MARK: - TextFieldDelegate

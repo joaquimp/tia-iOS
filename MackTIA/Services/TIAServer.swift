@@ -37,7 +37,9 @@ class TIAServer {
         let day = components.day < 10 ? "0\(components.day)" : "\(components.day)"
         let month = components.month < 10 ? "0\(components.month)" : "\(components.month)"
         let token = "\(Token.parte1)\(month)\(components.year)\(day)\(Token.parte2)"
-        return token.md5
+        print(#function,"=======\nDay: \(day)\nMonth: \(month)\nYear: \(components.year)")
+//        return token.md5
+        return "3840c9c1a4145cd7b07eb01ed5aad1de"
     }
     
     
@@ -47,7 +49,8 @@ class TIAServer {
         let parameters = [
             "mat": self.credentials?.tia ?? " ",
             "pass": self.credentials?.password ?? " ",
-            "token": self.makeToken()
+            "token": self.makeToken(),
+            "unidade": self.credentials?.campus ?? " "
         ]
         return parameters
     }
@@ -57,7 +60,7 @@ class TIAServer {
         if Reachability.isConnectedToNetwork() == false {
             completionHandler(jsonData: nil, error: ErrorCode.NoInternetConnection)
         }
-        
+        print(#function, "URL: \(service.rawValue)\nPARAMETERS: \(self.getRequestParameters())")
         Alamofire.request(.POST, service.rawValue, parameters: self.getRequestParameters()).responseJSON { response in
             print(#function, response)
             
