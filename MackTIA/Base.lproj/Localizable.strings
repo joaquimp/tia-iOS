@@ -25,3 +25,20 @@
 "atualizacaoNaoInformada" = "Atualização: sem informação";
 "atualizacao.data" = "Atualização: ";
 "update.label.text" = "Atualizado em: ";
+
+
+// Login Interface
+"password" = "SENHA";
+"tia" = "TIA";
+"login_defaultErrorTitle" = "Ops :(";
+"login_defaultErrorMessage" = "Por algum motivo desconhecido não foi possível fazer o login. Tente novamente mais tarde. Caso o problema persista, envie um e-mail para aplicativos@mackenzie.br";
+
+// Error Message
+"error_invalidLoginCredentials_title"   = "Acesso Negado";
+"error_invalidLoginCredentials_message" = "Não foi possível fazer o login, verifique se os dados estão corretos";
+
+"error_noInternetConnection_title"      = "Sem Conexão";
+"error_noInternetConnection_message"    = "Não foi possível realizar a operação, parece que seu dispositivo não está conectado na internet"
+
+"error_domainNotFound_title"            = "Ops :/";
+"error_domainNotFound_message"          = "O seu aplicativo não conseguiu encontrar nossos servidores. Pode ser um problema temporário, ou seu aplicativo pode estar desatualizado."

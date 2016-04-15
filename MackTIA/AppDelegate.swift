@@ -29,6 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.tintColor = UIColor.redColor()
         
+        
         if let tia = NSUserDefaults.standardUserDefaults().stringForKey("tia") {
             if let senha = NSUserDefaults.standardUserDefaults().stringForKey("senha") {
                 if let unidade = NSUserDefaults.standardUserDefaults().stringForKey("unidade") {

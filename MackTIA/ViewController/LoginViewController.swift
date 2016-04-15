@@ -7,10 +7,10 @@
 //
 
 import UIKit
-//import Fabric
+import Fabric
 import Crashlytics
 
-class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDelegate, UITextFieldDelegate {
+class OLDLoginViewController: UIViewController, AKPickerViewDataSource, AKPickerViewDelegate, UITextFieldDelegate {
     @IBOutlet weak var tiaTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -79,8 +79,8 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         self.view.bringSubviewToFront(self.activityIndicator)
         self.activityIndicator.hidden = true
         self.bloqueiView.hidden = true
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShow:"), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasHide:"), name:UIKeyboardWillHideNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWasShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(LoginViewController.keyboardWasHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
     }
     
     deinit {
@@ -141,8 +141,11 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
                         mensagem = info["mensagem"]!
                     }
                 }
-                let alert = UIAlertView(title: "Acesso Negado", message: mensagem, delegate: self, cancelButtonTitle: "OK")
-                alert.show()
+                let alert = UIAlertController(title: "Acesso Negado", message: mensagem, preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//                let alert = UIAlertView(title: "Acesso Negado", message: mensagem, delegate: self, cancelButtonTitle: "OK")
+                self.presentViewController(alert, animated: true, completion: nil)
+                
                 //----------------------------------------------------------------------
                 //FABRIC - Informa que o usuário fez login
                 Answers.logLoginWithMethod("Digits",

@@ -88,9 +88,9 @@ class TIAManager {
         let request = NSMutableURLRequest(URL: NSURL(string: stringURL)!)
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "accept")
-        
+        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         let postString = "mat=\(usuario.tia)&pass=\(usuario.senha)&unidade=\(usuario.unidade)&token=\(self.gerarToken())"
-        
+        print(#function, postString)
         request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
         return request
     }
@@ -118,7 +118,7 @@ class TIAManager {
                 return
             }
             
-            let request = self.criarRequisicao(ConfigHelper.sharedInstance.loginURL, usuario: usuario)
+            let request = self.criarRequisicao(ConfigHelper.sharedInstance.notasURL, usuario: usuario)
             let requestCompletionHandler:(NSData?, NSURLResponse?, NSError?) -> Void = { (data, response, error) -> Void in
                 //Verifica se ocorreu erro
                 guard error == nil else {
@@ -153,7 +153,7 @@ class TIAManager {
                 }
                 
                 //O servidor indicou um erro nos parâmetros da requisição
-                guard let _ = resposta.objectForKey("sucesso") as? String else {
+                guard let _ = resposta[0]?["nome_aluno"] as? String else {
                     guard let erroAPI = resposta.objectForKey("erro") as? String else {
                         //O conteudo retornado não está no formato esperado
                         let mensagem = NSLocalizedString("errorLoginServer.text", comment: "Erro no retorno da requisição")
@@ -466,8 +466,8 @@ class TIAManager {
     }
     
     private func logUser(user:Usuario) {
-        // TODO: Use the current user's information
-        // You can call any combination of these three methods
+//        // TODO: Use the current user's information
+//        // You can call any combination of these three methods
         Crashlytics.sharedInstance().setUserEmail("\(user.tia)@mackenzista.com.br")
         Crashlytics.sharedInstance().setUserIdentifier(user.tia)
         Crashlytics.sharedInstance().setUserName(user.tia)
