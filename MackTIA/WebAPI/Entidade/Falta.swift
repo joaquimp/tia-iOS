@@ -95,7 +95,7 @@ class Falta: NSManagedObject {
         
         do {
             var predicateString = ""
-            for var i=0; i < codigos.count; i++ {
+            for i in 0 ..< codigos.count {
                 predicateString += "codigo <> '\(codigos[i])'"
                 if i < codigos.count - 1 {
                     predicateString += " AND "
@@ -111,7 +111,7 @@ class Falta: NSManagedObject {
             let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
             
             if let results = fetchedResults as? [Falta] {
-                for var i=0; i < results.count; i++ {
+                for i in 0 ..< results.count {
                     CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
                 }
             }

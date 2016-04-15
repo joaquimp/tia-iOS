@@ -32,8 +32,8 @@ class HorarioAnotacaoViewController: UIViewController {
         if horario == nil {
             self.dismissViewControllerAnimated(false, completion: nil)
         }
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShow:"), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasHide:"), name:UIKeyboardWillHideNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HorarioAnotacaoViewController.keyboardWasShow(_:)), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(HorarioAnotacaoViewController.keyboardWasHide(_:)), name:UIKeyboardWillHideNotification, object: nil);
     }
     
     deinit {

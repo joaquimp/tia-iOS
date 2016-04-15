@@ -28,28 +28,31 @@ class LoginPresenter: LoginPresenterInput {
     
     func presentLoginError(response: LoginResponse) {
         
-        var title = NSLocalizedString("login_defaultErrorTitle", comment: "Login Error Title")
-        var message = NSLocalizedString("login_defaultErrorMessage", comment: "Default login error message")
+        var errorTitle = NSLocalizedString("login_defaultErrorTitle", comment: "Login Error Title")
+        var errorMessage = NSLocalizedString("login_defaultErrorMessage", comment: "Default login error message")
         
         guard response.error != nil else {
-            let viewModel = LoginViewModel(errorMessage: message, errorTitle: title)
+            let viewModel = LoginViewModel(errorMessage: errorMessage, errorTitle: errorTitle)
             output.displayLoginFailure(viewModel)
             return
         }
         
         switch response.error! {
-        case .InvalidLoginCredentials:
-            title = NSLocalizedString("error_invalidLoginCredentials_title", comment: "Credentials problem")
-            message = NSLocalizedString("error_invalidLoginCredentials_message", comment: "Credentials problem")
+        case let .InvalidLoginCredentials(title,message):
+            errorTitle = title
+            errorMessage = message
         case .NoInternetConnection:
-            title = NSLocalizedString("error_noInternetConnection_title", comment: "Internet problem")
-            message = NSLocalizedString("error_noInternetConnection_message", comment: "Internet problem")
+            errorTitle = NSLocalizedString("error_noInternetConnection_title", comment: "Internet problem")
+            errorMessage = NSLocalizedString("error_noInternetConnection_message", comment: "Internet problem")
         case .DomainNotFound:
-            title = NSLocalizedString("error_domainNotFound_title", comment: "Domain problem")
-            message = NSLocalizedString("error_domainNotFound_message", comment: "Domain problem")
+            errorTitle = NSLocalizedString("error_domainNotFound_title", comment: "Domain problem")
+            errorMessage = NSLocalizedString("error_domainNotFound_message", comment: "Domain problem")
+        case let .OtherFailure(title, message):
+            errorTitle = title
+            errorMessage = message
         }
         
-        let viewModel = LoginViewModel(errorMessage: message, errorTitle: title)
+        let viewModel = LoginViewModel(errorMessage: errorMessage, errorTitle: errorTitle)
         output.displayLoginFailure(viewModel)
     }
     

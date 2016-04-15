@@ -21,7 +21,7 @@ class FaltasTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buscarNovosDados()
-        self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(FaltasTableViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
     }
     
     override func viewWillAppear(animated: Bool) {

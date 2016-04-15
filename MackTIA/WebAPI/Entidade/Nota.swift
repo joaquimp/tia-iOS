@@ -124,7 +124,7 @@ class Nota: NSManagedObject {
         
         do{
             var predicateString = ""
-            for var i=0; i < codigos.count; i++ {
+            for i in 0 ..< codigos.count {
                 predicateString += "codigo <> '\(codigos[i])'"
                 if i < codigos.count - 1 {
                     predicateString += " AND "
@@ -141,7 +141,7 @@ class Nota: NSManagedObject {
                 return
             }
             
-            for var i=0; i < results.count; i++ {
+            for i in 0 ..< results.count {
                 CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
             }
             

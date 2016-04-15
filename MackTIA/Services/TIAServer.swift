@@ -17,47 +17,26 @@ enum ServiceURL:String {
     case ClassSchedule  = "https://www3.mackenzie.com.br/tia/tia_mobile/horarios.php"
 }
 
+private enum Token:String {
+    case parte1 = "aNw3476Bi4ok33T987nQ"
+    case parte2 = "wc8oc669GE738m8uMA77"
+}
+
 class TIAServer {
     
     // MARK: Singleton Methods
     static let sharedInstance = TIAServer()
     
-    private init() {
-        if let path = NSBundle.mainBundle().pathForResource("token", ofType: "plist") {
-            let tokenDict = NSDictionary(contentsOfFile: path)
-            self.token_part1 = tokenDict!.valueForKey("part_1") as! String
-            self.token_part2 = tokenDict!.valueForKey("part_2") as! String
-        } else {
-            print(#function, "There are a problem in token.plist")
-            self.token_part1 = ""
-            self.token_part2 = ""
-        }
-    }
-    
     // MARK: Security Parameters and Methods
     var credentials:(tia:String,password:String,campus:String)?
-    private var token_part1:String
-    private var token_part2:String
     
     private func makeToken() -> String {
         let date = NSDate()
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year], fromDate: date)
-        
-        var day = "\(components.day)"
-        var month = "\(components.month)"
-        let year = "\(components.year)"
-        
-        if (components.day < 10) {
-            day = "0\(day)"
-        }
-        
-        if (components.month < 10) {
-            month = "0\(month)"
-        }
-        
-        let token = "\(self.token_part1)\(month)\(year)\(day)\(self.token_part2)"
-        
+        let day = components.day < 10 ? "0\(components.day)" : "\(components.day)"
+        let month = components.month < 10 ? "0\(components.month)" : "\(components.month)"
+        let token = "\(Token.parte1)\(month)\(components.year)\(day)\(Token.parte2)"
         return token.md5
     }
     
@@ -70,7 +49,6 @@ class TIAServer {
             "pass": self.credentials?.password ?? " ",
             "token": self.makeToken()
         ]
-        
         return parameters
     }
     

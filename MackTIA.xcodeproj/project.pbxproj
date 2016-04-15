@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		920E4A721BE8114300C3D963 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920E4A711BE8114300C3D963 /* ProgressBarView.swift */; };
+		921D4EF61CC0B19F00FA06D3 /* Falta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50D1B9A4EBF00F0674D /* Falta.swift */; };
+		921D4EF71CC0B19F00FA06D3 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */; };
+		921D4EF81CC0B19F00FA06D3 /* Nota.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2F11B9BD26300143EBE /* Nota.swift */; };
+		921D4EF91CC0B19F00FA06D3 /* Horario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3EBF61BE5BF5900748E57 /* Horario.swift */; };
+		921D4EFA1CC0B1B900FA06D3 /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */; };
+		921D4EFB1CC0B1CB00FA06D3 /* TIAManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */; };
+		921D4EFC1CC0B21100FA06D3 /* token.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B9E8A71B87C1E5004C1DE4 /* token.plist */; };
+		921D4EFD1CC0B23600FA06D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 929C92B51B9F720500844564 /* Localizable.strings */; };
+		921D4EFE1CC0B23C00FA06D3 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923C1F711BAA7C02006616B5 /* ConfigHelper.swift */; };
 		923099CB1CC02E3A0090FD0A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923099C91CC02E3A0090FD0A /* Fabric.framework */; };
 		923099CC1CC02E3A0090FD0A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923099CA1CC02E3A0090FD0A /* Crashlytics.framework */; };
 		923099CF1CC031A10090FD0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923099CD1CC031A10090FD0A /* Main.storyboard */; };
@@ -30,13 +38,34 @@
 		92309A0D1CC067B50090FD0A /* ListGradeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92309A061CC067B50090FD0A /* ListGradeRouter.swift */; };
 		92309A0E1CC067B50090FD0A /* ListGradeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92309A071CC067B50090FD0A /* ListGradeViewController.swift */; };
 		92309A0F1CC067B50090FD0A /* ListGradeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92309A081CC067B50090FD0A /* ListGradeWorker.swift */; };
-		92309A111CC06F370090FD0A /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92309A101CC06F370090FD0A /* ErrorCode.swift */; };
-		92309A131CC078BA0090FD0A /* TIAServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92309A121CC078BA0090FD0A /* TIAServer.swift */; };
-		92309A151CC080E60090FD0A /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92309A141CC080E60090FD0A /* Reachability.swift */; };
+		92309A1F1CC0A8C30090FD0A /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923099E41CC04E490090FD0A /* LoginInteractor.swift */; };
+		92309A221CC0A9490090FD0A /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923099E31CC04E490090FD0A /* LoginConfigurator.swift */; };
+		92309A231CC0A9490090FD0A /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923099E51CC04E490090FD0A /* LoginModels.swift */; };
+		92309A241CC0A9490090FD0A /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923099E61CC04E490090FD0A /* LoginPresenter.swift */; };
+		92309A251CC0A9490090FD0A /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923099E71CC04E490090FD0A /* LoginRouter.swift */; };
+		92309A261CC0A9490090FD0A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923099E81CC04E490090FD0A /* LoginViewController.swift */; };
+		92309A271CC0A9490090FD0A /* LoginWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923099E91CC04E490090FD0A /* LoginWorker.swift */; };
 		923C1F721BAA7C02006616B5 /* ConfigHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923C1F711BAA7C02006616B5 /* ConfigHelper.swift */; };
 		9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */; };
 		9246D50E1B9A4EBF00F0674D /* Falta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50D1B9A4EBF00F0674D /* Falta.swift */; };
-		9246D5121B9A722B00F0674D /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D5111B9A722B00F0674D /* AKPickerView.swift */; };
+		9246DC4D1CC0AE0C003E73C3 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923099DF1CC045F70090FD0A /* Alamofire.framework */; };
+		9246DC4E1CC0AE11003E73C3 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923099C91CC02E3A0090FD0A /* Fabric.framework */; };
+		9246DC4F1CC0AE11003E73C3 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923099CA1CC02E3A0090FD0A /* Crashlytics.framework */; };
+		9246DC521CC0AF21003E73C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8821B87ADB3004284E3 /* AppDelegate.swift */; };
+		925E2C8F1CC1585D00DEAF52 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C8D1CC1585D00DEAF52 /* ErrorCode.swift */; };
+		925E2C901CC1585D00DEAF52 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C8E1CC1585D00DEAF52 /* Reachability.swift */; };
+		925E2C941CC1587E00DEAF52 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C921CC1587E00DEAF52 /* AKPickerView.swift */; };
+		925E2C971CC158AB00DEAF52 /* CircleGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C961CC158AB00DEAF52 /* CircleGraphView.swift */; };
+		925E2C9A1CC158ED00DEAF52 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C991CC158ED00DEAF52 /* extension.swift */; };
+		925E2C9C1CC15A4600DEAF52 /* TIAServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C9B1CC15A4600DEAF52 /* TIAServer.swift */; };
+		925E2C9D1CC1614E00DEAF52 /* TIAServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C9B1CC15A4600DEAF52 /* TIAServer.swift */; };
+		925E2C9E1CC1615100DEAF52 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C8D1CC1585D00DEAF52 /* ErrorCode.swift */; };
+		925E2C9F1CC1615500DEAF52 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C8E1CC1585D00DEAF52 /* Reachability.swift */; };
+		925E2CA01CC1615B00DEAF52 /* CircleGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C961CC158AB00DEAF52 /* CircleGraphView.swift */; };
+		925E2CA11CC1615E00DEAF52 /* AKPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C921CC1587E00DEAF52 /* AKPickerView.swift */; };
+		925E2CA21CC1616300DEAF52 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C931CC1587E00DEAF52 /* ProgressBarView.swift */; };
+		925E2CA31CC1616400DEAF52 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C931CC1587E00DEAF52 /* ProgressBarView.swift */; };
+		925E2CA41CC1616F00DEAF52 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2C991CC158ED00DEAF52 /* extension.swift */; };
 		927D10E11BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927D10E01BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift */; };
 		9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8821B87ADB3004284E3 /* AppDelegate.swift */; };
 		9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8841B87ADB3004284E3 /* MackTIA.xcdatamodeld */; };
@@ -44,8 +73,7 @@
 		9289B89C1B87ADB3004284E3 /* MackTIATests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B89B1B87ADB3004284E3 /* MackTIATests.swift */; };
 		929C92B31B9F720500844564 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 929C92B51B9F720500844564 /* Localizable.strings */; };
 		92B3EBF81BE5BF5900748E57 /* Horario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B3EBF61BE5BF5900748E57 /* Horario.swift */; };
-		92B9E8971B87B8D7004C1DE4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */; };
-		92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8A51B87BF93004C1DE4 /* extension.swift */; };
+		92B9E8971B87B8D7004C1DE4 /* OLDLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8961B87B8D7004C1DE4 /* OLDLoginViewController.swift */; };
 		92B9E8A81B87C1E5004C1DE4 /* token.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92B9E8A71B87C1E5004C1DE4 /* token.plist */; };
 		92B9E8DC1B87C992004C1DE4 /* TIAManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */; };
 		92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */; };
@@ -54,7 +82,6 @@
 		92D278C51BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C41BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift */; };
 		92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */; };
 		A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */; };
-		A15BB2D21B9AB82400143EBE /* CircleGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2D11B9AB82400143EBE /* CircleGraphView.swift */; };
 		A15BB2D51B9ACBD900143EBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15BB2D41B9ACBD900143EBE /* Images.xcassets */; };
 		A15BB2D91B9ACCDD00143EBE /* MaisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2D81B9ACCDD00143EBE /* MaisTableViewController.swift */; };
 		A15BB2EB1B9BCEFF00143EBE /* NotasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2EA1B9BCEFF00143EBE /* NotasTableViewController.swift */; };
@@ -89,7 +116,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		920E4A711BE8114300C3D963 /* ProgressBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
 		923099C91CC02E3A0090FD0A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		923099CA1CC02E3A0090FD0A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		923099CE1CC031A10090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -112,13 +138,17 @@
 		92309A061CC067B50090FD0A /* ListGradeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGradeRouter.swift; path = Scene/ListGrade/ListGradeRouter.swift; sourceTree = "<group>"; };
 		92309A071CC067B50090FD0A /* ListGradeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGradeViewController.swift; path = Scene/ListGrade/ListGradeViewController.swift; sourceTree = "<group>"; };
 		92309A081CC067B50090FD0A /* ListGradeWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGradeWorker.swift; path = Scene/ListGrade/ListGradeWorker.swift; sourceTree = "<group>"; };
-		92309A101CC06F370090FD0A /* ErrorCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
-		92309A121CC078BA0090FD0A /* TIAServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TIAServer.swift; path = WebAPI/TIAServer.swift; sourceTree = "<group>"; };
-		92309A141CC080E60090FD0A /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		923C1F711BAA7C02006616B5 /* ConfigHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigHelper.swift; path = Helpers/ConfigHelper.swift; sourceTree = "<group>"; };
 		9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataHelper.swift; path = WebAPI/CoreDataHelper.swift; sourceTree = "<group>"; };
 		9246D50D1B9A4EBF00F0674D /* Falta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Falta.swift; path = WebAPI/Entidade/Falta.swift; sourceTree = "<group>"; };
-		9246D5111B9A722B00F0674D /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKPickerView.swift; sourceTree = "<group>"; };
+		9246DC531CC0B036003E73C3 /* MackTIA-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MackTIA-Bridging-Header.h"; sourceTree = "<group>"; };
+		925E2C8D1CC1585D00DEAF52 /* ErrorCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorCode.swift; path = Services/ErrorCode.swift; sourceTree = "<group>"; };
+		925E2C8E1CC1585D00DEAF52 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = Services/Reachability.swift; sourceTree = "<group>"; };
+		925E2C921CC1587E00DEAF52 /* AKPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AKPickerView.swift; path = "View Components/AKPickerView.swift"; sourceTree = "<group>"; };
+		925E2C931CC1587E00DEAF52 /* ProgressBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgressBarView.swift; path = "View Components/ProgressBarView.swift"; sourceTree = "<group>"; };
+		925E2C961CC158AB00DEAF52 /* CircleGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleGraphView.swift; path = "View Components/CircleGraphView.swift"; sourceTree = "<group>"; };
+		925E2C991CC158ED00DEAF52 /* extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = extension.swift; path = Helpers/extension.swift; sourceTree = "<group>"; };
+		925E2C9B1CC15A4600DEAF52 /* TIAServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TIAServer.swift; path = Services/TIAServer.swift; sourceTree = "<group>"; };
 		927D10E01BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioAnotacaoViewController.swift; path = ViewController/HorarioAnotacaoViewController.swift; sourceTree = "<group>"; };
 		9289B87D1B87ADB3004284E3 /* MackTIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MackTIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9289B8811B87ADB3004284E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,9 +161,7 @@
 		929C92B41B9F720500844564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		929C92BA1B9F7C7000844564 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		92B3EBF61BE5BF5900748E57 /* Horario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Horario.swift; path = WebAPI/Entidade/Horario.swift; sourceTree = "<group>"; };
-		92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ViewController/LoginViewController.swift; sourceTree = "<group>"; };
-		92B9E89F1B87BDAC004C1DE4 /* MackTIA-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MackTIA-Bridging-Header.h"; sourceTree = "<group>"; };
-		92B9E8A51B87BF93004C1DE4 /* extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
+		92B9E8961B87B8D7004C1DE4 /* OLDLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OLDLoginViewController.swift; path = ViewController/OLDLoginViewController.swift; sourceTree = "<group>"; };
 		92B9E8A71B87C1E5004C1DE4 /* token.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = token.plist; path = WebAPI/token.plist; sourceTree = "<group>"; };
 		92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TIAManager.swift; path = WebAPI/TIAManager.swift; sourceTree = "<group>"; };
 		92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Usuario.swift; path = WebAPI/Entidade/Usuario.swift; sourceTree = "<group>"; };
@@ -142,7 +170,6 @@
 		92D278C41BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioDiaDaSemanaTableViewController.swift; path = ViewController/HorarioDiaDaSemanaTableViewController.swift; sourceTree = "<group>"; };
 		92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioTableViewCell.swift; path = "ViewController/Custom Cells/HorarioTableViewCell.swift"; sourceTree = "<group>"; };
 		A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaltaTableViewCell.swift; path = "ViewController/Custom Cells/FaltaTableViewCell.swift"; sourceTree = "<group>"; };
-		A15BB2D11B9AB82400143EBE /* CircleGraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CircleGraphView.swift; path = "ViewController/Custom Views/CircleGraphView.swift"; sourceTree = "<group>"; };
 		A15BB2D41B9ACBD900143EBE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A15BB2D81B9ACCDD00143EBE /* MaisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaisTableViewController.swift; path = ViewController/MaisTableViewController.swift; sourceTree = "<group>"; };
 		A15BB2EA1B9BCEFF00143EBE /* NotasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotasTableViewController.swift; path = ViewController/NotasTableViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +195,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9246DC4D1CC0AE0C003E73C3 /* Alamofire.framework in Frameworks */,
+				9246DC4F1CC0AE11003E73C3 /* Crashlytics.framework in Frameworks */,
+				9246DC4E1CC0AE11003E73C3 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,7 +207,8 @@
 		923099E21CC04DB00090FD0A /* VIPER */ = {
 			isa = PBXGroup;
 			children = (
-				923099F21CC058880090FD0A /* Workers */,
+				925E2C981CC158DE00DEAF52 /* Helpers */,
+				923099F21CC058880090FD0A /* Services */,
 				924887B11CC01B9C009BFDA9 /* Views */,
 				923099F11CC0587C0090FD0A /* LoginScene */,
 				92309A011CC066B00090FD0A /* ListGrade */,
@@ -199,13 +230,14 @@
 			name = LoginScene;
 			sourceTree = "<group>";
 		};
-		923099F21CC058880090FD0A /* Workers */ = {
+		923099F21CC058880090FD0A /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				92309A101CC06F370090FD0A /* ErrorCode.swift */,
-				92309A141CC080E60090FD0A /* Reachability.swift */,
+				925E2C9B1CC15A4600DEAF52 /* TIAServer.swift */,
+				925E2C8D1CC1585D00DEAF52 /* ErrorCode.swift */,
+				925E2C8E1CC1585D00DEAF52 /* Reachability.swift */,
 			);
-			name = Workers;
+			name = Services;
 			sourceTree = "<group>";
 		};
 		92309A011CC066B00090FD0A /* ListGrade */ = {
@@ -236,6 +268,7 @@
 		924887B11CC01B9C009BFDA9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				925E2C911CC1587000DEAF52 /* Components */,
 				923099CD1CC031A10090FD0A /* Main.storyboard */,
 				923099D91CC034090090FD0A /* Mais.storyboard */,
 				923099D61CC033BB0090FD0A /* Horarios.storyboard */,
@@ -244,6 +277,25 @@
 				9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		925E2C911CC1587000DEAF52 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				925E2C961CC158AB00DEAF52 /* CircleGraphView.swift */,
+				925E2C921CC1587E00DEAF52 /* AKPickerView.swift */,
+				925E2C931CC1587E00DEAF52 /* ProgressBarView.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		925E2C981CC158DE00DEAF52 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				925E2C991CC158ED00DEAF52 /* extension.swift */,
+				923C1F711BAA7C02006616B5 /* ConfigHelper.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		9289B8741B87ADB3004284E3 = {
@@ -273,10 +325,7 @@
 				92B9E8A91B87C217004C1DE4 /* WebAPI */,
 				9289B8821B87ADB3004284E3 /* AppDelegate.swift */,
 				A15BB2D41B9ACBD900143EBE /* Images.xcassets */,
-				9246D5111B9A722B00F0674D /* AKPickerView.swift */,
-				92B9E8A51B87BF93004C1DE4 /* extension.swift */,
 				9289B8801B87ADB3004284E3 /* Supporting Files */,
-				923C1F711BAA7C02006616B5 /* ConfigHelper.swift */,
 			);
 			path = MackTIA;
 			sourceTree = "<group>";
@@ -284,9 +333,9 @@
 		9289B8801B87ADB3004284E3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9246DC531CC0B036003E73C3 /* MackTIA-Bridging-Header.h */,
 				A15BB2F51BA0762600143EBE /* Bariol_Regular.otf */,
 				9289B8811B87ADB3004284E3 /* Info.plist */,
-				92B9E89F1B87BDAC004C1DE4 /* MackTIA-Bridging-Header.h */,
 				9289B8841B87ADB3004284E3 /* MackTIA.xcdatamodeld */,
 				92B9E8DF1B87CA07004C1DE4 /* config.plist */,
 				929C92B51B9F720500844564 /* Localizable.strings */,
@@ -314,9 +363,8 @@
 		92B9E8981B87B8DE004C1DE4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A15BB2D31B9AB82800143EBE /* Custom Views */,
 				A15BB2CE1B9AB23700143EBE /* Custom Cells */,
-				92B9E8961B87B8D7004C1DE4 /* LoginViewController.swift */,
+				92B9E8961B87B8D7004C1DE4 /* OLDLoginViewController.swift */,
 				A16372391B89915A000A9C69 /* FaltasTableViewController.swift */,
 				A15BB2EA1B9BCEFF00143EBE /* NotasTableViewController.swift */,
 				A15BB2D81B9ACCDD00143EBE /* MaisTableViewController.swift */,
@@ -334,7 +382,6 @@
 				9246D50C1B9A4E5C00F0674D /* Entidades */,
 				92B9E8AA1B87C241004C1DE4 /* TIAManager.swift */,
 				9246D50A1B9A4E3400F0674D /* CoreDataHelper.swift */,
-				92309A121CC078BA0090FD0A /* TIAServer.swift */,
 			);
 			name = WebAPI;
 			sourceTree = "<group>";
@@ -348,15 +395,6 @@
 				92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */,
 			);
 			name = "Custom Cells";
-			sourceTree = "<group>";
-		};
-		A15BB2D31B9AB82800143EBE /* Custom Views */ = {
-			isa = PBXGroup;
-			children = (
-				A15BB2D11B9AB82400143EBE /* CircleGraphView.swift */,
-				920E4A711BE8114300C3D963 /* ProgressBarView.swift */,
-			);
-			name = "Custom Views";
 			sourceTree = "<group>";
 		};
 		ACBE292C7FDC7D68CEBDD74B /* Frameworks */ = {
@@ -396,12 +434,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9289B8A21B87ADB3004284E3 /* Build configuration list for PBXNativeTarget "MackTIATests" */;
 			buildPhases = (
-				B943821D8E6DD465AFB289C8 /* Check Pods Manifest.lock */,
 				9289B8911B87ADB3004284E3 /* Sources */,
 				9289B8921B87ADB3004284E3 /* Frameworks */,
 				9289B8931B87ADB3004284E3 /* Resources */,
-				019DF6604A57AE546DAC6D20 /* Embed Pods Frameworks */,
-				D53913908E5E90179139618E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -429,7 +464,7 @@
 						DevelopmentTeam = GK6E7G94CJ;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -482,27 +517,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				921D4EFC1CC0B21100FA06D3 /* token.plist in Resources */,
+				921D4EFD1CC0B23600FA06D3 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		019DF6604A57AE546DAC6D20 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MackTIATests/Pods-MackTIATests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		923099C51CC02CD80090FD0A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -530,36 +552,6 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
-		B943821D8E6DD465AFB289C8 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D53913908E5E90179139618E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MackTIATests/Pods-MackTIATests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -567,47 +559,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9246D5121B9A722B00F0674D /* AKPickerView.swift in Sources */,
 				A15BB2D91B9ACCDD00143EBE /* MaisTableViewController.swift in Sources */,
-				92B9E8971B87B8D7004C1DE4 /* LoginViewController.swift in Sources */,
+				92B9E8971B87B8D7004C1DE4 /* OLDLoginViewController.swift in Sources */,
 				923099F01CC04E490090FD0A /* LoginWorker.swift in Sources */,
 				92B9E8DC1B87C992004C1DE4 /* TIAManager.swift in Sources */,
 				A163723A1B89915A000A9C69 /* FaltasTableViewController.swift in Sources */,
 				927D10E11BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift in Sources */,
 				923099EC1CC04E490090FD0A /* LoginModels.swift in Sources */,
+				925E2C9C1CC15A4600DEAF52 /* TIAServer.swift in Sources */,
 				92309A091CC067B50090FD0A /* ListGradeConfigurator.swift in Sources */,
 				92B9E8DE1B87C998004C1DE4 /* Usuario.swift in Sources */,
 				9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */,
-				92B9E8A61B87BF93004C1DE4 /* extension.swift in Sources */,
 				A15BB2F21B9BD26300143EBE /* Nota.swift in Sources */,
 				923099EB1CC04E490090FD0A /* LoginInteractor.swift in Sources */,
-				A15BB2D21B9AB82400143EBE /* CircleGraphView.swift in Sources */,
-				920E4A721BE8114300C3D963 /* ProgressBarView.swift in Sources */,
+				925E2C8F1CC1585D00DEAF52 /* ErrorCode.swift in Sources */,
 				923C1F721BAA7C02006616B5 /* ConfigHelper.swift in Sources */,
+				925E2C9A1CC158ED00DEAF52 /* extension.swift in Sources */,
 				A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */,
 				923099ED1CC04E490090FD0A /* LoginPresenter.swift in Sources */,
+				925E2C941CC1587E00DEAF52 /* AKPickerView.swift in Sources */,
 				A15BB2F41B9BD79800143EBE /* NotaCollectionViewCell.swift in Sources */,
 				923099EF1CC04E490090FD0A /* LoginViewController.swift in Sources */,
+				925E2CA21CC1616300DEAF52 /* ProgressBarView.swift in Sources */,
 				92309A0B1CC067B50090FD0A /* ListGradeModels.swift in Sources */,
 				9246D50E1B9A4EBF00F0674D /* Falta.swift in Sources */,
 				92309A0F1CC067B50090FD0A /* ListGradeWorker.swift in Sources */,
 				9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */,
 				92309A0D1CC067B50090FD0A /* ListGradeRouter.swift in Sources */,
-				92309A111CC06F370090FD0A /* ErrorCode.swift in Sources */,
 				92D278C31BB4D82900680733 /* HorarioSemanalViewController.swift in Sources */,
 				9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */,
 				923099EE1CC04E490090FD0A /* LoginRouter.swift in Sources */,
 				92309A0C1CC067B50090FD0A /* ListGradePresenter.swift in Sources */,
 				A15BB2ED1B9BD03900143EBE /* NotaTableViewCell.swift in Sources */,
-				92309A151CC080E60090FD0A /* Reachability.swift in Sources */,
+				925E2C901CC1585D00DEAF52 /* Reachability.swift in Sources */,
 				92B3EBF81BE5BF5900748E57 /* Horario.swift in Sources */,
 				92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */,
 				92D278C51BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift in Sources */,
 				923099EA1CC04E490090FD0A /* LoginConfigurator.swift in Sources */,
 				92309A0E1CC067B50090FD0A /* ListGradeViewController.swift in Sources */,
+				925E2C971CC158AB00DEAF52 /* CircleGraphView.swift in Sources */,
 				92309A0A1CC067B50090FD0A /* ListGradeInteractor.swift in Sources */,
 				A15BB2EB1B9BCEFF00143EBE /* NotasTableViewController.swift in Sources */,
-				92309A131CC078BA0090FD0A /* TIAServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,7 +607,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				921D4EF71CC0B19F00FA06D3 /* Usuario.swift in Sources */,
 				9289B89C1B87ADB3004284E3 /* MackTIATests.swift in Sources */,
+				925E2C9F1CC1615500DEAF52 /* Reachability.swift in Sources */,
+				92309A231CC0A9490090FD0A /* LoginModels.swift in Sources */,
+				921D4EF91CC0B19F00FA06D3 /* Horario.swift in Sources */,
+				925E2CA31CC1616400DEAF52 /* ProgressBarView.swift in Sources */,
+				92309A251CC0A9490090FD0A /* LoginRouter.swift in Sources */,
+				925E2C9E1CC1615100DEAF52 /* ErrorCode.swift in Sources */,
+				921D4EF61CC0B19F00FA06D3 /* Falta.swift in Sources */,
+				9246DC521CC0AF21003E73C3 /* AppDelegate.swift in Sources */,
+				92309A1F1CC0A8C30090FD0A /* LoginInteractor.swift in Sources */,
+				92309A241CC0A9490090FD0A /* LoginPresenter.swift in Sources */,
+				921D4EFE1CC0B23C00FA06D3 /* ConfigHelper.swift in Sources */,
+				921D4EF81CC0B19F00FA06D3 /* Nota.swift in Sources */,
+				921D4EFA1CC0B1B900FA06D3 /* CoreDataHelper.swift in Sources */,
+				92309A271CC0A9490090FD0A /* LoginWorker.swift in Sources */,
+				921D4EFB1CC0B1CB00FA06D3 /* TIAManager.swift in Sources */,
+				92309A221CC0A9490090FD0A /* LoginConfigurator.swift in Sources */,
+				925E2C9D1CC1614E00DEAF52 /* TIAServer.swift in Sources */,
+				92309A261CC0A9490090FD0A /* LoginViewController.swift in Sources */,
+				925E2CA01CC1615B00DEAF52 /* CircleGraphView.swift in Sources */,
+				925E2CA11CC1615E00DEAF52 /* AKPickerView.swift in Sources */,
+				925E2CA41CC1616F00DEAF52 /* extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -829,7 +843,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -838,6 +856,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.mackenzie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MackTIA/MackTIA-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MackTIA.app/MackTIA";
 			};
 			name = Debug;
@@ -846,11 +865,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MackTIATests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "br.mackenzie.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MackTIA/MackTIA-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MackTIA.app/MackTIA";
 			};
 			name = Release;

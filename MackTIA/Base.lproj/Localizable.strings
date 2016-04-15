@@ -38,7 +38,7 @@
 "error_invalidLoginCredentials_message" = "Não foi possível fazer o login, verifique se os dados estão corretos";
 
 "error_noInternetConnection_title"      = "Sem Conexão";
-"error_noInternetConnection_message"    = "Não foi possível realizar a operação, parece que seu dispositivo não está conectado na internet"
+"error_noInternetConnection_message"    = "Não foi possível realizar a operação, parece que seu dispositivo não está conectado na internet";
 
 "error_domainNotFound_title"            = "Ops :/";
-"error_domainNotFound_message"          = "O seu aplicativo não conseguiu encontrar nossos servidores. Pode ser um problema temporário, ou seu aplicativo pode estar desatualizado."
+"error_domainNotFound_message"          = "O seu aplicativo não conseguiu encontrar nossos servidores. Pode ser um problema temporário, ou seu aplicativo pode estar desatualizado.";

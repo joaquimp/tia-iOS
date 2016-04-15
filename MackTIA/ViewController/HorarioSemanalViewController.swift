@@ -24,11 +24,11 @@ class HorarioSemanalViewController: UIViewController, UIScrollViewDelegate {
         instantiateWeekdays()
         
         //Swipe Config
-        swipeGRLeft = UISwipeGestureRecognizer(target: self, action: "navigateLeft:")
+        swipeGRLeft = UISwipeGestureRecognizer(target: self, action: #selector(HorarioSemanalViewController.navigateLeft(_:)))
         swipeGRLeft!.direction = UISwipeGestureRecognizerDirection.Right
         self.scrollView.addGestureRecognizer(swipeGRLeft!)
         
-        swipeGRRight = UISwipeGestureRecognizer(target: self, action: "navigateRight:")
+        swipeGRRight = UISwipeGestureRecognizer(target: self, action: #selector(HorarioSemanalViewController.navigateRight(_:)))
         swipeGRRight!.direction = UISwipeGestureRecognizerDirection.Left
         self.scrollView.addGestureRecognizer(swipeGRRight!)
     }

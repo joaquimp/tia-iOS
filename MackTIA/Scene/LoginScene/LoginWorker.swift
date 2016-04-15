@@ -17,8 +17,25 @@ class LoginWorker {
     func validadeLogin(request: LoginRequest, completionHandler: (response: Bool, error: ErrorCode?)->Void){
         
         TIAServer.sharedInstance.sendRequet(.Login) { (jsonData, error) in
-            let success = error == nil ? true : false
-            completionHandler(response: success, error: error)
+            
+            guard error != nil else {
+                completionHandler(response: false, error: error)
+                return
+            }
+            
+            guard jsonData != nil else {
+                completionHandler(response: false, error: ErrorCode.OtherFailure(title: NSLocalizedString("login_defaultErrorTitle", comment: "Something is wrong with the Server"), message: NSLocalizedString("login_defaultErrorMessage", comment: "Related message")))
+                return
+            }
+            
+            if let _ = jsonData!["sucesso"] as? String  {
+                let errorMessage = jsonData?["erro"]
+                print(#function, "Server report error: \(errorMessage)")
+                completionHandler(response: false, error: ErrorCode.InvalidLoginCredentials(title: NSLocalizedString("error_invalidLoginCredentials_title", comment: "User credentials error"), message: NSLocalizedString("error_invalidLoginCredentials_message", comment: "User credentials error")))
+                return
+            }
+            
+            completionHandler(response: true, error: nil)
         }
 
     }

@@ -21,9 +21,22 @@ class MackTIATests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
+    func testServerLoginRequestSuccess() {
+        let asyncExpectation = self.expectationWithDescription("AcessandoServidor")
+        
+        let server = TIAServer.sharedInstance
+        server.credentials = (tia:"31445721", password:"psgb1995", campus:"001")
+        server.sendRequet(ServiceURL.Login) { (jsonData, error) in
+            XCTAssertNil(error, "Login não foi aceito, erro: \(error)")
+            XCTAssertNotNil(jsonData, "Nenhuma resposta enviada do servidor")
+            XCTAssertNotNil(jsonData as? [String:AnyObject], "O JSON deveria estar no formato [String:AnyObject]")
+            XCTAssertNotNil((jsonData as? [String:AnyObject])?["resposta"], "O JSON deveria ser uma chame \"Resposta\"")
+            asyncExpectation.fulfill()
+        }
+        
+        self.waitForExpectationsWithTimeout(5) { (error) in
+            XCTAssertNil(error, "Something went horribly wrong")
+        }
     }
     
     func testPerformanceExample() {

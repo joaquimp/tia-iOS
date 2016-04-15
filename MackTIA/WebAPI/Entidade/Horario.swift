@@ -155,7 +155,7 @@ class Horario: NSManagedObject {
                 return
             }
             var predicateString = ""
-            for var i=0; i < codigos.count; i++ {
+            for i in 0 ..< codigos.count {
                 predicateString += "codigoUnico <> '\(codigos[i])'"
                 if i < codigos.count - 1 {
                     predicateString += " AND "
@@ -172,7 +172,7 @@ class Horario: NSManagedObject {
                 return
             }
             
-            for var i=0; i < results.count; i++ {
+            for i in 0 ..< results.count {
                 CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(results[i])
             }
             

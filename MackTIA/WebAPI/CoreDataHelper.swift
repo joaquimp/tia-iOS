@@ -117,7 +117,7 @@ class CoreDataHelper {
             do{
                 let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
                 
-                for var i=0; i < fetchedResults!.count; i++ {
+                for i in 0 ..< fetchedResults!.count {
                     CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(fetchedResults![i])
                 }
                 CoreDataHelper.sharedInstance.saveContext()

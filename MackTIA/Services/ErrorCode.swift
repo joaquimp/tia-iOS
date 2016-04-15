@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum ErrorCode:Int {
-    case NoInternetConnection = 1
-    case InvalidLoginCredentials
+enum ErrorCode {
+    case NoInternetConnection
+    case InvalidLoginCredentials(title:String,message:String)
     case DomainNotFound
-    
+    case OtherFailure(title:String,message:String)
 }

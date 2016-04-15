@@ -23,7 +23,7 @@ class NotasTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.buscarNovosDados()
-        self.refreshControl!.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl!.addTarget(self, action: #selector(NotasTableViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
     }
     
     override func viewWillAppear(animated: Bool) {
