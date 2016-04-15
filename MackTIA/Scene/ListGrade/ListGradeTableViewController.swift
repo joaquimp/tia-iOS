@@ -11,19 +11,20 @@
 
 import UIKit
 
-protocol ListGradeViewControllerInput {
+protocol ListGradeTableViewControllerInput {
     func displaySomething(viewModel: ListGradeViewModel)
 }
 
-protocol ListGradeViewControllerOutput {
+protocol ListGradeTableViewControllerOutput {
     func doSomething(request: ListGradeRequest)
 }
 
-class ListGradeViewController: UITableViewController, ListGradeViewControllerInput {
-    var output: ListGradeViewControllerOutput!
+class ListGradeTableViewController: UITableViewController, ListGradeTableViewControllerInput {
+    var output: ListGradeTableViewControllerOutput!
     var router: ListGradeRouter!
     
     // MARK: Object lifecycle
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,5 +53,21 @@ class ListGradeViewController: UITableViewController, ListGradeViewControllerInp
         // NOTE: Display the result from the Presenter
         
         // nameTextField.text = viewModel.name
+    }
+}
+
+extension ListGradeTableViewController {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("gradeCell") as! ListGradeTableViewCell
+        cell.config(Grade(classCode: "ENEX20283", className: "Linguagens Formais e Autômatos", update: "04.05.2016", schoolName: "FCI", schoolCode: "011", formula: "NI1 = (A*2 + B*2 + C*2 + D*2 + E*2)/10\nNI2 = (F*2 + G*2 + H*1 + I*5)/10\nMI = (NI1*4 + NI2*6)/10 + PART\nMF = (MI + PF)/2", grades: ["A":"1","PF":"10","Partic":"1","F":"10"]))
+        return cell
     }
 }

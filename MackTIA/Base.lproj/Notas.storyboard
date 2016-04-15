@@ -15,6 +15,7 @@
             <string>Bariol-Regular</string>
             <string>Bariol-Regular</string>
             <string>Bariol-Regular</string>
+            <string>Bariol-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -30,6 +31,7 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO">
                         <color key="tintColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
                     </simulatedTabBarMetrics>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="Mh7-XJ-bdP">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,7 +42,7 @@
                         </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="31A-s9-rZ7" kind="relationship" relationship="rootViewController" id="ntB-Oz-Ete"/>
+                        <segue destination="31A-s9-rZ7" kind="relationship" relationship="rootViewController" id="UMW-m8-Pqt"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3gd-eI-eU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -50,24 +52,24 @@
         <!--Notas-->
         <scene sceneID="YVZ-mB-A5W">
             <objects>
-                <tableViewController title="Notas" id="31A-s9-rZ7" customClass="NotasTableViewController" customModule="MackTIA" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="221" sectionHeaderHeight="10" sectionFooterHeight="10" id="MmF-jJ-31w">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                <tableViewController title="Notas" id="31A-s9-rZ7" customClass="ListGradeTableViewController" customModule="MackTIA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="293" sectionHeaderHeight="10" sectionFooterHeight="10" id="MmF-jJ-31w">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.85882352939999995" green="0.086274509799999996" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexColor" red="0.69840988010000005" green="0.69840988010000005" blue="0.69840988010000005" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="notaCell" rowHeight="200" id="saJ-Vr-lDy" customClass="NotaTableViewCell" customModule="MackTIA" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="113.5" width="600" height="200"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="gradeCell" rowHeight="293" id="saJ-Vr-lDy" customClass="ListGradeTableViewCell" customModule="MackTIA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="113.5" width="320" height="293"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="saJ-Vr-lDy" id="KDP-K7-ch0">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="292.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOME DA DISCIPLINA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okN-7E-bTT">
-                                            <rect key="frame" x="8" y="8" width="584" height="50"/>
+                                            <rect key="frame" x="8" y="8" width="304" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="TD5-PN-R0l"/>
                                             </constraints>
@@ -76,30 +78,33 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jwt-zB-70k">
-                                            <rect key="frame" x="30" y="58" width="570" height="140"/>
+                                            <rect key="frame" x="30" y="58" width="290" height="235"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FÃ³rmula:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgn-hc-R1t">
-                                                    <rect key="frame" x="57" y="0.0" width="513" height="14"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fórmula:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaP-yH-akJ">
+                                                    <rect key="frame" x="0.0" y="-1" width="52" height="14"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="45" id="NTZ-1q-0UJ"/>
+                                                        <constraint firstAttribute="width" constant="52" id="auq-4B-rjs"/>
+                                                        <constraint firstAttribute="height" constant="20" id="yeS-sO-Hoe"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="z6Q-Qy-Ub9"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="NTZ-1q-0UJ"/>
+                                                            <exclude reference="yeS-sO-Hoe"/>
+                                                            <exclude reference="z6Q-Qy-Ub9"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notas:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51k-U2-9dx">
-                                                    <rect key="frame" x="0.0" y="22" width="570" height="20"/>
+                                                    <rect key="frame" x="0.0" y="82" width="290" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="KFe-DM-4iU"/>
                                                         <constraint firstAttribute="height" constant="20" id="Uqr-bX-X7h"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="14"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -107,24 +112,8 @@
                                                         </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nenhuma nota informada" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1Z-4P-LIt">
-                                                    <rect key="frame" x="20" y="53" width="550" height="12"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="17" id="Qq3-2X-ijn"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="vee-gg-ART"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="12"/>
-                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="Qq3-2X-ijn"/>
-                                                            <exclude reference="vee-gg-ART"/>
-                                                        </mask>
-                                                    </variation>
-                                                </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eaf-LD-ax9">
-                                                    <rect key="frame" x="20" y="42" width="550" height="35"/>
+                                                    <rect key="frame" x="15" y="102" width="275" height="35"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="8cJ-Xr-Jif"/>
@@ -137,7 +126,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="notaCell" id="5lm-pN-0L2" customClass="NotaCollectionViewCell" customModule="MackTIA" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gradeCell" id="5lm-pN-0L2" customClass="ListGradeCollectionViewCell" customModule="MackTIA" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="2.5" width="45" height="30"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -209,8 +198,8 @@
                                                                 </mask>
                                                             </variation>
                                                             <connections>
-                                                                <outlet property="nota" destination="oEL-2u-Tx3" id="I6b-NF-u3W"/>
-                                                                <outlet property="titulo" destination="MSC-LI-pKl" id="FoX-Rp-DIb"/>
+                                                                <outlet property="title" destination="MSC-LI-pKl" id="te8-4f-Bsk"/>
+                                                                <outlet property="value" destination="oEL-2u-Tx3" id="Bvf-aA-SS7"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -221,7 +210,7 @@
                                                     </variation>
                                                 </collectionView>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="B3J-s8-3Se">
-                                                    <rect key="frame" x="20" y="86" width="550" height="35"/>
+                                                    <rect key="frame" x="15" y="142" width="275" height="35"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="oIE-jg-yOL"/>
@@ -233,7 +222,7 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="notaCell" id="Fw2-gQ-69R" customClass="NotaCollectionViewCell" customModule="MackTIA" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gradeCell" id="Fw2-gQ-69R" customClass="ListGradeCollectionViewCell" customModule="MackTIA" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="2.5" width="45" height="30"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -307,71 +296,169 @@
                                                                 </mask>
                                                             </variation>
                                                             <connections>
-                                                                <outlet property="nota" destination="JEy-Hw-ZzU" id="YT8-gW-iKo"/>
-                                                                <outlet property="titulo" destination="b85-Vx-6eR" id="cE6-SA-uga"/>
+                                                                <outlet property="title" destination="b85-Vx-6eR" id="dpy-qH-jfN"/>
+                                                                <outlet property="value" destination="JEy-Hw-ZzU" id="rMP-U7-US2"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
-                                                    <connections>
-                                                        <outlet property="dataSource" destination="31A-s9-rZ7" id="HSD-eB-8Kb"/>
-                                                        <outlet property="delegate" destination="31A-s9-rZ7" id="b0m-zR-TnM"/>
-                                                    </connections>
                                                 </collectionView>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HoK-RJ-cb4">
-                                                    <rect key="frame" x="20" y="81" width="550" height="1"/>
-                                                    <color key="backgroundColor" red="0.85627761994949492" green="0.85627761994949492" blue="0.85627761994949492" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgn-hc-R1t">
+                                                    <rect key="frame" x="15" y="18" width="275" height="56"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="R5B-KT-3at"/>
+                                                        <constraint firstAttribute="height" constant="45" id="NTZ-1q-0UJ"/>
                                                     </constraints>
-                                                </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FÃ³rmula:" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaP-yH-akJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="52" height="14"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="52" id="auq-4B-rjs"/>
-                                                        <constraint firstAttribute="height" constant="20" id="yeS-sO-Hoe"/>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="z6Q-Qy-Ub9"/>
-                                                    </constraints>
+                                                    <string key="text">NI1 = (A*2 + B*2 + C*2 + D*2 + E*2)/10
+NI2 = (F*2 + G*2 + H*1 + I*5)/10
+MI = (NI1*4 + NI2*6)/10 + PART
+MF = (MI + PF)/2</string>
                                                     <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="14"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="yeS-sO-Hoe"/>
-                                                            <exclude reference="z6Q-Qy-Ub9"/>
+                                                            <exclude reference="NTZ-1q-0UJ"/>
                                                         </mask>
                                                     </variation>
                                                 </label>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="d4q-Fv-99t">
+                                                    <rect key="frame" x="15" y="188" width="275" height="35"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="35" id="ftF-os-jcS"/>
+                                                    </constraints>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="0Do-Qy-be2">
+                                                        <size key="itemSize" width="45" height="30"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="gradeCell" id="xxI-oH-L0b" customClass="ListGradeCollectionViewCell" customModule="MackTIA" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="2.5" width="45" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUB" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmS-aL-K4c">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="45" height="12"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="TDE-Oj-yV6"/>
+                                                                            <constraint firstAttribute="height" constant="17" id="bSp-cV-tgS"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="12"/>
+                                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="bSp-cV-tgS"/>
+                                                                                <exclude reference="TDE-Oj-yV6"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                    </label>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99.9" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fh4-2V-SmP">
+                                                                        <rect key="frame" x="0.0" y="12" width="45" height="14"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="2RO-K9-bWo"/>
+                                                                            <constraint firstAttribute="height" constant="17" id="r2t-4p-V9X"/>
+                                                                            <constraint firstAttribute="width" constant="40" id="yMT-YL-tOc"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="14"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                        <variation key="default">
+                                                                            <mask key="constraints">
+                                                                                <exclude reference="r2t-4p-V9X"/>
+                                                                                <exclude reference="2RO-K9-bWo"/>
+                                                                                <exclude reference="yMT-YL-tOc"/>
+                                                                            </mask>
+                                                                        </variation>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            </view>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottomMargin" secondItem="Fh4-2V-SmP" secondAttribute="bottom" id="7IZ-n2-uNn"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Fh4-2V-SmP" secondAttribute="trailing" id="DzO-Ma-kYT"/>
+                                                                <constraint firstAttribute="trailing" secondItem="jmS-aL-K4c" secondAttribute="trailing" id="Jn4-fm-0AC"/>
+                                                                <constraint firstItem="Fh4-2V-SmP" firstAttribute="leading" secondItem="xxI-oH-L0b" secondAttribute="leadingMargin" id="KKN-DI-Azf"/>
+                                                                <constraint firstAttribute="trailing" secondItem="jmS-aL-K4c" secondAttribute="trailing" id="NRL-cZ-WMj"/>
+                                                                <constraint firstItem="jmS-aL-K4c" firstAttribute="leading" secondItem="xxI-oH-L0b" secondAttribute="leading" id="P5U-B7-jxW"/>
+                                                                <constraint firstItem="jmS-aL-K4c" firstAttribute="top" secondItem="xxI-oH-L0b" secondAttribute="top" id="WTD-yb-WB5"/>
+                                                                <constraint firstItem="jmS-aL-K4c" firstAttribute="top" secondItem="xxI-oH-L0b" secondAttribute="top" constant="2" id="XHX-Lp-ttC"/>
+                                                                <constraint firstItem="Fh4-2V-SmP" firstAttribute="top" secondItem="jmS-aL-K4c" secondAttribute="bottom" id="ahU-Qn-h2f"/>
+                                                                <constraint firstItem="jmS-aL-K4c" firstAttribute="leading" secondItem="xxI-oH-L0b" secondAttribute="leading" id="cPS-jh-Mso"/>
+                                                                <constraint firstItem="Fh4-2V-SmP" firstAttribute="top" secondItem="jmS-aL-K4c" secondAttribute="bottom" constant="2" id="pME-aE-gSb"/>
+                                                                <constraint firstItem="Fh4-2V-SmP" firstAttribute="top" secondItem="xxI-oH-L0b" secondAttribute="topMargin" id="ptx-zm-sb3"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Fh4-2V-SmP" secondAttribute="bottom" id="qhm-cp-Dza"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="Fh4-2V-SmP" secondAttribute="trailing" id="xSY-Dp-cy2"/>
+                                                                <constraint firstItem="Fh4-2V-SmP" firstAttribute="leading" secondItem="xxI-oH-L0b" secondAttribute="leading" id="yBZ-4P-r2R"/>
+                                                            </constraints>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="XHX-Lp-ttC"/>
+                                                                    <exclude reference="cPS-jh-Mso"/>
+                                                                    <exclude reference="NRL-cZ-WMj"/>
+                                                                    <exclude reference="KKN-DI-Azf"/>
+                                                                    <exclude reference="xSY-Dp-cy2"/>
+                                                                    <exclude reference="qhm-cp-Dza"/>
+                                                                    <exclude reference="7IZ-n2-uNn"/>
+                                                                    <exclude reference="pME-aE-gSb"/>
+                                                                    <exclude reference="ptx-zm-sb3"/>
+                                                                </mask>
+                                                            </variation>
+                                                            <connections>
+                                                                <outlet property="title" destination="jmS-aL-K4c" id="oEA-23-dqk"/>
+                                                                <outlet property="value" destination="Fh4-2V-SmP" id="02W-Gt-o6j"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HoK-RJ-cb4">
+                                                    <rect key="frame" x="15" y="182" width="275" height="1"/>
+                                                    <color key="backgroundColor" red="0.85627761994949492" green="0.85627761994949492" blue="0.85627761994949492" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="R5B-KT-3at"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="eaf-LD-ax9" secondAttribute="trailing" id="19f-YI-oMs"/>
+                                                <constraint firstItem="B3J-s8-3Se" firstAttribute="top" secondItem="eaf-LD-ax9" secondAttribute="bottom" constant="5" id="4fE-WT-S2W"/>
                                                 <constraint firstItem="qgn-hc-R1t" firstAttribute="leading" secondItem="Jwt-zB-70k" secondAttribute="leading" id="7fg-J9-yUV"/>
                                                 <constraint firstAttribute="trailing" secondItem="B3J-s8-3Se" secondAttribute="trailing" id="Cum-2y-auA"/>
                                                 <constraint firstItem="HoK-RJ-cb4" firstAttribute="top" secondItem="eaf-LD-ax9" secondAttribute="bottom" constant="4" id="FYv-Va-uUt"/>
                                                 <constraint firstItem="qgn-hc-R1t" firstAttribute="top" secondItem="Jwt-zB-70k" secondAttribute="top" id="HHp-Ba-btf"/>
+                                                <constraint firstItem="d4q-Fv-99t" firstAttribute="top" secondItem="HoK-RJ-cb4" secondAttribute="bottom" constant="5" id="IeF-zA-arX"/>
                                                 <constraint firstItem="B3J-s8-3Se" firstAttribute="top" secondItem="eaf-LD-ax9" secondAttribute="bottom" constant="8" id="Jq8-ON-Umj"/>
-                                                <constraint firstItem="eaf-LD-ax9" firstAttribute="centerY" secondItem="e1Z-4P-LIt" secondAttribute="centerY" id="KUX-hv-Aw1"/>
-                                                <constraint firstAttribute="height" constant="140" id="MaF-z5-F9m"/>
+                                                <constraint firstItem="qgn-hc-R1t" firstAttribute="top" secondItem="gaP-yH-akJ" secondAttribute="bottom" constant="5" id="JzV-pC-Tg9"/>
+                                                <constraint firstAttribute="height" constant="235" id="MaF-z5-F9m"/>
                                                 <constraint firstItem="eaf-LD-ax9" firstAttribute="top" secondItem="51k-U2-9dx" secondAttribute="bottom" id="S8P-sW-T49"/>
                                                 <constraint firstAttribute="trailing" secondItem="qgn-hc-R1t" secondAttribute="trailing" id="T2R-O7-3DK"/>
-                                                <constraint firstItem="gaP-yH-akJ" firstAttribute="top" secondItem="Jwt-zB-70k" secondAttribute="top" id="fiU-cp-EY3"/>
+                                                <constraint firstAttribute="trailing" secondItem="d4q-Fv-99t" secondAttribute="trailing" id="UzH-Lo-L3r"/>
+                                                <constraint firstItem="d4q-Fv-99t" firstAttribute="leading" secondItem="Jwt-zB-70k" secondAttribute="leading" constant="15" id="Y3A-IN-LW4"/>
+                                                <constraint firstItem="qgn-hc-R1t" firstAttribute="leading" secondItem="Jwt-zB-70k" secondAttribute="leading" constant="15" id="YFG-ku-kEP"/>
+                                                <constraint firstItem="HoK-RJ-cb4" firstAttribute="top" secondItem="B3J-s8-3Se" secondAttribute="bottom" constant="5" id="apG-sb-lUK"/>
+                                                <constraint firstItem="gaP-yH-akJ" firstAttribute="top" secondItem="Jwt-zB-70k" secondAttribute="top" constant="-1" id="fiU-cp-EY3"/>
                                                 <constraint firstItem="51k-U2-9dx" firstAttribute="top" secondItem="qgn-hc-R1t" secondAttribute="bottom" constant="8" id="gI0-dX-eWx"/>
-                                                <constraint firstItem="eaf-LD-ax9" firstAttribute="trailing" secondItem="e1Z-4P-LIt" secondAttribute="trailing" id="gW9-VE-bs7"/>
                                                 <constraint firstItem="gaP-yH-akJ" firstAttribute="leading" secondItem="Jwt-zB-70k" secondAttribute="leading" id="hqT-p9-Rmz"/>
                                                 <constraint firstItem="qgn-hc-R1t" firstAttribute="leading" secondItem="gaP-yH-akJ" secondAttribute="trailing" constant="5" id="iIJ-0v-jjz"/>
                                                 <constraint firstItem="HoK-RJ-cb4" firstAttribute="leading" secondItem="eaf-LD-ax9" secondAttribute="leading" id="ibx-Il-zf5"/>
-                                                <constraint firstItem="eaf-LD-ax9" firstAttribute="leading" secondItem="Jwt-zB-70k" secondAttribute="leading" constant="20" id="joc-d8-D12"/>
+                                                <constraint firstItem="eaf-LD-ax9" firstAttribute="leading" secondItem="Jwt-zB-70k" secondAttribute="leading" constant="15" id="joc-d8-D12"/>
                                                 <constraint firstItem="B3J-s8-3Se" firstAttribute="top" secondItem="HoK-RJ-cb4" secondAttribute="bottom" constant="4" id="kVE-va-Gj0"/>
                                                 <constraint firstItem="51k-U2-9dx" firstAttribute="leading" secondItem="Jwt-zB-70k" secondAttribute="leading" id="kx5-7K-TxQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="51k-U2-9dx" secondAttribute="trailing" id="o95-Sq-o9q"/>
-                                                <constraint firstItem="eaf-LD-ax9" firstAttribute="leading" secondItem="e1Z-4P-LIt" secondAttribute="leading" id="p2b-QK-k2b"/>
-                                                <constraint firstItem="B3J-s8-3Se" firstAttribute="leading" secondItem="Jwt-zB-70k" secondAttribute="leading" constant="20" id="r33-ab-wgl"/>
+                                                <constraint firstItem="B3J-s8-3Se" firstAttribute="leading" secondItem="Jwt-zB-70k" secondAttribute="leading" constant="15" id="r33-ab-wgl"/>
                                                 <constraint firstItem="HoK-RJ-cb4" firstAttribute="trailing" secondItem="eaf-LD-ax9" secondAttribute="trailing" id="uOm-kB-3uy"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="7fg-J9-yUV"/>
+                                                    <exclude reference="HHp-Ba-btf"/>
+                                                    <exclude reference="iIJ-0v-jjz"/>
                                                     <exclude reference="Jq8-ON-Umj"/>
+                                                    <exclude reference="kVE-va-Gj0"/>
+                                                    <exclude reference="FYv-Va-uUt"/>
                                                 </mask>
                                             </variation>
                                         </view>
@@ -386,27 +473,22 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="conteudoView" destination="Jwt-zB-70k" id="a1f-sr-pqQ"/>
-                                    <outlet property="formula" destination="qgn-hc-R1t" id="48o-Xb-O0O"/>
-                                    <outlet property="nenhumaNotaLabel" destination="e1Z-4P-LIt" id="Nym-xX-fOK"/>
-                                    <outlet property="nomeDisciplina" destination="okN-7E-bTT" id="pCP-Wk-W3R"/>
-                                    <outlet property="notasFinaisCollectionView" destination="B3J-s8-3Se" id="Pm2-Al-40k"/>
-                                    <outlet property="notasIntermediariasCollectionView" destination="eaf-LD-ax9" id="7pg-Ke-wsm"/>
+                                    <outlet property="classNameLabel" destination="okN-7E-bTT" id="CUY-VW-yCo"/>
+                                    <outlet property="formulaLabel" destination="qgn-hc-R1t" id="gSD-e9-TGz"/>
+                                    <outlet property="ni1CollectionView" destination="eaf-LD-ax9" id="xE1-Xa-X3T"/>
+                                    <outlet property="ni2CollectionView" destination="B3J-s8-3Se" id="6Gy-ZS-d2X"/>
+                                    <outlet property="otherGradesCollectionView" destination="d4q-Fv-99t" id="kai-K0-Fds"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="31A-s9-rZ7" id="uba-nl-H0U"/>
-                            <outlet property="delegate" destination="31A-s9-rZ7" id="e2X-eA-ziQ"/>
+                            <outlet property="dataSource" destination="31A-s9-rZ7" id="cBv-3v-q8P"/>
+                            <outlet property="delegate" destination="31A-s9-rZ7" id="bJo-Rn-lNF"/>
                         </connections>
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Notas" id="uVX-kZ-4Y4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="T9G-Nr-ntL">
-                            <connections>
-                                <action selector="reloadButton:" destination="31A-s9-rZ7" id="3o6-V7-iJd"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="T9G-Nr-ntL"/>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="a2a-Ty-1VN">
                         <autoresizingMask key="autoresizingMask"/>
@@ -421,13 +503,10 @@
                             </fragment>
                         </attributedString>
                     </refreshControl>
-                    <connections>
-                        <outlet property="reloadButtonItem" destination="T9G-Nr-ntL" id="RnS-Ni-5TC"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XUG-86-ZpG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1877" y="287"/>
+            <point key="canvasLocation" x="1576" y="282"/>
         </scene>
     </scenes>
     <resources>

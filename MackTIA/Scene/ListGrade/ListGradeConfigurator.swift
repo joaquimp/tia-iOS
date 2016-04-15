@@ -13,13 +13,13 @@ import UIKit
 
 // MARK: Connect View, Interactor, and Presenter
 
-extension ListGradeViewController: ListGradePresenterOutput {
+extension ListGradeTableViewController: ListGradePresenterOutput {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         router.passDataToNextScene(segue)
     }
 }
 
-extension ListGradeInteractor: ListGradeViewControllerOutput {
+extension ListGradeInteractor: ListGradeTableViewControllerOutput {
 }
 
 extension ListGradePresenter: ListGradeInteractorOutput {
@@ -43,7 +43,7 @@ class ListGradeConfigurator {
     
     // MARK: Configuration
     
-    func configure(viewController: ListGradeViewController) {
+    func configure(viewController: ListGradeTableViewController) {
         let router = ListGradeRouter()
         router.viewController = viewController
         

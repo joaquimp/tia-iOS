@@ -16,7 +16,7 @@ protocol ListGradeRouterInput {
 }
 
 class ListGradeRouter: ListGradeRouterInput {
-    weak var viewController: ListGradeViewController!
+    weak var viewController: ListGradeTableViewController!
     
     // MARK: Navigation
     

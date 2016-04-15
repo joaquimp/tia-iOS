@@ -9,7 +9,7 @@
 
 import UIKit
 
-class NotasTableViewController: UITableViewController {
+class OLDNotasTableViewController: UITableViewController {
     
     var notas:Array<Nota> = TIAManager.sharedInstance.notas()
     @IBOutlet weak var reloadButtonItem: UIBarButtonItem!
@@ -23,7 +23,7 @@ class NotasTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.buscarNovosDados()
-        self.refreshControl!.addTarget(self, action: #selector(NotasTableViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl!.addTarget(self, action: #selector(OLDNotasTableViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
     }
     
     override func viewWillAppear(animated: Bool) {

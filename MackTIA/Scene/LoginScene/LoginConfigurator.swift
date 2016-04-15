@@ -13,54 +13,47 @@ import UIKit
 
 // MARK: Connect View, Interactor, and Presenter
 
-extension LoginViewController: LoginPresenterOutput
-{
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-  {
-    router.passDataToNextScene(segue)
-  }
+extension LoginViewController: LoginPresenterOutput {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        router.passDataToNextScene(segue)
+    }
 }
 
-extension LoginInteractor: LoginViewControllerOutput
-{
+extension LoginInteractor: LoginViewControllerOutput {
 }
 
-extension LoginPresenter: LoginInteractorOutput
-{
+extension LoginPresenter: LoginInteractorOutput {
 }
 
-class LoginConfigurator
-{
-  // MARK: Object lifecycle
-  
-  class var sharedInstance: LoginConfigurator
-  {
-    struct Static {
-      static var instance: LoginConfigurator?
-      static var token: dispatch_once_t = 0
+class LoginConfigurator {
+    // MARK: Object lifecycle
+    
+    class var sharedInstance: LoginConfigurator {
+        struct Static {
+            static var instance: LoginConfigurator?
+            static var token: dispatch_once_t = 0
+        }
+        
+        dispatch_once(&Static.token) {
+            Static.instance = LoginConfigurator()
+        }
+        
+        return Static.instance!
     }
     
-    dispatch_once(&Static.token) {
-      Static.instance = LoginConfigurator()
+    // MARK: Configuration
+    
+    func configure(viewController: LoginViewController) {
+        let router = LoginRouter()
+        router.viewController = viewController
+        
+        let presenter = LoginPresenter()
+        presenter.output = viewController
+        
+        let interactor = LoginInteractor()
+        interactor.output = presenter
+        
+        viewController.output = interactor
+        viewController.router = router
     }
-    
-    return Static.instance!
-  }
-  
-  // MARK: Configuration
-  
-  func configure(viewController: LoginViewController)
-  {
-    let router = LoginRouter()
-    router.viewController = viewController
-    
-    let presenter = LoginPresenter()
-    presenter.output = viewController
-    
-    let interactor = LoginInteractor()
-    interactor.output = presenter
-    
-    viewController.output = interactor
-    viewController.router = router
-  }
 }
