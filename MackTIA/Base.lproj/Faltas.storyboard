@@ -363,10 +363,16 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
+                                    <outlet property="atualizadoEmLabel" destination="bHm-Me-qBx" id="ZHh-gZ-U1J"/>
                                     <outlet property="aulasPrevistasLabel" destination="jrV-jW-Be7" id="h4L-Hk-tiX"/>
+                                    <outlet property="circleGraph" destination="QOH-Yf-MNN" id="k4g-JK-dmO"/>
+                                    <outlet property="circleProgressLabel" destination="QLj-z8-LNN" id="m6D-K5-bG4"/>
+                                    <outlet property="circleProgressTotalLabel" destination="1Kb-lh-SPq" id="gd8-Dc-7sJ"/>
                                     <outlet property="faltasLabel" destination="2Qn-Qb-Ned" id="EvR-vU-KcP"/>
                                     <outlet property="nomeDaDisciplinaLabel" destination="RgO-XW-UcM" id="vfr-dd-Xig"/>
                                     <outlet property="permitidasLabel" destination="XK7-OY-l4e" id="ZjZ-V7-qjh"/>
+                                    <outlet property="progressBar" destination="Bn4-A1-MCy" id="LAg-4X-paI"/>
+                                    <outlet property="progressBarLabel" destination="o7y-aL-eJg" id="bnW-2U-faf"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

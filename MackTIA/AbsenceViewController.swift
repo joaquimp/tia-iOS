@@ -73,10 +73,17 @@ class AbsenceViewController: UITableViewController, AbsenceViewControllerInput {
         let cell = self.tableView.dequeueReusableCellWithIdentifier("faltaCell") as! AbsenceTableViewCell
         let absence = displayedAbsences[indexPath.row]
         
-        // TODO: PREENCHER O RESTO DOS OUTLETS
         cell.nomeDaDisciplinaLabel.text = absence.disciplina
         cell.faltasLabel.text = "\(absence.faltas)"
-        
+//        TODO: PREENCHER O RESTO DOS OUTLETS
+//        cell.aulasPrevistasLabel.text = absence
+//        cell.permitidasLabel.text
+//        cell.progressBarLabel.text =
+        cell.atualizadoEmLabel.text = absence.atualizacao
+//        cell.progressBar
+//        cell.circleGraph.
+//        cell.circleProgressTotalLabel.text =
+//        cell.circleProgressLabel.text =
         return cell
     }
     

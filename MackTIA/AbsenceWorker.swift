@@ -22,23 +22,39 @@ class AbsenceWorker {
                     return
             }
             
+            print(response)
+            
             var absences:[Absence] = []
             
             for absenceData in response {
                 
                 // TODO: PEGAR O RESTO DOS ATRIBUTOS
                 guard let
-                    dadas      = absenceData["dadas"] as? Int,
-                    disciplina = absenceData["disciplina"] as? String,
-                    faltas     = absenceData["faltas"] as? Int else {
+                    atualizacao = absenceData["atualizacao"] as? String,
+                    codigo      = absenceData["codigo"] as? String,
+                    dadas       = absenceData["dadas"] as? Int,
+                    disciplina  = absenceData["disciplina"] as? String,
+                    faltas      = absenceData["faltas"] as? Int,
+//                "nome_aluno" = "EVANDRO REMON PULZ VIVA";
+                    percentual = absenceData["percentual"] as? Int,
+                    permit = absenceData["permit"] as? Int,
+                    permit20 = absenceData["permit20"] as? Int,
+                    turma = absenceData["turma"] as? String
+                    else {
                         continue
                 }
                 
                 // TODO: ADD OS ATRIBUTOS AQUI
-                absences.append(Absence(
-                    dadas: dadas,
-                    disciplina: disciplina,
-                    faltas: faltas)
+                absences.append(
+                    Absence(atualizacao: atualizacao,
+                        codigo: codigo,
+                        dadas: dadas,
+                        disciplina: disciplina,
+                        faltas: faltas,
+                        percentual: percentual,
+                        permit: permit,
+                        permit20: permit20,
+                        turma: turma)
                 )
             }
             

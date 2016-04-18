@@ -10,10 +10,19 @@ import UIKit
 
 class AbsenceTableViewCell: UITableViewCell {
 
-    // TODO: COLOCAR O RESTO DOS OUTLETS
     @IBOutlet weak var aulasPrevistasLabel: UILabel!
     @IBOutlet weak var permitidasLabel: UILabel!
     @IBOutlet weak var faltasLabel: UILabel!
     @IBOutlet weak var nomeDaDisciplinaLabel: UILabel!
 
+    @IBOutlet weak var progressBar: ProgressBarView!
+    @IBOutlet weak var progressBarLabel: UILabel!
+    
+    @IBOutlet weak var atualizadoEmLabel: UILabel!
+    
+    @IBOutlet weak var circleGraph: CircleGraphView!
+    @IBOutlet weak var circleProgressTotalLabel: UILabel!
+    @IBOutlet weak var circleProgressLabel: UILabel!
+    
+    // TODO: FALTA LIGAR SÓ A VIEW
 }
