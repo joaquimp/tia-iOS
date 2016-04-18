@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86038C5D1CC5805900A130A2 /* AbsenceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C561CC5805900A130A2 /* AbsenceConfigurator.swift */; };
+		86038C5E1CC5805900A130A2 /* AbsenceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C571CC5805900A130A2 /* AbsenceInteractor.swift */; };
+		86038C5F1CC5805900A130A2 /* AbsenceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C581CC5805900A130A2 /* AbsenceModels.swift */; };
+		86038C601CC5805900A130A2 /* AbsencePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C591CC5805900A130A2 /* AbsencePresenter.swift */; };
+		86038C611CC5805900A130A2 /* AbsenceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C5A1CC5805900A130A2 /* AbsenceRouter.swift */; };
+		86038C621CC5805900A130A2 /* AbsenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C5B1CC5805900A130A2 /* AbsenceViewController.swift */; };
+		86038C631CC5805900A130A2 /* AbsenceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C5C1CC5805900A130A2 /* AbsenceWorker.swift */; };
+		86038C651CC5828300A130A2 /* AbsenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C641CC5828300A130A2 /* AbsenceTableViewCell.swift */; };
+		86038C671CC5829F00A130A2 /* Absence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C661CC5829F00A130A2 /* Absence.swift */; };
 		921D4EF61CC0B19F00FA06D3 /* Falta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50D1B9A4EBF00F0674D /* Falta.swift */; };
 		921D4EF71CC0B19F00FA06D3 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */; };
 		921D4EF81CC0B19F00FA06D3 /* Nota.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2F11B9BD26300143EBE /* Nota.swift */; };
@@ -123,6 +132,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		86038C561CC5805900A130A2 /* AbsenceConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsenceConfigurator.swift; sourceTree = "<group>"; };
+		86038C571CC5805900A130A2 /* AbsenceInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsenceInteractor.swift; sourceTree = "<group>"; };
+		86038C581CC5805900A130A2 /* AbsenceModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsenceModels.swift; sourceTree = "<group>"; };
+		86038C591CC5805900A130A2 /* AbsencePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsencePresenter.swift; sourceTree = "<group>"; };
+		86038C5A1CC5805900A130A2 /* AbsenceRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsenceRouter.swift; sourceTree = "<group>"; };
+		86038C5B1CC5805900A130A2 /* AbsenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsenceViewController.swift; sourceTree = "<group>"; };
+		86038C5C1CC5805900A130A2 /* AbsenceWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsenceWorker.swift; sourceTree = "<group>"; };
+		86038C641CC5828300A130A2 /* AbsenceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbsenceTableViewCell.swift; path = Scene/Absences/AbsenceTableViewCell.swift; sourceTree = "<group>"; };
+		86038C661CC5829F00A130A2 /* Absence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Absence.swift; sourceTree = "<group>"; };
 		923099C91CC02E3A0090FD0A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		923099CA1CC02E3A0090FD0A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		923099CE1CC031A10090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -215,6 +233,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86038C551CC5803000A130A2 /* Absences */ = {
+			isa = PBXGroup;
+			children = (
+				86038C561CC5805900A130A2 /* AbsenceConfigurator.swift */,
+				86038C571CC5805900A130A2 /* AbsenceInteractor.swift */,
+				86038C581CC5805900A130A2 /* AbsenceModels.swift */,
+				86038C591CC5805900A130A2 /* AbsencePresenter.swift */,
+				86038C5A1CC5805900A130A2 /* AbsenceRouter.swift */,
+				86038C5B1CC5805900A130A2 /* AbsenceViewController.swift */,
+				86038C5C1CC5805900A130A2 /* AbsenceWorker.swift */,
+				86038C641CC5828300A130A2 /* AbsenceTableViewCell.swift */,
+			);
+			name = Absences;
+			sourceTree = "<group>";
+		};
 		923099E21CC04DB00090FD0A /* VIPER */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,6 +257,7 @@
 				924887B11CC01B9C009BFDA9 /* Views */,
 				923099F11CC0587C0090FD0A /* LoginScene */,
 				92309A011CC066B00090FD0A /* ListGrade */,
+				86038C551CC5803000A130A2 /* Absences */,
 			);
 			name = VIPER;
 			sourceTree = "<group>";
@@ -317,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				925E2CA71CC1780600DEAF52 /* Grade.swift */,
+				86038C661CC5829F00A130A2 /* Absence.swift */,
 			);
 			name = Entities;
 			sourceTree = "<group>";
@@ -596,10 +631,13 @@
 				9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */,
 				A15BB2F21B9BD26300143EBE /* Nota.swift in Sources */,
 				923099EB1CC04E490090FD0A /* LoginInteractor.swift in Sources */,
+				86038C611CC5805900A130A2 /* AbsenceRouter.swift in Sources */,
+				86038C5D1CC5805900A130A2 /* AbsenceConfigurator.swift in Sources */,
 				925E2C8F1CC1585D00DEAF52 /* ErrorCode.swift in Sources */,
 				923C1F721BAA7C02006616B5 /* ConfigHelper.swift in Sources */,
 				925E2C9A1CC158ED00DEAF52 /* extension.swift in Sources */,
 				A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */,
+				86038C5F1CC5805900A130A2 /* AbsenceModels.swift in Sources */,
 				923099ED1CC04E490090FD0A /* LoginPresenter.swift in Sources */,
 				925E2C941CC1587E00DEAF52 /* AKPickerView.swift in Sources */,
 				A15BB2F41B9BD79800143EBE /* NotaCollectionViewCell.swift in Sources */,
@@ -613,15 +651,21 @@
 				92309A0D1CC067B50090FD0A /* ListGradeRouter.swift in Sources */,
 				92D278C31BB4D82900680733 /* HorarioSemanalViewController.swift in Sources */,
 				9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */,
+				86038C601CC5805900A130A2 /* AbsencePresenter.swift in Sources */,
 				923099EE1CC04E490090FD0A /* LoginRouter.swift in Sources */,
 				92309A0C1CC067B50090FD0A /* ListGradePresenter.swift in Sources */,
 				925E2CA61CC1774E00DEAF52 /* ListGradeTableViewCell.swift in Sources */,
 				A15BB2ED1B9BD03900143EBE /* NotaTableViewCell.swift in Sources */,
 				925E2C901CC1585D00DEAF52 /* Reachability.swift in Sources */,
 				92B3EBF81BE5BF5900748E57 /* Horario.swift in Sources */,
+				86038C631CC5805900A130A2 /* AbsenceWorker.swift in Sources */,
+				86038C651CC5828300A130A2 /* AbsenceTableViewCell.swift in Sources */,
 				92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */,
 				92D278C51BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift in Sources */,
+				86038C671CC5829F00A130A2 /* Absence.swift in Sources */,
+				86038C5E1CC5805900A130A2 /* AbsenceInteractor.swift in Sources */,
 				923099EA1CC04E490090FD0A /* LoginConfigurator.swift in Sources */,
+				86038C621CC5805900A130A2 /* AbsenceViewController.swift in Sources */,
 				9287869D1CC55E8F00AC72BD /* ErrorParser.swift in Sources */,
 				92309A0E1CC067B50090FD0A /* ListGradeTableViewController.swift in Sources */,
 				925E2C971CC158AB00DEAF52 /* CircleGraphView.swift in Sources */,

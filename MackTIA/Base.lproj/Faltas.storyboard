@@ -53,14 +53,14 @@
         <!--Faltas-->
         <scene sceneID="NX7-xy-ufd">
             <objects>
-                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="hfQ-fC-RJA" sceneMemberID="viewController">
+                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="hfQ-fC-RJA" customClass="AbsenceViewController" customModule="MackTIA" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="10" id="EZn-Mw-DaT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490196078431" green="0.93725490196078431" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.85882352939999995" green="0.086274509799999996" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="faltaCell" rowHeight="150" id="ACx-ZZ-OLh" customClass="FaltaTableViewCell" customModule="MackTIA" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="faltaCell" rowHeight="150" id="ACx-ZZ-OLh" customClass="AbsenceTableViewCell" customModule="MackTIA" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="49.5" width="600" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ACx-ZZ-OLh" id="gKN-22-9NB">
@@ -363,22 +363,20 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="atualizacao" destination="bHm-Me-qBx" id="te6-Xh-UL3"/>
-                                    <outlet property="aulasPrevistas" destination="jrV-jW-Be7" id="iyn-B5-tEF"/>
-                                    <outlet property="conteudoView" destination="UNn-LT-IW6" id="7dd-F6-apr"/>
-                                    <outlet property="faltas" destination="2Qn-Qb-Ned" id="MMs-ci-c7c"/>
-                                    <outlet property="graficoView" destination="QOH-Yf-MNN" id="eVj-00-eVB"/>
-                                    <outlet property="nomeDisciplina" destination="RgO-XW-UcM" id="JFp-MH-i4W"/>
-                                    <outlet property="percentual" destination="1Kb-lh-SPq" id="PhX-cY-46U"/>
-                                    <outlet property="permitidas" destination="XK7-OY-l4e" id="dLF-Hf-YaX"/>
-                                    <outlet property="progressBarLabel" destination="o7y-aL-eJg" id="g0E-lj-5QW"/>
-                                    <outlet property="progressBarView" destination="Bn4-A1-MCy" id="eE7-wh-LGA"/>
+                                    <outlet property="aulasPrevistasLabel" destination="jrV-jW-Be7" id="h4L-Hk-tiX"/>
+                                    <outlet property="faltasLabel" destination="2Qn-Qb-Ned" id="EvR-vU-KcP"/>
+                                    <outlet property="nomeDaDisciplinaLabel" destination="RgO-XW-UcM" id="vfr-dd-Xig"/>
+                                    <outlet property="permitidasLabel" destination="XK7-OY-l4e" id="ZjZ-V7-qjh"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Faltas" id="TrW-O8-yzX">
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="doW-zg-4aV"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="doW-zg-4aV">
+                            <connections>
+                                <action selector="refreshAction:" destination="hfQ-fC-RJA" id="b4l-ft-KVz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="PV9-6B-e0L">
                         <autoresizingMask key="autoresizingMask"/>
