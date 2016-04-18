@@ -11,7 +11,6 @@ import UIKit
 struct Grade{
     var classCode:String
     var className:String
-    var update:String
     var schoolName:String
     var schoolCode:String
     var formula:String

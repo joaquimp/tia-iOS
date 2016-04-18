@@ -36,10 +36,8 @@ class TIAServer {
         let components = calendar.components([NSCalendarUnit.Day, NSCalendarUnit.Month, NSCalendarUnit.Year], fromDate: date)
         let day = components.day < 10 ? "0\(components.day)" : "\(components.day)"
         let month = components.month < 10 ? "0\(components.month)" : "\(components.month)"
-        let token = "\(Token.parte1)\(month)\(components.year)\(day)\(Token.parte2)"
-        print(#function,"=======\nDay: \(day)\nMonth: \(month)\nYear: \(components.year)")
-//        return token.md5
-        return "3840c9c1a4145cd7b07eb01ed5aad1de"
+        let token = "\(Token.parte1.rawValue)\(month)\(components.year)\(day)\(Token.parte2.rawValue)"
+        return token.md5
     }
     
     
@@ -62,7 +60,6 @@ class TIAServer {
         }
         print(#function, "URL: \(service.rawValue)\nPARAMETERS: \(self.getRequestParameters())")
         Alamofire.request(.POST, service.rawValue, parameters: self.getRequestParameters()).responseJSON { response in
-            print(#function, response)
             
             if response.result.error != nil {
                 print(#function, response.result.error)

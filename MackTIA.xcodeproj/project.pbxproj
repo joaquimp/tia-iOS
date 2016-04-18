@@ -70,6 +70,10 @@
 		925E2CA81CC1780600DEAF52 /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2CA71CC1780600DEAF52 /* Grade.swift */; };
 		925E2CAB1CC18BA400DEAF52 /* ListGradeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2CAA1CC18BA400DEAF52 /* ListGradeCollectionViewCell.swift */; };
 		927D10E11BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927D10E01BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift */; };
+		9287869A1CC54BDC00AC72BD /* ListGradeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92309A081CC067B50090FD0A /* ListGradeWorker.swift */; };
+		9287869B1CC54C5F00AC72BD /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2CA71CC1780600DEAF52 /* Grade.swift */; };
+		9287869D1CC55E8F00AC72BD /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9287869C1CC55E8F00AC72BD /* ErrorParser.swift */; };
+		9287869E1CC55F7000AC72BD /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9287869C1CC55E8F00AC72BD /* ErrorParser.swift */; };
 		9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8821B87ADB3004284E3 /* AppDelegate.swift */; };
 		9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8841B87ADB3004284E3 /* MackTIA.xcdatamodeld */; };
 		9289B8901B87ADB3004284E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */; };
@@ -92,7 +96,7 @@
 		A15BB2F21B9BD26300143EBE /* Nota.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2F11B9BD26300143EBE /* Nota.swift */; };
 		A15BB2F41B9BD79800143EBE /* NotaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2F31B9BD79800143EBE /* NotaCollectionViewCell.swift */; };
 		A15BB2F61BA0762600143EBE /* Bariol_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A15BB2F51BA0762600143EBE /* Bariol_Regular.otf */; };
-		A163723A1B89915A000A9C69 /* FaltasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16372391B89915A000A9C69 /* FaltasTableViewController.swift */; };
+		A163723A1B89915A000A9C69 /* OLDFaltasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16372391B89915A000A9C69 /* OLDFaltasTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +160,7 @@
 		925E2CA71CC1780600DEAF52 /* Grade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grade.swift; path = Entities/Grade.swift; sourceTree = "<group>"; };
 		925E2CAA1CC18BA400DEAF52 /* ListGradeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGradeCollectionViewCell.swift; path = "Custom Cells/ListGradeCollectionViewCell.swift"; sourceTree = "<group>"; };
 		927D10E01BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioAnotacaoViewController.swift; path = ViewController/HorarioAnotacaoViewController.swift; sourceTree = "<group>"; };
+		9287869C1CC55E8F00AC72BD /* ErrorParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorParser.swift; path = Helpers/ErrorParser.swift; sourceTree = "<group>"; };
 		9289B87D1B87ADB3004284E3 /* MackTIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MackTIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9289B8811B87ADB3004284E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9289B8821B87ADB3004284E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -183,7 +188,7 @@
 		A15BB2F11B9BD26300143EBE /* Nota.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Nota.swift; path = WebAPI/Entidade/Nota.swift; sourceTree = "<group>"; };
 		A15BB2F31B9BD79800143EBE /* NotaCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotaCollectionViewCell.swift; path = "ViewController/Custom Cells/NotaCollectionViewCell.swift"; sourceTree = "<group>"; };
 		A15BB2F51BA0762600143EBE /* Bariol_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Regular.otf; sourceTree = "<group>"; };
-		A16372391B89915A000A9C69 /* FaltasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaltasTableViewController.swift; path = ViewController/FaltasTableViewController.swift; sourceTree = "<group>"; };
+		A16372391B89915A000A9C69 /* OLDFaltasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OLDFaltasTableViewController.swift; path = ViewController/OLDFaltasTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +308,7 @@
 			children = (
 				925E2C991CC158ED00DEAF52 /* extension.swift */,
 				923C1F711BAA7C02006616B5 /* ConfigHelper.swift */,
+				9287869C1CC55E8F00AC72BD /* ErrorParser.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -382,7 +388,7 @@
 			children = (
 				A15BB2CE1B9AB23700143EBE /* Custom Cells */,
 				92B9E8961B87B8D7004C1DE4 /* OLDLoginViewController.swift */,
-				A16372391B89915A000A9C69 /* FaltasTableViewController.swift */,
+				A16372391B89915A000A9C69 /* OLDFaltasTableViewController.swift */,
 				A15BB2EA1B9BCEFF00143EBE /* OLDNotasTableViewController.swift */,
 				A15BB2D81B9ACCDD00143EBE /* MaisTableViewController.swift */,
 				92D278C21BB4D82900680733 /* HorarioSemanalViewController.swift */,
@@ -580,7 +586,7 @@
 				92B9E8971B87B8D7004C1DE4 /* OLDLoginViewController.swift in Sources */,
 				923099F01CC04E490090FD0A /* LoginWorker.swift in Sources */,
 				92B9E8DC1B87C992004C1DE4 /* TIAManager.swift in Sources */,
-				A163723A1B89915A000A9C69 /* FaltasTableViewController.swift in Sources */,
+				A163723A1B89915A000A9C69 /* OLDFaltasTableViewController.swift in Sources */,
 				927D10E11BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift in Sources */,
 				923099EC1CC04E490090FD0A /* LoginModels.swift in Sources */,
 				925E2C9C1CC15A4600DEAF52 /* TIAServer.swift in Sources */,
@@ -616,6 +622,7 @@
 				92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */,
 				92D278C51BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift in Sources */,
 				923099EA1CC04E490090FD0A /* LoginConfigurator.swift in Sources */,
+				9287869D1CC55E8F00AC72BD /* ErrorParser.swift in Sources */,
 				92309A0E1CC067B50090FD0A /* ListGradeTableViewController.swift in Sources */,
 				925E2C971CC158AB00DEAF52 /* CircleGraphView.swift in Sources */,
 				92309A0A1CC067B50090FD0A /* ListGradeInteractor.swift in Sources */,
@@ -628,7 +635,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				921D4EF71CC0B19F00FA06D3 /* Usuario.swift in Sources */,
+				9287869A1CC54BDC00AC72BD /* ListGradeWorker.swift in Sources */,
 				9289B89C1B87ADB3004284E3 /* MackTIATests.swift in Sources */,
+				9287869E1CC55F7000AC72BD /* ErrorParser.swift in Sources */,
 				925E2C9F1CC1615500DEAF52 /* Reachability.swift in Sources */,
 				92309A231CC0A9490090FD0A /* LoginModels.swift in Sources */,
 				921D4EF91CC0B19F00FA06D3 /* Horario.swift in Sources */,
@@ -644,6 +653,7 @@
 				921D4EFA1CC0B1B900FA06D3 /* CoreDataHelper.swift in Sources */,
 				92309A271CC0A9490090FD0A /* LoginWorker.swift in Sources */,
 				921D4EFB1CC0B1CB00FA06D3 /* TIAManager.swift in Sources */,
+				9287869B1CC54C5F00AC72BD /* Grade.swift in Sources */,
 				92309A221CC0A9490090FD0A /* LoginConfigurator.swift in Sources */,
 				925E2C9D1CC1614E00DEAF52 /* TIAServer.swift in Sources */,
 				92309A261CC0A9490090FD0A /* LoginViewController.swift in Sources */,

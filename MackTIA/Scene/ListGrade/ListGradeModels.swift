@@ -15,7 +15,12 @@ struct ListGradeRequest {
 }
 
 struct ListGradeResponse {
+    var grades:[Grade]
+    var error:ErrorCode?
 }
 
 struct ListGradeViewModel {
+    var grades:[Grade]
+    var errorMessage:String?
+    var errorTitle:String?
 }

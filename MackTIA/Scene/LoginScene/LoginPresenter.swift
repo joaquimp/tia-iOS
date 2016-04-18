@@ -28,8 +28,8 @@ class LoginPresenter: LoginPresenterInput {
     
     func presentLoginError(response: LoginResponse) {
         
-        var errorTitle = NSLocalizedString("login_defaultErrorTitle", comment: "Login Error Title")
-        var errorMessage = NSLocalizedString("login_defaultErrorMessage", comment: "Default login error message")
+        let errorTitle = NSLocalizedString("login_defaultErrorTitle", comment: "Login Error Title")
+        let errorMessage = NSLocalizedString("login_defaultErrorMessage", comment: "Default login error message")
         
         guard response.error != nil else {
             let viewModel = LoginViewModel(errorMessage: errorMessage, errorTitle: errorTitle)
@@ -37,22 +37,8 @@ class LoginPresenter: LoginPresenterInput {
             return
         }
         
-        switch response.error! {
-        case let .InvalidLoginCredentials(title,message):
-            errorTitle = title
-            errorMessage = message
-        case .NoInternetConnection:
-            errorTitle = NSLocalizedString("error_noInternetConnection_title", comment: "Internet problem")
-            errorMessage = NSLocalizedString("error_noInternetConnection_message", comment: "Internet problem")
-        case .DomainNotFound:
-            errorTitle = NSLocalizedString("error_domainNotFound_title", comment: "Domain problem")
-            errorMessage = NSLocalizedString("error_domainNotFound_message", comment: "Domain problem")
-        case let .OtherFailure(title, message):
-            errorTitle = title
-            errorMessage = message
-        }
-        
-        let viewModel = LoginViewModel(errorMessage: errorMessage, errorTitle: errorTitle)
+        let error = ErrorParser.parse(response.error!)
+        let viewModel = LoginViewModel(errorMessage: error.message, errorTitle: error.title)
         output.displayLoginFailure(viewModel)
     }
     

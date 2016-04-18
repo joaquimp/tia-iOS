@@ -19,7 +19,7 @@ class ListGradeTableViewCell: UITableViewCell {
     
     let ni1ComponentsKey = ["NI 1","A","B","C","D","E"]
     let ni2ComponentsKey = ["NI 2","F","G","H","I","J"]
-    let otherComponentsKey = ["SUB","Partic","MI","PF","MF"]
+    let otherComponentsKey = ["SUB","PARTIC","MI","PF","MF"]
     var grades:[String:String] = [:]
     
     override func awakeFromNib() {
@@ -30,6 +30,8 @@ class ListGradeTableViewCell: UITableViewCell {
         self.ni2CollectionView.dataSource = self
         self.otherGradesCollectionView.delegate = self
         self.otherGradesCollectionView.dataSource = self
+        
+        layer.masksToBounds = true
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -37,6 +39,10 @@ class ListGradeTableViewCell: UITableViewCell {
         if self.selected {
             UIView.animateWithDuration(0.3, delay: 0.0, options:[], animations: { () -> Void in
                 self.contentView.backgroundColor = UIColor(hex: "FAFAFA")
+                }, completion: nil)
+        } else {
+            UIView.animateWithDuration(0.3, delay: 0.0, options:[], animations: { () -> Void in
+                self.contentView.backgroundColor = UIColor(hex: "FFFFFF")
                 }, completion: nil)
         }
     }

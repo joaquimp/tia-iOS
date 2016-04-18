@@ -42,3 +42,7 @@
 
 "error_domainNotFound_title"            = "Ops :/";
 "error_domainNotFound_message"          = "O seu aplicativo não conseguiu encontrar nossos servidores. Pode ser um problema temporário, ou seu aplicativo pode estar desatualizado.";
+
+// Grade interface
+"grade_InvalidDataTitle" = "Ops :/";
+"grade_InvalidDataMessage" = "Não foi possível carregar as suas notas. O problema pode ser temporário, mas se persistir entre em contato pelo e-mail aplicativos@mackenzie.br. Não esqueça de fornecer seus dados, como TIA, Nome e descrição do erro ;)";

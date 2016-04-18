@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FaltasTableViewController: UITableViewController {
+class OLDFaltasTableViewController: UITableViewController {
     
     var faltas:Array<Falta> = TIAManager.sharedInstance.faltas()
     @IBOutlet weak var reloadButtonItem: UIBarButtonItem!
@@ -21,7 +21,7 @@ class FaltasTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         buscarNovosDados()
-        self.refreshControl?.addTarget(self, action: #selector(FaltasTableViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl?.addTarget(self, action: #selector(OLDFaltasTableViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
     }
     
     override func viewWillAppear(animated: Bool) {

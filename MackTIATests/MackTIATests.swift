@@ -39,6 +39,22 @@ class MackTIATests: XCTestCase {
         }
     }
     
+    func testGradeParseJson() {
+        let asyncExpectation = self.expectationWithDescription("AcessandoServidor")
+        
+        let server = TIAServer.sharedInstance
+        server.credentials = (tia:"31445721", password:"psgb1995", campus:"001")
+        server.sendRequet(ServiceURL.Grades) { (jsonData, error) in
+            let parser = ListGradeWorker()
+            XCTAssertNotNil(parser.parseJSON(jsonData!))
+            asyncExpectation.fulfill()
+        }
+        
+        self.waitForExpectationsWithTimeout(5) { (error) in
+            XCTAssertNil(error, "Something went horribly wrong")
+        }
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measureBlock() {

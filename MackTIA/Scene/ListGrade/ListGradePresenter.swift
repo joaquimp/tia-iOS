@@ -12,11 +12,11 @@
 import UIKit
 
 protocol ListGradePresenterInput {
-    func presentSomething(response: ListGradeResponse)
+    func presentFetchedGrades(response: ListGradeResponse)
 }
 
 protocol ListGradePresenterOutput: class {
-    func displaySomething(viewModel: ListGradeViewModel)
+    func displayFetchedGrades(viewModel: ListGradeViewModel)
 }
 
 class ListGradePresenter: ListGradePresenterInput {
@@ -24,10 +24,15 @@ class ListGradePresenter: ListGradePresenterInput {
     
     // MARK: Presentation logic
     
-    func presentSomething(response: ListGradeResponse) {
-        // NOTE: Format the response from the Interactor and pass the result back to the View Controller
+    func presentFetchedGrades(response: ListGradeResponse) {
         
-        let viewModel = ListGradeViewModel()
-        output.displaySomething(viewModel)
+        var error:(title:String,message:String)?
+        
+        if response.error != nil {
+            error = ErrorParser.parse(response.error!)
+        }
+        
+        let viewModel = ListGradeViewModel(grades: response.grades, errorMessage: error?.message, errorTitle: error?.title)
+        output.displayFetchedGrades(viewModel)
     }
 }

@@ -38,6 +38,9 @@ class LoginWorker {
             
             completionHandler(response: true, error: nil)
         }
-
+    }
+    
+    func logOff() {
+        TIAServer.sharedInstance.credentials = nil
     }
 }
