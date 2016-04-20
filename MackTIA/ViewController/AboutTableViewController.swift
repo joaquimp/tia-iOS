@@ -11,18 +11,28 @@ import UIKit
 import Social
 import MessageUI
 
-class MaisTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+// TODO: Colocar todo o texto no Localizable.string
+
+class AboutTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
+    
+    @IBOutlet weak var userLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        userLabel.text = TIAServer.sharedInstance.user?.name ?? TIAServer.sharedInstance.user?.tia
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
+        let userSection = 0
+        
         ///////
-        let socialSection   = 0
+        let socialSection   = 1
         let fbMack      = 0
         let fbTVMack    = 1
         let fbRadio     = 2
@@ -32,16 +42,17 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
         ///////
         
         ///////
-        let equipeSection   = 1
+        let equipeSection   = 2
         ///////
         
         ///////
-        let apoioSection    = 2
+        let apoioSection    = 3
         let paginaFCI   = 0
         let paginaDTI   = 2
         ///////
         
-        if indexPath.section == equipeSection {
+        if indexPath.section == equipeSection || indexPath.section == userSection {
+            tableView.deselectRowAtIndexPath(indexPath, animated: false)
             return
             
         } else if indexPath.section == socialSection {
@@ -132,20 +143,23 @@ class MaisTableViewController: UITableViewController, MFMailComposeViewControlle
         controller.dismissViewControllerAnimated(true, completion: nil)
         switch(result.rawValue){
         case MFMailComposeResultSent.rawValue:
-            UIAlertView(title: "Obrigado", message: "Seu e-mail foi enviado e ficamos gratos pela sua(s) critica(s) e/ou sugestão(ões) :)", delegate: self, cancelButtonTitle: "OK").show()
+            let alert = UIAlertController(title: NSLocalizedString("e-mail_successMessageSentTitle", comment: "Envio com sucesso"), message: NSLocalizedString("e-mail_successMessageSentMessage", comment: "Envio com sucesso"), preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         case MFMailComposeResultFailed.rawValue:
-            UIAlertView(title: "Ops", message: "Ocorreu algum problema ao tentar enviar o e-mail. Se não estiver conseguindo enviar por aqui, envie um e-mail para moodleadmin@mackenzie.br. Obrigado!", delegate: self, cancelButtonTitle: "OK").show()
+            let alert = UIAlertController(title: NSLocalizedString("e-mail_errorMessageSentTitle", comment: "Envio com sucesso"), message: NSLocalizedString("e-mail_errorMessageSentMessage", comment: "Envio com sucesso"), preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
         default:
             return
         }
     }
     
     @IBAction func logoutButton(sender: AnyObject) {
+        // TODO: Colocar mensagem no Localizable.strings
         let alertController = UIAlertController(title: "Sair", message: "Deseja realmente sair?", preferredStyle: UIAlertControllerStyle.Alert)
         let actionSair = UIAlertAction(title: "Sair", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
-            NSUserDefaults.standardUserDefaults().removeObjectForKey("tia")
-            NSUserDefaults.standardUserDefaults().removeObjectForKey("senha")
-            NSUserDefaults.standardUserDefaults().removeObjectForKey("unidade")
+            TIAServer.sharedInstance.logoff()
             self.performSegueWithIdentifier("logoutSegue", sender: self)
         }
         let actionCancelar = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel) { (alertAction) -> Void in

@@ -52,8 +52,10 @@ class OLDFaltasTableViewController: UITableViewController {
                         print("Descricao do erro: \(descricao)")
                     }
                 }
-                let alert = UIAlertView(title: "Acesso Negado", message: mensagem, delegate: self, cancelButtonTitle: "OK")
-                alert.show()
+                
+                let alert = UIAlertController(title: "Acesso Negado", message: mensagem, preferredStyle: .Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
             }
             
             self.reloadButtonItem.enabled = true

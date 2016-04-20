@@ -16,7 +16,7 @@ struct Absence {
     var dadas:Int
     var disciplina:String
     var faltas:Int
-    var percentual:Int
+    var percentual:Float
     var permit:Int
     var permit20:Int
     var turma:String

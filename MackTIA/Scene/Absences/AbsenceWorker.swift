@@ -36,7 +36,7 @@ class AbsenceWorker {
                     disciplina  = absenceData["disciplina"] as? String,
                     faltas      = absenceData["faltas"] as? Int,
 //                "nome_aluno" = "EVANDRO REMON PULZ VIVA";
-                    percentual = absenceData["percentual"] as? Int,
+                    percentual = absenceData["percentual"] as? Float,
                     permit = absenceData["permit"] as? Int,
                     permit20 = absenceData["permit20"] as? Int,
                     turma = absenceData["turma"] as? String

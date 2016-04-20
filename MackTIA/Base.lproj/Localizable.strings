@@ -46,3 +46,10 @@
 // Grade interface
 "grade_InvalidDataTitle" = "Ops :/";
 "grade_InvalidDataMessage" = "Não foi possível carregar as suas notas. O problema pode ser temporário, mas se persistir entre em contato pelo e-mail aplicativos@mackenzie.br. Não esqueça de fornecer seus dados, como TIA, Nome e descrição do erro ;)";
+
+
+// E-mail Message
+"mail_successMessageSentTitle"      = "Obrigado";
+"mail_successMessageSentMessage"    = "Seu e-mail foi enviado e ficamos gratos pela sua(s) critica(s) e/ou sugestão(ões) :)";
+"mail_errorMessageSentTitle"      = "Ops :/";
+"mail_errorMessageSentMessage"    = "Ocorreu algum problema ao tentar enviar o e-mail. Se não estiver conseguindo enviar por aqui, envie um e-mail para aplicativos@mackenzie.br. Obrigado!";

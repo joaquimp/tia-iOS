@@ -53,7 +53,7 @@
         <!--Faltas-->
         <scene sceneID="NX7-xy-ufd">
             <objects>
-                <tableViewController automaticallyAdjustsScrollViewInsets="NO" id="hfQ-fC-RJA" customClass="AbsenceViewController" customModule="MackTIA" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="hfQ-fC-RJA" customClass="AbsenceViewController" customModule="MackTIA" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="10" id="EZn-Mw-DaT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,23 +61,23 @@
                         <color key="tintColor" red="0.85882352939999995" green="0.086274509799999996" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="faltaCell" rowHeight="150" id="ACx-ZZ-OLh" customClass="AbsenceTableViewCell" customModule="MackTIA" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="49.5" width="600" height="150"/>
+                                <rect key="frame" x="0.0" y="113.5" width="600" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ACx-ZZ-OLh" id="gKN-22-9NB">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOME DA DISCIPLINA" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RgO-XW-UcM">
-                                            <rect key="frame" x="8" y="8" width="584" height="50"/>
+                                            <rect key="frame" x="8" y="8" width="584" height="27"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="50" id="b2H-je-nGe"/>
+                                                <constraint firstAttribute="height" constant="27" id="b2H-je-nGe"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="17"/>
                                             <color key="textColor" red="0.85882352941176465" green="0.086274509803921567" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bn4-A1-MCy" customClass="ProgressBarView" customModule="MackTIA" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="43" width="546" height="10"/>
+                                            <rect key="frame" x="8" y="35" width="546" height="10"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="10" id="Cao-1o-QdA"/>
@@ -85,7 +85,7 @@
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="endPercent">
-                                                    <real key="value" value="0.25"/>
+                                                    <real key="value" value="0.050000000000000003"/>
                                                 </userDefinedRuntimeAttribute>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="maxPercent">
                                                     <real key="value" value="1"/>
@@ -107,7 +107,7 @@
                                             </variation>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" textAlignment="right" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7y-aL-eJg">
-                                            <rect key="frame" x="564" y="42" width="28" height="12"/>
+                                            <rect key="frame" x="564" y="34" width="28" height="12"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="RIK-ZK-7xM"/>
                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="aAB-rS-2Vo"/>
@@ -250,7 +250,7 @@
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="endArc">
-                                                                    <real key="value" value="0.050000000000000003"/>
+                                                                    <real key="value" value="0.5"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="arcWidth">
                                                                     <real key="value" value="10"/>
@@ -265,7 +265,7 @@
                                                                     <color key="value" red="0.63853308460000002" green="1" blue="0.71023284480000004" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="maxArc">
-                                                                    <real key="value" value="0.0"/>
+                                                                    <real key="value" value="1"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
@@ -348,11 +348,11 @@
                                         <constraint firstItem="RgO-XW-UcM" firstAttribute="top" secondItem="gKN-22-9NB" secondAttribute="topMargin" id="CUa-HO-klj"/>
                                         <constraint firstItem="Bn4-A1-MCy" firstAttribute="trailing" secondItem="gKN-22-9NB" secondAttribute="trailingMargin" id="Kqr-bi-5BJ"/>
                                         <constraint firstItem="Bn4-A1-MCy" firstAttribute="trailing" secondItem="gKN-22-9NB" secondAttribute="trailingMargin" id="ORT-hk-xmO"/>
-                                        <constraint firstItem="Bn4-A1-MCy" firstAttribute="top" secondItem="RgO-XW-UcM" secondAttribute="bottom" constant="-15" id="TWb-oZ-eEI"/>
+                                        <constraint firstItem="Bn4-A1-MCy" firstAttribute="top" secondItem="RgO-XW-UcM" secondAttribute="bottom" id="TWb-oZ-eEI"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="o7y-aL-eJg" secondAttribute="trailing" id="b6w-yg-VFo"/>
                                         <constraint firstItem="UNn-LT-IW6" firstAttribute="leading" secondItem="gKN-22-9NB" secondAttribute="leadingMargin" constant="20" id="c4P-ed-6Pk"/>
                                         <constraint firstItem="Bn4-A1-MCy" firstAttribute="leading" secondItem="gKN-22-9NB" secondAttribute="leadingMargin" id="h2j-UQ-ZtO"/>
-                                        <constraint firstItem="UNn-LT-IW6" firstAttribute="top" secondItem="RgO-XW-UcM" secondAttribute="bottom" id="uLh-mz-rLe"/>
+                                        <constraint firstItem="UNn-LT-IW6" firstAttribute="top" secondItem="RgO-XW-UcM" secondAttribute="bottom" constant="23" id="uLh-mz-rLe"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -396,10 +396,13 @@
                             </fragment>
                         </attributedString>
                     </refreshControl>
+                    <connections>
+                        <outlet property="reloadButtonItem" destination="doW-zg-4aV" id="Kc1-1l-4Tj"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72A-Qx-OT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1877" y="-394"/>
+            <point key="canvasLocation" x="1819" y="-388"/>
         </scene>
     </scenes>
     <resources>

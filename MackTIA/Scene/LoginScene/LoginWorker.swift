@@ -16,8 +16,10 @@ class LoginWorker {
     
     func validadeLogin(request: LoginRequest, completionHandler: (response: Bool, error: ErrorCode?)->Void){
         
-        TIAServer.sharedInstance.credentials = (tia:request.tia, password:request.password, campus:request.campus)
-        TIAServer.sharedInstance.sendRequet(.Login) { (jsonData, error) in
+        let user = User(name: nil, tia: request.tia, password: request.password, campus: request.campus)
+        TIAServer.sharedInstance.user = user
+        // TODO: depois que resolver a mudanca na API voltar para requisicao do tipo login
+        TIAServer.sharedInstance.sendRequet(ServiceURL.Absence) { (jsonData, error) in
             
             guard error == nil else {
                 completionHandler(response: false, error: error)
@@ -36,11 +38,15 @@ class LoginWorker {
                 return
             }
             
+            // TODO: Nao esta convertendo corretamente
+            
+            if let response = jsonData!["resposta"] as? [String:AnyObject],
+                let name = response["nome_aluno"] as? String {
+                    TIAServer.sharedInstance.user!.name = name
+            }
+            
+            TIAServer.sharedInstance.registerLogin()
             completionHandler(response: true, error: nil)
         }
-    }
-    
-    func logOff() {
-        TIAServer.sharedInstance.credentials = nil
     }
 }

@@ -25,4 +25,9 @@ class AbsenceTableViewCell: UITableViewCell {
     @IBOutlet weak var circleProgressLabel: UILabel!
     
     // TODO: FALTA LIGAR SÓ A VIEW
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.masksToBounds = true
+    }
 }

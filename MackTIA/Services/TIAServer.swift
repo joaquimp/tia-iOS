@@ -11,6 +11,7 @@ import Alamofire
 
 
 enum ServiceURL:String {
+    // TODO: Precisa que o servidor devolva o nome do aluno no servico ping.php
     case Login          = "https://www3.mackenzie.com.br/tia/tia_mobile/ping.php"
     case Grades         = "https://www3.mackenzie.com.br/tia/tia_mobile/notas.php"
     case Absence        = "https://www3.mackenzie.com.br/tia/tia_mobile/faltas.php"
@@ -28,7 +29,7 @@ class TIAServer {
     static let sharedInstance = TIAServer()
     
     // MARK: Security Parameters and Methods
-    var credentials:(tia:String,password:String,campus:String)?
+    var user:User?
     
     private func makeToken() -> String {
         let date = NSDate()
@@ -40,15 +41,50 @@ class TIAServer {
         return token.md5
     }
     
+    // MARK: Login Manager
+    
+    func loginRecorded() -> User? {
+        guard let tia = NSUserDefaults.standardUserDefaults().objectForKey("tia") as? String,
+            let password = NSUserDefaults.standardUserDefaults().objectForKey("password") as? String,
+            let campus = NSUserDefaults.standardUserDefaults().objectForKey("campus") as? String,
+            let name = NSUserDefaults.standardUserDefaults().objectForKey("name") as? String else {
+                self.logoff()
+                return nil
+        }
+        
+        self.user = User(name: name, tia: tia, password: password, campus: campus)
+        return self.user
+        
+    }
+    
+    func registerLogin() {
+        
+        guard let u = user else {
+            return
+        }
+        
+        NSUserDefaults.standardUserDefaults().setObject(u.tia, forKey: "tia")
+        NSUserDefaults.standardUserDefaults().setObject(u.password, forKey: "password")
+        NSUserDefaults.standardUserDefaults().setObject(u.campus, forKey: "campus")
+        NSUserDefaults.standardUserDefaults().setObject(u.name, forKey: "name")
+    }
+    
+    func logoff() {
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("tia")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("password")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("campus")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("name")
+    }
+    
     
     // MARK: Server Communication
     
     private func getRequestParameters() -> [String:String] {
         let parameters = [
-            "mat": self.credentials?.tia ?? " ",
-            "pass": self.credentials?.password ?? " ",
+            "mat": self.user?.tia ?? " ",
+            "pass": self.user?.password ?? " ",
             "token": self.makeToken(),
-            "unidade": self.credentials?.campus ?? " "
+            "unidade": self.user?.campus ?? " "
         ]
         return parameters
     }

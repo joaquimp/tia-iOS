@@ -7,15 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		86038C5D1CC5805900A130A2 /* AbsenceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C561CC5805900A130A2 /* AbsenceConfigurator.swift */; };
-		86038C5E1CC5805900A130A2 /* AbsenceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C571CC5805900A130A2 /* AbsenceInteractor.swift */; };
-		86038C5F1CC5805900A130A2 /* AbsenceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C581CC5805900A130A2 /* AbsenceModels.swift */; };
-		86038C601CC5805900A130A2 /* AbsencePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C591CC5805900A130A2 /* AbsencePresenter.swift */; };
-		86038C611CC5805900A130A2 /* AbsenceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C5A1CC5805900A130A2 /* AbsenceRouter.swift */; };
-		86038C621CC5805900A130A2 /* AbsenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C5B1CC5805900A130A2 /* AbsenceViewController.swift */; };
-		86038C631CC5805900A130A2 /* AbsenceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C5C1CC5805900A130A2 /* AbsenceWorker.swift */; };
 		86038C651CC5828300A130A2 /* AbsenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C641CC5828300A130A2 /* AbsenceTableViewCell.swift */; };
-		86038C671CC5829F00A130A2 /* Absence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86038C661CC5829F00A130A2 /* Absence.swift */; };
 		921D4EF61CC0B19F00FA06D3 /* Falta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9246D50D1B9A4EBF00F0674D /* Falta.swift */; };
 		921D4EF71CC0B19F00FA06D3 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B9E8AE1B87C63F004C1DE4 /* Usuario.swift */; };
 		921D4EF81CC0B19F00FA06D3 /* Nota.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2F11B9BD26300143EBE /* Nota.swift */; };
@@ -28,10 +20,10 @@
 		923099CB1CC02E3A0090FD0A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923099C91CC02E3A0090FD0A /* Fabric.framework */; };
 		923099CC1CC02E3A0090FD0A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923099CA1CC02E3A0090FD0A /* Crashlytics.framework */; };
 		923099CF1CC031A10090FD0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923099CD1CC031A10090FD0A /* Main.storyboard */; };
-		923099D21CC032950090FD0A /* Faltas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923099D01CC032950090FD0A /* Faltas.storyboard */; };
-		923099D51CC033990090FD0A /* Notas.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923099D31CC033990090FD0A /* Notas.storyboard */; };
+		923099D21CC032950090FD0A /* Absences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923099D01CC032950090FD0A /* Absences.storyboard */; };
+		923099D51CC033990090FD0A /* Grades.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923099D31CC033990090FD0A /* Grades.storyboard */; };
 		923099D81CC033BB0090FD0A /* Horarios.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923099D61CC033BB0090FD0A /* Horarios.storyboard */; };
-		923099DB1CC034090090FD0A /* Mais.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923099D91CC034090090FD0A /* Mais.storyboard */; };
+		923099DB1CC034090090FD0A /* About.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 923099D91CC034090090FD0A /* About.storyboard */; };
 		923099E01CC045F70090FD0A /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923099DF1CC045F70090FD0A /* Alamofire.framework */; };
 		923099EA1CC04E490090FD0A /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923099E31CC04E490090FD0A /* LoginConfigurator.swift */; };
 		923099EB1CC04E490090FD0A /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923099E41CC04E490090FD0A /* LoginInteractor.swift */; };
@@ -83,6 +75,16 @@
 		9287869B1CC54C5F00AC72BD /* Grade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E2CA71CC1780600DEAF52 /* Grade.swift */; };
 		9287869D1CC55E8F00AC72BD /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9287869C1CC55E8F00AC72BD /* ErrorParser.swift */; };
 		9287869E1CC55F7000AC72BD /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9287869C1CC55E8F00AC72BD /* ErrorParser.swift */; };
+		928786A31CC70F9900AC72BD /* Absence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928786A21CC70F9900AC72BD /* Absence.swift */; };
+		928786AB1CC70FAF00AC72BD /* AbsenceConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928786A41CC70FAF00AC72BD /* AbsenceConfigurator.swift */; };
+		928786AC1CC70FAF00AC72BD /* AbsenceInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928786A51CC70FAF00AC72BD /* AbsenceInteractor.swift */; };
+		928786AD1CC70FAF00AC72BD /* AbsenceModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928786A61CC70FAF00AC72BD /* AbsenceModels.swift */; };
+		928786AE1CC70FAF00AC72BD /* AbsencePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928786A71CC70FAF00AC72BD /* AbsencePresenter.swift */; };
+		928786AF1CC70FAF00AC72BD /* AbsenceRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928786A81CC70FAF00AC72BD /* AbsenceRouter.swift */; };
+		928786B01CC70FAF00AC72BD /* AbsenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928786A91CC70FAF00AC72BD /* AbsenceViewController.swift */; };
+		928786B11CC70FAF00AC72BD /* AbsenceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928786AA1CC70FAF00AC72BD /* AbsenceWorker.swift */; };
+		928786B31CC710CF00AC72BD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928786B21CC710CF00AC72BD /* User.swift */; };
+		928786B41CC7111600AC72BD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928786B21CC710CF00AC72BD /* User.swift */; };
 		9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8821B87ADB3004284E3 /* AppDelegate.swift */; };
 		9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9289B8841B87ADB3004284E3 /* MackTIA.xcdatamodeld */; };
 		9289B8901B87ADB3004284E3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */; };
@@ -99,7 +101,7 @@
 		92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */; };
 		A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */; };
 		A15BB2D51B9ACBD900143EBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A15BB2D41B9ACBD900143EBE /* Images.xcassets */; };
-		A15BB2D91B9ACCDD00143EBE /* MaisTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2D81B9ACCDD00143EBE /* MaisTableViewController.swift */; };
+		A15BB2D91B9ACCDD00143EBE /* AboutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2D81B9ACCDD00143EBE /* AboutTableViewController.swift */; };
 		A15BB2EB1B9BCEFF00143EBE /* OLDNotasTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2EA1B9BCEFF00143EBE /* OLDNotasTableViewController.swift */; };
 		A15BB2ED1B9BD03900143EBE /* NotaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2EC1B9BD03900143EBE /* NotaTableViewCell.swift */; };
 		A15BB2F21B9BD26300143EBE /* Nota.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15BB2F11B9BD26300143EBE /* Nota.swift */; };
@@ -132,22 +134,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		86038C561CC5805900A130A2 /* AbsenceConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsenceConfigurator.swift; sourceTree = "<group>"; };
-		86038C571CC5805900A130A2 /* AbsenceInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsenceInteractor.swift; sourceTree = "<group>"; };
-		86038C581CC5805900A130A2 /* AbsenceModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsenceModels.swift; sourceTree = "<group>"; };
-		86038C591CC5805900A130A2 /* AbsencePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsencePresenter.swift; sourceTree = "<group>"; };
-		86038C5A1CC5805900A130A2 /* AbsenceRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsenceRouter.swift; sourceTree = "<group>"; };
-		86038C5B1CC5805900A130A2 /* AbsenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsenceViewController.swift; sourceTree = "<group>"; };
-		86038C5C1CC5805900A130A2 /* AbsenceWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbsenceWorker.swift; sourceTree = "<group>"; };
 		86038C641CC5828300A130A2 /* AbsenceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbsenceTableViewCell.swift; path = Scene/Absences/AbsenceTableViewCell.swift; sourceTree = "<group>"; };
-		86038C661CC5829F00A130A2 /* Absence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Absence.swift; sourceTree = "<group>"; };
 		923099C91CC02E3A0090FD0A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		923099CA1CC02E3A0090FD0A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		923099CE1CC031A10090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		923099D11CC032950090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Faltas.storyboard; sourceTree = "<group>"; };
-		923099D41CC033990090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notas.storyboard; sourceTree = "<group>"; };
+		923099D11CC032950090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Absences.storyboard; sourceTree = "<group>"; };
+		923099D41CC033990090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Grades.storyboard; sourceTree = "<group>"; };
 		923099D71CC033BB0090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Horarios.storyboard; sourceTree = "<group>"; };
-		923099DA1CC034090090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Mais.storyboard; sourceTree = "<group>"; };
+		923099DA1CC034090090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		923099DF1CC045F70090FD0A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		923099E31CC04E490090FD0A /* LoginConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginConfigurator.swift; path = Scene/LoginScene/LoginConfigurator.swift; sourceTree = "<group>"; };
 		923099E41CC04E490090FD0A /* LoginInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginInteractor.swift; path = Scene/LoginScene/LoginInteractor.swift; sourceTree = "<group>"; };
@@ -179,6 +173,15 @@
 		925E2CAA1CC18BA400DEAF52 /* ListGradeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListGradeCollectionViewCell.swift; path = "Custom Cells/ListGradeCollectionViewCell.swift"; sourceTree = "<group>"; };
 		927D10E01BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioAnotacaoViewController.swift; path = ViewController/HorarioAnotacaoViewController.swift; sourceTree = "<group>"; };
 		9287869C1CC55E8F00AC72BD /* ErrorParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorParser.swift; path = Helpers/ErrorParser.swift; sourceTree = "<group>"; };
+		928786A21CC70F9900AC72BD /* Absence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Absence.swift; path = Entities/Absence.swift; sourceTree = "<group>"; };
+		928786A41CC70FAF00AC72BD /* AbsenceConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbsenceConfigurator.swift; path = Scene/Absences/AbsenceConfigurator.swift; sourceTree = "<group>"; };
+		928786A51CC70FAF00AC72BD /* AbsenceInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbsenceInteractor.swift; path = Scene/Absences/AbsenceInteractor.swift; sourceTree = "<group>"; };
+		928786A61CC70FAF00AC72BD /* AbsenceModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbsenceModels.swift; path = Scene/Absences/AbsenceModels.swift; sourceTree = "<group>"; };
+		928786A71CC70FAF00AC72BD /* AbsencePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbsencePresenter.swift; path = Scene/Absences/AbsencePresenter.swift; sourceTree = "<group>"; };
+		928786A81CC70FAF00AC72BD /* AbsenceRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbsenceRouter.swift; path = Scene/Absences/AbsenceRouter.swift; sourceTree = "<group>"; };
+		928786A91CC70FAF00AC72BD /* AbsenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbsenceViewController.swift; path = Scene/Absences/AbsenceViewController.swift; sourceTree = "<group>"; };
+		928786AA1CC70FAF00AC72BD /* AbsenceWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbsenceWorker.swift; path = Scene/Absences/AbsenceWorker.swift; sourceTree = "<group>"; };
+		928786B21CC710CF00AC72BD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Entities/User.swift; sourceTree = "<group>"; };
 		9289B87D1B87ADB3004284E3 /* MackTIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MackTIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9289B8811B87ADB3004284E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9289B8821B87ADB3004284E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -200,7 +203,7 @@
 		92D278C61BB4DA3900680733 /* HorarioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorarioTableViewCell.swift; path = "ViewController/Custom Cells/HorarioTableViewCell.swift"; sourceTree = "<group>"; };
 		A15BB2CF1B9AB26C00143EBE /* FaltaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaltaTableViewCell.swift; path = "ViewController/Custom Cells/FaltaTableViewCell.swift"; sourceTree = "<group>"; };
 		A15BB2D41B9ACBD900143EBE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		A15BB2D81B9ACCDD00143EBE /* MaisTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MaisTableViewController.swift; path = ViewController/MaisTableViewController.swift; sourceTree = "<group>"; };
+		A15BB2D81B9ACCDD00143EBE /* AboutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutTableViewController.swift; path = ViewController/AboutTableViewController.swift; sourceTree = "<group>"; };
 		A15BB2EA1B9BCEFF00143EBE /* OLDNotasTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OLDNotasTableViewController.swift; path = ViewController/OLDNotasTableViewController.swift; sourceTree = "<group>"; };
 		A15BB2EC1B9BD03900143EBE /* NotaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotaTableViewCell.swift; path = "ViewController/Custom Cells/NotaTableViewCell.swift"; sourceTree = "<group>"; };
 		A15BB2F11B9BD26300143EBE /* Nota.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Nota.swift; path = WebAPI/Entidade/Nota.swift; sourceTree = "<group>"; };
@@ -236,13 +239,13 @@
 		86038C551CC5803000A130A2 /* Absences */ = {
 			isa = PBXGroup;
 			children = (
-				86038C561CC5805900A130A2 /* AbsenceConfigurator.swift */,
-				86038C571CC5805900A130A2 /* AbsenceInteractor.swift */,
-				86038C581CC5805900A130A2 /* AbsenceModels.swift */,
-				86038C591CC5805900A130A2 /* AbsencePresenter.swift */,
-				86038C5A1CC5805900A130A2 /* AbsenceRouter.swift */,
-				86038C5B1CC5805900A130A2 /* AbsenceViewController.swift */,
-				86038C5C1CC5805900A130A2 /* AbsenceWorker.swift */,
+				928786A41CC70FAF00AC72BD /* AbsenceConfigurator.swift */,
+				928786A51CC70FAF00AC72BD /* AbsenceInteractor.swift */,
+				928786A61CC70FAF00AC72BD /* AbsenceModels.swift */,
+				928786A71CC70FAF00AC72BD /* AbsencePresenter.swift */,
+				928786A81CC70FAF00AC72BD /* AbsenceRouter.swift */,
+				928786A91CC70FAF00AC72BD /* AbsenceViewController.swift */,
+				928786AA1CC70FAF00AC72BD /* AbsenceWorker.swift */,
 				86038C641CC5828300A130A2 /* AbsenceTableViewCell.swift */,
 			);
 			name = Absences;
@@ -318,10 +321,10 @@
 			children = (
 				925E2C911CC1587000DEAF52 /* Components */,
 				923099CD1CC031A10090FD0A /* Main.storyboard */,
-				923099D91CC034090090FD0A /* Mais.storyboard */,
+				923099D91CC034090090FD0A /* About.storyboard */,
 				923099D61CC033BB0090FD0A /* Horarios.storyboard */,
-				923099D31CC033990090FD0A /* Notas.storyboard */,
-				923099D01CC032950090FD0A /* Faltas.storyboard */,
+				923099D31CC033990090FD0A /* Grades.storyboard */,
+				923099D01CC032950090FD0A /* Absences.storyboard */,
 				9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */,
 			);
 			name = Views;
@@ -350,10 +353,19 @@
 		925E2CA91CC1780D00DEAF52 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				928786A21CC70F9900AC72BD /* Absence.swift */,
 				925E2CA71CC1780600DEAF52 /* Grade.swift */,
-				86038C661CC5829F00A130A2 /* Absence.swift */,
+				928786B21CC710CF00AC72BD /* User.swift */,
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		928786B51CC7164900AC72BD /* About */ = {
+			isa = PBXGroup;
+			children = (
+				A15BB2D81B9ACCDD00143EBE /* AboutTableViewController.swift */,
+			);
+			name = About;
 			sourceTree = "<group>";
 		};
 		9289B8741B87ADB3004284E3 = {
@@ -379,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				923099E21CC04DB00090FD0A /* VIPER */,
+				928786B51CC7164900AC72BD /* About */,
 				92B9E8981B87B8DE004C1DE4 /* ViewControllers */,
 				92B9E8A91B87C217004C1DE4 /* WebAPI */,
 				9289B8821B87ADB3004284E3 /* AppDelegate.swift */,
@@ -425,7 +438,6 @@
 				92B9E8961B87B8D7004C1DE4 /* OLDLoginViewController.swift */,
 				A16372391B89915A000A9C69 /* OLDFaltasTableViewController.swift */,
 				A15BB2EA1B9BCEFF00143EBE /* OLDNotasTableViewController.swift */,
-				A15BB2D81B9ACCDD00143EBE /* MaisTableViewController.swift */,
 				92D278C21BB4D82900680733 /* HorarioSemanalViewController.swift */,
 				92D278C41BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift */,
 				927D10E01BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift */,
@@ -519,7 +531,7 @@
 				TargetAttributes = {
 					9289B87C1B87ADB3004284E3 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = GK6E7G94CJ;
+						DevelopmentTeam = 34E95R7U23;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -561,11 +573,11 @@
 				929C92B31B9F720500844564 /* Localizable.strings in Resources */,
 				923099CF1CC031A10090FD0A /* Main.storyboard in Resources */,
 				A15BB2D51B9ACBD900143EBE /* Images.xcassets in Resources */,
-				923099D21CC032950090FD0A /* Faltas.storyboard in Resources */,
+				923099D21CC032950090FD0A /* Absences.storyboard in Resources */,
 				9289B8901B87ADB3004284E3 /* LaunchScreen.xib in Resources */,
-				923099D51CC033990090FD0A /* Notas.storyboard in Resources */,
+				923099D51CC033990090FD0A /* Grades.storyboard in Resources */,
 				92B9E8A81B87C1E5004C1DE4 /* token.plist in Resources */,
-				923099DB1CC034090090FD0A /* Mais.storyboard in Resources */,
+				923099DB1CC034090090FD0A /* About.storyboard in Resources */,
 				92B9E8E01B87CA07004C1DE4 /* config.plist in Resources */,
 				923099D81CC033BB0090FD0A /* Horarios.storyboard in Resources */,
 			);
@@ -617,10 +629,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A15BB2D91B9ACCDD00143EBE /* MaisTableViewController.swift in Sources */,
+				A15BB2D91B9ACCDD00143EBE /* AboutTableViewController.swift in Sources */,
 				92B9E8971B87B8D7004C1DE4 /* OLDLoginViewController.swift in Sources */,
+				928786AC1CC70FAF00AC72BD /* AbsenceInteractor.swift in Sources */,
 				923099F01CC04E490090FD0A /* LoginWorker.swift in Sources */,
 				92B9E8DC1B87C992004C1DE4 /* TIAManager.swift in Sources */,
+				928786B11CC70FAF00AC72BD /* AbsenceWorker.swift in Sources */,
 				A163723A1B89915A000A9C69 /* OLDFaltasTableViewController.swift in Sources */,
 				927D10E11BE832EE00ABFB0F /* HorarioAnotacaoViewController.swift in Sources */,
 				923099EC1CC04E490090FD0A /* LoginModels.swift in Sources */,
@@ -631,45 +645,44 @@
 				9289B8861B87ADB3004284E3 /* MackTIA.xcdatamodeld in Sources */,
 				A15BB2F21B9BD26300143EBE /* Nota.swift in Sources */,
 				923099EB1CC04E490090FD0A /* LoginInteractor.swift in Sources */,
-				86038C611CC5805900A130A2 /* AbsenceRouter.swift in Sources */,
-				86038C5D1CC5805900A130A2 /* AbsenceConfigurator.swift in Sources */,
 				925E2C8F1CC1585D00DEAF52 /* ErrorCode.swift in Sources */,
 				923C1F721BAA7C02006616B5 /* ConfigHelper.swift in Sources */,
+				928786AD1CC70FAF00AC72BD /* AbsenceModels.swift in Sources */,
 				925E2C9A1CC158ED00DEAF52 /* extension.swift in Sources */,
 				A15BB2D01B9AB26C00143EBE /* FaltaTableViewCell.swift in Sources */,
-				86038C5F1CC5805900A130A2 /* AbsenceModels.swift in Sources */,
 				923099ED1CC04E490090FD0A /* LoginPresenter.swift in Sources */,
 				925E2C941CC1587E00DEAF52 /* AKPickerView.swift in Sources */,
 				A15BB2F41B9BD79800143EBE /* NotaCollectionViewCell.swift in Sources */,
 				923099EF1CC04E490090FD0A /* LoginViewController.swift in Sources */,
+				928786AF1CC70FAF00AC72BD /* AbsenceRouter.swift in Sources */,
 				925E2CAB1CC18BA400DEAF52 /* ListGradeCollectionViewCell.swift in Sources */,
 				925E2CA21CC1616300DEAF52 /* ProgressBarView.swift in Sources */,
+				928786AB1CC70FAF00AC72BD /* AbsenceConfigurator.swift in Sources */,
 				92309A0B1CC067B50090FD0A /* ListGradeModels.swift in Sources */,
 				9246D50E1B9A4EBF00F0674D /* Falta.swift in Sources */,
 				92309A0F1CC067B50090FD0A /* ListGradeWorker.swift in Sources */,
 				9246D50B1B9A4E3400F0674D /* CoreDataHelper.swift in Sources */,
+				928786AE1CC70FAF00AC72BD /* AbsencePresenter.swift in Sources */,
 				92309A0D1CC067B50090FD0A /* ListGradeRouter.swift in Sources */,
 				92D278C31BB4D82900680733 /* HorarioSemanalViewController.swift in Sources */,
 				9289B8831B87ADB3004284E3 /* AppDelegate.swift in Sources */,
-				86038C601CC5805900A130A2 /* AbsencePresenter.swift in Sources */,
 				923099EE1CC04E490090FD0A /* LoginRouter.swift in Sources */,
 				92309A0C1CC067B50090FD0A /* ListGradePresenter.swift in Sources */,
 				925E2CA61CC1774E00DEAF52 /* ListGradeTableViewCell.swift in Sources */,
 				A15BB2ED1B9BD03900143EBE /* NotaTableViewCell.swift in Sources */,
 				925E2C901CC1585D00DEAF52 /* Reachability.swift in Sources */,
 				92B3EBF81BE5BF5900748E57 /* Horario.swift in Sources */,
-				86038C631CC5805900A130A2 /* AbsenceWorker.swift in Sources */,
+				928786B31CC710CF00AC72BD /* User.swift in Sources */,
 				86038C651CC5828300A130A2 /* AbsenceTableViewCell.swift in Sources */,
 				92D278C71BB4DA3900680733 /* HorarioTableViewCell.swift in Sources */,
 				92D278C51BB4D99400680733 /* HorarioDiaDaSemanaTableViewController.swift in Sources */,
-				86038C671CC5829F00A130A2 /* Absence.swift in Sources */,
-				86038C5E1CC5805900A130A2 /* AbsenceInteractor.swift in Sources */,
+				928786A31CC70F9900AC72BD /* Absence.swift in Sources */,
 				923099EA1CC04E490090FD0A /* LoginConfigurator.swift in Sources */,
-				86038C621CC5805900A130A2 /* AbsenceViewController.swift in Sources */,
 				9287869D1CC55E8F00AC72BD /* ErrorParser.swift in Sources */,
 				92309A0E1CC067B50090FD0A /* ListGradeTableViewController.swift in Sources */,
 				925E2C971CC158AB00DEAF52 /* CircleGraphView.swift in Sources */,
 				92309A0A1CC067B50090FD0A /* ListGradeInteractor.swift in Sources */,
+				928786B01CC70FAF00AC72BD /* AbsenceViewController.swift in Sources */,
 				A15BB2EB1B9BCEFF00143EBE /* OLDNotasTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -683,6 +696,7 @@
 				9289B89C1B87ADB3004284E3 /* MackTIATests.swift in Sources */,
 				9287869E1CC55F7000AC72BD /* ErrorParser.swift in Sources */,
 				925E2C9F1CC1615500DEAF52 /* Reachability.swift in Sources */,
+				928786B41CC7111600AC72BD /* User.swift in Sources */,
 				92309A231CC0A9490090FD0A /* LoginModels.swift in Sources */,
 				921D4EF91CC0B19F00FA06D3 /* Horario.swift in Sources */,
 				925E2CA31CC1616400DEAF52 /* ProgressBarView.swift in Sources */,
@@ -726,20 +740,20 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		923099D01CC032950090FD0A /* Faltas.storyboard */ = {
+		923099D01CC032950090FD0A /* Absences.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				923099D11CC032950090FD0A /* Base */,
 			);
-			name = Faltas.storyboard;
+			name = Absences.storyboard;
 			sourceTree = "<group>";
 		};
-		923099D31CC033990090FD0A /* Notas.storyboard */ = {
+		923099D31CC033990090FD0A /* Grades.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				923099D41CC033990090FD0A /* Base */,
 			);
-			name = Notas.storyboard;
+			name = Grades.storyboard;
 			sourceTree = "<group>";
 		};
 		923099D61CC033BB0090FD0A /* Horarios.storyboard */ = {
@@ -750,12 +764,12 @@
 			name = Horarios.storyboard;
 			sourceTree = "<group>";
 		};
-		923099D91CC034090090FD0A /* Mais.storyboard */ = {
+		923099D91CC034090090FD0A /* About.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				923099DA1CC034090090FD0A /* Base */,
 			);
-			name = Mais.storyboard;
+			name = About.storyboard;
 			sourceTree = "<group>";
 		};
 		9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */ = {
@@ -868,6 +882,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -882,6 +897,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.mackenzie.MackTia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MackTIA/MackTIA-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -894,6 +910,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -908,6 +925,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.mackenzie.MackTia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MackTIA/MackTIA-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

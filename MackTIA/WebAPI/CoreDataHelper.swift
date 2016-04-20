@@ -10,8 +10,8 @@ import Foundation
 import CoreData
 
 /** CoreDataHelper Class
-
-*/
+ 
+ */
 class CoreDataHelper {
     
     class var sharedInstance : CoreDataHelper {
@@ -33,14 +33,14 @@ class CoreDataHelper {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "MackMobile.CoreData_Swift" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] 
-        }()
+        return urls[urls.count-1]
+    }()
     
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
         let modelURL = NSBundle.mainBundle().URLForResource("MackTIA", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
-        }()
+    }()
     
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator? = {
         // The persistent store coordinator for the application. This implementation creates and return a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
@@ -70,7 +70,7 @@ class CoreDataHelper {
         }
         
         return coordinator
-        }()
+    }()
     
     lazy var managedObjectContext: NSManagedObjectContext? = {
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
@@ -81,7 +81,7 @@ class CoreDataHelper {
         var managedObjectContext = NSManagedObjectContext()
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
-        }()
+    }()
     
     // MARK: - Core Data Saving support
     
@@ -105,25 +105,25 @@ class CoreDataHelper {
     // MARK: - Util
     func removeAll(entityName:String){
         let fetchRequest = NSFetchRequest(entityName: entityName)
-
-        if #available(iOS 9.0, *) {
-            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-            do{
-                try persistentStoreCoordinator!.executeRequest(deleteRequest, withContext: managedObjectContext!)
-            }catch{
-                print("Error removing entity: \(entityName) - \(error)")
-            }
-        }else{
-            do{
-                let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
-                
-                for i in 0 ..< fetchedResults!.count {
-                    CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(fetchedResults![i])
-                }
-                CoreDataHelper.sharedInstance.saveContext()
-            }catch{
-                print("Error removing entity: \(entityName) - \(error)")
-            }
+        
+        //        if #available(iOS 9.0, *) {
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do{
+            try persistentStoreCoordinator!.executeRequest(deleteRequest, withContext: managedObjectContext!)
+        }catch{
+            print("Error removing entity: \(entityName) - \(error)")
         }
+        //        }else{
+        //            do{
+        //                let fetchedResults = try CoreDataHelper.sharedInstance.managedObjectContext!.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+        //
+        //                for i in 0 ..< fetchedResults!.count {
+        //                    CoreDataHelper.sharedInstance.managedObjectContext!.deleteObject(fetchedResults![i])
+        //                }
+        //                CoreDataHelper.sharedInstance.saveContext()
+        //            }catch{
+        //                print("Error removing entity: \(entityName) - \(error)")
+        //            }
+        //        }
     }
 }
