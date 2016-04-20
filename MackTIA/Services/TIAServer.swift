@@ -94,7 +94,7 @@ class TIAServer {
         if Reachability.isConnectedToNetwork() == false {
             completionHandler(jsonData: nil, error: ErrorCode.NoInternetConnection)
         }
-        print(#function, "URL: \(service.rawValue)\nPARAMETERS: \(self.getRequestParameters())")
+//        print(#function, "URL: \(service.rawValue)\nPARAMETERS: \(self.getRequestParameters())")
         Alamofire.request(.POST, service.rawValue, parameters: self.getRequestParameters()).responseJSON { response in
             
             if response.result.error != nil {

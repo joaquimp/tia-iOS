@@ -40,8 +40,8 @@ class LoginWorker {
             
             // TODO: Nao esta convertendo corretamente
             
-            if let response = jsonData!["resposta"] as? [String:AnyObject],
-                let name = response["nome_aluno"] as? String {
+            if let response = jsonData!["resposta"] as? [AnyObject],
+                let name = response[0]["nome_aluno"] as? String {
                     TIAServer.sharedInstance.user!.name = name
             }
             

@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// MARK: String
 extension String  {
     var md5: String! {
         let str = self.cStringUsingEncoding(NSUTF8StringEncoding)
@@ -29,6 +30,8 @@ extension String  {
     }
 }
 
+
+// MARK: UIColor
 extension UIColor {
     convenience init (hex:String) {
         var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()).uppercaseString
@@ -52,5 +55,20 @@ extension UIColor {
         NSScanner(string: bString).scanHexInt(&b)
         
         self.init(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: CGFloat(1))
+    }
+}
+
+
+// MARK: UIImage
+@IBDesignable
+extension UIImageView {
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
     }
 }

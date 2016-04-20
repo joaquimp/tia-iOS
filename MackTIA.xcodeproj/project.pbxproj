@@ -137,11 +137,6 @@
 		86038C641CC5828300A130A2 /* AbsenceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbsenceTableViewCell.swift; path = Scene/Absences/AbsenceTableViewCell.swift; sourceTree = "<group>"; };
 		923099C91CC02E3A0090FD0A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		923099CA1CC02E3A0090FD0A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		923099CE1CC031A10090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		923099D11CC032950090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Absences.storyboard; sourceTree = "<group>"; };
-		923099D41CC033990090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Grades.storyboard; sourceTree = "<group>"; };
-		923099D71CC033BB0090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Horarios.storyboard; sourceTree = "<group>"; };
-		923099DA1CC034090090FD0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
 		923099DF1CC045F70090FD0A /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		923099E31CC04E490090FD0A /* LoginConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginConfigurator.swift; path = Scene/LoginScene/LoginConfigurator.swift; sourceTree = "<group>"; };
 		923099E41CC04E490090FD0A /* LoginInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginInteractor.swift; path = Scene/LoginScene/LoginInteractor.swift; sourceTree = "<group>"; };
@@ -182,15 +177,19 @@
 		928786A91CC70FAF00AC72BD /* AbsenceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbsenceViewController.swift; path = Scene/Absences/AbsenceViewController.swift; sourceTree = "<group>"; };
 		928786AA1CC70FAF00AC72BD /* AbsenceWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AbsenceWorker.swift; path = Scene/Absences/AbsenceWorker.swift; sourceTree = "<group>"; };
 		928786B21CC710CF00AC72BD /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Entities/User.swift; sourceTree = "<group>"; };
+		928786BC1CC7A3AB00AC72BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		928786BD1CC7A3AB00AC72BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/About.storyboard; sourceTree = "<group>"; };
+		928786BE1CC7A3AB00AC72BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Horarios.storyboard; sourceTree = "<group>"; };
+		928786BF1CC7A3AB00AC72BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Grades.storyboard; sourceTree = "<group>"; };
+		928786C01CC7A3AB00AC72BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Absences.storyboard; sourceTree = "<group>"; };
+		928786C11CC7A3AB00AC72BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9289B87D1B87ADB3004284E3 /* MackTIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MackTIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9289B8811B87ADB3004284E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9289B8821B87ADB3004284E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9289B8851B87ADB3004284E3 /* MackTIA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MackTIA.xcdatamodel; sourceTree = "<group>"; };
-		9289B88F1B87ADB3004284E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9289B8951B87ADB3004284E3 /* MackTIATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MackTIATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9289B89A1B87ADB3004284E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9289B89B1B87ADB3004284E3 /* MackTIATests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MackTIATests.swift; sourceTree = "<group>"; };
-		929C92B41B9F720500844564 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		929C92BA1B9F7C7000844564 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		92B3EBF61BE5BF5900748E57 /* Horario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Horario.swift; path = WebAPI/Entidade/Horario.swift; sourceTree = "<group>"; };
 		92B9E8961B87B8D7004C1DE4 /* OLDLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OLDLoginViewController.swift; path = ViewController/OLDLoginViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +260,7 @@
 				923099F11CC0587C0090FD0A /* LoginScene */,
 				92309A011CC066B00090FD0A /* ListGrade */,
 				86038C551CC5803000A130A2 /* Absences */,
+				928786B51CC7164900AC72BD /* About */,
 			);
 			name = VIPER;
 			sourceTree = "<group>";
@@ -391,7 +391,6 @@
 			isa = PBXGroup;
 			children = (
 				923099E21CC04DB00090FD0A /* VIPER */,
-				928786B51CC7164900AC72BD /* About */,
 				92B9E8981B87B8DE004C1DE4 /* ViewControllers */,
 				92B9E8A91B87C217004C1DE4 /* WebAPI */,
 				9289B8821B87ADB3004284E3 /* AppDelegate.swift */,
@@ -549,9 +548,8 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
-				Base,
 				"pt-BR",
+				Base,
 			);
 			mainGroup = 9289B8741B87ADB3004284E3;
 			productRefGroup = 9289B87E1B87ADB3004284E3 /* Products */;
@@ -735,7 +733,7 @@
 		923099CD1CC031A10090FD0A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				923099CE1CC031A10090FD0A /* Base */,
+				928786BC1CC7A3AB00AC72BD /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -743,7 +741,7 @@
 		923099D01CC032950090FD0A /* Absences.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				923099D11CC032950090FD0A /* Base */,
+				928786C01CC7A3AB00AC72BD /* Base */,
 			);
 			name = Absences.storyboard;
 			sourceTree = "<group>";
@@ -751,7 +749,7 @@
 		923099D31CC033990090FD0A /* Grades.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				923099D41CC033990090FD0A /* Base */,
+				928786BF1CC7A3AB00AC72BD /* Base */,
 			);
 			name = Grades.storyboard;
 			sourceTree = "<group>";
@@ -759,7 +757,7 @@
 		923099D61CC033BB0090FD0A /* Horarios.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				923099D71CC033BB0090FD0A /* Base */,
+				928786BE1CC7A3AB00AC72BD /* Base */,
 			);
 			name = Horarios.storyboard;
 			sourceTree = "<group>";
@@ -767,7 +765,7 @@
 		923099D91CC034090090FD0A /* About.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				923099DA1CC034090090FD0A /* Base */,
+				928786BD1CC7A3AB00AC72BD /* Base */,
 			);
 			name = About.storyboard;
 			sourceTree = "<group>";
@@ -775,7 +773,7 @@
 		9289B88E1B87ADB3004284E3 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9289B88F1B87ADB3004284E3 /* Base */,
+				928786C11CC7A3AB00AC72BD /* Base */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -783,7 +781,6 @@
 		929C92B51B9F720500844564 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				929C92B41B9F720500844564 /* Base */,
 				929C92BA1B9F7C7000844564 /* pt-BR */,
 			);
 			name = Localizable.strings;

@@ -71,8 +71,8 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         let paddingViewPass = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: 50))
         
         let tiaPlaceholder = NSMutableAttributedString(string: NSLocalizedString("tia", comment: "Student Identification")) // Localized text here!
-        let rangeTia = NSMakeRange(0, tiaPlaceholder.string.characters.count)
-        tiaPlaceholder.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: rangeTia)
+//        let rangeTia = NSMakeRange(0, tiaPlaceholder.string.characters.count)
+//        tiaPlaceholder.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: rangeTia)
         
         self.tiaTextField.layer.cornerRadius = 7
         self.tiaTextField.leftView = paddingViewTia
@@ -82,8 +82,8 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         self.tiaTextField.attributedPlaceholder = tiaPlaceholder
         
         let passPlaceholder = NSMutableAttributedString(string: NSLocalizedString("password", comment: "Password Placeholder")) // Localized text here!
-        let rangePass = NSMakeRange(0, passPlaceholder.string.characters.count)
-        passPlaceholder.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: rangePass)
+//        let rangePass = NSMakeRange(0, passPlaceholder.string.characters.count)
+//        passPlaceholder.addAttribute(NSForegroundColorAttributeName, value: UIColor.whiteColor(), range: rangePass)
         
         self.passTextField.layer.cornerRadius = 7
         self.passTextField.leftView = paddingViewPass
@@ -176,14 +176,16 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
         var info = notification.userInfo!
         let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
         
-        UIView.animateWithDuration(0.1, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.bottomConstraint.constant = keyboardFrame.size.height + 20
+            self.view.layoutIfNeeded()
         })
     }
     
     func keyboardWasHide(notification: NSNotification) {
-        UIView.animateWithDuration(0.1, animations: { () -> Void in
+        UIView.animateWithDuration(0.5, animations: { () -> Void in
             self.bottomConstraint.constant = 102
+            self.view.layoutIfNeeded()
         })
     }
     
@@ -206,6 +208,11 @@ class LoginViewController: UIViewController, AKPickerViewDataSource, AKPickerVie
     
     // MARK: - TextFieldDelegate
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        if textField == passTextField {
+            self.login(self.loginButton)
+        }
+        
         let tag = textField.tag + 1
         if let superview = textField.superview {
             let nextTextField = superview.viewWithTag(tag)

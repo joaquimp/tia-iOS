@@ -47,7 +47,7 @@ class CoreDataHelper {
         // Create the coordinator and store
         var coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("MackTIA.sqlite")
-        print(url)
+//        print(url)
         var error: NSError? = nil
         var failureReason = "There was an error creating or loading the application's saved data."
         do {

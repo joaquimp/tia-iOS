@@ -25,3 +25,31 @@
 "atualizacaoNaoInformada" = "Atualização: sem informação";
 "atualizacao.data" = "Atualização: ";
 "update.label.text" = "Atualizado em: ";
+
+
+// Login Interface
+"password" = "SENHA";
+"tia" = "TIA";
+"login_defaultErrorTitle" = "Ops :(";
+"login_defaultErrorMessage" = "Por algum motivo desconhecido não foi possível fazer o login. Tente novamente mais tarde. Caso o problema persista, envie um e-mail para aplicativos@mackenzie.br";
+
+// Error Message
+"error_invalidLoginCredentials_title"   = "Acesso Negado";
+"error_invalidLoginCredentials_message" = "Não foi possível fazer o login, verifique se os dados estão corretos";
+
+"error_noInternetConnection_title"      = "Sem Conexão";
+"error_noInternetConnection_message"    = "Não foi possível realizar a operação, parece que seu dispositivo não está conectado na internet";
+
+"error_domainNotFound_title"            = "Ops :/";
+"error_domainNotFound_message"          = "O seu aplicativo não conseguiu encontrar nossos servidores. Pode ser um problema temporário, ou seu aplicativo pode estar desatualizado. As vezes este problema pode acontecer pelo fato da qualidade de sua conexão estar muito ruim.";
+
+// Grade interface
+"grade_InvalidDataTitle" = "Ops :/";
+"grade_InvalidDataMessage" = "Não foi possível carregar as suas notas. O problema pode ser temporário, mas se persistir entre em contato pelo e-mail aplicativos@mackenzie.br. Não esqueça de fornecer seus dados, como TIA, Nome e descrição do erro ;)";
+
+
+// E-mail Message
+"mail_successMessageSentTitle"      = "Obrigado";
+"mail_successMessageSentMessage"    = "Seu e-mail foi enviado e ficamos gratos pela sua(s) critica(s) e/ou sugestão(ões) :)";
+"mail_errorMessageSentTitle"      = "Ops :/";
+"mail_errorMessageSentMessage"    = "Ocorreu algum problema ao tentar enviar o e-mail. Se não estiver conseguindo enviar por aqui, envie um e-mail para aplicativos@mackenzie.br. Obrigado!";

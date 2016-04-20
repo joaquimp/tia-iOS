@@ -46,9 +46,10 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         ///////
         
         ///////
-        let apoioSection    = 3
-        let paginaFCI   = 0
-        let paginaDTI   = 2
+        let apoioSection        = 3
+        let paginaFCI           = 0
+        let paginaMackMobile    = 1
+        let paginaDTI           = 2
         ///////
         
         if indexPath.section == equipeSection || indexPath.section == userSection {
@@ -73,7 +74,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
                 // Curtir pagina da Radio Mackenzie
                 var url = NSURL(string: "fb://profile/795338763868734")
                 if url == nil || !UIApplication.sharedApplication().canOpenURL(url!) {
-                    let safariURL = NSURL(string: "https://www.facebook.com/TvMackenzie")
+                    let safariURL = NSURL(string: "https://www.facebook.com/radiomackenzie")
                     if safariURL == nil {
                         print("Não conseguiu abrir facebook")
                         return
@@ -133,6 +134,14 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
                     return
                 }
                 UIApplication.sharedApplication().openURL(url!)
+            case paginaMackMobile:
+                // Pagina do MackMobile
+                let url = NSURL(string: "http://www.mackmobile.com.br")
+                if url == nil || !UIApplication.sharedApplication().canOpenURL(url!) {
+                    print("Não conseguiu abrir pagina do MackMobile")
+                    return
+                }
+                UIApplication.sharedApplication().openURL(url!)
             default:
                 return
             }
@@ -157,8 +166,8 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
     
     @IBAction func logoutButton(sender: AnyObject) {
         // TODO: Colocar mensagem no Localizable.strings
-        let alertController = UIAlertController(title: "Sair", message: "Deseja realmente sair?", preferredStyle: UIAlertControllerStyle.Alert)
-        let actionSair = UIAlertAction(title: "Sair", style: UIAlertActionStyle.Default) { (alertAction) -> Void in
+        let alertController = UIAlertController(title: "Sair da sua conta", message: "Caso você saida, será necessário informar seu tia e senha para acessar sua conta novamente", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let actionSair = UIAlertAction(title: "Sair", style: .Destructive) { (alertAction) -> Void in
             TIAServer.sharedInstance.logoff()
             self.performSegueWithIdentifier("logoutSegue", sender: self)
         }

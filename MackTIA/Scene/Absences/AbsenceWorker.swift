@@ -22,7 +22,7 @@ class AbsenceWorker {
                     return
             }
             
-            print(response)
+//            print(response)
             
             var absences:[Absence] = []
             

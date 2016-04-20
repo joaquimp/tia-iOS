@@ -28,7 +28,13 @@ class AbsencePresenter: AbsencePresenterInput
     // MARK: Presentation logic
     
     func presentFetchedAbsences(response: AbsenceResponse) {
-        let viewModel = AbsenceViewModel(displayedAbsences: response.absences)
+        
+        // Remove absences without presence classe
+        let absences = response.absences.filter { (absence) -> Bool in
+            return absence.permit > 0
+        }
+        
+        let viewModel = AbsenceViewModel(displayedAbsences: absences)
         output.displayFetchedAbsences(viewModel)
     }
 }
