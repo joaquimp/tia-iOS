@@ -13,4 +13,5 @@ struct User {
     var tia:String
     var password:String
     var campus:String
+    var campusName:String?
 }

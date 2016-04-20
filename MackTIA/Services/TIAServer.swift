@@ -47,12 +47,13 @@ class TIAServer {
         guard let tia = NSUserDefaults.standardUserDefaults().objectForKey("tia") as? String,
             let password = NSUserDefaults.standardUserDefaults().objectForKey("password") as? String,
             let campus = NSUserDefaults.standardUserDefaults().objectForKey("campus") as? String,
-            let name = NSUserDefaults.standardUserDefaults().objectForKey("name") as? String else {
+            let name = NSUserDefaults.standardUserDefaults().objectForKey("name") as? String,
+            let campusName = NSUserDefaults.standardUserDefaults().objectForKey("campusName") as? String else {
                 self.logoff()
                 return nil
         }
         
-        self.user = User(name: name, tia: tia, password: password, campus: campus)
+        self.user = User(name: name, tia: tia, password: password, campus: campus, campusName: campusName)
         return self.user
         
     }
@@ -67,6 +68,7 @@ class TIAServer {
         NSUserDefaults.standardUserDefaults().setObject(u.password, forKey: "password")
         NSUserDefaults.standardUserDefaults().setObject(u.campus, forKey: "campus")
         NSUserDefaults.standardUserDefaults().setObject(u.name, forKey: "name")
+        NSUserDefaults.standardUserDefaults().setObject(u.campusName, forKey: "campusName")
     }
     
     func logoff() {
@@ -74,6 +76,7 @@ class TIAServer {
         NSUserDefaults.standardUserDefaults().removeObjectForKey("password")
         NSUserDefaults.standardUserDefaults().removeObjectForKey("campus")
         NSUserDefaults.standardUserDefaults().removeObjectForKey("name")
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("campusName")
     }
     
     

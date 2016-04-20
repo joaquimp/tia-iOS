@@ -16,6 +16,7 @@ import MessageUI
 class AboutTableViewController: UITableViewController, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var collegeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,9 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
         userLabel.text = TIAServer.sharedInstance.user?.name ?? TIAServer.sharedInstance.user?.tia
+        
+        // TODO: Mudar label padrao
+        collegeLabel.text = TIAServer.sharedInstance.user?.campusName ?? "<em desenvolvimento>"
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

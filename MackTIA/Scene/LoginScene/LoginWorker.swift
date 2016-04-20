@@ -16,10 +16,10 @@ class LoginWorker {
     
     func validadeLogin(request: LoginRequest, completionHandler: (response: Bool, error: ErrorCode?)->Void){
         
-        let user = User(name: nil, tia: request.tia, password: request.password, campus: request.campus)
+        let user = User(name: nil, tia: request.tia, password: request.password, campus: request.campus, campusName: "<em desenvolvimento>")
         TIAServer.sharedInstance.user = user
         // TODO: depois que resolver a mudanca na API voltar para requisicao do tipo login
-        TIAServer.sharedInstance.sendRequet(ServiceURL.Absence) { (jsonData, error) in
+        TIAServer.sharedInstance.sendRequet(ServiceURL.Login) { (jsonData, error) in
             
             guard error == nil else {
                 completionHandler(response: false, error: error)
