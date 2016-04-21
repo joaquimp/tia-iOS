@@ -8,7 +8,7 @@
 
 import Foundation
 import Alamofire
-
+import UIKit
 
 enum ServiceURL:String {
     // TODO: Precisa que o servidor devolva o nome do aluno no servico ping.php
@@ -98,8 +98,10 @@ class TIAServer {
             completionHandler(jsonData: nil, error: ErrorCode.NoInternetConnection)
         }
 //        print(#function, "URL: \(service.rawValue)\nPARAMETERS: \(self.getRequestParameters())")
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        
         Alamofire.request(.POST, service.rawValue, parameters: self.getRequestParameters()).responseJSON { response in
-            
+            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             if response.result.error != nil {
                 print(#function, response.result.error)
                 // TODO: Validar que este erro só acontecerá caso o dominio esteja errado

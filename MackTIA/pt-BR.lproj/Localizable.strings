@@ -49,7 +49,7 @@
 
 
 // E-mail Message
-"mail_successMessageSentTitle"      = "Obrigado";
-"mail_successMessageSentMessage"    = "Seu e-mail foi enviado e ficamos gratos pela sua(s) critica(s) e/ou sugestão(ões) :)";
-"mail_errorMessageSentTitle"      = "Ops :/";
-"mail_errorMessageSentMessage"    = "Ocorreu algum problema ao tentar enviar o e-mail. Se não estiver conseguindo enviar por aqui, envie um e-mail para aplicativos@mackenzie.br. Obrigado!";
+"e-mail_successMessageSentTitle"      = "Obrigado";
+"e-mail_successMessageSentMessage"    = "Seu e-mail foi enviado e ficamos gratos pela sua(s) critica(s) e/ou sugestão(ões) :)";
+"e-mail_errorMessageSentTitle"      = "Ops :/";
+"e-mail_errorMessageSentMessage"    = "Ocorreu algum problema ao tentar enviar o e-mail. Se não estiver conseguindo enviar por aqui, envie um e-mail para aplicativos@mackenzie.br. Obrigado!";

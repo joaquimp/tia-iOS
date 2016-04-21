@@ -30,9 +30,19 @@ class AbsencePresenter: AbsencePresenterInput
     func presentFetchedAbsences(response: AbsenceResponse) {
         
         // Remove absences without presence classe
-        let absences = response.absences.filter { (absence) -> Bool in
-            return absence.permit > 0
+        var absences = response.absences.filter { (absence) -> Bool in
+            return absence.dadas > 0
         }
+        
+        absences = absences.map { (absence) -> Absence in
+            var ab = absence
+            if absence.atualizacao == "00/00/0000" {
+                // TODO: localizable.string
+                ab.atualizacao = "sem novidades"
+            }
+            return ab
+        }
+        
         
         let viewModel = AbsenceViewModel(displayedAbsences: absences)
         output.displayFetchedAbsences(viewModel)
