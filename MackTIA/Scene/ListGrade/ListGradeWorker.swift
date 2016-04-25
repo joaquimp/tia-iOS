@@ -25,7 +25,7 @@ class ListGradeWorker {
                 completionHandler(grades: [], error: error)
             }
             
-            if let _ = jsonData!["erro"] as? String  {
+            if let _ = jsonData?["erro"] as? String  {
                 let errorMessage = jsonData?["erro"]
                 print(#function, "Server report error: \(errorMessage)")
                 completionHandler(grades: [], error: ErrorCode.InvalidLoginCredentials(title: NSLocalizedString("error_invalidLoginCredentials_title", comment: "User credentials error"), message: NSLocalizedString("error_invalidLoginCredentials_message", comment: "User credentials error")))

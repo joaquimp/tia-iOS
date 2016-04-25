@@ -107,7 +107,11 @@ class TIAServer {
                 // TODO: Validar que este erro só acontecerá caso o dominio esteja errado
                 completionHandler(jsonData: nil, error: ErrorCode.DomainNotFound)
             } else {
-                completionHandler(jsonData: response.result.value, error: nil)
+                if let jsonData = response.result.value {
+                    completionHandler(jsonData: jsonData, error: nil)
+                } else {
+                    completionHandler(jsonData: nil, error: ErrorCode.OtherFailure(title: NSLocalizedString("error_noDataFound_title", comment: "No data found"), message: NSLocalizedString("error_noDataFound_message", comment: "No data found")))
+                }
             }
         }
     }

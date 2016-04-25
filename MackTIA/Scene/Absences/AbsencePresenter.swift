@@ -38,6 +38,10 @@ class AbsencePresenter: AbsencePresenterInput
             var ab = absence
             if absence.atualizacao == "00/00/0000" {
                 // TODO: localizable.string
+                
+                
+                
+                
                 ab.atualizacao = "sem novidades"
             }
             return ab
