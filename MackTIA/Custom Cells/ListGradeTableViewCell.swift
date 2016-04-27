@@ -51,6 +51,11 @@ class ListGradeTableViewCell: UITableViewCell {
         self.classNameLabel.text = grade.className
         self.formulaLabel.text = grade.formula
         self.grades = grade.grades
+        
+        // Force reload becouse this is a reusable cell
+        self.ni1CollectionView.reloadData()
+        self.ni2CollectionView.reloadData()
+        self.otherGradesCollectionView.reloadData()
     }
 
 }

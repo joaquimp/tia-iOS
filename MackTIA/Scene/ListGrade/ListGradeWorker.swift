@@ -17,12 +17,15 @@ class ListGradeWorker {
     func fetchGrades(completionHandler: (grades: [Grade], error: ErrorCode?)->Void) {
         TIAServer.sharedInstance.sendRequet(ServiceURL.Grades) { (jsonData, error) in
             let grades = self.parseJSON(jsonData)
+            
+            if error != nil {
+                completionHandler(grades: [], error: error)
+                return
+            }
 
-            if grades == nil && error == nil {
+            guard let safeGrades = grades else {
                 completionHandler(grades: [],error: ErrorCode.OtherFailure(title: NSLocalizedString("grade_InvalidDataTitle", comment: "Problem with grade data from API"), message: NSLocalizedString("grade_InvalidDataMessage", comment: "Problem with grade data from API")))
                 return
-            } else if error != nil {
-                completionHandler(grades: [], error: error)
             }
             
             if let _ = jsonData?["erro"] as? String  {
@@ -32,7 +35,7 @@ class ListGradeWorker {
                 return
             }
             
-            completionHandler(grades: grades!, error: nil)
+            completionHandler(grades: safeGrades, error: nil)
         }
     }
     

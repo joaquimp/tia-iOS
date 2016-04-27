@@ -96,6 +96,7 @@ class TIAServer {
         
         if Reachability.isConnectedToNetwork() == false {
             completionHandler(jsonData: nil, error: ErrorCode.NoInternetConnection)
+            return
         }
 //        print(#function, "URL: \(service.rawValue)\nPARAMETERS: \(self.getRequestParameters())")
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
@@ -106,11 +107,14 @@ class TIAServer {
                 print(#function, response.result.error)
                 // TODO: Validar que este erro só acontecerá caso o dominio esteja errado
                 completionHandler(jsonData: nil, error: ErrorCode.DomainNotFound)
+                return
             } else {
                 if let jsonData = response.result.value {
                     completionHandler(jsonData: jsonData, error: nil)
+                    return
                 } else {
                     completionHandler(jsonData: nil, error: ErrorCode.OtherFailure(title: NSLocalizedString("error_noDataFound_title", comment: "No data found"), message: NSLocalizedString("error_noDataFound_message", comment: "No data found")))
+                    return
                 }
             }
         }
