@@ -20,7 +20,11 @@ struct ListGradeResponse {
 }
 
 struct ListGradeViewModel {
-    var grades:[Grade]
-    var errorMessage:String?
-    var errorTitle:String?
+    struct Success {
+        var grades:[Grade]
+    }
+    struct Error {
+        var errorMessage:String
+        var errorTitle:String
+    }
 }

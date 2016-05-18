@@ -2,18 +2,16 @@
   "images" : [
     {
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "joaquim.jpg"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "joaquim@2x.jpg"
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "joaquim@3x.jpg"
+      "filename" : "1465128_10151719447931512_1230096694_n.jpg",
+      "scale" : "3x"
     }
   ],
   "info" : {

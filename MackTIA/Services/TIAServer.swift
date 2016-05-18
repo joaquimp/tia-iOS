@@ -93,19 +93,21 @@ class TIAServer {
     }
     
     func sendRequet(service:ServiceURL, completionHandler:(jsonData:AnyObject?, error: ErrorCode?) -> Void) {
-        
-        if Reachability.isConnectedToNetwork() == false {
-            completionHandler(jsonData: nil, error: ErrorCode.NoInternetConnection)
-            return
-        }
+
+        // Problem with Reachability Method, some times return false, bust connection is ok
+//        if Reachability.isConnectedToNetwork() == false {
+//            completionHandler(jsonData: nil, error: ErrorCode.NoInternetConnection)
+//            return
+//        }
 //        print(#function, "URL: \(service.rawValue)\nPARAMETERS: \(self.getRequestParameters())")
+        
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
         Alamofire.request(.POST, service.rawValue, parameters: self.getRequestParameters()).responseJSON { response in
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            
             if response.result.error != nil {
                 print(#function, response.result.error)
-                // TODO: Validar que este erro só acontecerá caso o dominio esteja errado
                 completionHandler(jsonData: nil, error: ErrorCode.DomainNotFound)
                 return
             } else {

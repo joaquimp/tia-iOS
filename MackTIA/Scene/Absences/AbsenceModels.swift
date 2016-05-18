@@ -18,9 +18,18 @@ struct AbsenceRequest
 struct AbsenceResponse
 {
     var absences:[Absence]
+    var error:ErrorCode?
 }
 
 struct AbsenceViewModel
 {
-    var displayedAbsences:[Absence]
+    struct Success {
+        var displayedAbsences:[Absence]
+    }
+    
+    struct Error {
+        var errorMessage:String
+        var errorTitle:String
+    }
 }
+   

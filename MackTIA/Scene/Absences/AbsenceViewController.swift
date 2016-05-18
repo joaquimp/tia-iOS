@@ -13,7 +13,8 @@ import UIKit
 
 // Metodos que poderao ser invocados pelo Presenter
 protocol AbsenceViewControllerInput {
-    func displayFetchedAbsences(viewModel: AbsenceViewModel)
+    func displayFetchedAbsences(viewModel: AbsenceViewModel.Success)
+    func displayFetchedAbsencesError(viewModel: AbsenceViewModel.Error)
 }
 
 // Metodos que podem ser invocados no Interector
@@ -45,8 +46,8 @@ class AbsenceViewController: UITableViewController, AbsenceViewControllerInput {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchAbsences()
         configInterfaceAnimations()
+        fetchAbsences()
     }
     
     // MARK: Interface Animations
@@ -91,10 +92,18 @@ class AbsenceViewController: UITableViewController, AbsenceViewControllerInput {
     
     // MARK: Display logic
     
-    func displayFetchedAbsences(viewModel: AbsenceViewModel) {
+    func displayFetchedAbsences(viewModel: AbsenceViewModel.Success) {
         self.stopReloadAnimation()
         displayedAbsences = viewModel.displayedAbsences
         tableView.reloadData()
+    }
+    
+    func displayFetchedAbsencesError(viewModel: AbsenceViewModel.Error) {
+        self.stopReloadAnimation()
+        
+        let alert = UIAlertController(title: viewModel.errorTitle, message: viewModel.errorMessage, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     // MARK: UITableViewDataSource

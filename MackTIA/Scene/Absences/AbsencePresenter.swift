@@ -18,7 +18,8 @@ protocol AbsencePresenterInput
 
 protocol AbsencePresenterOutput: class
 {
-    func displayFetchedAbsences(viewModel: AbsenceViewModel)
+    func displayFetchedAbsences(viewModel: AbsenceViewModel.Success)
+    func displayFetchedAbsencesError(viewModel: AbsenceViewModel.Error)
 }
 
 class AbsencePresenter: AbsencePresenterInput
@@ -38,17 +39,19 @@ class AbsencePresenter: AbsencePresenterInput
             var ab = absence
             if absence.atualizacao == "00/00/0000" {
                 // TODO: localizable.string
-                
-                
-                
-                
                 ab.atualizacao = "sem novidades"
             }
             return ab
         }
         
         
-        let viewModel = AbsenceViewModel(displayedAbsences: absences)
-        output.displayFetchedAbsences(viewModel)
+        if response.error != nil {
+            let error:(title:String,message:String) = ErrorParser.parse(response.error!)
+            let viewModel = AbsenceViewModel.Error(errorMessage: error.message, errorTitle: error.title)
+            output.displayFetchedAbsencesError(viewModel)
+        } else {
+            let viewModel = AbsenceViewModel.Success(displayedAbsences: absences)
+            output.displayFetchedAbsences(viewModel)
+        }
     }
 }

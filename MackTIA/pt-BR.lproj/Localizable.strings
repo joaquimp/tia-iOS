@@ -51,6 +51,12 @@
 "grade_InvalidDataMessage" = "Não foi possível carregar as suas notas. O problema pode ser temporário, mas se persistir entre em contato pelo e-mail aplicativos@mackenzie.br. Não esqueça de fornecer seus dados, como TIA, Nome e descrição do erro ;)";
 
 
+// Absence interface
+"absence_InvalidDataTitle" = "Ops :/";
+"absence_InvalidDataMessage" = "Não foi possível carregar as suas faltas. O problema pode ser temporário, mas se persistir entre em contato pelo e-mail aplicativos@mackenzie.br. Não esqueça de fornecer seus dados, como TIA, Nome e descrição do erro ;)";
+
+
+
 // E-mail Message
 "e-mail_successMessageSentTitle"      = "Obrigado";
 "e-mail_successMessageSentMessage"    = "Seu e-mail foi enviado e ficamos gratos pela sua(s) critica(s) e/ou sugestão(ões) :)";

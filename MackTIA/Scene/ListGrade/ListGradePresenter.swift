@@ -16,7 +16,8 @@ protocol ListGradePresenterInput {
 }
 
 protocol ListGradePresenterOutput: class {
-    func displayFetchedGrades(viewModel: ListGradeViewModel)
+    func displayFetchedGrades(viewModel: ListGradeViewModel.Success)
+    func displayFetchedGradesError(viewModel: ListGradeViewModel.Error)
 }
 
 class ListGradePresenter: ListGradePresenterInput {
@@ -26,13 +27,14 @@ class ListGradePresenter: ListGradePresenterInput {
     
     func presentFetchedGrades(response: ListGradeResponse) {
         
-        var error:(title:String,message:String)?
-        
         if response.error != nil {
-            error = ErrorParser.parse(response.error!)
+            let error:(title:String,message:String) = ErrorParser.parse(response.error!)
+            let viewModel = ListGradeViewModel.Error(errorMessage: error.message, errorTitle: error.title)
+            output.displayFetchedGradesError(viewModel)
+        } else {
+            let viewModel = ListGradeViewModel.Success(grades: response.grades)
+            output.displayFetchedGrades(viewModel)
         }
         
-        let viewModel = ListGradeViewModel(grades: response.grades, errorMessage: error?.message, errorTitle: error?.title)
-        output.displayFetchedGrades(viewModel)
     }
 }

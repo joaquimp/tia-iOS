@@ -27,8 +27,8 @@ class AbsenceInteractor: AbsenceInteractorInput {
     
     func fetchAbsences(request: AbsenceRequest) {
         worker = AbsenceWorker()
-        worker.fetchAbsences { (absences) in
-            let response = AbsenceResponse(absences: absences)
+        worker.fetchAbsences { (absences, error) in
+            let response = AbsenceResponse(absences: absences, error: error)
             self.output.presentFetchedAbsences(response)
         }
     }

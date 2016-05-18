@@ -12,7 +12,8 @@
 import UIKit
 
 protocol ListGradeTableViewControllerInput {
-    func displayFetchedGrades(viewModel: ListGradeViewModel)
+    func displayFetchedGrades(viewModel: ListGradeViewModel.Success)
+    func displayFetchedGradesError(viewModel: ListGradeViewModel.Error)
 }
 
 protocol ListGradeTableViewControllerOutput {
@@ -104,19 +105,21 @@ class ListGradeTableViewController: UITableViewController, ListGradeTableViewCon
     
     // MARK: Display logic
     
-    func displayFetchedGrades(viewModel: ListGradeViewModel) {
-        stopReloadAnimation()
-        if viewModel.errorTitle != nil && viewModel.errorMessage != nil {
-            let alert = UIAlertController(title: viewModel.errorTitle!, message: viewModel.errorMessage!, preferredStyle: .Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-            return
-        }
+    func displayFetchedGrades(viewModel: ListGradeViewModel.Success) {
+        self.stopReloadAnimation()
         
         self.grades = viewModel.grades
         dispatch_async(dispatch_get_main_queue()) { 
             self.tableView.reloadData()
         }
+    }
+    
+    func displayFetchedGradesError(viewModel: ListGradeViewModel.Error) {
+        self.stopReloadAnimation()
+        
+        let alert = UIAlertController(title: viewModel.errorTitle, message: viewModel.errorMessage, preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
 }
 
@@ -146,10 +149,10 @@ extension ListGradeTableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if grades[indexPath.row].schoolCode == "31" {
+        if grades[indexPath.row].schoolCode.rangeOfString("31") != nil {
             let cell = tableView.dequeueReusableCellWithIdentifier("grade31SchoolCell")
             cell?.textLabel?.text = grades[indexPath.row].className
-            cell?.detailTextLabel?.text = "Em desenvolvimento para escola FAU"
+            cell?.detailTextLabel?.text = "Em desenvolvimento - FAU"
             return cell!
         }
         
@@ -160,7 +163,7 @@ extension ListGradeTableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        if grades[indexPath.row].schoolCode == "31" {
+        if grades[indexPath.row].schoolCode.rangeOfString("31") != nil {
             return self.school31CellHeight
         }
         
