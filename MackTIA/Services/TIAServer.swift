@@ -27,6 +27,14 @@ class TIAServer {
     
     // MARK: Singleton Methods
     static let sharedInstance = TIAServer()
+    let alamoFireManager:Alamofire.Manager?
+    
+    init() {
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.timeoutIntervalForRequest = 25 // seconds
+        configuration.timeoutIntervalForResource = 25
+        self.alamoFireManager = Alamofire.Manager(configuration: configuration)
+    }
     
     // MARK: Security Parameters and Methods
     var user:User?
@@ -101,9 +109,15 @@ class TIAServer {
 //        }
 //        print(#function, "URL: \(service.rawValue)\nPARAMETERS: \(self.getRequestParameters())")
         
+        guard let _ = self.alamoFireManager else {
+            print(#function, "Não foi possível criar objeto Manager para conexão web")
+            completionHandler(jsonData: nil, error: ErrorCode.DomainNotFound)
+            return
+        }
+        
         UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         
-        Alamofire.request(.POST, service.rawValue, parameters: self.getRequestParameters()).responseJSON { response in
+        alamoFireManager!.request(.POST, service.rawValue, parameters: self.getRequestParameters()).responseJSON { response in
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             
             if response.result.error != nil {

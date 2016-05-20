@@ -113,7 +113,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Importante" id="vx6-NV-iGW">
                                 <cells>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" rowHeight="50" id="skj-CT-8Pz">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" rowHeight="50" id="skj-CT-8Pz">
                                         <rect key="frame" x="0.0" y="255.5" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="skj-CT-8Pz" id="ba6-qV-dJA">
@@ -147,6 +147,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="iLc-2F-hEp" kind="show" trigger="accessoryAction" id="plg-Jc-Np2"/>
+                                            <segue destination="iLc-2F-hEp" kind="show" id="Tnd-QR-Yge"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -1037,7 +1038,7 @@ Ao continuar você declara estar ciente destes possíveis problemas.</string>
                                                         <constraint firstAttribute="width" constant="28" id="wPc-ui-Ehj"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ajudenos a melhorar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLn-HP-6Bf">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ajude-nos a melhorar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLn-HP-6Bf">
                                                     <rect key="frame" x="52" y="12" width="315" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1123,5 +1124,8 @@ Ao continuar você declara estar ciente destes possíveis problemas.</string>
         <image name="more_selected" width="25" height="25"/>
         <image name="rafael" width="144" height="169"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="plg-Jc-Np2"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.8862745098" green="0.078431372550000003" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
 </document>

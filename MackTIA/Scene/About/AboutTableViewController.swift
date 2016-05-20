@@ -37,7 +37,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         let userSection = 0
         
         ///////
-        let socialSection   = 1
+        let socialSection   = 2
         let fbMack      = 0
         let fbTVMack    = 1
         let fbRadio     = 2
@@ -47,11 +47,11 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
         ///////
         
         ///////
-        let equipeSection   = 2
+        let equipeSection   = 3
         ///////
         
         ///////
-        let apoioSection        = 3
+        let apoioSection        = 4
         let paginaFCI           = 0
         let paginaMackMobile    = 1
         let paginaDTI           = 2
