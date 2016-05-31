@@ -29,13 +29,15 @@
             <string>Bariol-Regular</string>
             <string>Bariol-Regular</string>
             <string>Bariol-Regular</string>
+            <string>Bariol-Regular</string>
+            <string>Bariol-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--MackTIA-->
+        <!--TIA-->
         <scene sceneID="4EV-CQ-DMz">
             <objects>
-                <tableViewController id="mWq-u3-R8O" customClass="AboutTableViewController" customModule="MackTIA" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="mWq-u3-R8O" customClass="AboutTableViewController" customModule="TIA" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="p5q-dU-DsZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -390,7 +392,7 @@
                                                         <constraint firstAttribute="height" constant="21" id="kNq-2Y-1yd"/>
                                                     </constraints>
                                                     <string key="text">Professor e Pesquisador da FCI
-Idealizador/Desenvolvedor do Aplicativo iOS
+Desenvolvedor/Design do Aplicativo iOS
 Mentor no projeto MackMobile</string>
                                                     <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -486,8 +488,73 @@ Idealizador do Aplicativo
                                             </variation>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="95" id="dNe-AX-6cb">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="95" id="dpo-rb-a1z">
                                         <rect key="frame" x="0.0" y="879.5" width="375" height="95"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dpo-rb-a1z" id="S9u-bJ-8F3">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bia" translatesAutoresizingMaskIntoConstraints="NO" id="jXd-zl-jzM">
+                                                    <rect key="frame" x="16" y="10" width="75" height="75"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="jXd-zl-jzM" secondAttribute="height" multiplier="1:1" id="Uvo-5k-Utu"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="35"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Beatriz de Almeida Pacheco" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjS-wy-SCT">
+                                                    <rect key="frame" x="101" y="17" width="266" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Whh-Gm-0JU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="16"/>
+                                                    <color key="textColor" red="0.89928382640000004" green="0.12798005339999999" blue="0.001599563868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnM-fc-CC1">
+                                                    <rect key="frame" x="101" y="39" width="266" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="C6G-sO-fWe"/>
+                                                        <constraint firstAttribute="height" constant="21" id="nZj-5V-wIU"/>
+                                                    </constraints>
+                                                    <string key="text">Professora e Pesquisadora da FCI
+Design do Aplicativo</string>
+                                                    <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="12"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="C6G-sO-fWe"/>
+                                                            <exclude reference="nZj-5V-wIU"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="mjS-wy-SCT" firstAttribute="leading" secondItem="jXd-zl-jzM" secondAttribute="trailing" constant="10" id="2p0-ou-HRJ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="mjS-wy-SCT" secondAttribute="trailing" id="DU2-E8-MF3"/>
+                                                <constraint firstItem="NnM-fc-CC1" firstAttribute="top" secondItem="S9u-bJ-8F3" secondAttribute="topMargin" constant="31" id="GUS-Tb-hfR"/>
+                                                <constraint firstItem="jXd-zl-jzM" firstAttribute="leading" secondItem="S9u-bJ-8F3" secondAttribute="leadingMargin" constant="8" id="HVL-IQ-eUq"/>
+                                                <constraint firstItem="NnM-fc-CC1" firstAttribute="trailing" secondItem="mjS-wy-SCT" secondAttribute="trailing" id="Nkq-Ya-aeI"/>
+                                                <constraint firstItem="NnM-fc-CC1" firstAttribute="leading" secondItem="mjS-wy-SCT" secondAttribute="leading" id="OX6-Nk-bkg"/>
+                                                <constraint firstItem="jXd-zl-jzM" firstAttribute="top" secondItem="S9u-bJ-8F3" secondAttribute="topMargin" constant="2" id="WVl-fU-iq6"/>
+                                                <constraint firstItem="mjS-wy-SCT" firstAttribute="top" secondItem="S9u-bJ-8F3" secondAttribute="topMargin" constant="9" id="eOO-C7-xcT"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="jXd-zl-jzM" secondAttribute="bottom" constant="2" id="nZL-vR-5gd"/>
+                                                <constraint firstItem="jXd-zl-jzM" firstAttribute="centerY" secondItem="mjS-wy-SCT" secondAttribute="centerY" id="olO-Ac-g8y"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="olO-Ac-g8y"/>
+                                                </mask>
+                                            </variation>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="95" id="dNe-AX-6cb">
+                                        <rect key="frame" x="0.0" y="974.5" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dNe-AX-6cb" id="kMM-bo-uuQ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
@@ -552,7 +619,7 @@ Contribuidor/Desenvolvedor de Serviços Web
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="95" id="FCD-8W-OEH">
-                                        <rect key="frame" x="0.0" y="974.5" width="375" height="95"/>
+                                        <rect key="frame" x="0.0" y="1069.5" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FCD-8W-OEH" id="7h8-uw-LVh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
@@ -585,7 +652,7 @@ Contribuidor/Desenvolvedor de Serviços Web
                                                         <constraint firstAttribute="height" constant="48" id="B7E-W7-iK7"/>
                                                     </constraints>
                                                     <string key="text">Aluno da Faculdade de Engenharia Elétrica
-Design/Desenvolvimento do Aplicativo iOS
+Desenvolvimento do Aplicativo iOS
 </string>
                                                     <fontDescription key="fontDescription" name="Bariol-Regular" family="Bariol" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -617,7 +684,7 @@ Design/Desenvolvimento do Aplicativo iOS
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="95" id="Vit-XG-qHp">
-                                        <rect key="frame" x="0.0" y="1069.5" width="375" height="95"/>
+                                        <rect key="frame" x="0.0" y="1164.5" width="375" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vit-XG-qHp" id="8NA-uY-kN8">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="94.5"/>
@@ -686,7 +753,7 @@ Design do Aplicativo iOS
                             <tableViewSection headerTitle="Apoio" footerTitle="Copyright© 2015 Instituto Presbiteriano Mackenzie" id="xvg-oW-aSc">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="dwz-Cw-hhx">
-                                        <rect key="frame" x="0.0" y="1206.5" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="1301.5" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dwz-Cw-hhx" id="M8G-1r-TuP">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -719,7 +786,7 @@ Design do Aplicativo iOS
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="WZE-R8-OmF">
-                                        <rect key="frame" x="0.0" y="1256.5" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="1351.5" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WZE-R8-OmF" id="CTN-wJ-enW">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -752,7 +819,7 @@ Design do Aplicativo iOS
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="6K6-oH-buR">
-                                        <rect key="frame" x="0.0" y="1306.5" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="1401.5" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6K6-oH-buR" id="1Zz-2f-7IO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
@@ -792,7 +859,7 @@ Design do Aplicativo iOS
                             <outlet property="delegate" destination="mWq-u3-R8O" id="hp4-Wt-ZAN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="MackTIA" id="WhL-b3-1pf">
+                    <navigationItem key="navigationItem" title="TIA" id="WhL-b3-1pf">
                         <barButtonItem key="rightBarButtonItem" title="Sair" id="s48-cr-ppy">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -1103,6 +1170,7 @@ Ao continuar você declara estar ciente destes possíveis problemas.</string>
     </scenes>
     <resources>
         <image name="aleph" width="133" height="133"/>
+        <image name="bia" width="133" height="133"/>
         <image name="fci" width="70" height="70"/>
         <image name="feroli" width="264" height="264"/>
         <image name="icon_appstore" width="33" height="33"/>

@@ -50,13 +50,13 @@
         <!--Horario Dia Da Semana Table View Controller-->
         <scene sceneID="2aq-yx-d15">
             <objects>
-                <tableViewController storyboardIdentifier="HorarioDiaDaSemanaTableViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WJW-GV-ZON" customClass="HorarioDiaDaSemanaTableViewController" customModule="MackTIA" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="HorarioDiaDaSemanaTableViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WJW-GV-ZON" customClass="HorarioDiaDaSemanaTableViewController" customModule="TIA" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vfX-lL-jcG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="horarioCell" rowHeight="200" id="0jQ-fo-GCb" customClass="HorarioTableViewCell" customModule="MackTIA" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationWidth="0.0" reuseIdentifier="horarioCell" rowHeight="200" id="0jQ-fo-GCb" customClass="HorarioTableViewCell" customModule="TIA" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="49.5" width="600" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0jQ-fo-GCb" id="gRS-jx-P6T">
@@ -179,7 +179,7 @@ Escola: CCBS - Turma 02G11</string>
         <!--Horario Anotacao View Controller-->
         <scene sceneID="0RH-Ba-on2">
             <objects>
-                <viewController storyboardIdentifier="horarioAnotacaoViewController" id="I5D-PL-Q5b" customClass="HorarioAnotacaoViewController" customModule="MackTIA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="horarioAnotacaoViewController" id="I5D-PL-Q5b" customClass="HorarioAnotacaoViewController" customModule="TIA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8gH-kG-aYS"/>
                         <viewControllerLayoutGuide type="bottom" id="9vy-IS-nd3"/>
@@ -252,7 +252,7 @@ Escola: CCBS - Turma 02G11</string>
         <!--SEGUNDA-FEIRA-->
         <scene sceneID="5f7-2H-mvZ">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ZBQ-u9-hx0" customClass="HorarioSemanalViewController" customModule="MackTIA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="ZBQ-u9-hx0" customClass="HorarioSemanalViewController" customModule="TIA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TOb-QP-KD1"/>
                         <viewControllerLayoutGuide type="bottom" id="bsm-hn-MDs"/>

@@ -40,7 +40,7 @@
         <!--Login View Controller-->
         <scene sceneID="iI3-BR-9Mk">
             <objects>
-                <viewController storyboardIdentifier="LoginScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sL7-rk-Z61" customClass="LoginViewController" customModule="MackTIA" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sL7-rk-Z61" customClass="LoginViewController" customModule="TIA" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LoV-3Q-J9D"/>
                         <viewControllerLayoutGuide type="bottom" id="e3r-sF-HqD"/>
@@ -100,7 +100,7 @@
                                                     <outlet property="delegate" destination="sL7-rk-Z61" id="fBG-3U-JRu"/>
                                                 </connections>
                                             </textField>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1b-Wc-K02" customClass="AKPickerView" customModule="MackTIA" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1b-Wc-K02" customClass="AKPickerView" customModule="TIA" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="266" width="299" height="53"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.25" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -530,7 +530,7 @@ Ao continuar você declara estar ciente destes possíveis problemas.</string>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5GC-pj-ldT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.94117647059999998" green="0.0" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.89928382640000004" green="0.12798005339999999" blue="0.001599563868" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>

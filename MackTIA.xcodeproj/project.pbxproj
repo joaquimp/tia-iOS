@@ -149,7 +149,7 @@
 		928786BF1CC7A3AB00AC72BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Grades.storyboard; sourceTree = "<group>"; };
 		928786C01CC7A3AB00AC72BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Absences.storyboard; sourceTree = "<group>"; };
 		928786C11CC7A3AB00AC72BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		9289B87D1B87ADB3004284E3 /* MackTIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MackTIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9289B87D1B87ADB3004284E3 /* TIA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TIA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9289B8811B87ADB3004284E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9289B8821B87ADB3004284E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9289B8951B87ADB3004284E3 /* MackTIATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MackTIATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -317,7 +317,7 @@
 		9289B87E1B87ADB3004284E3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9289B87D1B87ADB3004284E3 /* MackTIA.app */,
+				9289B87D1B87ADB3004284E3 /* TIA.app */,
 				9289B8951B87ADB3004284E3 /* MackTIATests.xctest */,
 			);
 			name = Products;
@@ -380,9 +380,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9289B87C1B87ADB3004284E3 /* MackTIA */ = {
+		9289B87C1B87ADB3004284E3 /* TIA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9289B89F1B87ADB3004284E3 /* Build configuration list for PBXNativeTarget "MackTIA" */;
+			buildConfigurationList = 9289B89F1B87ADB3004284E3 /* Build configuration list for PBXNativeTarget "TIA" */;
 			buildPhases = (
 				9289B8791B87ADB3004284E3 /* Sources */,
 				9289B87A1B87ADB3004284E3 /* Frameworks */,
@@ -395,9 +395,9 @@
 			);
 			dependencies = (
 			);
-			name = MackTIA;
+			name = TIA;
 			productName = MackTIA;
-			productReference = 9289B87D1B87ADB3004284E3 /* MackTIA.app */;
+			productReference = 9289B87D1B87ADB3004284E3 /* TIA.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9289B8941B87ADB3004284E3 /* MackTIATests */ = {
@@ -431,7 +431,7 @@
 				TargetAttributes = {
 					9289B87C1B87ADB3004284E3 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 34E95R7U23;
+						DevelopmentTeam = GK6E7G94CJ;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -457,7 +457,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9289B87C1B87ADB3004284E3 /* MackTIA */,
+				9289B87C1B87ADB3004284E3 /* TIA */,
 				9289B8941B87ADB3004284E3 /* MackTIATests */,
 			);
 		};
@@ -593,7 +593,7 @@
 /* Begin PBXTargetDependency section */
 		9289B8971B87ADB3004284E3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9289B87C1B87ADB3004284E3 /* MackTIA */;
+			target = 9289B87C1B87ADB3004284E3 /* TIA */;
 			targetProxy = 9289B8961B87ADB3004284E3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -762,7 +762,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.mackenzie.MackTia;
+				PRODUCT_BUNDLE_IDENTIFIER = br.mackenzie.app.TIA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MackTIA/MackTIA-Bridging-Header.h";
@@ -790,7 +790,7 @@
 					"$(inherited)",
 					"$(SDKROOT)/usr/lib/system",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = br.mackenzie.MackTia;
+				PRODUCT_BUNDLE_IDENTIFIER = br.mackenzie.app.TIA;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "MackTIA/MackTIA-Bridging-Header.h";
@@ -850,7 +850,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9289B89F1B87ADB3004284E3 /* Build configuration list for PBXNativeTarget "MackTIA" */ = {
+		9289B89F1B87ADB3004284E3 /* Build configuration list for PBXNativeTarget "TIA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9289B8A01B87ADB3004284E3 /* Debug */,

@@ -112,7 +112,7 @@ class AboutTableViewController: UITableViewController, MFMailComposeViewControll
                 self.presentViewController(compose, animated: true, completion: nil)
             case appStore:
                 // Avaliar na AppStores
-                let url = NSURL(string: "itms-apps://itunes.apple.com/app/id1022024177")
+                let url = NSURL(string: "itms-apps://itunes.apple.com/app/id1116186875")
                 if url != nil {
                     UIApplication.sharedApplication().openURL(url!)
                 } else {
